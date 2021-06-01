@@ -1,8 +1,11 @@
 package com.hotel.controller;
 
 import java.io.FileInputStream;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
@@ -17,7 +20,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class FrontController extends HttpServlet{
 	
-protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String site_path;
+	
+		protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		// 한글 인코딩
 		request.setCharacterEncoding("UTF-8");
@@ -38,8 +43,15 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		ActionForward forward = null;
 		
 		Properties prop = new Properties();
+	
+		try {
+			site_path = URLDecoder.decode(FrontController.class.getResource("").getPath(), "UTF-8");
+		} catch (UnsupportedEncodingException e1) {
+			System.out.println("경로설정 오류");
+		}
+		;
 		
-		FileInputStream fis = new FileInputStream("C:\\Users\\sujin kim\\git\\JSP_TeamProject\\Hotel_JSP\\src\\com\\hotel\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream(site_path +"mapping.properties");
 		
 		prop.load(fis);
 		
