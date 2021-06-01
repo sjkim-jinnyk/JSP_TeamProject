@@ -39,7 +39,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		
 		Properties prop = new Properties();
 		
-		FileInputStream fis = new FileInputStream("C:\\Users\\sujin kim\\git\\JSP_TeamProject\\Hotel_JSP\\src\\com\\hotel\\controller\\mapping.properties");
+		FileInputStream fis = new FileInputStream("/Users/EunsooLee/git/JSP_TeamProject/Hotel_JSP/src/com/hotel/controller/mapping.properties");
 		
 		prop.load(fis);
 		
