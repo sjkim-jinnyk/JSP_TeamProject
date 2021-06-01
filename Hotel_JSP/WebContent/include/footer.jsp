@@ -22,7 +22,6 @@
                 <p class="tel">T. 02-1234-1234</p>
                 <p class="copyright">©2020 JOSUN HOTELS & RESORTS Co. All rights</p>
             </div>
-
         </div>
 
         

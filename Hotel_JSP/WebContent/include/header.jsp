@@ -19,7 +19,6 @@
             <li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li>
             <li><a href="" class="res_check">예약확인</a></li>
         </ul>
-        
         <input type="button" class="res_btn" value="reservation" onclick="location.href='step0.do'" >
         
     </div>

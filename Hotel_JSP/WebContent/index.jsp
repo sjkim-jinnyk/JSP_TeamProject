@@ -10,7 +10,6 @@
 </head>
 <body>
 	<jsp:include page="/include/header.jsp" />
-
     <section class="mainpage">
         <h1>Experience the Difference</h1>
         <div class="reservation">
