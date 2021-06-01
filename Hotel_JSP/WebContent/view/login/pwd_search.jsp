@@ -11,7 +11,7 @@
 	<h3>비밀번호 찾기 페이지 입니다.</h3>
 	
 	<div>
-		<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
+		<a href="<%=request.getContextPath() %>/user_pwd_search_ok.do">비밀번호 찾기</a>
 	</div>
 
 </body>
