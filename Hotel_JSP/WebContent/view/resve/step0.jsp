@@ -23,9 +23,8 @@
 				    <td> DATE&nbsp;&nbsp; <input type="date" id="checkIn" name="checkIn"> - <input type="date" id="checkOut" name="checkOut">
 						&nbsp;|&nbsp;<input id="night" size=2>박 <br> </td>
 					<td>
-						ROOMS <input type="number" min="1" max="3" id="room" name="room" default=1> 개&nbsp;&nbsp;&nbsp;&nbsp;
-						ADULTS <input type="number" min="1" max="3" id="adult" name="adult"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
-						CHILDREN <input type="number" min="1" max="3" id="child" name="child"> 명
+						ADULTS <input type="number" min="1" max="3" id="adult" name="adult" value="1"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
+						CHILDREN <input type="number" min="1" max="3" id="child" name="child" value="0"> 명
 					</td>
 					<td><a href="<%=request.getContextPath()%>/index.do">객실 다시 검색 ></a></td>
 				</tr>				
