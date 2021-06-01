@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<h3>회원가입 페이지 입니다.</h3>
+
+	<h3>비밀번호 찾기 페이지 입니다.</h3>
 	
 	<div>
-		<a href="<%=request.getContextPath() %>/user_join.do">회원가입</a>
+		<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
 	</div>
-	
+
 </body>
 </html>
