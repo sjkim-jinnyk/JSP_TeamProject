@@ -13,7 +13,7 @@
   <!-- 서블릿 매핑(n:1) -->
 	<servlet>
 		<servlet-name>FrontController</servlet-name>
-		<servlet-class>com.reply.controller.FrontController</servlet-class>
+		<servlet-class>com.hotel.controller.FrontController</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
