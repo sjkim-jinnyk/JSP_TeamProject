@@ -10,8 +10,8 @@
 
 	<%-- 헤더 --%>
 	
-	<%-- step2.do : 옵션선택(조식추가 및 엑스트라 베드추가, 문의사항)--%>
-	<section class="step2">
+	<%-- step3.do : 예약자 정보 입력--%>
+	<section class="step3">
 		<h1>BOOKING</h1>
 		<h3>Step 3 - 예약자 정보 입력</h3><br>
 		
@@ -42,8 +42,28 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
 					
+					<td>
+						RESERVATION NAME *<br>
+						이은수 (EUNSOO LEE) / FEMALE / 대한민국
+						<br><br>
+						PHONE NUMBER *<br>
+						<input id="phone1" name="phone1" size="3" required> - 
+						<input id="phone2" name="phone2" size="4" required> - 
+						<input id="phone3" name="phone3" size="5" required>
+						<br><br>
+						E-MAIL *<br>
+						<input id="email1" name="email1" size="20" required> @ 
+						<input id="email2" name="email2" size="20" required>&nbsp;&nbsp;
+						<select id="email3" name="email3">
+							<option value="writeOp" selected>직접 입력</option>
+							<option value="naver">naver.com</option>
+							<option value="gmail">gmail.com</option>							
+						</select>
+						<br><br>
+						<input type="checkbox" id="noShow" name="noShow">NO-SHOW 규정에 동의합니다. *
+						
+						
 					</td>
 				</tr>
 			 </div>
