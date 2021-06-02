@@ -20,6 +20,8 @@
 			<a href="<%=request.getContextPath()%>/index.do">메인으로</a>
 		</div>
 	
+	</section>
+	
 	<jsp:include page="../../include/footer.jsp" />
 	
 </body>
