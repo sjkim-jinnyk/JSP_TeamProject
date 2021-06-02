@@ -8,10 +8,23 @@
 </head>
 <body>
 
-	<h3>아이디 찾기 페이지 입니다.</h3>
-	
-	<div>
-		<a href="<%=request.getContextPath() %>/user_id_search_ok.do">아이디 찾기</a>
+	<div align="center">
+		<h3>아이디 찾기</h3>
+		<form method="post" action="<%=request.getContextPath() %>/user_id_search_ok.do">
+			<table border="1" cellspacing="0" width="25%">
+				<tr>
+					<td>이름 &nbsp;&nbsp;&nbsp;&nbsp;: <input id="user_name" name="user_name"></td>
+				</tr>
+				<tr>
+					<td>휴대폰 번호 : <input id="user_phone" name="user_phone"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="찾기">
+					</td>
+				</tr>
+			</table>
+		</form>
 	</div>
 
 </body>
