@@ -11,8 +11,9 @@
 	<h3>아이디 찾기 페이지 입니다.</h3>
 	
 	<div>
-		<a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a>
+		<a href="<%=request.getContextPath() %>/user_id_search_ok.do">아이디 찾기</a>
 	</div>
 
 </body>
+
 </html>
