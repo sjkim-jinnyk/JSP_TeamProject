@@ -12,10 +12,10 @@
 	<jsp:include page="../../include/header.jsp" />
 	
 	
-	<%-- step1.do : 객실 요금선택 --%>
+	<%-- step1.do : 객실 선택 폼 --%>
 	<section class="step1">
 		<h1>BOOKING</h1>
-		<h3>Step 1 - 객실, 요금 선택</h3><br>
+		<h3>Step 1 - 객실 선택</h3><br>
 		
 		
 		<div>
@@ -27,7 +27,7 @@
 						ADULTS <input type="number" min="1" max="3" id="adult" name="adult" value="1"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
 						CHILDREN <input type="number" min="1" max="3" id="child" name="child" value="0"> 명
 					</td>
-					<td><a href="<%=request.getContextPath()%>/index.do">객실 다시 검색 ></a></td>
+					<td><a href="<%=request.getContextPath()%>/step0.do">객실 다시 검색 ></a></td>
 				</tr>				
 			</table>
 			<br>
@@ -40,7 +40,6 @@
 						<h3>310,400KRW ~</h3><br>
 						1박 / 세금 별도
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step0.do">RESERVE ▲</a></td>	
 				</tr>
 			</table>
 			<br>
@@ -48,23 +47,9 @@
 				<tr>
 					<td>DELUXE KING<br>Standard View | Size: 46.7㎡</td>
 					<td>310,400KRW ~</td>
-					<td><a href="<%=request.getContextPath()%>/step2.do">예약하기</a></td>
+					<td><a href="<%=request.getContextPath()%>/step2.do?room_id=101">예약하기</a></td>
 				</tr>
-				<tr>
-					<td>DELUXE KING<br>Standard View | Size: 46.7㎡</td>
-					<td>310,400KRW ~</td>
-					<td><a href="<%=request.getContextPath()%>/step2.do">예약하기</a></td>
-				</tr>
-				<tr>
-					<td>DELUXE KING<br>Standard View | Size: 46.7㎡</td>
-					<td>310,400KRW ~</td>
-					<td><a href="<%=request.getContextPath()%>/step2.do">예약하기</a></td>
-				</tr>
-				<tr>
-					<td>DELUXE KING<br>Standard View | Size: 46.7㎡</td>
-					<td>310,400KRW ~</td>
-					<td><a href="<%=request.getContextPath()%>/step2.do">예약하기</a></td>
-				</tr>
+			
 			</table>
 			
 		</div>
