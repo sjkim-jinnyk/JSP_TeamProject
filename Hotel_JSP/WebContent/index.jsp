@@ -22,8 +22,6 @@
                 <li></li>
                 <li></li>
             </ul>
-
-
         </div>
     </section>
 	<jsp:include page="/include/footer.jsp" />

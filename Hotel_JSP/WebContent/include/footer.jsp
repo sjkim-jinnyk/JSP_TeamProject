@@ -5,12 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/FooterStyle.css">
+<script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
 <title>Insert title here</title>
 </head>
 <body>
     <footer>
-        <a href="" class="sitename">OO Hotel</a>
-
+        <div class="logo">
+            <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
+        </div>
+        
         <div class="footer">
             <ul class="policy">
                 <li>고객센터</li>
@@ -25,7 +28,12 @@
             </div>
         </div>
 
-        
+        <div class="icon">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="far fa-comments"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+        </div>
+
     </footer>
 </body>
 </html>
