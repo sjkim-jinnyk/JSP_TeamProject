@@ -11,7 +11,7 @@
 	<!-- header 영역  -->
 	<div class="topArea">
 		<div class="topInner"></div>
-			<h1 class="sign_title">SIGN IN</h1>
+			<h1 class="sign_title">Sign In</h1>
 			<p class="sign_guide">머무는 모든 순간이 특별해집니다.</p>
 		</div>
 	</div>
@@ -40,14 +40,15 @@
 					<span class="id_save">
 						<input type="checkbox" id="idSaveCheck">
 						<label for="idSaveCheck"></label>
+						<span class="id_save_s">아이디 저장</span>
 					</span>
 					
 					<button type="button" class="login_submit" value="로그인" onclick="">로그인</button>
 				</div>
 			</div>
 		<div class="login_Link">
-			<a href="<%=request.getContextPath() %>/user_id_search.do" class="id_pw_search">아이디 / 비밀번호 찾기 ></a>
 			<a href="<%=request.getContextPath() %>/join.do" class="id_pw_search">회원가입 ></a>
+			<a href="<%=request.getContextPath() %>/user_id_search.do" class="id_pw_search">아이디 / 비밀번호 찾기 ></a>
 		</div>
 		
 		<ul class="txtGuide">
