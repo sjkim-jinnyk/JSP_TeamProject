@@ -8,6 +8,7 @@
 </head>
 <body>
 	
+	<jsp:include page="../../include/header.jsp" />
 	<!-- header 영역  -->
 	
 	<div align="center">
@@ -36,6 +37,8 @@
 		
 		<a href="<%=request.getContextPath() %>/admin_login_ok.do">관리자 로그인</a>
 	</div>
+	
+	<jsp:include page="../../include/footer.jsp" />ㄴ
 
 </body>
 </html>
