@@ -45,9 +45,9 @@
 					<td>
 						BREAKFAST<br><br>
 						성인 조식 추가  |   KRW 45,000&nbsp;&nbsp;
-						<input type="number" id="adultBF" name="adultBF" min="0" max="100" value="0"> <br>
+						<input type="number" id="adultBF" name="adultBF" min="0" max="4" value="0"> <br>
 						어린이 조식 추가  |   KRW 27,000&nbsp;&nbsp;
-						<input type="number" id="childBF" name="childBF" min="0" max="100" value="0"><br>
+						<input type="number" id="childBF" name="childBF" min="0" max="4" value="0"><br>
 					</td>
 				</tr>
 				<tr>
