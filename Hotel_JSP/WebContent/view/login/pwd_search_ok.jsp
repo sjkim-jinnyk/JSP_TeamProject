@@ -8,9 +8,16 @@
 </head>
 <body>
 
-	<h3>찾은 비밀번호 정보 출력한 페이지 입니다.</h3>
-
-	<a href="<%=request.getContextPath() %>/view/login/loginForm.jsp">로그인 하기</a>	
-
+	<div align="center">
+		<h3>아이디 / 비밀번호 찾기</h3>
+		
+		<p>
+		비밀번호를 확인해 주세요.<br>
+		oo님의 비밀번호는 oooo입니다.
+		</p>
+		
+		<input type="button" value="로그인 페이지로 이동" onclick="location.href='login.do'">
+	</div>
+	
 </body>
 </html>
