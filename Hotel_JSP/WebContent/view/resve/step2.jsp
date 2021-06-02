@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<%-- 헤더 --%>
+	<jsp:include page="../../include/header.jsp" />
 	
 	<%-- step2.do : 옵션선택(조식추가 및 엑스트라 베드추가, 문의사항)--%>
 	<section class="step2">
@@ -62,7 +62,7 @@
 		
 	</section>
 	
-	<%-- 푸터 --%>
+	<jsp:include page="../../include/footer.jsp" />
 	
 </body>
 </html>

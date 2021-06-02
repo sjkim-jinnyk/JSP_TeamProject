@@ -8,8 +8,7 @@
 </head>
 <body>
 	
-	<%-- 헤더 --%>
-	
+	<jsp:include page="../../include/header.jsp" />
 	
 	<%-- step0.do : 투숙기간, 객실 및 인원 선택 --%>
 	<section class="step0">
@@ -32,44 +31,44 @@
 			<br>
 			<table border="1" width="80%">
 				<tr>
-					<td><img alt="" src="../../image/resve01.jpg" width="300px"></td>
+					<td width="300px"><img alt="" src="../../image/resve01.jpg" width="300px"></td>
 					<td>
 						[Member Exclusive] SMART CHOICE<br>
 						클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!<br><br><br>
 						<h3>310,400KRW ~</h3><br>
 						1박 / 세금 별도
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE</a></td>	
+					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE ▼</a></td>	
 				</tr>
 				<tr>
-					<td><img alt="" src="../../image/resve01.jpg" width="300px"></td>
+					<td width="300px"><img alt="" src="../../image/resve01.jpg" width="300px"></td>
 					<td>
 						[Member Exclusive] SMART CHOICE<br>
 						클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!<br><br><br>
 						<h3>310,400KRW ~</h3><br>
 						1박 / 세금 별도
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE</a></td>	
+					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE ▼</a></td>	
 				</tr>
 				<tr>
-					<td><img alt="" src="../../image/resve01.jpg" width="300px"></td>
+					<td width="300px"><img alt="" src="../../image/resve01.jpg" width="300px"></td>
 					<td>
 						[Member Exclusive] SMART CHOICE<br>
 						클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!<br><br><br>
 						<h3>310,400KRW ~</h3><br>
 						1박 / 세금 별도
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE</a></td>	
+					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE ▼</a></td>	
 				</tr>
 				<tr>
-					<td><img alt="" src="../../image/resve01.jpg" width="300px"></td>
+					<td width="300px"><img alt="" src="../../image/resve01.jpg" width="300px"></td>
 					<td>
 						[Member Exclusive] SMART CHOICE<br>
 						클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!<br><br><br>
 						<h3>310,400KRW ~</h3><br>
 						1박 / 세금 별도
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE</a></td>	
+					<td><a href="<%=request.getContextPath()%>/step1.do">RESERVE ▼</a></td>	
 				</tr>
 			</table>
 
@@ -78,7 +77,7 @@
 	
 	</section>
 	
-	<%-- 푸터 --%>
+	<jsp:include page="../../include/footer.jsp" />
 	
 </body>
 </html>
