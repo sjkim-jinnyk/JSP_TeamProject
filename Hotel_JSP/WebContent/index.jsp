@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
-<style type="text/css"></style>
+<link rel="stylesheet" href="css/MainStyle.css">
 <title>Insert title here</title>
 </head>
 <body>
