@@ -24,8 +24,6 @@
                 <p class="copyright">©2020 JOSUN HOTELS & RESORTS Co. All rights</p>
             </div>
         </div>
-
-        
     </footer>
 </body>
 </html>
