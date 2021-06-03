@@ -16,6 +16,14 @@ public class ResStep1Action implements Action {
 		
 		ActionForward forward = new ActionForward();
 		
+		String chekIn = request.getParameter("checkIn").trim();
+		String checkOut = request.getParameter("checkOut").trim();
+		int adult = Integer.parseInt(request.getParameter("adult"));
+		int child = Integer.parseInt(request.getParameter("child"));
+		
+		System.out.println(chekIn + checkOut);
+		System.out.println(adult + child);
+		
 		forward.setRedirect(false);
 		forward.setPath("/view/resve/step1.jsp");		
 		

@@ -12,6 +12,8 @@
 	
 	<%-- step0.do : 날짜, 인원 선택 폼 --%>
 	<section class="step0">
+	<form method="post"
+	      action="<%=request.getContextPath() %>/step1.do">
 		<h1>BOOKING</h1>
 		<h3>Step 1 - 날짜, 인원 선택</h3><br>
 		
@@ -23,11 +25,11 @@
 						ADULTS <input type="number" min="1" max="3" id="adult" name="adult" value="1"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
 						CHILDREN <input type="number" min="0" max="3" id="child" name="child" value="0"> 명
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step1.do">객실 검색</a></td>
+					<td><input type="submit" value="객실 검색"></td>
 				</tr>				
 		</table>
-		
-		
+	</form>
+	<a href="<%=request.getContextPath()%>/step1.do">객실 검색</a>
 	</section>
 	
 	<jsp:include page="../../include/footer.jsp" />
