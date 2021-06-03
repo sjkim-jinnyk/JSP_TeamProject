@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <link rel="stylesheet" href="css/CommonStyle.css">
+<link rel="stylesheet" href="css/MainStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
 <link rel="stylesheet" href="css/FooterStyle.css">
 <script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
