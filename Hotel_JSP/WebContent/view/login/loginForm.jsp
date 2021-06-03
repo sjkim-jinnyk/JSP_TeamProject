@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<jsp:include page="../../include/header.jsp" />
 	
 	<div class="topArea">
 		<div class="topInner">
-			<h1 class="sign_title">SIGN IN</h1>
+			<h1 class="sign_title">Sign In</h1>
 			<p class="sign_guide">머무는 모든 순간이 특별해집니다.</p>
 		</div>
 	</div>
@@ -31,25 +31,27 @@
 						<label class="hidden">
 							아이디
 						</label>
-						<input type="text" id="user_id" name="user_id" placeholder="아이디" aria-required="true">
+						<input type="text" name="userId" placeholder="아이디" required>
 					</p>
 					<p class="pw_form">
 						<label class="hidden">
 							비밀번호
 						</label>
-						<input type="password" id="user_pwd" name="user_pwd" placeholder="비밀번호" aria-required="true" onkeydown="javascript:if(event.keyCode == 13){console.log(입력)};">
+						<input type="password" name="userPwd" placeholder="비밀번호" required onkeydown="javascript:if(event.keyCode == 13){console.log(입력)};">
 					</p>
 					<span class="id_save">
 						<input type="checkbox" id="idSaveCheck">
-						<label for="idSaveCheck">아이디 저장</label>
+						<label for="idSaveCheck"></label>
+						<span class="id_save_s">아이디 저장</span>
 					</span>
-					<br>
-					<button type="button" class="login_submit" value="로그인" onclick="">로그인</button>
+					
+					<!-- <input type="submit" value="로그인하기"> -->
+					<button type="button" class="login_submit" value="로그인" onclick="location.href='user_login_ok.do'">로그인</button> 
 				</div>
 			</div>
-			
 		<div class="login_Link">
-			<a href="<%=request.getContextPath() %>/user_id_search.do" class="id_pw_search">아이디 / 비밀번호 찾기</a>
+			<a href="<%=request.getContextPath() %>/join.do" class="id_pw_search">회원가입 ></a>
+			<a href="<%=request.getContextPath() %>/user_id_search.do" class="id_pw_search">아이디 / 비밀번호 찾기 ></a>
 		</div>
 		
 		<ul class="txtGuide">
