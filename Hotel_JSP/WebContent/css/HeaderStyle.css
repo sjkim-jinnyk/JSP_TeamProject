@@ -1,13 +1,14 @@
+
 @charset "UTF-8";
 :root {
     --white-color: #fff;
     --black-color: #000;
+    --yellow-color: #989442;
 }
 
 header{
     display: flex;
     justify-content: space-between;
-    margin: 18px;
 
 }
 
@@ -18,8 +19,45 @@ header{
     
 }
 
+.logo .menuslide{
+	display: flex;
+	flex-direction: column;
+}
+
+.allMenu{
+	background-color: var(--black-color);
+	color: var(--white-color);
+}
+.allMenu .List {
+	display: none;
+}
+
+.allMenu li{
+    list-style: none;
+}
+.allMenu .List.active{
+    background-color: var(--black-color);
+	/* color: var(--white-color); */
+	display: flex;
+    justify-content:space-around;
+    position: absolute;
+    padding: 18px 0;
+    top: 100px;
+    width: 100%;
+
+}
+
+.allMenu .List>li{
+    color: var(--yellow-color);
+}
+
+.allMenu .List .innerMenu{
+    padding: 10px 0;
+    line-height: 50px;
+    color: var(--white-color);
+}
 .logo button{
-    padding-right: 8px;
+    padding: 0 8px 0 18px;
     border: 0;
     cursor: pointer;
     background-color: var(--white-color);
@@ -66,5 +104,4 @@ header .logo a {
     font-size: 18px;
     height: 70%;
 }
-
 

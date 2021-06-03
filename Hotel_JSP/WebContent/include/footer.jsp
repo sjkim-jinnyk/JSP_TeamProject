@@ -24,5 +24,7 @@
             <a href=""><i class="far fa-comments"></i></a>
             <a href=""><i class="fab fa-youtube"></i></a>
         </div>
-    <script type="text/javascript" src="js/header.js"></script>
+
+	<script type="text/javascript" src="js/header.js"></script>
+
     </footer>

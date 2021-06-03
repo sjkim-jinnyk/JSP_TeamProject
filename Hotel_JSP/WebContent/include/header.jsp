@@ -9,9 +9,44 @@
 <body>
     <header>
         <div class="logo">
-            <button class="menubar">
-                <i class="fas fa-stream"></i>
-            </button>
+	        <div class="menuslide">
+	            <button class="menubar">
+	                <i class="fas fa-stream"></i>
+	
+	            </button>
+	            <div class="allMenu">
+					<ul class="List">
+						<li class="name">ABOUT US
+							<ul class="innerMenu">
+								<li>기업소개</li>
+								<li>연혁</li>
+								<li>오시는길</li>
+							</ul>
+						</li>
+						<li class="name">OFFERS
+							<ul class="innerMenu">
+								<li>공지사항</li>
+							</ul>
+						</li>
+						<li class="name">MY PAGE
+							<ul class="innerMenu">
+								<li>MY PAGE</li>
+								<li>MY POINT</li>
+								<li>MY COUPON</li>
+								<li>예약확인</li>
+								<li>개인정보관리</li>
+							</ul>
+						</li>
+						<li class="name">CUSTOMER SERVICE
+							<ul class="innerMenu">
+								<li>Q&A</li>
+								<li>FAQ</li>
+							</ul>
+						</li>
+					</ul>
+	            
+	            </div>
+            </div>
             
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
         </div>
@@ -26,4 +61,7 @@
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
         </div>
-    </header>
+    </header>   
+ </body>
+</html>
+
