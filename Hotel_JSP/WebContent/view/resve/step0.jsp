@@ -10,7 +10,7 @@
 	
 	<jsp:include page="../../include/header.jsp" />
 	
-	<%-- step0.do : 날짜, 인원 선택 폼 --%>
+	<%--step0.do : 날짜, 인원 선택 폼 --%>
 	<section class="step0">
 		<h1>BOOKING</h1>
 		<h3>Step 1 - 날짜, 인원 선택</h3><br>
@@ -31,6 +31,7 @@
 	</section>
 	
 	<jsp:include page="../../include/footer.jsp" />
+	
 	
 </body>
 </html>
