@@ -12,13 +12,10 @@
 </head>
 <body>
     <header class="headerBox">
-        <div class="logo">
-	        <div class="menuslide">
-	            <label class="menubar">
-	                <i class="fas fa-stream"><input type="checkbox" id="toggle"/></i>
-	            </label>
-	            <div class="allMenu">
-					<ul class="List">
+        <div class="top-bar text-align-center line-height-0-ch-only">
+	                <i class="fas fa-stream"></i>
+        	<nav class="menu-box-1 inline-block">
+					<ul class="row">
 						<li class="name">ABOUT US
 							<ul class="innerMenu">
 								<li>기업소개</li>
@@ -47,10 +44,10 @@
 							</ul>
 						</li>
 					</ul>
-	            
+					</nav>
+	            	<div class="menu-box-1-bg"></div>
+  					<div class="sub-menu-bar-bg"></div>
 	            </div>
-            </div>
-        </div>
         <div class="hotel_logo">
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
         </div>
