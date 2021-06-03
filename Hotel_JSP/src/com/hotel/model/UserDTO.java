@@ -4,7 +4,7 @@ public class UserDTO {			// 회원 DTO
 
 	private String userId;		// 회원
 	private String userPwd;		// 회원 비밀번호
-	private String userNname;	// 회원 이름
+	private String userName;	// 회원 이름
 	private String userGen;		// 회원 성별(male, female 또는 남성, 여성 - 구현하기 편한 쪽으로)
 	private String userPhone;	// 회원 전화번호
 	private String userAddr;	// 회원 주소
@@ -24,11 +24,11 @@ public class UserDTO {			// 회원 DTO
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
-	public String getUserNname() {
-		return userNname;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUserNname(String userNname) {
-		this.userNname = userNname;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getUserGen() {
 		return userGen;

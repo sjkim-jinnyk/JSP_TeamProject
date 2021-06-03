@@ -11,6 +11,9 @@ public class UserIdSearchOkAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
+		String user_name = request.getParameter("user_name").trim();
+		String user_phone = request.getParameter("user_phone").trim();
+		
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);

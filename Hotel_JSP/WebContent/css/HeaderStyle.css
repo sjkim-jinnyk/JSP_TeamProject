@@ -9,7 +9,7 @@
 header{
     display: flex;
     justify-content: space-between;
-
+    margin: 18px;
 }
 
 .logo{
@@ -64,7 +64,7 @@ header{
     font-size: 30px;
 }
 
-header .logo a {
+.logo a {
     text-decoration: none;
     padding: 30px;
     font-size: 30px;
@@ -104,4 +104,3 @@ header .logo a {
     font-size: 18px;
     height: 70%;
 }
-

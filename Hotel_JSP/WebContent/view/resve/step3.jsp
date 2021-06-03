@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:include page="../../include/header.jsp" />
+	<%-- 헤더 --%>
 	
 	<%-- step3.do : 예약자 정보 입력--%>
 	<section class="step3">
@@ -100,5 +100,6 @@
 		
 	<jsp:include page="../../include/footer.jsp" /><%-- 푸터 --%>
 	
+	<%-- 푸터 --%>
 </body>
 </html>

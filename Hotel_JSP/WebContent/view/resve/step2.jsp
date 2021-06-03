@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:include page="../../include/header.jsp" />
+	<%-- 헤더 --%>
 	
 	<%-- step2.do : 옵션선택(조식추가 및 엑스트라 베드추가, 문의사항)--%>
 	<section class="step2">
@@ -63,7 +63,6 @@
 						
 						<input type="hidden" name="resDate" value="${today }">
 						<input type="hidden" name="resTotal" value="${total }">
-						
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +92,7 @@
 	</form>
 	</section>
 	
-	<jsp:include page="../../include/footer.jsp" />
+	<%-- 푸터 --%>
 	
 </body>
 </html>
