@@ -53,9 +53,10 @@ public class ResStep3Action implements Action {
 		System.out.println(adult + child);
 		System.out.println(roomId);
 		System.out.println(roomPrice);
+		System.out.println(resDate);
+		System.out.println(resTotal);
 		System.out.println(adult_br);
 		System.out.println(child_br);
-		System.out.println(adult_br);
 		System.out.println(extraBed);
 		System.out.println(resRequest);
 		
