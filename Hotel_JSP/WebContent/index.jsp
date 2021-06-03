@@ -4,11 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/MainStyle.css">
-<title>Insert title here</title>
-</head>
-<body>
+<title>메인 페이지</title>
+
 	<jsp:include page="/include/header.jsp" />
     <section class="mainpage">
         <h1>Experience the Difference</h1>
@@ -25,5 +22,6 @@
         </div>
     </section>
 	<jsp:include page="/include/footer.jsp" />
+	
 </body>
 </html>

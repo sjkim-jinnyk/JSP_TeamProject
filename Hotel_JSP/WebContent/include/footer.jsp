@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="css/FooterStyle.css">
-<script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
-</head>
+    
     <footer>
         <div class="logo">
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
@@ -30,5 +26,3 @@
         </div>
     <script type="text/javascript" src="js/header.js"></script>
     </footer>
-</body>
-</html>
