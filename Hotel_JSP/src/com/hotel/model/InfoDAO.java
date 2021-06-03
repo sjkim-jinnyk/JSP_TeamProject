@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
+ 
 public class InfoDAO {
 
 	Connection con = null;			// DB 연결하는 객체.
