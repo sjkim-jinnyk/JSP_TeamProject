@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+    
+<link rel="stylesheet" href="css/CommonStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
-<title>Insert title here</title>
+<link rel="stylesheet" href="css/FooterStyle.css">
+<script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -62,10 +61,7 @@
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
         </div>
-        
-    </header>
-    
-   
-</body>
-
+    </header>   
+ </body>
 </html>
+
