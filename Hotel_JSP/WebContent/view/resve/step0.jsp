@@ -34,7 +34,6 @@
 				</tr>				
 		</table>
 	</form>
-	<a href="<%=request.getContextPath()%>/step1.do">객실 검색</a>
 	</section>
 	
 	<jsp:include page="../../include/footer.jsp" />
