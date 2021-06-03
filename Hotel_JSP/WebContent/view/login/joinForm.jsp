@@ -17,7 +17,7 @@
 	
 	<div>
 		<form method="post" action="<%=request.getContextPath() %>/user_join_ok.do">
-			<input type="hidden" name="userDate">	<!-- 가입일자 hidden으로 넘겨주기 -->
+			<input type="hidden" name="userDate" value="sysdate">	<!-- 가입일자 hidden으로 넘겨주기 -->
 			
 			<ul>
 				<li><font size="2" color="red">*필수정보 입력</font></li>
@@ -26,8 +26,8 @@
 				<li>ID* <input type="text" name="userId"> <input type="button" name="userId_check" value="중복확인" required></li>
 				<li>PASSWORD* <input type="password" name="userPwd" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
 				<li>CONFIRM PASSWORD* <input type="password" name="userPwd_check" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
-				<li>GENDER <input type="radio" name="userGen_m" value="남성">남성
-					  	   <input type="radio" name="userGen_w" value="여성">여성
+				<li>GENDER <input type="radio" name="userGen" value="남성">남성
+					  	   <input type="radio" name="userGen" value="여성">여성
 				</li>
 				<li>PHONE  <!-- <select>
 								<option value="010">010</option>

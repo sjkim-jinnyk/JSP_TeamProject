@@ -6,25 +6,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 
-public class UserPwdSearchOkAction implements Action {
+public class UserLoginOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		String userId = request.getParameter("userId").trim();
-		String userName = request.getParameter("userName").trim();
+		String userPwd = request.getParameter("userPwd").trim();
 		
-		// pwd_search.jsp 에서 넘어온 값 체크
+		// loginForm에서 넘어온 값 체크
 		System.out.println("아이디 >>> " + userId);
-		System.out.println("이름 >>> " + userName);
-
+		System.out.println("비밀번호 >>> " + userPwd);
+		
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath("/view/login/pwd_search_ok.jsp");		// 찾은 비밀번호 정보 뷰페이지에 띄어줌
+		forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
 		
 		return forward;
-		
 	}
 
 }

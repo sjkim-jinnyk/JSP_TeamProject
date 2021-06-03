@@ -11,8 +11,12 @@ public class UserIdSearchOkAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		String user_name = request.getParameter("user_name").trim();
-		String user_phone = request.getParameter("user_phone").trim();
+		String userName = request.getParameter("userName").trim();
+		String userPhone = request.getParameter("userPhone").trim();
+		
+		// id_search.jsp 에서 넘어온 값 체크
+		System.out.println("이름 >>> " + userName);
+		System.out.println("핸드폰 번호 >>> " + userPhone);
 		
 		ActionForward forward = new ActionForward();
 		
