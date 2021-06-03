@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
     
     <footer>
-        <a href="" class="sitename">OO Hotel</a>
-
+        <div class="site_logo">
+            <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
+        </div>
+        
         <div class="footer">
             <ul class="policy">
                 <li>고객센터</li>

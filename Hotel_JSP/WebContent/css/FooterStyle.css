@@ -14,7 +14,7 @@ footer{
     bottom: 0;
 }
 
-footer .logo a{
+footer .site_logo a{
     text-decoration: none;
     padding: 30px;
     font-size: 30px;
@@ -58,5 +58,12 @@ footer .logo a{
 }
 .icon{
 	align-self: center;
+	margin-right: 30px;
+}
+
+.site_logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
