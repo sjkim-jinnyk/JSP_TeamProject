@@ -16,7 +16,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    margin-left: 20px;
 }
 
 .logo .menuslide{
@@ -27,6 +27,8 @@ header{
 .allMenu{
 	background-color: var(--black-color);
 	color: var(--white-color);
+	margin-left: -20px;
+	transition-property: all;
 }
 .allMenu .List {
 	display: none;
@@ -39,16 +41,29 @@ header{
     background-color: var(--black-color);
 	/* color: var(--white-color); */
 	display: flex;
-    justify-content:space-around;
+    justify-content: center;
     position: absolute;
     padding: 18px 0;
     top: 100px;
     width: 100%;
+    transition-duration: 4s;
+   	transition-property: all;
 
+}
+
+input::checked .allMenu{
+	width: 100%;
+	border-radius: 20px;
+	background-color: red;
+}
+
+input::checked .allMenu.List{
+	display : flex;
 }
 
 .allMenu .List>li{
     color: var(--yellow-color);
+    margin-right: 80px;
 }
 
 .allMenu .List .innerMenu{
@@ -90,18 +105,33 @@ header .logo a {
 .menu ul li a {
     text-decoration: none;
     color: var(--black-color);
-    font-size: 16px;
+    font-size: 13px;
+    opacity: 0.8;
 }
 
 .menu .res_btn {
     size: 10px;
-    margin-left: 35px;
+    margin: 35px 35px 35px;
     cursor: pointer;
     padding: 0 20px;
     background-color: var(--white-color);
     text-align: center;
     border: 1px solid var(--black-color);
     font-size: 18px;
-    height: 70%;
+    height: 60%;
 }
 
+.hotel_logo{
+	align-self: center;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.headerBox{
+	height: 100px;
+}
+
+#toggle{
+	display: none;
+}

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
     <footer>
-        <div class="logo">
+        <div class="site_logo">
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
         </div>
         
