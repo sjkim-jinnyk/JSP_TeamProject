@@ -8,6 +8,8 @@
 </head>
 <body>
 
+	<jsp:include page="../../include/header.jsp" />
+
 	<div align="center">
 		<h3>아이디 / 비밀번호 찾기</h3>
 		
