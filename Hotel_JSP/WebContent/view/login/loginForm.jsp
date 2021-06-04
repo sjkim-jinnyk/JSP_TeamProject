@@ -44,7 +44,7 @@
 						<span class="id_save_s">아이디 저장</span>
 					</span>
 					
-					<!-- onclic 속성으로 값 넘겨주는 기능 구현X -->
+					<!-- onclick 속성으로 값 넘겨주는 기능 구현X -->
 					<input type="submit" value="로그인">
 					<!-- <button type="button" class="login_submit" value="로그인" onclick="location.href='user_login_ok.do'">로그인</button> --> 
 				</div>

@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />
 	
 	<div class="topArea">
@@ -22,8 +23,6 @@
 				<li class="idSearch_on">
 				<a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a>
 				</li>
-			</ul>
-			<ul class="login_form">
 				<li class="idSearch_on">
 				<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
 				</li>

@@ -10,8 +10,7 @@ public class UserJoinOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		
+
 		String userName = request.getParameter("userName").trim();
 		String userId = request.getParameter("userId").trim();
 		String userPwd = request.getParameter("userPwd").trim();

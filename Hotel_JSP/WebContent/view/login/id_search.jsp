@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />
 	
 	<div class="topArea">
