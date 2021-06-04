@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,7 @@
 	
 	<%-- step3.do : 예약자 정보 입력--%>
 	<section class="step3">
+	<form method="post" action="<%=request.getContextPath() %>/step4.do">
 		<h1>BOOKING</h1>
 		<h3>Step 3 - 예약자 정보 입력</h3><br>
 		
@@ -19,13 +23,24 @@
 		<div>
 			<table border="1" width="80%" height="60px">
 				<tr>
-				    <td> DATE&nbsp;&nbsp; <input type="date" id="checkIn" name="checkIn"> - <input type="date" id="checkOut" name="checkOut">
+				   <tr>
+				    <td> DATE&nbsp;&nbsp; 
+				    	<input type="date" id="checkIn" name="checkIn" 
+				    		value="<%=request.getAttribute("checkIn") %>"> - 
+				    	<input type="date" id="checkOut" name="checkOut" 
+				    		value="<%=request.getAttribute("checkOut") %>">
 						&nbsp;|&nbsp;<input id="night" size=3>박 <br> </td>
 					<td>
-						ADULTS <input type="number" min="1" max="3" id="adult" name="adult" value="1"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
-						CHILDREN <input type="number" min="1" max="3" id="child" name="child" value="0"> 명
+						ADULTS 
+						<input type="number" min="1" max="3" id="adult" name="adult" 
+							value="<%=request.getAttribute("adult") %>"> 명
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						CHILDREN 
+						<input type="number" min="0" max="3" id="child" name="child" 
+							value="<%=request.getAttribute("child") %>"> 명
 					</td>
-					<td><a href="<%=request.getContextPath()%>/step2.do">객실 다시 검색 ></a></td>
+					<td><a href="javascript:history.go(-1);">객실 다시 검색 ></a></td>
+				</tr>	
 				</tr>				
 			</table>
 			<br>
@@ -33,11 +48,22 @@
 				<tr>
 					<td><h3>[Member Exclusive] SMART CHOICE</h3>DELUXE / 1KING / STANDARD VIEW</td>
 					<td rowspan="3">
-						2021.06.01<br><br>
-						금액 | 310,400<br>
-						세금 | 31,040 (10%)<br><br>
-						총 예약금액 341,440 KRW<br><br>
-						<a href="<%=request.getContextPath()%>/step4.do">예약 완료</a>
+						<c:set var="resDate" value="${resDate }" />
+						<c:set var="roomPrice" value="${roomPrice }" />
+						<c:set var="tax" value="${tax}" />
+						<c:set var="resTotal" value="${resTotal}" />
+						
+						<br><br>
+						<c:out value="${resDate }" /><br><br>
+						금액 | <fmt:formatNumber value="${roomPrice }"/>&nbsp;KRW<br>
+						<c:set var="tax" value="${roomPrice / 10}" />
+						세금 |  <fmt:formatNumber value="${tax }" />&nbsp;KRW (10%)<br><br>
+						<c:set var="total" value="${roomPrice + tax}" />
+						총 예약금액 <fmt:formatNumber value="${total }"/>&nbsp;KRW<br><br>
+						<input type="submit" value="예약하기">
+						
+						<input type="hidden" name="resDate" value="${today }">
+						<input type="hidden" name="resTotal" value="${total }">
 						
 					</td>
 				</tr>
@@ -45,7 +71,7 @@
 					
 					<td>
 						RESERVATION NAME *<br>
-						이은수 (EUNSOO LEE) / FEMALE / 대한민국
+						<%--${dto.getUserName() } --%>홍길동
 						<br><br>
 						PHONE NUMBER *<br>
 						<input id="phone1" name="phone1" size="3" required> - 
@@ -66,8 +92,16 @@
 						
 					</td>
 				</tr>
+<<<<<<< HEAD
 			 </div>
 		</table>
+=======
+				</table>
+		
+		 </div>
+		</form>
+	</section>
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
 		
 	<jsp:include page="../../include/footer.jsp" /><%-- 푸터 --%>
 	

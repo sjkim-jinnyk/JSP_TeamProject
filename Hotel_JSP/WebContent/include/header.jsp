@@ -1,20 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+
+<!-- 모바일에서 화면배율을 디바이스 크기 기준으로 설정 -->
+<!-- 이게 안되면 pc에서의 100px과 모바일에서의 100px이 디바이스 성능에 따라 달라집니다. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/CommonStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
+<<<<<<< HEAD
 <link rel="stylesheet" href="css/MainStyle.css">
 <title>Insert title here</title>
+=======
+<link rel="stylesheet" href="css/FooterStyle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <button class="menubar">
-                <i class="fas fa-stream"></i>
-            </button>
-            
+    <header class="headerBox">
+        <div class="top-bar text-align-center line-height-0-ch-only">
+	                <i class="fas fa-stream"></i>
+        	<nav class="menu-box-1 inline-block">
+					<ul class="row">
+						<li class="name">ABOUT US
+							<ul class="innerMenu">
+								<li>기업소개</li>
+								<li>연혁</li>
+								<li>오시는길</li>
+							</ul>
+						</li>
+						<li class="name">OFFERS
+							<ul class="innerMenu">
+								<li>공지사항</li>
+							</ul>
+						</li>
+						<li class="name">MY PAGE
+							<ul class="innerMenu">
+								<li>MY PAGE</li>
+								<li>MY POINT</li>
+								<li>MY COUPON</li>
+								<li>예약확인</li>
+								<li>개인정보관리</li>
+							</ul>
+						</li>
+						<li class="name">CUSTOMER SERVICE
+							<ul class="innerMenu">
+								<li>Q&A</li>
+								<li>FAQ</li>
+							</ul>
+						</li>
+					</ul>
+					</nav>
+	            	<div class="menu-box-1-bg"></div>
+  					<div class="sub-menu-bar-bg"></div>
+	            </div>
+        <div class="hotel_logo">
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
         </div>
 
@@ -28,4 +67,8 @@
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
         </div>
+<<<<<<< HEAD
     </header>
+=======
+        </header>
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git

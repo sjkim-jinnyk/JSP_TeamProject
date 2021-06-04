@@ -1,12 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/FooterStyle.css">
 <script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
 </head>
+=======
+    
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
     <footer>
+<<<<<<< HEAD
         <div class="logo">
+=======
+        <div class="site_logo">
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
             <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
         </div>
         
@@ -28,7 +36,11 @@
             <a href=""><i class="far fa-comments"></i></a>
             <a href=""><i class="fab fa-youtube"></i></a>
         </div>
+<<<<<<< HEAD
     <script type="text/javascript" src="js/header.js"></script>
+=======
+
+	<script type="text/javascript" src="js/header.js"></script>
+
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
     </footer>
-</body>
-</html>

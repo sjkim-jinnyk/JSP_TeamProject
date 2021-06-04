@@ -1,5 +1,5 @@
 package com.hotel.model;
-
+ 
 public class InfoDTO {			// 공지사항 DTO
 	private int infoNo;			// 공지사항 번호
 	private String adminId;		// 작성자 아이디

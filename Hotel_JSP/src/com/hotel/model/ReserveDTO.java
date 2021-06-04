@@ -1,5 +1,5 @@
 package com.hotel.model;
-
+ 
 public class ReserveDTO {		// 예약 DTO
 	private int resNo;			// 예약 번호
 	private String userId;		// 회원 아이디

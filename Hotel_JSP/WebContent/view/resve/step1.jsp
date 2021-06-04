@@ -19,15 +19,32 @@
 		
 		
 		<div>
+		<form method="post" action="<%=request.getContextPath() %>/step2.do">
+			<input type="hidden" name="roomId" value="101">
+			<input type="hidden" name="roomPrice" value="310400">
+			
 			<table border="1" width="80%" height="60px">
 				<tr>
-				    <td> DATE&nbsp;&nbsp; <input type="date" id="checkIn" name="checkIn"> - <input type="date" id="checkOut" name="checkOut">
+				    <td> DATE&nbsp;&nbsp; 
+				    	<input type="date" id="checkIn" name="checkIn" 
+				    		value="<%=request.getAttribute("checkIn") %>"> - 
+				    	<input type="date" id="checkOut" name="checkOut" 
+				    		value="<%=request.getAttribute("checkOut") %>">
 						&nbsp;|&nbsp;<input id="night" size=3>박 <br> </td>
 					<td>
-						ADULTS <input type="number" min="1" max="3" id="adult" name="adult" value="1"> 명 &nbsp;&nbsp;&nbsp;&nbsp;
-						CHILDREN <input type="number" min="1" max="3" id="child" name="child" value="0"> 명
+						ADULTS 
+						<input type="number" min="1" max="3" id="adult" name="adult" 
+							value="<%=request.getAttribute("adult") %>"> 명
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						CHILDREN 
+						<input type="number" min="0" max="3" id="child" name="child" 
+							value="<%=request.getAttribute("child") %>"> 명
 					</td>
+<<<<<<< HEAD
 					<td><a href="<%=request.getContextPath()%>/step0.do">객실 다시 검색 ></a></td>
+=======
+					<td><a href="javascript:history.go(-1);">객실 다시 검색 ></a></td>
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
 				</tr>				
 			</table>
 			<br>
@@ -47,11 +64,15 @@
 				<tr>
 					<td>DELUXE KING<br>Standard View | Size: 46.7㎡</td>
 					<td>310,400KRW ~</td>
+<<<<<<< HEAD
 					<td><a href="<%=request.getContextPath()%>/step2.do?room_id=101">예약하기</a></td>
+=======
+					<td><input type="submit" value="예약하기"></td>
+>>>>>>> branch 'main' of https://github.com/mc1128/JSP_TeamProject.git
 				</tr>
 			
 			</table>
-			
+		</form>	
 		</div>
 	
 	</section>
