@@ -5,15 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
-<script src="https://code.jqeury.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 
+	// resAdult + -
 	function count(type)  {
 		  // 결과를 표시할 element
 		  let resultElement = document.getElementById('result');
-		  let resAdult =  document.getElementById('resAdult').value;
+		  let resAdult =  document.getElementById('resAdult');
 		  
 		  // 현재 화면에 표시된 값
 		  let number = resultElement.innerText;
@@ -22,30 +24,25 @@
 		  if(type === 'plus') {
 			  if(number <= 3){
 				   number = parseInt(number) +1;
-				   resAdult = parseInt(resAdult) + 1;
+				   resAdult.value = number;
 			  }	 
 		  }else if(type === 'minus')  {
 			  if(number >= 1) {
 				  number = parseInt(number) - 1;
-				  resAdult -1;
-			  }
-		    
+				  resAdult.value = number;
+			  }		    
 		  }
 		  
-		  // 결과 출력
-		  
+		  // 결과 출력	  
 		  resultElement.innerText = number;
-		  
-		let result1 = document.getElementById('result').value;
-		resAdult.value = number;
-		
-		console.log(document.getElementById('resAdult').value);
 		 
 	}
 	
+	// resChild + -
 	function count2(type)  {
 		  // 결과를 표시할 element
-		  const resultElement = document.getElementById('result2');
+		  let resultElement = document.getElementById('result2');
+		  let resChild =  document.getElementById('resChild');
 		  
 		  // 현재 화면에 표시된 값
 		  let number = resultElement.innerText;
@@ -53,25 +50,29 @@
 		  // 더하기/빼기
 		  if(type === 'plus') {
 			  if(number <= 3){
-				   number = parseInt(number) + 1;
+				   number = parseInt(number) +1;
+				   resChild.value = number;
 			  }	 
 		  }else if(type === 'minus')  {
-			  if(number >= 1){
+			  if(number >= 1) {
 				  number = parseInt(number) - 1;
-			  }
-		  
+				  resChild.value = number;
+			  }		    
 		  }
 		  
-		  // 결과 출력
-		  
+		  // 결과 출력	  
 		  resultElement.innerText = number;
-		  
-		let result1 = document.getElementById('result2').value;
-		let resAdult =  document.getElementById('resChild').value;
-		resChild.value = number;
+		 
 	}
 	
 </script>
+
+<script type="text/javascript">
+	$(document).ready( function() { 
+		$( "#datepicker" ).datepicker();
+	} );
+</script>
+  
 </head>
 <body>
 
@@ -83,7 +84,7 @@
 		<input type="hidden" name="resIn" id="resIn" value="2021.06.04"> 				
 		<input type="hidden" name="resOut" id="resOut" value="2021.06.05"> 			
 		<input type="hidden" name="night" id="night" value="1">				
-		<input type="number" id="resAdult" value="0">								
+		<input type="hidden" id="resAdult" value="0">								
 		<input type="hidden" id="resChild" value="0">
 	
 		<div id="container" class="container">
@@ -105,8 +106,8 @@
 							2021.06.04&nbsp;금&nbsp;-&nbsp;2021.06.05&nbsp;토&nbsp;|&nbsp;<span>1 박</span></p>
 						<button type="button" class="btnToggle1">V</button><br>
 						<div class="toggleCont1">
-							<input type="date" id="resIn" name="resIn">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="date" id="resOut" name="resOut">
+							<input type="text" id="datepicker">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="text" id="datepicker">
 						</div>
 						<hr>
 					</li>				
