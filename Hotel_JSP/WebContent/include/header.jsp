@@ -5,10 +5,12 @@
 <!-- 이게 안되면 pc에서의 100px과 모바일에서의 100px이 디바이스 성능에 따라 달라집니다. -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/CommonStyle.css">
+<link rel="stylesheet" href="css/MainStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
 <link rel="stylesheet" href="css/FooterStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/57a8fee989.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
     <header class="headerBox">
