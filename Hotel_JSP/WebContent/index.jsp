@@ -7,7 +7,7 @@
 <title>메인 페이지</title>
 
 	<jsp:include page="/include/header.jsp" />
-    <section class="mainpage" style="margin-bottom: 500px">
+    <section class="mainpage" style="margin-bottom: 500px; margin-top: 150px">
         <h1>Experience the Difference</h1>
         <div class="reservation">
             <ul>
