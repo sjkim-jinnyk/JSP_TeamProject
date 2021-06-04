@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<%-- 헤더 --%>
+	<jsp:include page="../../include/header.jsp" />
 	
 	<%-- step2.do : 옵션선택(조식추가 및 엑스트라 베드추가, 문의사항)--%>
 	<section class="step2">
@@ -32,7 +32,7 @@
 			<table border="1" width="80%" height="60px">
 				<tr>
 					<td><h3>[Member Exclusive] SMART CHOICE</h3>DELUXE / 1KING / STANDARD VIEW</td>
-					<td rowspan="3">
+					<td rowspan="4">
 						2021.06.01<br><br>
 						금액 | 310,400<br>
 						세금 | 31,040 (10%)<br><br>
@@ -45,24 +45,30 @@
 					<td>
 						BREAKFAST<br><br>
 						성인 조식 추가  |   KRW 45,000&nbsp;&nbsp;
-						<input type="number" id="adultBF" name="adultBF" min="0" max="100" value="0"> <br>
+						<input type="number" id="adult_br" name="adult_br" min="0" max="4" value="0"> <br>
 						어린이 조식 추가  |   KRW 27,000&nbsp;&nbsp;
-						<input type="number" id="childBF" name="childBF" min="0" max="100" value="0"><br>
+						<input type="number" id="child_br" name="child_br" min="0" max="4" value="0"><br>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						EXTRA BED<br><br>엑스트라 베드 추가  |  KRW 44,000&nbsp;&nbsp;
-						<input type="number" id="childBF" name="childBF" min="0" max="1" value="0"><br>
+						<input type="number" id="extraBed" name="extraBed" min="0" max="1" value="0"><br>
 					</td>
 				</tr>
-				
+				<tr>
+					<td>
+						문의사항<br>
+						<textarea rows="5" cols="30"></textarea>
+						
+					</td>
+				</tr>
 			</table>
 		</div>
 		
 	</section>
 	
-	<%-- 푸터 --%>
+	<jsp:include page="../../include/footer.jsp" />
 	
 </body>
 </html>

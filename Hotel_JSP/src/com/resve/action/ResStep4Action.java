@@ -1,4 +1,4 @@
-package com.login.action;
+package com.resve.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,18 +6,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 
-public class UserPwdSearchAction implements Action {
+public class ResStep4Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		
+		// step3.jsp(예약자 정보 입력 폼) 에서 넘어온
+		// checkIn, checkOut, adult, child,
+		// room_name, room_price
+		// adult_br, child_br, extraBed, request 
+		// user_id, user_name
+		// 데이터 받아서 step4.jsp 로 넘겨줌
+
 		ActionForward forward = new ActionForward();
-		
+
 		forward.setRedirect(false);
-		forward.setPath("/view/login/pwd_search_ok.jsp");		// 찾은 비밀번호 정보 뷰페이지에 띄어줌
-		
+		forward.setPath("/view/resve/step4.jsp");
+
 		return forward;
-		
 	}
 
 }

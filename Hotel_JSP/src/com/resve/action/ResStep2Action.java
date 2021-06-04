@@ -1,4 +1,4 @@
-package com.login.action;
+package com.resve.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,15 +6,19 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 
-public class UserLoginAction implements Action {
+public class ResStep2Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		// step1.jsp(객실 선택 폼) 에서 넘어온 
+		// checkIn, checkOut, adult, child, 
+		// room_name, room_price
+		// 데이터 받아서 step2.jsp 로 넘겨줌
 		
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
-		forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+		forward.setPath("/view/resve/step2.jsp");		
 		
 		return forward;
 	}
