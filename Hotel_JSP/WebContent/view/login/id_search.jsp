@@ -20,10 +20,10 @@
 	<div class="login_inner">
 		<form method="post" action="<%=request.getContextPath() %>/user_id_search_ok.do">
 			<ul class="login_form" style="display: flex;">
-				<li class="idSearch_on">
+				<li class="idPwdSearch_on">
 				<a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a>
 				</li>
-				<li class="idSearch_on">
+				<li class="idPwdSearch_off">
 				<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
 				</li>
 			</ul>
@@ -43,9 +43,7 @@
 						<input type="tel" name="userPhone" placeholder="휴대폰 번호" required>
 					</p>
 					
-					<!-- onclick 속성으로 값 넘겨주는 기능 구현X -->
-					<input type="submit" value="찾 기">
-					<!--  <button type="button" class="login_submit" value="아이디찾기" onclick="location.href='id_search_ok.do'">찾 기</button> --> 
+					<input type="submit" value="찾 기" class="login_submit">
 				</div>
 			</div>
 		</form>
