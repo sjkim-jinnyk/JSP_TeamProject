@@ -85,10 +85,12 @@ header{
 
 .headerBox{
 	height: 100px;
-}
-
-#toggle{
-	display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background: white;
 }
 
 /* 메뉴바 디자인 */
@@ -139,7 +141,7 @@ a {
   background-color: black;
 }
 
-.top-bar > .menu-box-1-bg::after {
+.top-bar > .menu-box-bg::after {
   position: absolute;
   content: "";
   top: 0;
@@ -155,32 +157,34 @@ a {
   clear: both;
 }
 
-.top-bar > .menu-box-1 ul > li {
+.top-bar > .menu-box ul > li {
   position: relative;
 }
 
-.top-bar > .menu-box-1 > ul ul {
+.top-bar > .menu-box > ul ul {
   top: 100%;
   left: 0;
 }
 
-.top-bar > .menu-box-1 ul > li > a {
+.top-bar > .menu-box ul > li > a {
   padding: 10px;
 }
 
 .name {
-  color: yellow;
+  color: #989442;
   margin-right: 80px;
   float: left;
   z-index: 3;
+  font-size: 16px;
 }
 
 .name .innerMenu {
-  padding: 10px 0;
+  padding: 20px 0;
   line-height: 50px;
   color: white;
-  top: 100px;
   width: 100%;
+  font-size: 17px;
+  font-weight: bold;
 }
 
 .row {

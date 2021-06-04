@@ -14,7 +14,7 @@
     <header class="headerBox">
         <div class="top-bar text-align-center line-height-0-ch-only">
 	                <i class="fas fa-stream"></i>
-        	<nav class="menu-box-1 inline-block">
+        	<nav class="menu-box inline-block">
 					<ul class="row">
 						<li class="name">ABOUT US
 							<ul class="innerMenu">
@@ -45,7 +45,7 @@
 						</li>
 					</ul>
 					</nav>
-	            	<div class="menu-box-1-bg"></div>
+	            	<div class="menu-box-bg"></div>
   					<div class="sub-menu-bar-bg"></div>
 	            </div>
         <div class="hotel_logo">
