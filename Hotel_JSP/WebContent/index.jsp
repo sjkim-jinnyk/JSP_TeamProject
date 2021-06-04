@@ -30,13 +30,6 @@
                     </ul>
                 </a>
             </li>
-            <!-- <li class="check_InOut">
-                <button class="chcek">
->>>>>>> refs/remotes/origin/sujinkim
-                    <label for="check_InOut">CHECK IN/OUT</label>
-                    <input type="date" id="check_InOut" name="check_InOut">
-                </button> 
-            </li> -->
             <li class="roomselect">
                 <a href="">
                     <ul class="tit">
