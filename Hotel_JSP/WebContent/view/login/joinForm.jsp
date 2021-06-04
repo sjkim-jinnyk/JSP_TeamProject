@@ -6,9 +6,74 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- 주소 우편번호 서비스 스크립트 -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
+
+
+</head>
+<body>
+	
+	<jsp:include page="../../include/header.jsp" />
+	
+	<div>
+		<h1 class="sign_title">JOIN NOW</h1>
+	</div>
+	<br>
+	
+	<div>
+		<form method="post" action="<%=request.getContextPath() %>/user_join_ok.do">
+			<input type="hidden" name="userDate" value="sysdate">	<!-- 가입일자 hidden으로 넘겨주기 -->
+			
+			<ul>
+				<li><font size="2" color="red">*필수정보 입력</font></li>
+				<br>
+				<li>NAME* <input type="text" name="userName" required></li>
+				<li>ID* <input type="text" name="userId"> <input type="button" name="userId_check" value="중복확인" required></li>
+				<li>PASSWORD* <input type="password" name="userPwd" min="6" size="15" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
+				<li>CONFIRM PASSWORD* <input type="password" name="userPwd_check" min="6" size="15" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
+				<li>GENDER <input type="radio" name="userGen" value="남성">남성
+					  	   <input type="radio" name="userGen" value="여성">여성
+				</li>
+				<li>PHONE  <!-- <select>
+								<option value="010">010</option>
+								<option value="02">02</option>
+								<option value="032">032</option>
+								<option value="031">031</option>
+							</select> -->
+							<input type="tel" name="userPhone" placeholder="'-'제외하고 입력해주세요.">
+				</li>
+				<li>ADDRESS<br>
+					<input type="text" id="sample3_postcode" placeholder="우편번호">
+					<input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+					<input type="text" id="sample3_address" placeholder="주소"><br>
+					<input type="text" id="sample3_detailAddress" placeholder="상세주소">
+					<input type="text" id="sample3_extraAddress" placeholder="참고항목">
+
+					<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+					</div>
+				</li>
+				<li>E-MAIL <input type="text" name="userEmail_1" placeholder="이메일 입력해주세요.">		
+						   <span>@</span>
+						   <select name="userEmail_2">
+						  		<option value="" disabled selected>::E-Mail 선택::</option>
+						  		<option value="naver">naver.com</option>
+						  		<option value="daum">daum.net</option>
+						  		<option value="gmial">gmail.com</option>
+						  		<option value="hamail">hanmail.net</option>
+						  		<option value="nate">nate.com</option>
+						   </select>
+				</li>
+				<li>POINT <input type="text" name="userPoint">p</li>   <!-- ★String으로 받아오는지? -->
+				<br>
+				<li> <input type="submit" value="회원가입"> &nbsp;
+					 <input type="reset" value="취소">
+				</li>
+			</ul>
+		</form>
+	</div>
+	
+	<!-- 주소 우편번호 서비스 스크립트 -->
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
     // 우편번호 찾기 찾기 화면을 넣을 element
     var element_wrap = document.getElementById('wrap');
 
@@ -82,71 +147,7 @@
         // iframe을 넣은 element를 보이게 한다.
         element_wrap.style.display = 'block';
     }
-</script>
-
-</head>
-<body>
-	
-	<jsp:include page="../../include/header.jsp" />
-	
-	<div>
-		<h1 class="sign_title">JOIN NOW</h1>
-	</div>
-	<br>
-	
-	<div>
-		<form method="post" action="<%=request.getContextPath() %>/user_join_ok.do">
-			<input type="hidden" name="userDate" value="sysdate">	<!-- 가입일자 hidden으로 넘겨주기 -->
-			
-			<ul>
-				<li><font size="2" color="red">*필수정보 입력</font></li>
-				<br>
-				<li>NAME* <input type="text" name="userName" required></li>
-				<li>ID* <input type="text" name="userId"> <input type="button" name="userId_check" value="중복확인" required></li>
-				<li>PASSWORD* <input type="password" name="userPwd" min="6" size="15" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
-				<li>CONFIRM PASSWORD* <input type="password" name="userPwd_check" min="6" size="15" placeholder="영문/숫자/특수문자 포함 6자 이상" required></li>
-				<li>GENDER <input type="radio" name="userGen" value="남성">남성
-					  	   <input type="radio" name="userGen" value="여성">여성
-				</li>
-				<li>PHONE  <!-- <select>
-								<option value="010">010</option>
-								<option value="02">02</option>
-								<option value="032">032</option>
-								<option value="031">031</option>
-							</select> -->
-							<input type="tel" name="userPhone" placeholder="'-'제외하고 입력해주세요.">
-				</li>
-				<li>ADDRESS<br>
-					<input type="text" id="sample3_postcode" placeholder="우편번호">
-					<input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
-					<input type="text" id="sample3_address" placeholder="주소"><br>
-					<input type="text" id="sample3_detailAddress" placeholder="상세주소">
-					<input type="text" id="sample3_extraAddress" placeholder="참고항목">
-
-					<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-					<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-					</div>
-				</li>
-				<li>E-MAIL <input type="text" name="userEmail_1" placeholder="이메일 입력해주세요.">		
-						   <span>@</span>
-						   <select name="userEmail_2">
-						  		<option value="" disabled selected>::E-Mail 선택::</option>
-						  		<option value="naver">naver.com</option>
-						  		<option value="daum">daum.net</option>
-						  		<option value="gmial">gmail.com</option>
-						  		<option value="hamail">hanmail.net</option>
-						  		<option value="nate">nate.com</option>
-						   </select>
-				</li>
-				<li>POINT <input type="text" name="userPoint">p</li>   <!-- ★String으로 받아오는지? -->
-				<br>
-				<li> <input type="submit" value="회원가입"> &nbsp;
-					 <input type="reset" value="취소">
-				</li>
-			</ul>
-		</form>
-	</div>
-	
+	</script>
 	<jsp:include page="../../include/footer.jsp" />
 	
 </body>

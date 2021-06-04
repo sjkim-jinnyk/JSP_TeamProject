@@ -4,11 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../../css/AdminStyle.css">
-<title>Insert title here</title>
-</head>
+<link rel="stylesheet" href="css/AdminStyle.css">
+<title>예약페이지</title>
+<jsp:include page="/include/header.jsp" />
 <body>
-
 	<!-- 관리자페이지 상단 제목 -->
 	<div class="admin_topArea">
 		<h2 class="top_tit">관리자 페이지</h2>
@@ -49,7 +48,7 @@
 			<table class="content">
 				<tr>
 					<td class="img" rowspan="3">
-						<img alt="상품" src="../../image/스마트.jpg">
+						<img alt="상품" src="image/스마트.jpg">
 					</td>
 					<td colspan="2">DELUXE KING</td>
 				</tr>
@@ -81,7 +80,7 @@
 			<table class="content">
 				<tr>
 					<td class="img" rowspan="3">
-						<img alt="상품" src="../../image/스마트.jpg">
+						<img alt="상품" src="image/스마트.jpg">
 					</td>
 					<td colspan="2">DELUXE KING</td>
 				</tr>
@@ -99,6 +98,7 @@
 		</div>
 		<!-- //contArea -->
 	</div>
+	<jsp:include page="/include/footer.jsp" />
+   	<script type="text/javascript" src="js/adminPage.js"></script>
 </body>
-<script type="text/javascript" src="../../js/adminPage.js"></script>
 </html>
