@@ -10,7 +10,7 @@ CREATE TABLE HOTEL_USER                                     -- 회원 테이블
     user_point    NUMBER(10)       DEFAULT 0 NOT NULL,      -- 회원 포인트
     user_date     DATE             NOT NULL                 -- 회원 가입일(sysdate)
 );
-
+ 
 CREATE TABLE HOTEL_ADMIN                                    -- 관리자 테이블
 (
     admin_id      VARCHAR2(20)    PRIMARY KEY,               -- 관리자 아이디

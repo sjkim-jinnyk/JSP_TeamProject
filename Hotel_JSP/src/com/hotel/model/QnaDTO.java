@@ -1,5 +1,5 @@
 package com.hotel.model;
-
+ 
 public class QnaDTO {
 	private int qnaNo;			// 게시물 번호
 	private String userId;		// 회원 아이디

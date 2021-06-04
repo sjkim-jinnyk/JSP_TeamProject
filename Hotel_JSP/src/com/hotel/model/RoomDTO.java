@@ -1,5 +1,5 @@
 package com.hotel.model;
-
+ 
 public class RoomDTO {				// 객실 DTO
 	private String roomName;		// 객실 이름
 	private int roomPrice;			// 가격

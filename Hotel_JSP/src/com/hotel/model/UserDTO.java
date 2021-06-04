@@ -1,5 +1,5 @@
 package com.hotel.model;
-
+ 
 public class UserDTO {			// 회원 DTO
 
 	private String userId;		// 회원
