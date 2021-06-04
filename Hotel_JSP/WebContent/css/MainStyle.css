@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.mainpageTxt .mainBG img {
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mainpageTxt .mainTxt{
+    position: absolute;
+    top: 40%;
+    /* left: 50%; */
+    opacity: 1;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    width: 100%;
+}
+
+.mainRes {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+
+.reservation{
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+
+}
+
+.reservation li {
+    list-style: none;
+    color: white;
+}
+
+.mainRes .hotel {
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+.reservation .tit{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+.reservation a{
+    text-decoration: none;
+}
+.reservation .num{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 30px;
+}
+.check {
+    background-color: transparent;
+}
+.ser_btn{
+    size: 10px;
+    margin-left: 100px;
+    cursor: pointer;
+    padding: 0 20px;
+    background-color: transparent;
+    border: solid 1px white;
+    color: white;
+
+}
+
+.check_InOut {
+    padding: 0 20px;
+    width: 100%;
+}
