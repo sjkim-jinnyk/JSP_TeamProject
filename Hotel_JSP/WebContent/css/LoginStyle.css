@@ -183,3 +183,63 @@
     top: 4px;
     font: 600 15px gothamL;
 }
+
+
+/* 0603 Areum 수정 */
+/* id_search.jsp & pwd_search.jsp */
+.idSearch_title{
+	color: #151515;
+	text-align: center;
+	font-size: 25px;
+	font-feature-settings: 'lnum', 'pnum';
+}
+
+.login_form li.idSearch_on{
+	width: 50%;
+	border: 1px solid black;
+	border-bottom: 0;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 60px;
+}
+
+.idSearchOk_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 180px;
+	max-width: 800px;
+	//background-color: #f9f9f9;   
+}
+
+/* id_search_ok.jsp & pwd_search_ok.jsp */
+.textBox{
+	text-align: center;
+	padding: 3em;
+	background-color: #f9f9f9;
+}
+
+.textBox .idSearch_coment{
+	text-align: center;
+}
+
+.idInfo{
+	color: #989442;
+}
+
+.textBox .confirm_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 60px;
+    padding: 0 25px;
+    margin: 30px 0 0;
+    line-height: 58px;
+    font-size: 18px;
+    letter-spacing: -.01em;
+    width: 50% !important;
+} 
+
+input{
+	cursor: pointer;
+}

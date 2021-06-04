@@ -32,10 +32,10 @@
 				</tr>				
 		</table>
 	</form>
+
 	</section>
 	
 	<jsp:include page="../../include/footer.jsp" />
 	
 </body>
-
 </html>

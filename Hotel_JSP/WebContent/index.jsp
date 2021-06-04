@@ -13,6 +13,7 @@
         <div class="mainTxt"><strong>Experience the Difference</strong></div>
     </section>
 
+
     <section class="mainRes">
         <ul class="reservation">
             <li class="hotel">

@@ -10,9 +10,14 @@ public class UserPwdSearchOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		 
 		
-		String user_id = request.getParameter("user_id").trim();
-		String user_name = request.getParameter("user_name").trim();
+		String userId = request.getParameter("userId").trim();
+		String userName = request.getParameter("userName").trim();
+		
+		// pwd_search.jsp 에서 넘어온 값 체크
+		System.out.println("아이디 >>> " + userId);
+		System.out.println("이름 >>> " + userName);
 
 		ActionForward forward = new ActionForward();
 		

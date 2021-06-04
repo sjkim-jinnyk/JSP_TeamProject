@@ -8,30 +8,50 @@
 </head>
 <body>
 
-	<div align="center">
-		<h3>아이디 / 비밀번호 찾기</h3>
-		
+<link rel="stylesheet" href="css/LoginStyle.css">
+	<jsp:include page="../../include/header.jsp" />
+	
+	<div class="topArea">
+		<div class="topInner">
+			<h1 class="idSearch_title">아이디 / 비밀번호 찾기</h1>
+		</div>
+	</div>
+
+	<div class="login_inner">
 		<form method="post" action="<%=request.getContextPath() %>/user_pwd_search_ok.do">
-			<ul>
-				<li><a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a></li>
-				<li><a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a></li>
+			<ul class="login_form">
+				<li class="idSearch_on">
+				<a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a>
+				</li>
+				<li class="idSearch_on">
+				<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
+				</li>
 			</ul>
 			
-			<p>
-				<label>아이디</label> 
-				<input id="user_id" name="user_id" placeholder="아이디" aria-required="true" />
-			</p>
-			
-			<p>
-				<label>이름</label> 
-				<input id="user_name" name="user_name" placeholder="이름" aria-required="true" />
-			</p>
-			
-			<p>
-				<input type="submit" value="찾기">
-			</p>
+			<div class="loginBox">
+				<div class="userLogin">
+					<p class="id_form">
+						<label class="hidden">
+							아이디
+						</label>
+						<input type="text" name="userId" placeholder="아이디" required>
+					</p>
+					<p class="id_form">
+						<label class="hidden">
+							이름
+						</label>
+						<input type="text" name="userName" placeholder="이름" required>
+					</p>
+					
+					<!-- onclick 속성으로 값 넘겨주는 기능 구현X -->
+					<input type="submit" value="찾 기">
+					<!-- <button type="button" class="login_submit" value="비밀번호 찾기" onclick="location.href='pwd_search_ok.do'">찾 기</button> --> 
+				</div>
+			</div>
 		</form>
 	</div>
+
+	<jsp:include page="../../include/footer.jsp" />
 
 </body>
 </html>

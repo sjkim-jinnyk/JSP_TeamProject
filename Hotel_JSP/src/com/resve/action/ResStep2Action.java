@@ -40,6 +40,7 @@ public class ResStep2Action implements Action {
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
 		forward.setPath("/view/resve/step2.jsp");				
+		
 		return forward;
 	}
 

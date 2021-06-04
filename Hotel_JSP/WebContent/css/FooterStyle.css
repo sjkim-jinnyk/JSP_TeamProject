@@ -13,7 +13,6 @@ footer{
     heigth: 370px;
     bottom: 0;
 }
-
 footer .site_logo a{
     text-decoration: none;
     padding: 30px;
@@ -66,4 +65,3 @@ footer .site_logo a{
     justify-content: space-between;
     align-items: center;
 }
-

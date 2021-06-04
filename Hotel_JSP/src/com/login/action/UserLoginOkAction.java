@@ -6,10 +6,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 
-public class UserLoginAction implements Action {
+public class UserLoginOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		String userId = request.getParameter("userId").trim();
+		String userPwd = request.getParameter("userPwd").trim();
+		
+		// loginForm에서 넘어온 값 체크
+		System.out.println("아이디 >>> " + userId);
+		System.out.println("비밀번호 >>> " + userPwd);
 		
 		ActionForward forward = new ActionForward();
 		

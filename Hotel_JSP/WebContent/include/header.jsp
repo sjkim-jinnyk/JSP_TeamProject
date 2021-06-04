@@ -64,4 +64,5 @@
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
         </div>
-        </header>
+    </header>
+

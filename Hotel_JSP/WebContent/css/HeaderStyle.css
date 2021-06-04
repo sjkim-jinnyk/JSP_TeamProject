@@ -31,7 +31,7 @@ header{
     font-size: 30px;
 }
 
-.logo a {
+header .logo a {
     text-decoration: none;
     padding: 30px;
     font-size: 30px;
@@ -70,7 +70,7 @@ header{
     text-align: center;
     border: 1px solid var(--black-color);
     font-size: 18px;
-    height: 60%;
+    height: 70%;
     z-index: 3;
 }
 

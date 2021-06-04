@@ -13,6 +13,7 @@ public class ResStep3Action implements Action {
 		// step2.jsp(옵션 선택 폼) 에서 넘어온 
 		// checkIn, checkOut, adult, child,
 		// room_name, room_price
+
 		// resDate, resTotal, adult_br, child_br, extraBed, request 
 		// 데이터 받아서 step3.jsp 로 넘겨줌
 		
@@ -63,7 +64,8 @@ public class ResStep3Action implements Action {
 		
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
-		forward.setPath("/view/resve/step3.jsp");				
+		forward.setPath("/view/resve/step3.jsp");
+		
 		return forward;
 	}
 
