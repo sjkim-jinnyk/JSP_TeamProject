@@ -30,9 +30,24 @@ table{
 	padding: 0 20px;
 }
 
-.content img{
-	max-width: 50%;
+
+.content_info{
+	display: none;
 }
 
+.room_manage .off{
+	display: none;
+}
 
+.room_manage .on{
+	display: "";
+}
+
+.res_manage .off{
+	display: none;
+}
+
+.res_manage .on{
+	display: "";
+}
 
