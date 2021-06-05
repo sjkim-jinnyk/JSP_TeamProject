@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<body>
+<body>  
 	
 <link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />
