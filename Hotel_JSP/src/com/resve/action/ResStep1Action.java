@@ -14,18 +14,29 @@ public class ResStep1Action implements Action {
 		// step0.jsp (날짜, 입력 폼페이지) 에서 넘어온 checkIn, checkOut, adult, child 
 		// 데이터 받아서 step1.jsp 로 넘겨줌
 
-		String checkIn = request.getParameter("checkIn").trim();
-		String checkOut = request.getParameter("checkOut").trim();
-		int adult = Integer.parseInt(request.getParameter("adult"));
-		int child = Integer.parseInt(request.getParameter("child"));
+
+		//String checkIn = request.getParameter("checkIn").trim();
+		//String checkOut = request.getParameter("checkOut").trim();
+		//int adult = Integer.parseInt(request.getParameter("adult"));
+		//int child = Integer.parseInt(request.getParameter("child"));
+
 		
-		request.setAttribute("checkIn", checkIn);
-		request.setAttribute("checkOut", checkOut);
-		request.setAttribute("adult", adult);
-		request.setAttribute("child", child);
+		String resIn = request.getParameter("resIn").trim();
+		String resOut = request.getParameter("resOut").trim();
+		String night = request.getParameter("night").trim();
+		String resAdult = request.getParameter("resAdult").trim();
+		String resChild = request.getParameter("resChild").trim();
+
 		
-		System.out.println(checkIn + checkOut);
-		System.out.println(adult + child);
+		request.setAttribute("resIn", resIn);
+		request.setAttribute("resOut", resOut);
+		request.setAttribute("night", night);
+		request.setAttribute("resAdult", resAdult);
+		request.setAttribute("resChild", resChild);
+		
+		System.out.println(resIn + resOut);
+		System.out.println(night);
+		System.out.println(resAdult + resChild);
 		
 		
 		ActionForward forward = new ActionForward();		

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 </head>
 <body>  
 	
@@ -129,7 +130,6 @@
       	  }).open();
    	 }
 	</script>
-		
 	<jsp:include page="../../include/footer.jsp" />
 	
 </body>

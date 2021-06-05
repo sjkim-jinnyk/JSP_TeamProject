@@ -1,0 +1,38 @@
+@charset "UTF-8";
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+.admin_topArea {
+	padding: 97px 0 90px 0;
+	
+}
+
+.admin_search {
+	margin-bottom: 50px;
+}
+table{
+	border-collapse: separate;
+	border-spacing: 0 20px;
+	width: 100%;
+}
+.admin_search table td{
+	text-align: center;
+}
+
+.titArea ul{
+	display: flex;
+}
+.titArea ul li {
+	padding: 0 20px;
+}
+
+.content img{
+	max-width: 50%;
+}
+
+
+
