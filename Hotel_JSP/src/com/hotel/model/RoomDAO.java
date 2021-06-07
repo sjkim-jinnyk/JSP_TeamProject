@@ -67,7 +67,7 @@ public class RoomDAO {
 
 	}
 	
-	public List<RoomDTO> getList() {
+	public List<RoomDTO> getRoomList() {
 		
 		List<RoomDTO> list = new ArrayList<RoomDTO>();
 		
@@ -84,6 +84,10 @@ public class RoomDAO {
 			while(rs.next()) {
 				RoomDTO dto = new RoomDTO();
 				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomPrice(rs.getInt("room_price"));
+				dto.setRoomContent(rs.getString("room_content"));
+				dto.setRoomImage(rs.getString("room_image"));
+				dto.setRoomSize(rs.getInt("room_size"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
@@ -94,6 +98,35 @@ public class RoomDAO {
 		}
 		
 		return list;
-	} // getList()
+	} // getRoomList()
+	
+	public int checkRoom(String name) {
+		
+		int result = 0;
+		try {
+			
+			openConn();
+			
+			sql = "select * from room where room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, name);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // checkRoom()
 	
 }
