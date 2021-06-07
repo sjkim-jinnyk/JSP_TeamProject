@@ -80,8 +80,3 @@ ALTER TABLE reserve
 ALTER TABLE reserve
     ADD CONSTRAINT FK_reserve_room_name FOREIGN KEY (room_name)
         REFERENCES room (room_name);
-        
--- 회원 -> 질문      
-ALTER TABLE QNA
-    ADD CONSTRAINT FK_QNA_user_id FOREIGN KEY (user_id)
-        REFERENCES HOTEL_USER (user_id);
