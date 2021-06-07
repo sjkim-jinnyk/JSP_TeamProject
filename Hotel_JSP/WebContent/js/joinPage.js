@@ -1,6 +1,6 @@
 // 이메일 선택 스크립트 (선택한 해당 이메일 값 가져오기 + 직접 입력하기)
 function email_change(){
-	
+	 
 	// ::E-mail 선택:: 옵션 선택했을 시
 	if(document.join.userEmail.options[document.join.userEmail.selectedIndex].value == '0'){
 

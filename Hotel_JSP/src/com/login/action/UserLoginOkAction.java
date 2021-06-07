@@ -33,7 +33,7 @@ public class UserLoginOkAction implements Action {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		
-		if(check > 0) {	 
+		if(check > 0) {	  
 			// 회원인 경우
 			UserDTO dto = dao.getUser(userId);
 			

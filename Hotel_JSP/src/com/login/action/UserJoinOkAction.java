@@ -29,7 +29,7 @@ public class UserJoinOkAction implements Action {
 		String userAddr_4 = request.getParameter("userAddr_4").trim();
 		String userEmail_1 = request.getParameter("userEmail_1").trim();
 		String userEmail_2 = request.getParameter("userEmail_2").trim();
-		
+		 
 		// 주소 합치기
 		String userAddr = userAddr_1 + " " + userAddr_2 + " " + userAddr_3 + " " + userAddr_4;
 		
