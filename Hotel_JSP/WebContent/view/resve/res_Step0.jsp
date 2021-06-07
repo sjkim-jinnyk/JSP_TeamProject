@@ -5,10 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 
 	// resAdult + -
@@ -35,8 +32,9 @@
 		  
 		  // 결과 출력	  
 		  resultElement.innerText = number;
-		 
-	}
+		  console.log(number);
+		  
+	} // count() end 
 	
 	// resChild + -
 	function count2(type)  {
@@ -82,16 +80,52 @@
 			  }		    
 		  }
 		  // 결과 출력	  
-		  resultElement.innerText = number;
-		 
+		  resultElement.innerText = number;		 
+	} // count2() end 
+	
+	// 날짜 입력값 받아서 화면에 출력하기
+	function viewDate(){
+		let resultIn = document.getElementById('resInView'); 		// 결과 표시할 부분
+		let resultOut = document.getElementById('resOutView'); 		// 결과 표시할 부분
+		let resIn = document.getElementById('resIn').value;				// 결과 값 저장 변수
+		let resOut = document.getElementById('resOut').value;			// 결과 값 저장 변수
+		
+		let dateIn = resultIn.innerText;							// 현재 화면에 표시된 값
+		let dateOut = resultIn.innerText;							// 현재 화면에 표시된 값
+		
+		
+		dateIn.value = resIn;
+		resultIn.innerText = resIn;
+		
+		console.log(resIn);
+
 	}
 	
-</script>
-
-<script type="text/javascript">
-	$(document).ready( function() { 
-		$( "#datepicker" ).datepicker();
-	} );
+	
+/* 	// 숙박 일수 계산 (resOut - resIn)
+	function countNight(){
+		
+		let nightResult = document.getElementById('nightResult'); 	// 결과 표시할 element
+		let resNight = document.getElementById('resNight'); 		// 현재 화면에 표시된 값
+			
+		let startDate = new Date('resIn');
+		let endDate = new Date('resOut');
+		
+		let dateDiff = Math.ceil((edt.getTime()-sdt.getTime())/(1000*3600*24)); // 차이일수를 정수로 변환
+		// 출처: https://kunoo.tistory.com/entry/javascript-날짜-차이간격-일수-구하기 [Kunoo]
+		
+		if(dateDiff >= 1){
+			nightResult = dateDiff -1;
+			resNight = nightResult;
+			console.log(resNight);
+			
+		}else if(dateDiff <= 0){
+			alert('정확한 숙박 날짜를 선택해주세요.');
+		} 
+	
+	} // countNight() end
+*/
+	
 </script>
   
 </head>
@@ -103,10 +137,10 @@
 			action="<%=request.getContextPath()%>/step1.do">
 		
 		<input type="hidden" name="resIn" id="resIn" value="2021.06.04"> 				
-		<input type="hidden" name="resOut" id="resOut" value="2021.06.05"> 			
-		<input type="hidden" name="night" id="night" value="1">				
-		<input type="hidden" id="resAdult" value="0">								
-		<input type="hidden" id="resChild" value="0">
+		<input type="hidden" name="resOut" id="resOut" value="2021.06.05"> 						
+		<input type="hidden" name="resNight" id="resNight" value="1">				
+		<input type="hidden" name="resAdult" id="resAdult" value="0">								
+		<input type="hidden" name="resChild" id="resChild" value="0">
 
 	
 		<div id="container" class="container">
@@ -125,11 +159,14 @@
 						<hr>
 						<p class="listTitle" style="display: inline">투숙기간 선택</p>
 						<p class="dateText" id="dateText" style="display: inline">
-							2021.06.04&nbsp;금&nbsp;-&nbsp;2021.06.05&nbsp;토&nbsp;|&nbsp;<span>1 박</span></p>
+							<span id="resInView">0000.00.00</span>&nbsp;<span id="resInYoil">월</span>&nbsp;-&nbsp;
+							<span id="resOutView">0000.00.00</span>&nbsp;<span id="resOutYoil">월</span>&nbsp;|&nbsp;
+							<span id="nightResult">0</span> 박
+						</p>
 						<button type="button" class="btnToggle1">V</button><br>
 						<div class="toggleCont1">
-							<input type="text" id="datepicker">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="text" id="datepicker">
+							<input type="date" id="resIn" onclick="viewDate(in)">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="date" id="resOut"  onclick="viewDate(out)">
 						</div>
 						<hr>
 					</li>				
