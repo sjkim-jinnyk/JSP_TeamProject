@@ -68,20 +68,20 @@ CREATE TABLE room                                           -- 객실 테이블
 -- 외래키 설정
 -- 관리자 -> 공지사항
 ALTER TABLE INFO
-    ADD CONSTRAINT FK_INFO_admin_id_ADMIN_admin_id FOREIGN KEY (admin_id)
+    ADD CONSTRAINT FK_INFO_admin_id FOREIGN KEY (admin_id)
         REFERENCES HOTEL_ADMIN (admin_id);
         
 -- 회원 -> 예약         
 ALTER TABLE reserve
-    ADD CONSTRAINT FK_reserve_user_id_USER_user_id FOREIGN KEY (user_id)
+    ADD CONSTRAINT FK_reserve_user_id FOREIGN KEY (user_id)
         REFERENCES HOTEL_USER (user_id);
         
 -- 예약 -> 방
 ALTER TABLE reserve
-    ADD CONSTRAINT FK_reserve_room_name_room_room FOREIGN KEY (room_name)
+    ADD CONSTRAINT FK_reserve_room_name FOREIGN KEY (room_name)
         REFERENCES room (room_name);
         
 -- 회원 -> 질문      
 ALTER TABLE QNA
-    ADD CONSTRAINT FK_QNA_user_id_USER_user_id FOREIGN KEY (user_id)
+    ADD CONSTRAINT FK_QNA_user_id FOREIGN KEY (user_id)
         REFERENCES HOTEL_USER (user_id);
