@@ -12,7 +12,7 @@ btn.addEventListener('click', function() {
 });
 
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
-const room_click = document.querySelector('#room_click');
+/*const room_click = document.querySelector('#room_click');
 const res_click = document.querySelector('#res_click');
 const contArea1 = document.querySelector('#contArea1');
 const contArea2 = document.querySelector('#contArea2');
@@ -31,4 +31,4 @@ res_click.addEventListener('click', function() {
 		contArea1.classList.replace('on', 'off');
 	}
 	console.log(contArea2);
-});
+});*/
