@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -64,5 +66,34 @@ public class RoomDAO {
 		}
 
 	}
+	
+	public List<RoomDTO> getList() {
+		
+		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
+		try {
+			
+			openConn();
+			
+			sql = "select * from room";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO dto = new RoomDTO();
+				dto.setRoomName(rs.getString("room_name"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+	} // getList()
 	
 }

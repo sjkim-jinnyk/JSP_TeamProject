@@ -194,10 +194,21 @@
 	font-feature-settings: 'lnum', 'pnum';
 }
 
-.login_form li.idSearch_on{
+.login_form li.idPwdSearch_on{  
 	width: 50%;
 	border: 1px solid black;
 	border-bottom: 0;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 60px;
+}
+
+.login_form li.idPwdSearch_off{  
+	width: 50%;
+	border: 1px solid black;
+	border-left: hidden;
+    border-right: hidden;
+    border-top: hidden;
 	text-align: center;
 	margin-bottom: 30px;
 	line-height: 60px;
@@ -242,4 +253,55 @@
 
 input{
 	cursor: pointer;
+}
+
+/* joinForm.jsp */
+.join_inner{
+	position: relative;
+	margin: auto;
+	margin-top: 200px;
+	padding-bottom: 180px;
+	max-width: 800px;
+}
+
+.joinTxt{
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+}
+
+.userJoin{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.joinBox{
+	width: 30%;
+	background-color: #f9f9f9;
+	float: left;
+}
+
+.joinInfo{
+	display: table;
+	padding: 1em;
+}
+
+.join_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 40px;
+    width: 110px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+}
+
+.joinFormBtn{
+	background: #f9f9f9 !important;
+    color: black !important;
+    height: 30px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
 }

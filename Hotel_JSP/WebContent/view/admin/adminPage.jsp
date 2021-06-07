@@ -17,31 +17,34 @@
 	<!-- 날짜로 객실 조회 -->
 	<div class="admin_search">
 		<!-- 관리자 객실 검색 -->
-		<form method="post" action="<%=request.getContextPath()%>/admin_room_search.do">
+		<form method="post" action="<%=request.getContextPath() %>/admin_room_search_ok.do">
 		<table class="hotel">
 				<tr>
 					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
-					<!-- <th>ADULTS</th><th>CHILDREN</th> -->
 					<td rows="2" class="search" align="center">
-						<input type="button" value="객실 검색" onclick="">
+						<input type="submit" value="객실 검색">
 					</td>
 				</tr>
 				<tr>
 					<td>그랜드 조선 OO</td>
-					<td>2021.06.19&nbsp;토</td>
 					<td>
-						<select name="roomName">
-							<option value="객실 이름" name="D_TWIN">DELUXE TWIN</option>
-							<option value="객실 이름" name="D_KING">DELUXE KING</option>
-							<option value="객실 이름" name="PS_KING">PREMIER SUITE KING</option>
-							<option value="객실 이름" name="PS_TWIN">PREMIER SUITE TWIN</option>
+						<input type="date" id="checkIn" name="checkIn"> - 
+				    	<input type="date" id="checkOut" name="checkOut">
+				    	
+					</td>
+					<td>
+						<select name="roomName" id="roomName">
+							<option value="DELUXE TWIN">DELUXE TWIN</option>
+							<option value="DELUXE KING">DELUXE KING</option>
+							<option value="PREMIER SUITE KING">PREMIER SUITE KING</option>
+							<option value="PREMIER SUITE TWIN">PREMIER SUITE TWIN</option>
 						</select>
 					</td>
-					<!-- <td>2</td>
-					<td>3</td> -->
 				</tr>
 		</table>
 		</form>
+		
+		
 	</div>
 	
 	<!-- 객실, 예약, 매출 관리 -->

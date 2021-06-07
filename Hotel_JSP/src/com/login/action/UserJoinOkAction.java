@@ -39,6 +39,8 @@ public class UserJoinOkAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		
+		
+		
 		forward.setRedirect(false);
 		forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
 		
