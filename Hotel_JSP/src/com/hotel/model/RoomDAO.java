@@ -67,7 +67,7 @@ public class RoomDAO {
 
 	}
 	
-	public List<RoomDTO> getRoomList() {
+	public List<RoomDTO> getRoomList(String name) {
 		
 		List<RoomDTO> list = new ArrayList<RoomDTO>();
 		
@@ -75,15 +75,14 @@ public class RoomDAO {
 			
 			openConn();
 			
-			sql = "select * from room";
+			sql = "select * from room where room_name = ?";
 			
 			pstmt = con.prepareStatement(sql);
-			
+			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				RoomDTO dto = new RoomDTO();
-				dto.setRoomName(rs.getString("room_name"));
 				dto.setRoomPrice(rs.getInt("room_price"));
 				dto.setRoomContent(rs.getString("room_content"));
 				dto.setRoomImage(rs.getString("room_image"));

@@ -8,29 +8,37 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script type="text/javascript">
+
 	$(function() {
-		$("#btn").click(function(){
+		$("#btn").click(function() {
 			let room = $("#roomName").val();
+			let checkIn = $("#checkIn").val();
+			let checkOut = $("#checkOut").val();
 			console.log(room);
-			
+			console.log(checkIn);
+			console.log(checkOut);
+
 			$.ajax({
-				type: "post",
-				url: "./view/admin/adminPage1.jsp",
-				data : {"roomName" : room},
+				type : "post",
+				url : "admin_room_search_ok.do", //./view/admin/adminPage1.jsp
+				data : {
+					"roomName" : room,
+					"checkIn" : checkIn,
+					"checkOut" : checkOut
+				},
 				datatype : "jsp",
 				success : function(data) {
-					if(data == 1) {
-						console.log(data);
-					}
+					alert('성공');
+					console.log(data);
 
 				},
 				error : function() {
 					alert("오류");
 				}
-				
+
 			});
 		});
-		
+
 	});
 </script>
 </head>
@@ -44,7 +52,7 @@
 	<!-- 날짜로 객실 조회 -->
 	<div class="admin_search">
 		<!-- 관리자 객실 검색 -->
-		<form method="post" action="<%=request.getContextPath() %>/admin_room_search_ok.do">
+		<form method="post">
 		<table class="hotel">
 				<tr>
 					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
@@ -87,7 +95,7 @@
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
-			<table id="contArea1" class="off">
+			<table id="DELUXE TWIN" class="off">
 				<tr>
 					<td class="img" rowspan="3">
 						<img alt="상품" src="image/객실.jpg">
@@ -116,24 +124,6 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
-			<table id="contArea1" class="off">
-				<tr>
-					<td class="img" rowspan="3">
-						<img alt="상품" src="image/객실.jpg">
-					</td>
-					<td colspan="2">DELUXE KING</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" value="CHECK" onclick="">
-				</tr>
 			</table>
 		</div>
 		
@@ -168,25 +158,6 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
-
-			<table id="contArea2" class="off">
-				<tr>
-					<td class="img" rowspan="3">
-						<img alt="상품" src="image/스마트.jpg">
-					</td>
-					<td colspan="2">DELUXE KING</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" value="CHECK" onclick="">
-				</tr>
 			</table>
 		</div>
 	</div>
