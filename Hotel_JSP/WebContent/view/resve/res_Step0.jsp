@@ -84,21 +84,18 @@
 	} // count2() end 
 	
 	// 날짜 입력값 받아서 화면에 출력하기
-	function viewDate(){
-		let resultIn = document.getElementById('resInView'); 		// 결과 표시할 부분
-		let resultOut = document.getElementById('resOutView'); 		// 결과 표시할 부분
-		let resIn = document.getElementById('resIn').value;				// 결과 값 저장 변수
-		let resOut = document.getElementById('resOut').value;			// 결과 값 저장 변수
+	function viewDate(type){
+		let resultIn = document.getElementById('resIn_val'); 		// 결과 표시할 부분
+		let resultOut = document.getElementById('resOut_val'); 		// 결과 표시할 부분
 		
-		let dateIn = resultIn.innerText;							// 현재 화면에 표시된 값
-		let dateOut = resultIn.innerText;							// 현재 화면에 표시된 값
+		let resIn = document.getElementById('resIn')			// 결과 값 저장 변수
+		let resOut = document.getElementById('resOut')			// 결과 값 저장 변수
 		
-		
-		dateIn.value = resIn;
-		resultIn.innerText = resIn;
-		
-		console.log(resIn);
-
+		if(type === 'in'){
+			resIn.value = resultIn.value
+		}else if(type === 'out'){
+			resOut.value = resultOut.value;
+		}
 	}
 	
 	
@@ -136,8 +133,8 @@
 	<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
 		
-		<input type="hidden" name="resIn" id="resIn" value="2021.06.04"> 				
-		<input type="hidden" name="resOut" id="resOut" value="2021.06.05"> 						
+		<input type="text" name="resIn" id="resIn" value="2021.06.04"> 				
+		<input type="text" name="resOut" id="resOut" value="2021.06.05"> 						
 		<input type="hidden" name="resNight" id="resNight" value="1">				
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
@@ -165,8 +162,8 @@
 						</p>
 						<button type="button" class="btnToggle1">V</button><br>
 						<div class="toggleCont1">
-							<input type="date" id="resIn" onclick="viewDate(in)">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="date" id="resOut"  onclick="viewDate(out)">
+							<input type="date" id="resIn_val" onchange="viewDate('in')">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="date" id="resOut_val"  onchange="viewDate('out')">
 						</div>
 						<hr>
 					</li>				

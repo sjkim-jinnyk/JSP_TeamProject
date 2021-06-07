@@ -1,10 +1,14 @@
 package com.login.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.UserDAO;
+import com.hotel.model.UserDTO;
 
 public class UserLoginOkAction implements Action {
 
@@ -20,11 +24,17 @@ public class UserLoginOkAction implements Action {
 		System.out.println("비밀번호 >>> " + userPwd);
 		
 		ActionForward forward = new ActionForward();
+		UserDAO dao = UserDAO.getInstance();
+		List<UserDTO> list = dao.getUserList();
+		
+		
+		for(int i = 0; i< list.size(); i++) {
+			System.out.println(list.get(i).getUserId());
+		}
 		
 		forward.setRedirect(false);
 		forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
 		
 		return forward;
 	}
-
 }
