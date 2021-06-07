@@ -16,10 +16,12 @@
 	
 	<!-- 날짜로 객실 조회 -->
 	<div class="admin_search">
+		<!-- 관리자 객실 검색 -->
+		<form method="post" action="<%=request.getContextPath()%>/admin_room_search.do">
 		<table class="hotel">
 				<tr>
 					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
-					<th>ADULTS</th><th>CHILDREN</th>
+					<!-- <th>ADULTS</th><th>CHILDREN</th> -->
 					<td rows="2" class="search" align="center">
 						<input type="button" value="객실 검색" onclick="">
 					</td>
@@ -27,11 +29,19 @@
 				<tr>
 					<td>그랜드 조선 OO</td>
 					<td>2021.06.19&nbsp;토</td>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
+					<td>
+						<select name="roomName">
+							<option value="객실 이름" name="D_TWIN">DELUXE TWIN</option>
+							<option value="객실 이름" name="D_KING">DELUXE KING</option>
+							<option value="객실 이름" name="PS_KING">PREMIER SUITE KING</option>
+							<option value="객실 이름" name="PS_TWIN">PREMIER SUITE TWIN</option>
+						</select>
+					</td>
+					<!-- <td>2</td>
+					<td>3</td> -->
 				</tr>
 		</table>
+		</form>
 	</div>
 	
 	<!-- 객실, 예약, 매출 관리 -->

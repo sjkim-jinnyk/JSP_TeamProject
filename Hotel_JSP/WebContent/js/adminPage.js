@@ -30,5 +30,5 @@ res_click.addEventListener('click', function() {
 	if (contArea1.classList == 'on') {
 		contArea1.classList.replace('on', 'off');
 	}
-	console.log(contArea1);
+	console.log(contArea2);
 });
