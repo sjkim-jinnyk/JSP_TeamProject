@@ -6,6 +6,33 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/AdminStyle.css">
 <title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#btn").click(function(){
+			let room = $("#roomName").val();
+			console.log(room);
+			
+			$.ajax({
+				type: "post",
+				url: "./view/admin/adminPage1.jsp",
+				data : {"roomName" : room},
+				datatype : "jsp",
+				success : function(data) {
+					if(data == 1) {
+						console.log(data);
+					}
+
+				},
+				error : function() {
+					alert("오류");
+				}
+				
+			});
+		});
+		
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="/include/header.jsp" />
@@ -22,7 +49,7 @@
 				<tr>
 					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
 					<td rows="2" class="search" align="center">
-						<input type="submit" value="객실 검색">
+						<input type="button" id="btn" value="객실 검색">
 					</td>
 				</tr>
 				<tr>
