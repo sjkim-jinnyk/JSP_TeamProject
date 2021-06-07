@@ -22,7 +22,7 @@
 	letter-spacing: -.01em;
 	opacity: 0.8;
 }
-
+ 
 .login_inner{
 	position: relative;
 	width: 50%;
@@ -258,22 +258,11 @@ input{
 /* joinForm.jsp */
 .join_inner{
 	position: relative;
+	width: 70%;
 	margin: auto;
 	margin-top: 200px;
 	padding-bottom: 180px;
 	max-width: 800px;
-}
-
-.joinTxt{
-	border: 1px solid black;
-	border-left: hidden;
-	border-right: hidden;
-	border-top: hidden;
-}
-
-.userJoin{
-	position: relative;
-	margin-bottom: 10px;
 }
 
 .joinBox{
@@ -282,9 +271,30 @@ input{
 	float: left;
 }
 
+.join_title{		/* ★ sign_title에서 변경  */
+	font: 500 60px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings: 'lnum', 'pnum';
+	text-align: center;   /* 추가 */
+}
+
 .joinInfo{
 	display: table;
 	padding: 1em;
+}
+
+.userJoin{
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.joinTxt{
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
 }
 
 .join_submit{
@@ -295,6 +305,7 @@ input{
     padding: 0 25px;
     font-size: 15px;
     letter-spacing: -.01em;
+    border-style: none;   /* 추가 */
 }
 
 .joinFormBtn{
@@ -304,4 +315,5 @@ input{
     padding: 0 25px;
     font-size: 15px;
     letter-spacing: -.01em;
+    border: 0.1px solid;   /* 추가 */
 }
