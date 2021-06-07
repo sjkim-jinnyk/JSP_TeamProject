@@ -22,7 +22,9 @@ table{
 .admin_search table td{
 	text-align: center;
 }
-
+.titArea {
+	border: 1px solid black;
+}
 .titArea ul{
 	display: flex;
 }
@@ -30,9 +32,24 @@ table{
 	padding: 0 20px;
 }
 
-.content img{
-	max-width: 50%;
+
+.content_info{
+	display: none;
 }
 
+.room_manage .off{
+	display: none;
+}
 
+.room_manage .on{
+	display: "";
+}
+
+.res_manage .off{
+	display: none;
+}
+
+.res_manage .on{
+	display: "";
+}
 

@@ -1,4 +1,4 @@
-const btn = document.querySelector('.menubar');
+ const btn = document.querySelector('.menubar');
 const list = document.querySelector('.List');
 
 
