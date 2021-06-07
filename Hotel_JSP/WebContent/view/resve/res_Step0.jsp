@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script type="text/javascript">
 
-	// resAdult + -
+	// resAdult + - (완료)
 	function count(type)  {
 		  // 결과를 표시할 element
-		  let resultElement = document.getElementById('result');
+		  let resultElement = document.getElementById('result'); // +- 버튼 안쪽 명수
+		  let resultA =  document.getElementById('resultA'); // 상단 표시 명수
 		  let resAdult =  document.getElementById('resAdult');
 		  
 		  // 현재 화면에 표시된 값
@@ -32,15 +33,17 @@
 		  
 		  // 결과 출력	  
 		  resultElement.innerText = number;
-		  console.log(number);
+		  resultA.innerText = number;
 		  
 	} // count() end 
 	
-	// resChild + -
+	// resChild + - (완료)
 	function count2(type)  {
 		  // 결과를 표시할 element
-		  let resultElement = document.getElementById('result2');
+		  let resultElement = document.getElementById('result2'); // +- 버튼 안쪽 명수
+		  let resultC =  document.getElementById('resultC'); // 상단 표시 명수
 		  let resChild =  document.getElementById('resChild');
+		
 		  
 		  // 현재 화면에 표시된 값
 		  let number = resultElement.innerText;
@@ -59,29 +62,35 @@
 		  }
 		  
 		  // 결과 출력	  
-		  resultElement.innerText = number;		 
+		  resultElement.innerText = number;	
+		  resultC.innerText = number;
 	} // count2() end 
 	
-	// 날짜 입력값 받아서 화면에 출력하기
-	function viewDate(){
-		let resultIn = document.getElementById('resInView'); 		// 결과 표시할 부분
-		let resultOut = document.getElementById('resOutView'); 		// 결과 표시할 부분
-		let resIn = document.getElementById('resIn').value;				// 결과 값 저장 변수
-		let resOut = document.getElementById('resOut').value;			// 결과 값 저장 변수
+	// 날짜 입력값 받아서 화면에 출력하기 (완료)
+	function viewDate(type){
+		let resultIn = document.getElementById('resIn_val'); 		// 결과 표시할 부분
+		let resultOut = document.getElementById('resOut_val'); 		
 		
-		let dateIn = resultIn.innerText;							// 현재 화면에 표시된 값
-		let dateOut = resultIn.innerText;							// 현재 화면에 표시된 값
-		
-		
-		dateIn.value = resIn;
-		resultIn.innerText = resIn;
-		
-		console.log(resIn);
+		let resIn = document.getElementById('resIn');				// 결과 값 저장 변수
+		let resOut = document.getElementById('resOut');				
 
-	}
+		let resInView = document.getElementById('resInView'); 		// 상단 표시 날짜
+		let resOutView = document.getElementById('resOutView'); 
+		
+		if(type === 'in'){
+			resIn.value = resultIn.value;
+			resultIn.innerText = resultIn.value;
+			resInView.innerText = resultIn.value;
+		}else if(type === 'out'){
+			resOut.value = resultOut.value;
+			resultOut.innerText = resultOut.value;
+			resOutView.innerText = resultOut.value;
+		}
+
+	} // viewDate() end
 	
 	
-/* 	// 숙박 일수 계산 (resOut - resIn)
+	// 숙박 일수 계산 (미완)
 	function countNight(){
 		
 		let nightResult = document.getElementById('nightResult'); 	// 결과 표시할 element
@@ -115,7 +124,9 @@
 	<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
 					
-		<input type="hidden" name="resNight" id="resNight" value="1">				
+		<input type="hidden" name="resIn" id="resIn" value="0">				
+		<input type="hidden" name="resOut" id="resOut" value="0">
+		<input type="hidden" name="resNight" id="resNight" value="0">				
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
 	
@@ -141,8 +152,8 @@
 						</p>
 						<button type="button" class="btnToggle1">V</button><br>
 						<div class="toggleCont1">
-							<input type="date" id="resIn" onclick="viewDate(in)">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="date" id="resOut"  onclick="viewDate(out)">
+							<input type="date" id="resIn_val" onchange="viewDate('in')">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="date" id="resOut_val"  onchange="viewDate('out')">
 						</div>
 						<hr>
 					</li>				
@@ -151,7 +162,8 @@
 					<li class="personCount">
 						<p class="listTitle2" style="display: inline">인원 선택</p>
 						<p class="countText" id="countText" style="display: inline">
-							성인 0명 | 어린이 0명
+							성인 <div id="resultA" style="display: inline">0</div>명 | 
+							어린이 <div id="resultC" style="display: inline">0</div>명
 						<button type="button" class="btnToggle2">V</button><br>
 						<div class="toggleCont2">
 							<div class="count">
