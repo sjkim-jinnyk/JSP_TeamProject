@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.hotel.model.UserDTO;
  
 public class UserDAO {
 
@@ -64,5 +66,122 @@ public class UserDAO {
 		}
 
 	}
+	
+	/*
+	 *  로그인 메서드
+	 */
+	
+	// 회원 체크하는 메서드
+	public int userCheck(String userId, String userPwd) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "select * from HOTEL_USER where USER_ID = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(userPwd.equals(rs.getString("USER_PWD"))) {
+					result = 1;
+				} else {	// 비밀번호가 틀린 경우
+					result = -1;
+				}
+			} else {	// 회원 아이디가 없는 경우(회원 아닌 경우)
+				result = -2;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // userCheck() 메서드 end
+	
+	
+	// id에 해당하는 유저 정보 가져오는 메서드
+	public UserDTO getUser(String userId) {
+		
+		UserDTO dto = new UserDTO();
+
+		try {
+			openConn();
+			
+			sql = "select * from HOTEL_USER where USER_ID = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setUserId(rs.getString("USER_ID"));
+				dto.setUserPwd(rs.getString("USER_PWD"));
+				dto.setUserName(rs.getString("USER_NAME"));
+				dto.setUserGen(rs.getString("USER_GEN"));
+				dto.setUserPhone(rs.getString("USER_PHONE"));
+				dto.setUserAddr(rs.getString("USER_ADDR"));
+				dto.setUserEmail(rs.getString("USER_EMAIL"));
+				dto.setUserPoint(rs.getInt("USER_POINT"));
+				dto.setUserDate(rs.getString("USER_DATE"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return dto;
+		
+	} // getMember() 메서드 end
+	
+	
+	/*
+	 *  회원가입 메서드
+	 */
+	
+	public int userJoin(UserDTO dto) {
+		int result = 0;
+	
+		try {
+			openConn();
+			
+			sql = "insert into HOTEL_USER values(?,?,?,?,?,?,?,default,sysdate)";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getUserId());
+			pstmt.setString(2, dto.getUserPwd());
+			pstmt.setString(3, dto.getUserName());
+			pstmt.setString(4, dto.getUserGen());
+			pstmt.setString(5, dto.getUserPhone());
+			pstmt.setString(6, dto.getUserAddr());
+			pstmt.setString(7, dto.getUserEmail());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // userJoin() 메서드 end
+	
+	
+	
 	
 }
