@@ -65,7 +65,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 
-	}
+	} 
 	
 	/*
 	 *  로그인 메서드
@@ -180,6 +180,80 @@ public class UserDAO {
 		return result;
 		
 	} // userJoin() 메서드 end
+	
+	
+	// id 중복체크 확인하는 메서드,
+	public int idCheck(String userId) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+
+	} // idCheck()메서드 end
+	
+	
+	
+	// 아이디 찾기 메서드
+	public String idSearch(String userName, String userPhone) {
+		
+		String result = "";
+
+		try {
+			openConn();
+			
+			sql = "select user_id from hotel_user where user_id = ? and user_phone = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userPhone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				UserDTO dto = new UserDTO();
+				
+				result = dto.getUserId();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+	
+	} // idSearch() 메서드 end
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

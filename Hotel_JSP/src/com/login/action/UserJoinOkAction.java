@@ -13,7 +13,7 @@ import com.hotel.model.UserDAO;
 import com.hotel.model.UserDTO;
 
 public class UserJoinOkAction implements Action {
-
+ 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -57,23 +57,37 @@ public class UserJoinOkAction implements Action {
 		dto.setUserAddr(userAddr);
 		dto.setUserEmail(userEmail);
 		
-		UserDAO dao = UserDAO.getInstance();
-		int join = dao.userJoin(dto);
 		
 		ActionForward forward = new ActionForward();
 		PrintWriter out = response.getWriter();
 
-		if(join > 0) {
-			// 회원가입 성공한 경우
-			forward.setRedirect(false);
-			forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+		
+		if(userPwd_check.equals(dto.getUserPwd())) {
+			
+			// 비밀번호 같은 경우
+			UserDAO dao = UserDAO.getInstance();
+			int join = dao.userJoin(dto);
+			
+			if(join > 0) {
+				// 회원가입 성공한 경우
+				forward.setRedirect(false);
+				forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+			} else {
+				// 회원가입 실패한 경우
+				out.println("<script>");
+				out.println("alert('회원가입에 실패하였습니다.')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
+			
 		} else {
-			// 회원가입 실패한 경우
+			// 비밀번호가 틀린 경우
 			out.println("<script>");
-			out.println("alert('회원가입에 실패하였습니다.')");
+			out.println("alert('비밀번호를 다시 한 번 체크해주세요. ')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
+		
 
 		return forward;
 		
