@@ -14,7 +14,7 @@ import com.hotel.model.UserDAO;
 import com.hotel.model.UserDTO;
 
 public class UserLoginOkAction implements Action {
-
+ 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		

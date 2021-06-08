@@ -13,7 +13,7 @@ import com.hotel.model.UserDAO;
 import com.hotel.model.UserDTO;
 
 public class UserJoinOkAction implements Action {
-
+ 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 

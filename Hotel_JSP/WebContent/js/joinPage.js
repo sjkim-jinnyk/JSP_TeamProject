@@ -6,7 +6,7 @@ function email_change(){
 
 			document.join.userEmail_2.readOnly = true;
 			document.join.userEmail_2.value = "";
-
+ 
 	}
 	
 	// 직접입력 옵션 선택했을 시

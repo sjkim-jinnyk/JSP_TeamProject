@@ -65,7 +65,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 
-	}
+	} 
 	
 	/*
 	 *  로그인 메서드
@@ -222,7 +222,7 @@ public class UserDAO {
 		try {
 			openConn();
 			
-			sql = "select user_pwd from hotel_user where user_id = ? and user_phone = ?";
+			sql = "select user_id from hotel_user where user_id = ? and user_phone = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -232,7 +232,9 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
+				UserDTO dto = new UserDTO();
 				
+				result = dto.getUserId();
 			}
 			
 		} catch (SQLException e) {

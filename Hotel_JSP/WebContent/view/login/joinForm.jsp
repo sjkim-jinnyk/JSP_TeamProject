@@ -7,7 +7,7 @@
 <title>회원가입 페이지</title>
 </head>
 <body>  
-	 
+	  
 	<!-- 회원가입 폼 css -->
 	<link rel="stylesheet" href="css/LoginStyle.css">
 	
