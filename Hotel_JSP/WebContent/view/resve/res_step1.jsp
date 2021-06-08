@@ -85,7 +85,7 @@
 							</p>
 							<p class="priceWrap">
 								<span class="price" >
-									<span id="roomPrice">349,200</span> KRW ~</span>
+									<span id="roomPrice">${i.getRoomPrice() }</span> KRW ~</span>
 								<span class="night"><%=request.getAttribute("resNight") %>박 / 세금 별도</span>
 							</p>
 							<p class="thum">
