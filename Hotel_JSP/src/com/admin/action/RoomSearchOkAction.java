@@ -1,5 +1,6 @@
 package com.admin.action;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +11,6 @@ import com.hotel.controller.ActionForward;
 import com.hotel.model.ReserveDAO;
 import com.hotel.model.ReserveDTO;
 import com.hotel.model.RoomDAO;
-import com.hotel.model.RoomDTO;
 
 public class RoomSearchOkAction implements Action {
 
@@ -51,5 +51,4 @@ public class RoomSearchOkAction implements Action {
 		return forward;
 		
 	}
-
 }

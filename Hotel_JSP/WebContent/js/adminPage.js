@@ -28,9 +28,10 @@ $(function() {
 				"checkIn" : checkIn,
 				"checkOut" : checkOut
 			},
+			async: false,
 			datatype : "xml",
 			success : function(data) {
-				alert('성공');
+				alert('page1 성공');
 				console.log(data);
 				let table = "";
 				console.log($(data).find("room"));
@@ -57,7 +58,7 @@ $(function() {
 			}
 
 		});
-	/*	$.ajax({
+	$.ajax({
 			type : "post",
 			url : "./view/admin/adminPage2.jsp",
 			data : {
@@ -65,9 +66,10 @@ $(function() {
 				"checkIn" : checkIn,
 				"checkOut" : checkOut
 			},
+			async: false,
 			datatype : "xml",
 			success : function(data) {
-				alert('성공');
+				alert('page2 성공');
 				console.log(data);
 				let table = "";
 				console.log($(data).find("reserve"));
@@ -81,6 +83,8 @@ $(function() {
 					
 				});
 				
+				$("#DELUXETWIN").append(table);
+				
 				$("#twin").after(table);
 
 			},
@@ -88,7 +92,7 @@ $(function() {
 				alert("오류");
 			}
 
-		}); */
+		}); 
 	});
 	
 	

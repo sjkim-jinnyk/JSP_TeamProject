@@ -93,7 +93,6 @@ public class ReserveDAO {
 				list.add(dto);
 
 			}
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,5 +103,44 @@ public class ReserveDAO {
 		return list;
 	} // getInfo()
 
+	
+	public String getinfo_html(String name, String in, String out) {
+		
+		String result = "";
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, in);
+			pstmt.setString(2, out);
+			pstmt.setString(3, name);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<rooms>";
+			while(rs.next()) {
+				result += "<reserve>";
+				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<resin>" + rs.getString("res_in") +"</resin>";
+				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "</reserve>";
+			}
+			result += "</rooms>";
+			
+			System.out.println("test :" + result);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getinfo_html()
 	
 }

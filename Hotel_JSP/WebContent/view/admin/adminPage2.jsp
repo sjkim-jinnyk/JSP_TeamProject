@@ -1,4 +1,6 @@
+<%@page import="java.util.List"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
+<%@page import="com.hotel.model.ReserveDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
@@ -10,9 +12,11 @@
 	String room_content = "";
 	double room_size = 0;
 	int room_price = 0;
+	String add_test = "";
 	
 	ReserveDAO dao = ReserveDAO.getInstance();
-	String list = dao.getInfo(roomName, checkIn, checkOut);
+	add_test = dao.getinfo_html(roomName, checkIn, checkOut);
 	
-	//out.println(list);
+	out.println(add_test);
+	
 %>
