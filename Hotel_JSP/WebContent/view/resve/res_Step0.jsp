@@ -6,51 +6,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script type="text/javascript" src="../../js/reserve.js">
-	
-	
-	
-	
-/* 	// 숙박 일수 계산 (미완)
-	function countNight(){		
-		let resNight = document.getElementById('resNight'); 		// 값 저장
-		let nightResult = document.getElementById('nightResult'); 	// 결과 표시 부분
-		resNight.value = 1;
-		nightResult.innerText = resNight.value;		
-		
- 		let startDate = new Date('resIn');
-		let endDate = new Date('resOut');
-		
-		let dateDiff = Math.ceil((edt.getTime()-sdt.getTime())/(1000*3600*24));  */
-		// 차이일수를 정수로 변환
-		// 출처: https://kunoo.tistory.com/entry/javascript-날짜-차이간격-일수-구하기 [Kunoo]
-		/* 
-		if(dateDiff >= 1){
-			resNight = dateDiff -1;
-			nightResult.innerText = resNight.value;		
-		}else if(dateDiff <= 0){
-			alert('정확한 숙박 날짜를 선택해주세요.');
-		}   
-	
-	} */// countNight() end
-	
-	// 선택날짜 표시 영역에 체크인=오늘, 체크아웃=내일 이라고 표시  (미완)
-/* 	function getToday(type){	
-		let resInView =  document.getElementById('resInView');		// 결과 표시할 element
-		let resOutView =  document.getElementById('resOutView');
-
-		let date = new date();	
-		
-		
-	} */
-	
-	// 요일 표시 
-/* 	function getYoil(type){
-		
-	} */
-	
-</script>
-  
+<script type="text/javascript" src="../../js/reserve.js"/>
 </head>
 <body>
 
