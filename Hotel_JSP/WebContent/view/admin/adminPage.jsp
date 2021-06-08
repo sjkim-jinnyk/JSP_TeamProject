@@ -29,7 +29,7 @@
 				<tr>
 					<td>그랜드 조선 OO</td>
 					<td>
-						<input type="date" id="checkIn" name="checkIn">
+						<input type="date" id="checkIn" name="checkIn"> - 
 				    	<input type="date" id="checkOut" name="checkOut">
 				    	
 					</td>
@@ -61,14 +61,14 @@
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
-			<table id="DELUXETWIN" class="off">
+			<table id="DELUXETWIN" class="use">
 				<tr id="twin">
-					<!-- <td class="img" rowspan="3">
+					 <td class="img" rowspan="3">
 						<img alt="상품" src="image/객실.jpg">
 					</td>
-					<td colspan="2">DELUXE KING</td> -->
-				</tr>
-<!-- 				<tr>
+					<td id="D_TWIN" colspan="2">DELUXE TWIN</td>
+				</tr> 
+				<tr>
 					<td colspan="2" align="left">
 						Mountain View | Size: 46.7 m² <br>
 						<a href="">객실 상세 보기</a>
@@ -77,10 +77,76 @@
 				<tr>
 					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
 					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr> -->
+				</tr> 
+			</table>
+			<!-- 상세페이지 -->
+			<table class="content_info">
+<%-- 				<tr>
+					<td>
+						<strong>101호</strong>
+						<p class="room_num">남은 객실</p>
+					</td>
+					<td>
+						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
+					</td>
+				</tr> --%>	
+			</table>
+			<table id="DELUXEKING" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">DELUXE KING</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
+				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
+			</table>
+			<table id="SUITEKING" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">SUITE KING</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
+				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
+			</table>
+			<table id="SUITETWIN" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">SUITE TWIN</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
+				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
 			</table>
 			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-<%-- 			<table class="content_info">
+<%-- 		<table class="content_info">
 				<tr>
 					<td>
 						<strong>101호</strong>
@@ -90,7 +156,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
+			</table> --%> 	
 		</div>
 		
 		<!-- 예약관리 페이지  -->
@@ -124,7 +190,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table> --%>
+			</table> 
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />

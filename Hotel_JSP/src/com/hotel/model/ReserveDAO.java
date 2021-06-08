@@ -102,6 +102,7 @@ public class ReserveDAO {
 		
 		return list;
 	} // getInfo()
+
 	
 	public String getinfo_html(String name, String in, String out) {
 		
