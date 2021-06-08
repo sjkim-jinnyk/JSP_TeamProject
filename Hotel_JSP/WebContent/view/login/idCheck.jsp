@@ -10,7 +10,7 @@
 	result = dao.idCheck(userId);
 
 %>    
-    
+     
 <!DOCTYPE html>
 <html>
 <head>
