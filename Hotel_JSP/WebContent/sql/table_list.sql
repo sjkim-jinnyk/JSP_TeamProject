@@ -65,6 +65,14 @@ CREATE TABLE room                                           -- 객실 테이블
     room_size       NUMBER(5,2)      NOT NULL               -- 객실 크기(소수점 2자리 까지)
 );
 
+CREATE TABLE room_number                                    -- 객실 호수 테이블
+(
+    room_name       VARCHAR2(30)     NOT NULL,           	-- 객실 이름
+    room_number     NUMBER(5)        NOT NULL               -- 객실 호수
+);
+
+
+
 -- 외래키 설정
 -- 관리자 -> 공지사항
 ALTER TABLE INFO
@@ -76,7 +84,12 @@ ALTER TABLE reserve
     ADD CONSTRAINT FK_reserve_user_id FOREIGN KEY (user_id)
         REFERENCES HOTEL_USER (user_id);
         
--- 예약 -> 방
+-- 객실 -> 예약
 ALTER TABLE reserve
     ADD CONSTRAINT FK_reserve_room_name FOREIGN KEY (room_name)
+        REFERENCES room (room_name);
+
+-- 객실 -> 객실 호수
+ALTER TABLE room_number
+    ADD CONSTRAINT FK_room_number_room_name FOREIGN KEY (room_name)
         REFERENCES room (room_name);
