@@ -49,7 +49,7 @@ public class RoomDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} // openConn() end
 
 	// DB에 연결된 객체를 종료하는 메서드
 	public void closeConn(ResultSet rs, PreparedStatement pstmt, Connection con) {
@@ -65,7 +65,39 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 
-	}
+	} // closeConn() end
+	
+	// 전체 객실 조회
+	public List<RoomDTO> getRoomList(){
+		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from room";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO dto = new RoomDTO();
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomPrice(rs.getInt("room_price"));
+				dto.setRoomContent(rs.getString("room_content"));
+				dto.setRoomImage(rs.getString("room_Image"));
+				dto.setRoomSize(rs.getInt("room_size"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+
+	} // getRoomList() end 
+	
 	
 	public String getRoomDetail(String name) {
 		

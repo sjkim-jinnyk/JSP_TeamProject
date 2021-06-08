@@ -64,8 +64,8 @@ public class ResStep3Action implements Action {
 		
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
-		forward.setPath("/view/resve/step3.jsp");
-		
+
+		forward.setPath("/view/resve/res_step3.jsp");				
 		return forward;
 	}
 
