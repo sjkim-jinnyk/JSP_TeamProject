@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -64,5 +66,80 @@ public class ReserveDAO {
 		}
 
 	}
+	
+	public List<ReserveDTO> getInfo(String name, String in, String out) {
+		
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, in);
+			pstmt.setString(2, out);
+			pstmt.setString(3, name);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				ReserveDTO dto = new ReserveDTO();
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setResIn(rs.getString("res_in"));
+				dto.setResOut(rs.getString("res_out"));
+				list.add(dto);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+	} // getInfo()
+	
+	public String getinfo_html(String name, String in, String out) {
+		
+		String result = "";
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, in);
+			pstmt.setString(2, out);
+			pstmt.setString(3, name);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<rooms>";
+			while(rs.next()) {
+				result += "<reserve>";
+				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<resin>" + rs.getString("res_in") +"</resin>";
+				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "</reserve>";
+			}
+			result += "</rooms>";
+			
+			System.out.println("test :" + result);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getinfo_html()
 	
 }

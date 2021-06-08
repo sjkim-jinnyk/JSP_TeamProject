@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -64,5 +66,70 @@ public class RoomDAO {
 		}
 
 	}
+	
+	public String getRoomDetail(String name) {
+		
+		String result = "";
+		
+		try {
+			
+			openConn();
+			
+			sql = "select * from room where room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			result += "<rooms>";
+			while(rs.next()) {
+				result += "<room>";
+				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<price>" + rs.getInt("room_price") +"</price>";
+				result += "<content>" + rs.getString("room_content") +"</content>";
+				result += "<img>" + rs.getString("room_image") +"</img>";
+				result += "<size>" + rs.getInt("room_size") +"</size>";
+				result += "</room>";
+			}
+			result += "</rooms>";
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getRoomList()
+	
+	public int checkRoom(String name) {
+		
+		int result = 0;
+		try {
+			
+			openConn();
+			
+			sql = "select * from room where room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, name);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // checkRoom()
 	
 }
