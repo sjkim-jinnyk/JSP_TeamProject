@@ -1,39 +1,44 @@
 package com.resve.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.RoomDAO;
+import com.hotel.model.RoomDTO;
 
 public class ResStep1Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		// step0.jsp (날짜, 입력 폼페이지) 에서 넘어온 checkIn, checkOut, adult, child 
+		// step0.jsp (날짜, 입력 폼페이지) 에서 넘어온  
 		// 데이터 받아서 step1.jsp 로 넘겨줌
 		
 		String resIn = request.getParameter("resIn").trim();
 		String resOut = request.getParameter("resOut").trim();
-		String night = request.getParameter("night").trim();
+		String resNight = request.getParameter("resNight").trim();
 		String resAdult = request.getParameter("resAdult").trim();
 		String resChild = request.getParameter("resChild").trim();
 		
 		request.setAttribute("resIn", resIn);
 		request.setAttribute("resOut", resOut);
-		request.setAttribute("night", night);
+		request.setAttribute("resNight", resNight);
 		request.setAttribute("resAdult", resAdult);
 		request.setAttribute("resChild", resChild);
 		
-		System.out.println(resIn + resOut);
-		System.out.println(night);
-		System.out.println(resAdult + resChild);
+		System.out.println(resIn);
 		
-		
+		RoomDAO dao = RoomDAO.getInstance();
+		List<RoomDTO> list = dao.getRoomList();
+		request.setAttribute("roomList", list);
+
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
-		forward.setPath("/view/resve/step1.jsp");				
+		forward.setPath("/view/resve/res_step1.jsp");				
 		return forward;
 	}
 

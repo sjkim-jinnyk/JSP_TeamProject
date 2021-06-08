@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -47,7 +49,7 @@ public class RoomDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} // openConn() end
 
 	// DB에 연결된 객체를 종료하는 메서드
 	public void closeConn(ResultSet rs, PreparedStatement pstmt, Connection con) {
@@ -63,6 +65,39 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 
-	}
+	} // closeConn() end
+	
+	// 전체 객실 조회
+	public List<RoomDTO> getRoomList(){
+		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from room";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO dto = new RoomDTO();
+				dto.setRoomName(rs.getString("roomName"));
+				dto.setRoomPrice(rs.getInt("roomPrice"));
+				dto.setRoomContent(rs.getString("roomContent"));
+				dto.setRoomImage(rs.getString("roomImage"));
+				dto.setRoomSize(rs.getInt("roomSize"));
+				
+				list.add(dto);
+			}
+			System.out.println(list);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+
+	} // getRoomList() end 
+	
 	
 }
