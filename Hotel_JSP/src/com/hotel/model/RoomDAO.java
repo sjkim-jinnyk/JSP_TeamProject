@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -64,5 +66,66 @@ public class RoomDAO {
 		}
 
 	}
+	
+	public List<RoomDTO> getRoomList(String name) {
+		
+		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
+		try {
+			
+			openConn();
+			
+			sql = "select * from room where room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO dto = new RoomDTO();
+				dto.setRoomPrice(rs.getInt("room_price"));
+				dto.setRoomContent(rs.getString("room_content"));
+				dto.setRoomImage(rs.getString("room_image"));
+				dto.setRoomSize(rs.getInt("room_size"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+	} // getRoomList()
+	
+	public int checkRoom(String name) {
+		
+		int result = 0;
+		try {
+			
+			openConn();
+			
+			sql = "select * from room where room_name = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, name);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = 1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // checkRoom()
 	
 }

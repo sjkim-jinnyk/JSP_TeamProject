@@ -55,10 +55,10 @@
 		<div class="section" style="background : #74b9ff">
 		</div>
 			
-		<div class="section" style="background : #0984e3">Some section</div>
+		<div class="section" style="background : #0984e3"></div>
 		<div class="section fp-auto-height"><jsp:include page="/include/footer.jsp" /></div>
 	</div>
-	<jsp:include page="/include/footer.jsp" />
+	
 	<script type="text/javascript" src="js/fullpage.js"></script>
 	<!--  Fullpage.js -->
 	<script type="text/javascript">

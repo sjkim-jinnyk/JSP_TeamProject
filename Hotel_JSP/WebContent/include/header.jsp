@@ -41,7 +41,7 @@
 						</li>
 						<li class="name">CUSTOMER SERVICE
 							<ul class="innerMenu">
-								<li>Q&A</li>
+								<a href="<%=request.getContextPath() %>/QnA.do"><li>Q&A</li></a>
 								<li>FAQ</li>
 							</ul>
 						</li>
