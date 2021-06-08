@@ -87,7 +87,7 @@ public class RoomDAO {
 				result += "<name>" + rs.getString("room_name") +"</name>";
 				result += "<price>" + rs.getInt("room_price") +"</price>";
 				result += "<content>" + rs.getString("room_content") +"</content>";
-				result += "<image>" + rs.getString("room_image") +"</image>";
+				result += "<img>" + rs.getString("room_image") +"</img>";
 				result += "<size>" + rs.getInt("room_size") +"</size>";
 				result += "</room>";
 			}

@@ -85,14 +85,15 @@ public class ReserveDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				ReserveDTO dto = new ReserveDTO();
 				
+				ReserveDTO dto = new ReserveDTO();
 				dto.setRoomName(rs.getString("room_name"));
 				dto.setResIn(rs.getString("res_in"));
-				dto.setResOut(rs.getString("res_out"));	
-				
+				dto.setResOut(rs.getString("res_out"));
 				list.add(dto);
+
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

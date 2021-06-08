@@ -115,7 +115,7 @@
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
 			<table id="DELUXETWIN" class="off">
-				<tr>
+				<tr id="twin">
 					<!-- <td class="img" rowspan="3">
 						<img alt="상품" src="image/객실.jpg">
 					</td>
