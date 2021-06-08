@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.UserDAO;
+import com.hotel.model.UserDTO;
 
 public class UserIdSearchOkAction implements Action {
  
@@ -17,6 +19,9 @@ public class UserIdSearchOkAction implements Action {
 		// id_search.jsp 에서 넘어온 값 체크
 		System.out.println("이름 >>> " + userName);
 		System.out.println("핸드폰 번호 >>> " + userPhone);
+		
+		UserDAO dao = UserDAO.getInstance();
+		dao.idSearch(userName, userPhone);
 		
 		ActionForward forward = new ActionForward();
 		
