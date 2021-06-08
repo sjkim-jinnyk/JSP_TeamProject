@@ -7,9 +7,6 @@
 
 <%
 	
-	
 	List<ReserveDTO> list = (List<ReserveDTO>)request.getAttribute("list"); 
-	
-	out.println(list.getRoomName());
 
 %>
