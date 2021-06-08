@@ -20,16 +20,32 @@
 
 			$.ajax({
 				type : "post",
-				url : "admin_room_search_ok.do", //./view/admin/adminPage1.jsp
+				url : "./view/admin/adminPage1.jsp", //"admin_room_search_ok.do",
 				data : {
 					"roomName" : room,
 					"checkIn" : checkIn,
 					"checkOut" : checkOut
 				},
-				datatype : "jsp",
+				datatype : "xml",
 				success : function(data) {
 					alert('성공');
 					console.log(data);
+					//$("#DELUXE TWIN tr:gt(0)").remove();
+					let table = "";
+					console.log($(data).find("room").each);
+					$(data).find("room").each(function(){
+						
+						table += "<tr>";
+						table += "<td>"+$(this).find("price").text()+"</td>"
+						table += "<td>"+$(this).find("image").text()+"</td>"
+						table += "<td>"+$(this).find("content").text()+"</td>"
+						table += "<td>"+$(this).find("size").text()+"</td>"
+						table += "</tr>";
+					});
+					console.log(table);
+					
+					//$("#DELUXETWIN tr:eq(0)").after(table);
+					$("#DELUXETWIN").append(table);
 
 				},
 				error : function() {
@@ -38,8 +54,12 @@
 
 			});
 		});
+		
+		
 
 	});
+	
+
 </script>
 </head>
 <body>
@@ -95,14 +115,14 @@
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
-			<table id="DELUXE TWIN" class="off">
+			<table id="DELUXETWIN" class="off">
 				<tr>
-					<td class="img" rowspan="3">
+					<!-- <td class="img" rowspan="3">
 						<img alt="상품" src="image/객실.jpg">
 					</td>
-					<td colspan="2">DELUXE KING</td>
+					<td colspan="2">DELUXE KING</td> -->
 				</tr>
-				<tr>
+<!-- 				<tr>
 					<td colspan="2" align="left">
 						Mountain View | Size: 46.7 m² <br>
 						<a href="">객실 상세 보기</a>
@@ -111,10 +131,10 @@
 				<tr>
 					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
 					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr>
+				</tr> -->
 			</table>
 			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-			<table class="content_info">
+<%-- 			<table class="content_info">
 				<tr>
 					<td>
 						<strong>101호</strong>
@@ -158,10 +178,10 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
+			</table> --%>
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />
-	<script type="text/javascript" src="js/adminPage.js"></script>
+	<!--  <script type="text/javascript" src="js/adminPage.js"></script> -->
 </body>
 </html>

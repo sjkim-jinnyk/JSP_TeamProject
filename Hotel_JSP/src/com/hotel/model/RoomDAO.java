@@ -67,9 +67,9 @@ public class RoomDAO {
 
 	}
 	
-	public List<RoomDTO> getRoomList(String name) {
+	public String getRoomDetail(String name) {
 		
-		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		String result = "";
 		
 		try {
 			
@@ -81,14 +81,18 @@ public class RoomDAO {
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
 			
+			result += "<rooms>";
 			while(rs.next()) {
-				RoomDTO dto = new RoomDTO();
-				dto.setRoomPrice(rs.getInt("room_price"));
-				dto.setRoomContent(rs.getString("room_content"));
-				dto.setRoomImage(rs.getString("room_image"));
-				dto.setRoomSize(rs.getInt("room_size"));
-				list.add(dto);
+				result += "<room>";
+				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<price>" + rs.getInt("room_price") +"</price>";
+				result += "<content>" + rs.getString("room_content") +"</content>";
+				result += "<img>" + rs.getString("room_image") +"</img>";
+				result += "<size>" + rs.getInt("room_size") +"</size>";
+				result += "</room>";
 			}
+			result += "</rooms>";
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,7 +100,7 @@ public class RoomDAO {
 			closeConn(rs, pstmt, con);
 		}
 		
-		return list;
+		return result;
 	} // getRoomList()
 	
 	public int checkRoom(String name) {

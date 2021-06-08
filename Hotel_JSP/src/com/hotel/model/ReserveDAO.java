@@ -93,6 +93,9 @@ public class ReserveDAO {
 				
 				list.add(dto);
 			}
+			
+			System.out.println(list.get(0).getRoomName());
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
