@@ -1,5 +1,5 @@
 /* check 클릭시 상세내역 오픈*/
-/*const btn = document.querySelector('#check');
+const btn = document.querySelector('#check');
 const list = document.querySelector('.content_info');
 
 btn.addEventListener('click', function() {
@@ -9,7 +9,7 @@ btn.addEventListener('click', function() {
 	} else {
 		list.style.display = 'none';
 	}
-});*/
+});
 
 $(function() {
 	$("#btn").click(function() {
@@ -37,13 +37,14 @@ $(function() {
 				$(data).find("room").each(function(){
 					
 					table += "<tr>";
-					table += "<td><img alt='상품' src='image/"+$(this).find("name").text()+".jpg'></td>"
+					table += "<td rowspan='3'><img alt='상품' src='image/"+$(this).find("name").text()+".jpg'></td>"
 					table += "<td colspan='2'>"+$(this).find("name").text()+"</td>"
 					table += "</tr>";
 					table += "<tr>";
-					table += "<td>"+$(this).find("price").text()+"</td>"
-					table += "<td>"+$(this).find("content").text()+"</td>"
-					table += "<td>"+$(this).find("size").text()+"</td>"
+					table += "<td colspan='2' align='left'>"+$(this).find("content").text()+" | Size : "+$(this).find("size").text()+" m² </td>"
+					table += "</tr>";
+					table += "<tr>";
+					table += "<td><h2>"+$(this).find("price").text()+"</h2></td>"
 					table += "</tr>";
 					
 				});
@@ -99,7 +100,7 @@ $(function() {
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
 const room_click = document.querySelector('#room_click');
 const res_click = document.querySelector('#res_click');
-const contArea1 = document.querySelector('#contArea1');
+const contArea1 = document.querySelector('#DELUXETWIN');
 const contArea2 = document.querySelector('#contArea2');
 
 room_click.addEventListener('click', function() {

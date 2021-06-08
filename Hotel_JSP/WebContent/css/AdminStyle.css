@@ -37,19 +37,18 @@ table{
 	display: none;
 }
 
-/* .room_manage .off{
+.room_manage .off{
 	display: none;
 }
 
 .room_manage .on{
 	display: "";
 }
-
-.res_manage .off{
+#contArea2 .off{
 	display: none;
 }
 
 .res_manage .on{
 	display: "";
-} */
+}
 
