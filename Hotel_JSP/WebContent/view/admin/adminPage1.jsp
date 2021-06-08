@@ -20,9 +20,9 @@
 	
 	// request.setAttribute("list", list);
 	
-	for(int i=0; i<list.size(); i++) {
+ 	for(int i=0; i<list.size(); i++) {
 		search_room = list.get(i).getRoomName();
-	}
+	} 
 	
 	RoomDAO listdao = RoomDAO.getInstance();
 	String room_detail = listdao.getRoomDetail(search_room);

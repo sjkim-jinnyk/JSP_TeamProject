@@ -22,36 +22,33 @@ $(function() {
 
 		$.ajax({
 			type : "post",
-			url : "./view/admin/adminPage1.jsp",/* "admin_room_search_ok.do", */ //./view/admin/adminPage1.jsp
+			url : "./view/admin/adminPage1.jsp",
 			data : {
 				"roomName" : room,
 				"checkIn" : checkIn,
 				"checkOut" : checkOut
 			},
+			async: false,
 			datatype : "xml",
 			success : function(data) {
-				alert('성공');
+				alert('page1 성공');
 				console.log(data);
-				//$("#DELUXE TWIN tr:gt(0)").remove();
 				let table = "";
 				console.log($(data).find("room"));
 				$(data).find("room").each(function(){
 					
 					table += "<tr>";
-					table += "<td>"+$(this).find("image").text()+"</td>"
+					table += "<td><img alt='상품' src='image/"+$(this).find("name").text()+".jpg'></td>"
 					table += "<td colspan='2'>"+$(this).find("name").text()+"</td>"
 					table += "</tr>";
+					table += "<tr>";
 					table += "<td>"+$(this).find("price").text()+"</td>"
-					table += "<td>"+$(this).find("image").text()+"</td>"
 					table += "<td>"+$(this).find("content").text()+"</td>"
 					table += "<td>"+$(this).find("size").text()+"</td>"
 					table += "</tr>";
-					console.log($(this).find("image"));
 					
 				});
-				console.log(table);
 				
-				//$("#DELUXETWIN tr:eq(0)").after(table);
 				$("#DELUXETWIN").append(table);
 
 			},
@@ -60,6 +57,41 @@ $(function() {
 			}
 
 		});
+	$.ajax({
+			type : "post",
+			url : "./view/admin/adminPage2.jsp",
+			data : {
+				"roomName" : room,
+				"checkIn" : checkIn,
+				"checkOut" : checkOut
+			},
+			async: false,
+			datatype : "xml",
+			success : function(data) {
+				alert('page2 성공');
+				console.log(data);
+				let table = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					table += "<tr>";
+					table += "<td>"+$(this).find("name").text()+"</td>"
+					table += "<td>"+$(this).find("checkin").text()+"</td>"
+					table += "<td>"+$(this).find("checkout").text()+"</td>"
+					table += "</tr>";
+					
+				});
+				
+				$("#DELUXETWIN").append(table);
+				
+				$("#twin").after(table);
+
+			},
+			error : function() {
+				alert("오류");
+			}
+
+		}); 
 	});
 	
 	
@@ -69,7 +101,7 @@ $(function() {
 
 
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
-/*const room_click = document.querySelector('#room_click');
+const room_click = document.querySelector('#room_click');
 const res_click = document.querySelector('#res_click');
 const contArea1 = document.querySelector('#contArea1');
 const contArea2 = document.querySelector('#contArea2');
@@ -88,4 +120,4 @@ res_click.addEventListener('click', function() {
 		contArea1.classList.replace('on', 'off');
 	}
 	console.log(contArea2);
-});*/
+});
