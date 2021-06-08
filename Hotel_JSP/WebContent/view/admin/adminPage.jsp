@@ -29,7 +29,7 @@
 				<tr>
 					<td>그랜드 조선 OO</td>
 					<td>
-						<input type="date" id="checkIn" name="checkIn"> - 
+						<input type="date" id="checkIn" name="checkIn">
 				    	<input type="date" id="checkOut" name="checkOut">
 				    	
 					</td>

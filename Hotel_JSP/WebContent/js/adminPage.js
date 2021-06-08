@@ -76,8 +76,8 @@ $(function() {
 					
 					table += "<tr>";
 					table += "<td>"+$(this).find("name").text()+"</td>"
-					table += "<td>"+$(this).find("checkin").text()+"</td>"
-					table += "<td>"+$(this).find("checkout").text()+"</td>"
+					table += "<td>"+$(this).find("resin").text()+"</td>"
+					table += "<td>"+$(this).find("resout").text()+"</td>"
 					table += "</tr>";
 					
 				});
