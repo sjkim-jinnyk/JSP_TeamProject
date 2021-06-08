@@ -79,9 +79,14 @@
 	<!-- 주소 API 파일 로딩  -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
+	<div id="element_to_pop_up">
+      <a class="b-close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
 	<!-- 회원가입 폼 스크립트 -->
 	<script type="text/javascript" src="js/joinPage.js"></script>
-
+	
 	<!-- footer 영역 -->
 	<jsp:include page="../../include/footer.jsp" />
 	

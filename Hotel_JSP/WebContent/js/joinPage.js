@@ -95,6 +95,15 @@ function idCheck(){
 		return false;
 	}
 	
+    (function ($) {
+      $(function () {
+        $("#modal_button").bind("click", function (e) {
+          e.preventDefault();
+          $("#element_to_pop_up").bPopup({});
+        });
+      });
+    })(jQuery);
+
 	var url = "../Hotel_JSP/view/login/idCheck.jsp?userId=" + userId;
 	
 	window.open(url, "get", "height=180, width=300");
