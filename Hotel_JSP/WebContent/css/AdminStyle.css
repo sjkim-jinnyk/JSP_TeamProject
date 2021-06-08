@@ -44,7 +44,7 @@ table{
 .room_manage .on{
 	display: "";
 }
-#contArea2 .off{
+.res_manage .off{
 	display: none;
 }
 

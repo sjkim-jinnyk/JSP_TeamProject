@@ -3,12 +3,39 @@ const btn = document.querySelector('#check');
 const list = document.querySelector('.content_info');
 
 btn.addEventListener('click', function() {
-
+	let d_twin = $("#D_TWIN").text();
+	console.log(d_twin);
+	
 	if (list.style.display === 'none') {
 		list.style.display = 'block';
 	} else {
 		list.style.display = 'none';
 	}
+	$.ajax({
+		type : "post",
+		url : "./view/admin/adminPageCheck.jsp",
+		data : {
+			"D_TWIN" : d_twin
+		},
+		success : function(data) {
+			alert('성공');
+			let table = "";
+			console.log($(data).find("number"));
+			$(data).find("number").each(function(){
+				
+				table += "<tr>";
+				table += "<td>"+$(this).find("name").text()+"</td>"
+				table += "<td>"+$(this).find("num").text()+"</td>"
+				table += "</tr>";	
+			});
+			
+			$(".content_info").append(table);
+
+		},
+		error : function() {
+			alert('오류');
+		}
+	});
 });
 
 $(function() {
@@ -77,8 +104,8 @@ $(function() {
 					
 					table += "<tr>";
 					table += "<td>"+$(this).find("name").text()+"</td>"
-					table += "<td>"+$(this).find("checkin").text()+"</td>"
-					table += "<td>"+$(this).find("checkout").text()+"</td>"
+					table += "<td>"+$(this).find("resin").text()+"</td>"
+					table += "<td>"+$(this).find("resout").text()+"</td>"
 					table += "</tr>";
 					
 				});
@@ -107,8 +134,11 @@ const res_click = document.querySelector('#res_click');
 const contArea1 = document.querySelector('#DELUXETWIN');
 const contArea2 = document.querySelector('#contArea2');
 
+
+
 room_click.addEventListener('click', function() {
 	contArea1.classList.replace('off', 'on');
+	contArea2.classList.replace('use','off');
 	if (contArea2.classList == 'on') {
 		contArea2.classList.replace('on', 'off');
 	}
