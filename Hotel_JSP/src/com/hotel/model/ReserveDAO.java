@@ -147,7 +147,7 @@ public class ReserveDAO {
 		try {
 			openConn();
 			
-			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ?";
+			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ? order by room_number";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -160,7 +160,7 @@ public class ReserveDAO {
 			result += "<rooms>";
 			while(rs.next()) {
 				result += "<reserve>";
-				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<num>" + rs.getString("room_number") +"</num>";
 				result += "<resin>" + rs.getString("res_in") +"</resin>";
 				result += "<resout>" + rs.getString("res_out") +"</resout>";
 				result += "</reserve>";
