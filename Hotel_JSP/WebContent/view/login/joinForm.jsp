@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.hotel.model.UserDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입 페이지</title>
-</head>
-<body>  
 	  
 	<!-- 회원가입 폼 css -->
 	<link rel="stylesheet" href="css/LoginStyle.css">
@@ -27,7 +26,7 @@
 			<ul>      
 				<li><font size="2" color="red">*필수정보 입력</font></li>
 				<br>
-				<li>ID* <br><input type="text" class="joinTxt" name="userId"> 
+				<li>ID* <br><input type="text" id="id_txt" class="joinTxt" name="userId" placeholder="아이디"> 
 						<input type="button" class="joinFormBtn" name="userId_check" value="중복확인" onclick="idCheck()" required>
 				</li>
 				<li>PASSWORD* <br><input type="password" class="joinTxt" name="userPwd" id="userPwd" maxlength="14" onchange="pwd_check()" placeholder="영문/숫자 포함 15자 미만" required></li>
@@ -36,10 +35,11 @@
 					&nbsp;<span id="check">비밀번호를 확인해주세요.</span>
 				</li>
 				<li>NAME* <br>
-				<input type="text" class="joinTxt" name="userName" required></li>
-				<li>GENDER <br><input type="radio" name="userGen" value="남성">남성
-					  	   <input type="radio" name="userGen" value="여성">여성
-				</li>
+				<input type="text" class="joinTxt" name="userName" placeholder="이름" required></li>
+				<div class="checks">
+				<li class="margin-gen">GENDER </li><input type="radio" name="userGen" value="남성"><span>남성</span>
+					  	   <input type="radio" class="UserGen" name="userGen" value="여성"><span>여성</span>
+				</div>
 				<li>PHONE <br><input type="tel" class="joinTxt" name="userPhone" placeholder="'-'제외하고 입력해주세요.">
 				</li>
 				<li>ADDRESS <br>
@@ -54,11 +54,10 @@
 				<li>E-MAIL <br><input type="text" class="joinTxt" name="userEmail_1" onfocus="this.value='';" placeholder="이메일 입력해주세요.">		
 						   <span>@</span>
 						   <input type="text" class="joinTxt" name="userEmail_2" value="" readonly>
-						   <select name="userEmail" onchange="email_change()">
-						  		<option value="0" selected>::E-Mail 선택::</option>	<!-- ★ 옵션 선택시 값이 서블릿에 안 넘어감(직접입력은 됨) -->
+						   <select name="userEmail" class="select-box" onchange="email_change()">
+						  		<option value="0" selected>E-Mail 선택</option>	<!-- ★ 옵션 선택시 값이 서블릿에 안 넘어감(직접입력은 됨) -->
 						  		<option value="naver.com">naver.com</option>
-						  		<option value="daum.net">daum.net</option>
-						  		<option value="gmial.com">gmail.com</option>
+						  		<option value="gmail.com">gmail.com</option>
 						  		<option value="hamail.net">hanmail.net</option>
 						  		<option value="nate.con">nate.com</option>
 						  		<option value="1">직접입력</option>
@@ -67,9 +66,9 @@
 			</ul>
 			<br>
 			
-			<div>
-					<input type="submit" class="join_submit" value="회원가입"> &nbsp;
-					<input type="reset" class="join_submit" value="취소">
+			<div class="join-submit">
+					<input type="reset" class="join_submit_no" value="취소">  &nbsp;
+					<input type="submit" class="join_submit" value="회원가입">
 			</div>
 		</form>
 	</div>
@@ -79,16 +78,12 @@
 	<!-- 주소 API 파일 로딩  -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
-	<div id="element_to_pop_up">
-      <a class="b-close">
-        <i class="fas fa-times"></i>
-      </a>
-    </div>
 	<!-- 회원가입 폼 스크립트 -->
 	<script type="text/javascript" src="js/joinPage.js"></script>
 	
 	<!-- footer 영역 -->
 	<jsp:include page="../../include/footer.jsp" />
+	
 	
 </body>
 </html>

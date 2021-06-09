@@ -1,7 +1,6 @@
 package com.login.action;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +41,7 @@ public class UserLoginOkAction implements Action {
 			
 			forward.setRedirect(false);
 			forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+			
 		} else if(check == -1) {
 			// 비밀번호가 틀린 경우
 			out.println("<script>");
@@ -58,5 +58,4 @@ public class UserLoginOkAction implements Action {
 		
 		return forward;
 	}
-
 }
