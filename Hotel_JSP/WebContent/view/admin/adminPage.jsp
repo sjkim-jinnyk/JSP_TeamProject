@@ -23,7 +23,7 @@
 				<tr>
 					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
 					<td rows="2" class="search" align="center">
-						<input type="button" id="btn" value="객실 검색">
+						<input type="button" id="search_btn" value="객실 검색">
 					</td>
 				</tr>
 				<tr>
@@ -161,8 +161,8 @@
 			</table>			
 					
 			<!-- standard로 객실 검색 눌렀을 때 -->
-			<table id="standard_search" class="use" >
-			</table>
+			<ul id="standard_search" class="use" >
+			</ul>
 			
 			<!-- 상세페이지 -->
 			<table class="content_info" style="display:none;">
