@@ -7,7 +7,7 @@
 <title>회원가입 페이지</title>
 </head>
 <body>  
-	 
+	  
 	<!-- 회원가입 폼 css -->
 	<link rel="stylesheet" href="css/LoginStyle.css">
 	
@@ -22,17 +22,19 @@
 		
 		<div class="joinInfo">
 		<form method="post" action="<%=request.getContextPath() %>/user_join_ok.do" name="join">
-			<!-- 가입일자 hidden으로 넘겨주기 -->
-			<!-- <input type="hidden" name="userDate" value="sysdate"> -->			
 			
-			<ul>
+					
+			<ul>      
 				<li><font size="2" color="red">*필수정보 입력</font></li>
 				<br>
 				<li>ID* <br><input type="text" class="joinTxt" name="userId"> 
-						<input type="button" class="joinFormBtn" name="userId_check" value="중복확인" required>
+						<input type="button" class="joinFormBtn" name="userId_check" value="중복확인" onclick="idCheck()" required>
 				</li>
-				<li>PASSWORD* <br><input type="password" class="joinTxt" name="userPwd" maxlength="10" placeholder="영문/숫자 포함 10자 미만" required></li>
-				<li>CONFIRM PASSWORD* <br><input type="password" class="joinTxt" name="userPwd_check" maxlength="10" placeholder="영문/숫자 포함 10자 미만" required></li>
+				<li>PASSWORD* <br><input type="password" class="joinTxt" name="userPwd" id="userPwd" maxlength="14" onchange="pwd_check()" placeholder="영문/숫자 포함 15자 미만" required></li>
+				<li>
+					CONFIRM PASSWORD* <br><input type="password" class="joinTxt" name="userPwd_check" id="userPwd_check" maxlength="14" onchange="pwd_check()" placeholder="영문/숫자 포함 15자 미만" required>
+					&nbsp;<span id="check">비밀번호를 확인해주세요.</span>
+				</li>
 				<li>NAME* <br>
 				<input type="text" class="joinTxt" name="userName" required></li>
 				<li>GENDER <br><input type="radio" name="userGen" value="남성">남성
@@ -51,7 +53,7 @@
 				</li>
 				<li>E-MAIL <br><input type="text" class="joinTxt" name="userEmail_1" onfocus="this.value='';" placeholder="이메일 입력해주세요.">		
 						   <span>@</span>
-						   <input type="text" class="joinTxt" name="userEmail_2" value="" disabled>
+						   <input type="text" class="joinTxt" name="userEmail_2" value="" readonly>
 						   <select name="userEmail" onchange="email_change()">
 						  		<option value="0" selected>::E-Mail 선택::</option>	<!-- ★ 옵션 선택시 값이 서블릿에 안 넘어감(직접입력은 됨) -->
 						  		<option value="naver.com">naver.com</option>
@@ -72,12 +74,19 @@
 		</form>
 	</div>
 	
+	</div>
+	
 	<!-- 주소 API 파일 로딩  -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
+	<div id="element_to_pop_up">
+      <a class="b-close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
 	<!-- 회원가입 폼 스크립트 -->
 	<script type="text/javascript" src="js/joinPage.js"></script>
-
+	
 	<!-- footer 영역 -->
 	<jsp:include page="../../include/footer.jsp" />
 	

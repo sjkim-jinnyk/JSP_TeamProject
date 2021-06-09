@@ -4,21 +4,21 @@ function email_change(){
 	// ::E-mail 선택:: 옵션 선택했을 시
 	if(document.join.userEmail.options[document.join.userEmail.selectedIndex].value == '0'){
 
-			document.join.userEmail_2.disabled = true;
+			document.join.userEmail_2.readOnly = true;
 			document.join.userEmail_2.value = "";
-
+ 
 	}
 	
 	// 직접입력 옵션 선택했을 시
 	if(document.join.userEmail.options[document.join.userEmail.selectedIndex].value == '1'){
 
-			document.join.userEmail_2.disabled = false;
+			document.join.userEmail_2.readOnly = false;
 			document.join.userEmail_2.value = "";
 			document.join.userEmail_2.focus();
 
 	} else {
 		// 그 외에 이메일 형식 옵션 선택했을 시
-		document.join.userEmail_2.disabled = true;
+		document.join.userEmail_2.readOnly = true;
 		document.join.userEmail_2.value = document.join.userEmail.options[document.join.userEmail.selectedIndex].value;
 
 	}
@@ -26,7 +26,7 @@ function email_change(){
 }
 
 
-// 주소 API 스크립트
+// 도로명 주소  다음 API 스크립트
 //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 function sample4_execDaumPostcode() {
 	 new daum.Postcode({
@@ -82,3 +82,57 @@ function sample4_execDaumPostcode() {
     }
 	  }).open();
 }
+
+
+// 아이디 중복 체크 스크립트
+function idCheck(){
+	var userId = document.join.userId.value;
+	
+	// 중복 체크할 아이디 입력 안 하였을 경우 
+	if(userId.length<1 || userId == null) {
+		alert("중복체크할 아이디를 입력하세요.");
+		document.join.userId.focus();
+		return false;
+	}
+	
+    (function ($) {
+      $(function () {
+        $("#modal_button").bind("click", function (e) {
+          e.preventDefault();
+          $("#element_to_pop_up").bPopup({});
+        });
+      });
+    })(jQuery);
+
+	var url = "../Hotel_JSP/view/login/idCheck.jsp?userId=" + userId;
+	
+	window.open(url, "get", "height=180, width=300");
+	
+}
+
+
+// 비밀번호 체크 후 확인 메시지 출력하는 스크립트
+function pwd_check(){
+	
+	// 비밀번호 값(pwd)과 비밀번호 확인 값(pwd_check)이 null값이 아닌 경우 
+	if(document.getElementById('userPwd').value != '' && document.getElementById('userPwd_check').value != '') {
+		if(document.getElementById('userPwd').value == document.getElementById('userPwd_check').value) {
+			// 비밀번호 값(pwd)과 비밀번호 확인 값(pwd_check)이 같은 경우 
+			document.getElementById('check').innerHTML = '비밀번호가 일치합니다.';
+			document.getElementById('check').style.color = 'black';
+		} else {
+			// 비밀번호 값(pwd)과 비밀번호 확인 값(pwd_check)이 다른 경우 
+			document.getElementById('check').innerHTML = '비밀번호가 일치하지 않습니다.';
+			document.getElementById('check').style.color = 'red';
+		}
+	} else if(document.getElementById('userPwd_check').value == '') {
+		// 비밀번호 확인(pwd_check)에 값이 없는 경우(다시 체크할 때)
+		document.getElementById('check').innerHTML = '비밀번호를 확인해주세요.';
+		document.getElementById('check').style.color = 'black';
+	}
+	
+}
+
+
+
+

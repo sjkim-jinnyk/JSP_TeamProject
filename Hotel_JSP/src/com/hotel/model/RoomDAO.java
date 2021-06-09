@@ -49,7 +49,7 @@ public class RoomDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} // openConn() end
 
 	// DB에 연결된 객체를 종료하는 메서드
 	public void closeConn(ResultSet rs, PreparedStatement pstmt, Connection con) {
@@ -65,11 +65,43 @@ public class RoomDAO {
 			e.printStackTrace();
 		}
 
-	}
+	} // closeConn() end
 	
-	public List<RoomDTO> getRoomList(String name) {
-		
+	// 전체 객실 조회
+	public List<RoomDTO> getRoomList(){
 		List<RoomDTO> list = new ArrayList<RoomDTO>();
+		
+		try {
+			openConn();
+			sql = "select * from room";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				RoomDTO dto = new RoomDTO();
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomPrice(rs.getInt("room_price"));
+				dto.setRoomContent(rs.getString("room_content"));
+				dto.setRoomImage(rs.getString("room_Image"));
+				dto.setRoomSize(rs.getInt("room_size"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+
+	} // getRoomList() end 
+	
+	
+	public String getRoomDetail(String name) {
+		
+		String result = "";
 		
 		try {
 			
@@ -81,14 +113,18 @@ public class RoomDAO {
 			pstmt.setString(1, name);
 			rs = pstmt.executeQuery();
 			
+			result += "<rooms>";
 			while(rs.next()) {
-				RoomDTO dto = new RoomDTO();
-				dto.setRoomPrice(rs.getInt("room_price"));
-				dto.setRoomContent(rs.getString("room_content"));
-				dto.setRoomImage(rs.getString("room_image"));
-				dto.setRoomSize(rs.getInt("room_size"));
-				list.add(dto);
+				result += "<room>";
+				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<price>" + rs.getInt("room_price") +"</price>";
+				result += "<content>" + rs.getString("room_content") +"</content>";
+				result += "<img>" + rs.getString("room_image") +"</img>";
+				result += "<size>" + rs.getInt("room_size") +"</size>";
+				result += "</room>";
 			}
+			result += "</rooms>";
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -96,7 +132,7 @@ public class RoomDAO {
 			closeConn(rs, pstmt, con);
 		}
 		
-		return list;
+		return result;
 	} // getRoomList()
 	
 	public int checkRoom(String name) {

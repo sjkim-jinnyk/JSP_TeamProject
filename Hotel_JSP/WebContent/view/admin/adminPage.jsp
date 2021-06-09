@@ -7,40 +7,6 @@
 <link rel="stylesheet" href="css/AdminStyle.css">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-
-	$(function() {
-		$("#btn").click(function() {
-			let room = $("#roomName").val();
-			let checkIn = $("#checkIn").val();
-			let checkOut = $("#checkOut").val();
-			console.log(room);
-			console.log(checkIn);
-			console.log(checkOut);
-
-			$.ajax({
-				type : "post",
-				url : "admin_room_search_ok.do", //./view/admin/adminPage1.jsp
-				data : {
-					"roomName" : room,
-					"checkIn" : checkIn,
-					"checkOut" : checkOut
-				},
-				datatype : "jsp",
-				success : function(data) {
-					alert('성공');
-					console.log(data);
-
-				},
-				error : function() {
-					alert("오류");
-				}
-
-			});
-		});
-
-	});
-</script>
 </head>
 <body>
 	<jsp:include page="/include/header.jsp" />
@@ -95,13 +61,13 @@
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
-			<table id="DELUXE TWIN" class="off">
-				<tr>
-					<td class="img" rowspan="3">
+			<table id="DELUXETWIN" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
 						<img alt="상품" src="image/객실.jpg">
 					</td>
-					<td colspan="2">DELUXE KING</td>
-				</tr>
+					<td id="D_TWIN" colspan="2">DELUXE TWIN</td>
+				</tr> 
 				<tr>
 					<td colspan="2" align="left">
 						Mountain View | Size: 46.7 m² <br>
@@ -111,10 +77,76 @@
 				<tr>
 					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
 					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
+			</table>
+			<!-- 상세페이지 -->
+			<table class="content_info">
+<%-- 				<tr>
+					<td>
+						<strong>101호</strong>
+						<p class="room_num">남은 객실</p>
+					</td>
+					<td>
+						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
+					</td>
+				</tr> --%>	
+			</table>
+			<table id="DELUXEKING" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">DELUXE KING</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
 				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
+			</table>
+			<table id="SUITEKING" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">SUITE KING</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
+				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
+			</table>
+			<table id="SUITETWIN" class="use">
+				<tr id="twin">
+					 <td class="img" rowspan="3">
+						<img alt="상품" src="image/객실.jpg">
+					</td>
+					<td colspan="2">SUITE TWIN</td>
+				</tr> 
+				<tr>
+					<td colspan="2" align="left">
+						Mountain View | Size: 46.7 m² <br>
+						<a href="">객실 상세 보기</a>
+					</td>
+				</tr>
+				<tr>
+					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
+					<td><input type="button" id="check" value="CHECK" onclick="">
+				</tr> 
 			</table>
 			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-			<table class="content_info">
+<%-- 		<table class="content_info">
 				<tr>
 					<td>
 						<strong>101호</strong>
@@ -124,7 +156,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
+			</table> --%> 	
 		</div>
 		
 		<!-- 예약관리 페이지  -->
@@ -158,7 +190,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table>
+			</table> 
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />
