@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -257,5 +259,41 @@ public class UserDAO {
 	
 	
 	
+	
+	public List<UserDTO> getUserList(){
+		List<UserDTO> list = new ArrayList<UserDTO>();
+		
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				UserDTO dto = new UserDTO();
+				dto.setUserId(rs.getString("user_id"));
+				dto.setUserPwd(rs.getString("user_Pwd"));
+				dto.setUserName(rs.getString("user_Name"));
+				dto.setUserGen(rs.getString("user_Gen"));
+				dto.setUserPhone(rs.getString("user_Phone"));
+				dto.setUserAddr(rs.getString("user_Addr"));
+				dto.setUserEmail(rs.getString("user_Email"));
+				dto.setUserPoint(rs.getInt("user_Point"));
+				dto.setUserDate(rs.getString("user_Date"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+	}
 	
 }
