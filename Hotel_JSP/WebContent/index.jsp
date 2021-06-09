@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
 	
 	<jsp:include page="/include/header.jsp" />
-    
+    	
     <div id="fullpage">
 		<div class="section" style="background: url(image/bg_main01.jpg) no-repeat 50% 50% fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     		<section class="mainpageTxt">    

@@ -23,7 +23,7 @@
  	for(int i=0; i<list.size(); i++) {
 		search_room = list.get(i).getRoomName();
 	} 
-	
+	System.out.println("name : " + search_room);
 	RoomDAO listdao = RoomDAO.getInstance();
 	String room_detail = listdao.getRoomDetail(search_room);
 	
