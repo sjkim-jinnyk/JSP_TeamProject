@@ -1,0 +1,69 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+.myPage_header {
+	position: relative;
+	width: 95%;
+	margin: auto;
+	max-width: 1300px;
+	margin-top: 150px;
+}
+
+.header_title {
+	font: 500 40px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings: 'lnum', 'pnum';
+}
+
+.header_txt {
+	margin-top: 5px;
+	font-size: 15px;
+	letter-spacing: -.01em;
+	opacity: 0.8;
+}
+
+.myPage {
+	position: relative;
+	width: 95%;
+	margin: auto;
+	margin-top: 20px;
+	padding-bottom: 180px;
+	display: flex;
+}
+
+.myPage_inner {
+	width: 20%;
+}
+
+.innerBox {
+	padding: 30px 20px;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+}
+
+.inner_menu {
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.menu_list {
+	font-size: 15px;
+	opacity: 0.8;
+	margin-bottom: 30px;
+}
+
+.menu_content {
+	line-height: 5px;
+}
+
+.mainpage {
+	text-align: center;
+	width: 100%;
+}
+
+.userInfo{
+	font-size: 20px;
+	margin-top: 150px;
+}

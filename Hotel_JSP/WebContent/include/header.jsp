@@ -39,7 +39,7 @@
 						</li>
 						<li class="name">MY PAGE
 							<ul class="innerMenu">
-								<li>MY PAGE</li>
+								<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY PAGE</a></li>
 								<li>MY POINT</li>
 								<li>MY COUPON</li>
 								<li>예약확인</li>
