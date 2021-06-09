@@ -35,10 +35,10 @@
 					</td>
 					<td>
 						<select name="roomName" id="roomName">
-							<option value="DELUXE TWIN">DELUXE TWIN</option>
-							<option value="DELUXE KING">DELUXE KING</option>
-							<option value="PREMIER SUITE KING">PREMIER SUITE KING</option>
-							<option value="PREMIER SUITE TWIN">PREMIER SUITE TWIN</option>
+							<option value="STANDARD">STANDARD</option>
+							<option value="DELUXE">DELUXE</option>
+							<option value="SUITE">SUITE</option>
+							<option value="PRESTIGE">PRESTIGE</option>
 						</select>
 					</td>
 				</tr>
@@ -61,26 +61,111 @@
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
-			<table id="DELUXETWIN" class="use">
+			<!-- standard table -->
+			<table id="standard" class="use" border="1">
 				<tr id="twin">
-					 <td class="img" rowspan="3">
-						<img alt="상품" src="image/객실.jpg">
+					 <td class="img" rowspan="4"  style="word-break:break-all">
+						<img alt="상품" src="image/STANDARD.jpg">
 					</td>
-					<td id="D_TWIN" colspan="2">DELUXE TWIN</td>
+					<td id="standard_name" colspan="3" align="center">STANDARD</td>
 				</tr> 
 				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
+					<td id="standard_td" width="20%" align="center">
+						
 					</td>
+					
+					
+					<td id="standard_O" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
 				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr> 
 			</table>
+			
+			<!-- deluxe table -->
+			<table id="deluxe" class="use" border="1">
+				<tr>
+					 <td class="img" rowspan="4"  style="word-break:break-all">
+						<img alt="상품" src="image/DELUXE.jpg">
+					</td>
+					<td id="deluxe_name" colspan="3" align="center">DELUXE</td>
+				</tr> 
+				<tr>
+					<td id="deluxe_td" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td id="deluxe_O" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+			</table>
+			<!-- suite table -->
+			<table id="suite" class="use" border="1">
+				<tr>
+					 <td class="img" rowspan="4"  style="word-break:break-all">
+						<img alt="상품" src="image/SUITE.jpg">
+					</td>
+					<td id="suite_name" colspan="3" align="center">SUITE</td>
+				</tr> 
+				<tr>
+					<td id="suite_td" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td id="suite_O" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+			</table>	
+			
+			<!-- prestige table -->
+			<table id="prestige" class="use" border="1">
+				<tr>
+					 <td class="img" rowspan="4"  style="word-break:break-all">
+						<img alt="상품" src="image/PRESTIGE.jpg">
+					</td>
+					<td id="prestige_name" colspan="3" align="center">PRESTIGE</td>
+				</tr> 
+				<tr>
+					<td id="prestige_td" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td id="prestige_O" width="20%" align="center">
+						
+					</td>
+					
+					
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+			</table>			
+					
+			<!-- standard로 객실 검색 눌렀을 때 -->
+			<table id="standard_search" class="use" >
+			</table>
+			
 			<!-- 상세페이지 -->
-			<table class="content_info">
+			<table class="content_info" style="display:none;">
 <%-- 				<tr>
 					<td>
 						<strong>101호</strong>
@@ -91,72 +176,7 @@
 					</td>
 				</tr> --%>	
 			</table>
-			<table id="DELUXEKING" class="use">
-				<tr id="twin">
-					 <td class="img" rowspan="3">
-						<img alt="상품" src="image/객실.jpg">
-					</td>
-					<td colspan="2">DELUXE KING</td>
-				</tr> 
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr> 
-			</table>
-			<table id="SUITEKING" class="use">
-				<tr id="twin">
-					 <td class="img" rowspan="3">
-						<img alt="상품" src="image/객실.jpg">
-					</td>
-					<td colspan="2">SUITE KING</td>
-				</tr> 
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr> 
-			</table>
-			<table id="SUITETWIN" class="use">
-				<tr id="twin">
-					 <td class="img" rowspan="3">
-						<img alt="상품" src="image/객실.jpg">
-					</td>
-					<td colspan="2">SUITE TWIN</td>
-				</tr> 
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr> 
-			</table>
-			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-<%-- 		<table class="content_info">
-				<tr>
-					<td>
-						<strong>101호</strong>
-						<p class="room_num">남은 객실</p>
-					</td>
-					<td>
-						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
-					</td>
-				</tr>	
-			</table> --%> 	
+
 		</div>
 		
 		<!-- 예약관리 페이지  -->
