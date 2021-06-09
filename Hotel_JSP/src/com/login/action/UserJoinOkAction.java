@@ -61,6 +61,7 @@ public class UserJoinOkAction implements Action {
 		ActionForward forward = new ActionForward();
 		PrintWriter out = response.getWriter();
 
+
 		
 		if(userPwd_check.equals(dto.getUserPwd())) {
 			

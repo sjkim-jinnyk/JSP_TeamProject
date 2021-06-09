@@ -224,6 +224,15 @@
 	//background-color: #f9f9f9;   
 }
 
+.idPwdSearch_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 40px;
+	padding-bottom: 180px;
+	max-width: 800px;
+}
+
 /* id_search_ok.jsp & pwd_search_ok.jsp */
 .textBox{
 	text-align: center;
@@ -415,5 +424,6 @@ input[type='radio']:checked {
 	filter:alpha(opacity=0); /* IE8 숨기기 */ 
 	-webkit-appearance: none; /* 네이티브 외형 감추기 */ 
 	-moz-appearance: none; appearance: none; 
+
 }
 
