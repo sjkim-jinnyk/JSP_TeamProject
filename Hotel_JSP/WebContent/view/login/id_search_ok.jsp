@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +22,7 @@
 	
 	<div class="login_inner">
 		<div class="textBox">
+			<c:set var="idInfo" value="${idInfo }" />
 			<p class="idSearch_coment">아이디를 확인해 주세요.</p>
 		 	<p class="idSearch_coment">님의 아이디는 <span class="idInfo">ooo</span>입니다.</p>
 		 	
