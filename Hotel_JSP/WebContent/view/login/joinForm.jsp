@@ -55,8 +55,7 @@
 						   <select name="userEmail" onchange="email_change()">
 						  		<option value="0" selected>::E-Mail 선택::</option>	<!-- ★ 옵션 선택시 값이 서블릿에 안 넘어감(직접입력은 됨) -->
 						  		<option value="naver.com">naver.com</option>
-						  		<option value="daum.net">daum.net</option>
-						  		<option value="gmial.com">gmail.com</option>
+						  		<option value="gmail.com">gmail.com</option>
 						  		<option value="hamail.net">hanmail.net</option>
 						  		<option value="nate.con">nate.com</option>
 						  		<option value="1">직접입력</option>

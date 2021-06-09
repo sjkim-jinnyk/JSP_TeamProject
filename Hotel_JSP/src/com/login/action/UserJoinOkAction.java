@@ -66,7 +66,8 @@ public class UserJoinOkAction implements Action {
 		if(join > 0) {
 			// 회원가입 성공한 경우
 			forward.setRedirect(false);
-			forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+			forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?			
+		
 		} else {
 			// 회원가입 실패한 경우
 			out.println("<script>");
