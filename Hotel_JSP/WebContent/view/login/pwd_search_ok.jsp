@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기 확인</title>
 </head>
 <body>
 
@@ -17,10 +20,12 @@
 		</div>
 	</div>
 	
-	<div class="login_inner">
+	<div class="idPwdSearch_inner">
 		<div class="textBox">
+			<c:set var="pwdInfo" value="${pwdInfo }" />
+			<c:set var="userName" value="${userName }" />
 			<p class="idSearch_coment">비밀번호를 확인해 주세요.</p>
-		 	<p class="idSearch_coment">님의 비밀번호는 <span class="idInfo">ooo</span>입니다.</p>
+		 	<p class="idSearch_coment">${userName }님의 비밀번호는 <span class="idInfo">${pwdInfo }</span>입니다.</p>
 		 	
 		 	<button type="button" class="confirm_submit" value="확인" onclick="location.href='login.do'">로그인 페이지로 이동</button> 
 		</div>

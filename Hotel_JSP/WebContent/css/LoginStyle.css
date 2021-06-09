@@ -224,6 +224,15 @@
 	//background-color: #f9f9f9;   
 }
 
+.idPwdSearch_inner{
+	position: relative;
+	width: 50%;
+	margin: auto;
+	margin-top: 40px;
+	padding-bottom: 180px;
+	max-width: 800px;
+}
+
 /* id_search_ok.jsp & pwd_search_ok.jsp */
 .textBox{
 	text-align: center;
@@ -317,3 +326,4 @@ input{
     letter-spacing: -.01em;
     border: 0.1px solid;   /* 추가 */
 }
+

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>비밀번호 찾기</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<div class="login_inner">
+	<div class="idPwdSearch_inner">
 		<form method="post" action="<%=request.getContextPath() %>/user_pwd_search_ok.do">
 			<ul class="login_form" style="display: flex;">
 				<li class="idPwdSearch_off">

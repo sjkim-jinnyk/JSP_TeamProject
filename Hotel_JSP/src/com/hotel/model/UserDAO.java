@@ -68,7 +68,7 @@ public class UserDAO {
 	} 
 	
 	/*
-	 *  로그인 메서드
+	 *  로그인
 	 */
 	
 	// 회원 체크하는 메서드
@@ -148,9 +148,10 @@ public class UserDAO {
 	
 	
 	/*
-	 *  회원가입 메서드
+	 *  회원가입
 	 */
 	
+	// 회원가입 메서드
 	public int userJoin(UserDTO dto) {
 		int result = 0;
 	
@@ -213,6 +214,9 @@ public class UserDAO {
 	} // idCheck()메서드 end
 	
 	
+	/*
+	 * 아이디/비밀번호 찾기
+	 */
 	
 	// 아이디 찾기 메서드
 	public String idSearch(String userName, String userPhone) {
@@ -222,7 +226,7 @@ public class UserDAO {
 		try {
 			openConn();
 			
-			sql = "select user_id from hotel_user where user_id = ? and user_phone = ?";
+			sql = "select user_id from hotel_user where user_name = ? and user_phone = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -232,9 +236,7 @@ public class UserDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				UserDTO dto = new UserDTO();
-				
-				result = dto.getUserId();
+				result = rs.getString(1);
 			}
 			
 		} catch (SQLException e) {
@@ -246,13 +248,38 @@ public class UserDAO {
 		return result;
 	
 	} // idSearch() 메서드 end
+
 	
-	
-	
-	
-	
-	
-	
+	// 비밀번호 찾기 메서드
+	public String pwdSearch(String userId, String userName) {
+		
+		String result = "";
+		
+		try {
+			openConn();
+			
+			sql = "select user_pwd from hotel_user where user_id = ? and user_name =?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userName);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // pwdSearch() 메서드 end
 	
 	
 	
