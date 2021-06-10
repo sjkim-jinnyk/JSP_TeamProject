@@ -161,6 +161,7 @@ public class ReserveDAO {
 			result += "<rooms>";
 			while(rs.next()) {
 				result += "<reserve>";
+				result += "<name>" + rs.getString("room_name") + "</name>";
 				result += "<num>" + rs.getString("room_number") +"</num>";
 				result += "<resin>" + rs.getString("res_in") +"</resin>";
 				result += "<resout>" + rs.getString("res_out") +"</resout>";

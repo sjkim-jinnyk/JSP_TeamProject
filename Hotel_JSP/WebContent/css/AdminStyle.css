@@ -50,5 +50,9 @@ table{
 .res_manage .on{
 	display: "";
 }
-
-
+.room_search .off{
+	display: none;
+}
+.room_search .on{
+	display: "";
+}
