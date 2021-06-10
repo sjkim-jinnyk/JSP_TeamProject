@@ -64,7 +64,7 @@
 .id_form input{
 	background-color: #f9f9f9;
 	width: 100%;
-	height: 65px;
+	height: 65px !important; 
 	padding: 20px;
 	border: none;
 }
@@ -73,7 +73,7 @@
 .pw_form input{
 	background-color: #f9f9f9;
 	width: 100%;
-	height: 65px;
+	height: 65px !important;
 	padding: 20px;
 	border: none;
 }
