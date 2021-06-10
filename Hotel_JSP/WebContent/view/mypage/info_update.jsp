@@ -8,7 +8,13 @@
 </head>
 <body>
 
+	<link rel="stylesheet" href="css/MypageStyle.css">
+	
+	<jsp:include page="../../include/header.jsp" />
+
 	<h2>회원 정보 수정 페이지 입니다.</h2>
+
+	<jsp:include page="../../include/footer.jsp" />
 
 </body>
 </html>

@@ -39,7 +39,21 @@
 						</li>
 						<li class="name">MY PAGE
 							<ul class="innerMenu">
-								<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY PAGE</a></li>
+								<!-- 세션값으로 로그인 상태를 판단해 'MY PAGE'메뉴 클릭 시 로그인 or 마이페이지 이동 작업 -->
+								<%
+									// 세션값 받아오기
+									String userName = (String)session.getAttribute("userName");
+								
+									if(userName == null) {	// 로그인 상태 X => 로그인 페이지로 이동
+								%>
+										<li><a href="<%=request.getContextPath() %>/login.do">MY PAGE</a></li>
+								<%
+									} else {  // 로그인 상태 O => 마이 페이지로 이동
+								%>
+										<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY PAGE</a></li>
+								<%
+									}
+								%>
 								<li>MY POINT</li>
 								<li>MY COUPON</li>
 								<li>예약확인</li>
@@ -63,13 +77,29 @@
 
         <div class="menu">
             <ul>
-                <li><a href="<%=request.getContextPath() %>/login.do" class="login">로그인</a></li>
-                <li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li>
-                <li><a href="" class="res_check">예약확인</a></li>
+            	<!-- 세션값으로 로그인 상태를 판단해 헤더 메뉴 변경 작업 -->
+            	<%
+            		if(userName == null) { // 로그인 상태 X
+            			response.sendRedirect("loginForm.jsp");	
+            	%>
+                		<li><a href="<%=request.getContextPath() %>/login.do" class="login">로그인</a></li>
+                		<li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li> 
+                		<li><a href="" class="res_check">예약확인</a></li>
+                <% 
+            		} else { // 로그인 상태 O
+                %>
+                		<li><a href="<%=request.getContextPath() %>/mypage_main.do" class="login">마이페이지</a></li>
+                		<li><a href="<%=request.getContextPath() %>/user_logout.do" class="join">로그아웃</a></li> 
+                		<li><a href="" class="res_check">예약확인</a></li>
+                <%
+            		}
+                %>
+                
             </ul>
             
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
+            <%System.out.println((String)session.getAttribute("userId")); %>
         </div>
     </header>
 

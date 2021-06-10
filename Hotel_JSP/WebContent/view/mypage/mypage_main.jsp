@@ -36,12 +36,21 @@
         	</div>
         </div>
         
-        <div class="mainpage">
-        	<div class="userInfo">
-        		<h1>ㅇㅇ님 환영합니다.</h1>
-        		<h1>1000 p</h1>
+        <section class="mainpage">
+        	<div class="welcom_msg">
+        		<p><span class="userName">ㅇㅇㅇ</span>님 환영합니다.</p>
         	</div>
-        </div>
+        	<div class="resPoint_box">
+        		<ul class="resPoint">
+        			<li>현재 예약 건수</li>
+        			<li>1 개</li>
+        		</ul>
+        		<ul class="resPoint">
+        			<li>잔여 포인트</li>
+        			<li>1000 p</li>
+        		</ul>
+        	</div>
+        </section>
     </div>
 
     <jsp:include page="../../include/footer.jsp" />
