@@ -246,7 +246,7 @@ $(function() {
 						
 					});
 					console.log("b :" + check_btn);
-					$("#content_standard").after(table);
+					$("#content_standard").append(table);
 					
 					//check 클릭시 상세내역 오픈
 					$("#check_btn").click(function() {
