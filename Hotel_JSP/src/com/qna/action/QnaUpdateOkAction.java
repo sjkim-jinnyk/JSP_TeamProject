@@ -50,6 +50,11 @@ public class QnaUpdateOkAction implements Action {
 
 		// getFilesystemName() : 서버상에 실제로 업로드될 파일 이름을 문자열로 반환
 		String qna_file = multi.getFilesystemName("qna_file");
+		System.out.println("qna_file : " + qna_file);
+		if (multi.getFilesystemName("qna_file") == null) {
+			qna_file = multi.getParameter("qna_file_old");
+			System.out.println("qna_file_old : " + qna_file);
+		}
 		
 		dto.setQnaNo(qna_no);
 		dto.setQnaTitle(qna_title);

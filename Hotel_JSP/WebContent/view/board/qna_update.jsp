@@ -45,6 +45,9 @@
 	         	<th>다른 파일첨부</th>
 	            <td> <input type="file" name="qna_file"> </td>
 	         </tr>
+	         
+	         <input type="hidden" name="qna_file_old" value="${dto.getQnaFile() }">
+	         
 	         <tr>
 	            <td colspan="2" align="center"> 
 	               <input type="submit" value="수정하기">
