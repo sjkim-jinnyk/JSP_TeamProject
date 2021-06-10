@@ -75,9 +75,6 @@
 	        showActiveTooltip: true,
 	    });
 	});
-	
 	</script>
-	
-	
 </body>
 </html>
