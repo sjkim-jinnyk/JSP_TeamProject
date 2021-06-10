@@ -17,6 +17,7 @@
 	// 참조: https://okky.kr/article/422641
 	function rsvToggle(count) {
 		 $("[name='roomNumber']:eq(" +(count-1)+ ")").toggle('slow');
+		 
 	}
 	
 	
@@ -63,7 +64,7 @@
 						<dd><%=request.getAttribute("resChild") %></dd>
 					</dl>
 				</div>
-				<a href="./res_Step0.jsp" class="step0_btn">객실 다시 검색</a><br>
+				<a href="res_Step0.jsp" class="step0_btn">객실 다시 검색</a><br>
 				----------------------------
 			</div>
 		</div>
@@ -75,7 +76,7 @@
 				
 				<dl class="roomIntro">
 	                 <dt class="roomName">
-	                     ${i.getRoomName() } room
+	                     ${i.getRoomName() }
 	                 </dt>
 	                 <dd class="keyword"><span>ROOM</span></dd>
 	                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
@@ -91,7 +92,7 @@
 	                     <span class="day">1박 / 세금 별도</span>
 	                 </dd>
 	                 <dd class="thum">
-	                 	<img src="#" alt="디럭스 킹">										
+	                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
 	                 </dd>
 	             </dl>
 	             
@@ -104,29 +105,28 @@
 	                <h4 class="titDep3">OFFERS</h4>
 	                 
 	                <ul>
-		                <li>
-		                   <div class="roomInfor">
-		                       <div class="titArea">
-		                           <strong class="tit">[Member Exclusive] SMART CHOICE</strong>
-		                       </div>
-		                       
-		                       <p class="roomBenefit">클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!</p>
-		                       
-		                       <div class="date">
-		                           2021.04.14 - 2021.07.22
-		                       </div>
-		                       
-		                       <span class="price">
-		                           <em>397,700</em>KRW ~
-		                       </span>
-		                       
-	                           <button type="button" class="detail_btn">
-	                               상품 상세보기
-	                           </button>
-		                   </div>
-	
-		                   <a href="#none" class="book_btn" ><span>예약하기</span></a>
-	                    </li>
+	                	<c:forEach items="${list }" var="i" varStatus="s"
+	                		begin="${s.count}" end="${s.count +2}">
+	                		
+			                <li>
+			                	count >> ${s.count }  index >> ${s.index }
+			                   <div class="roomInfor" style='border: 1px solid'>
+			                       <div class="titArea">
+			                           <strong class="tit">${i.getRoomNumber() }</strong>
+			                       </div>
+			                       
+			                       <span class="price">
+			                           <em> ${i.getRoomPrice() }</em>KRW ~
+			                       </span>
+			                       
+		                           <button type="button" class="detail_btn">
+		                               상품 상세보기
+		                           </button>
+		                           
+		                           <input type="submit" value="예약하기">
+			                   </div>
+	                    	</li>
+	                    </c:forEach>
                     </ul>
 	            </div>
 	             
