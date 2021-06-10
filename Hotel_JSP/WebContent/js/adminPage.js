@@ -6,7 +6,7 @@ const suite = document.querySelector('#suite');
 const prestige = document.querySelector('#prestige');
 const contArea2 = document.querySelector('#contArea2');
 const use = document.querySelector('.use');
-
+const search = document.querySelector('#standard_search');
 
 /* 현재 날짜를 불러오는 함수 */
 function getToday() {
@@ -220,6 +220,7 @@ btn.addEventListener('click', function() {
 
 $(function() {
 	$("#search_btn").click(function() {
+		search.classList.replace('off','use');
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
 		suite.classList.replace('use', 'off');
@@ -250,21 +251,12 @@ $(function() {
 				$(data).find("reserve").each(function(){
 					
 					table += "<li>" + $(this).find("num").text() + "</li>"
-					/*table += "<tr>";
-					table += "<td rowspan='3'><img alt='상품' src='image/"+$(this).find("name").text()+".jpg'></td>"
-					table += "<td colspan='2'>"+$(this).find("name").text()+"</td>"
-					table += "</tr>";
-					table += "<tr>";
-					table += "<td colspan='2' align='left'>"+$(this).find("content").text()+" | Size : "+$(this).find("size").text()+" m² </td>"
-					table += "</tr>";
-					table += "<tr>";
-					table += "<td><h2>"+$(this).find("price").text()+"</h2></td>"
-					table += "</tr>";*/
+					table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
 					
 				});
 				
 				$("#standard_search").append(table);
-
+				
 			},
 			error : function() {
 				alert("오류");
@@ -316,18 +308,21 @@ $(function() {
 
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
 
-
-
-
+/* 객실관리 클릭 */
 room_click.addEventListener('click', function() {
 	standard.classList.replace('off', 'on');
+	deluxe.classList.replace('off','on');
+	suite.classList.replace('off','on');
+	prestige.classList.replace('off','on');
 	contArea2.classList.replace('use','off');
+	search.classList.replace('use','off');
 	if (contArea2.classList == 'on') {
 		contArea2.classList.replace('on', 'off');
 	}
 	console.log(contArea1);
 });
 
+/* 예약관리 클릭 */
 res_click.addEventListener('click', function() {
 	standard.classList.replace('use', 'on');
 	contArea2.classList.replace('off', 'on');
