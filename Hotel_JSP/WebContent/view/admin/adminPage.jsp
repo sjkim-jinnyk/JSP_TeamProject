@@ -63,21 +63,29 @@
 		<div class="room_manage">
 			<!-- standard table -->
 			<table id="standard" class="use" border="1">
-				<tr id="twin">
-					 <td class="img" rowspan="4"  style="word-break:break-all">
+				<tr>
+					 <td class="img" rowspan="4"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/STANDARD.jpg">
 					</td>
 					<td id="standard_name" colspan="3" align="center">STANDARD</td>
 				</tr> 
 				<tr>
-					<td id="standard_td" width="20%" align="center">
-						
-					</td>
-					
-					
-					<td id="standard_O" width="20%" align="center">
-						
-					</td>
+					<td id="101" width="20%" align="center">101</td>
+					<td id="101_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="102" width="20%" align="center">102</td>
+					<td id="102_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="103" width="20%" align="center">103</td>
+					<td id="103_check" align="center"></td>
 					
 					
 					<td width="20%" align="center">
@@ -89,21 +97,28 @@
 			<!-- deluxe table -->
 			<table id="deluxe" class="use" border="1">
 				<tr>
-					 <td class="img" rowspan="4"  style="word-break:break-all">
+					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/DELUXE.jpg">
 					</td>
 					<td id="deluxe_name" colspan="3" align="center">DELUXE</td>
 				</tr> 
 				<tr>
-					<td id="deluxe_td" width="20%" align="center">
-						
-					</td>
-					
-					
-					<td id="deluxe_O" width="20%" align="center">
-						
-					</td>
-					
+					<td id="201" width="20%" align="center">201</td>
+					<td id="201_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="202" width="20%" align="center">202</td>
+					<td id="202_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="203" width="20%" align="center">203</td>
+					<td id="203_check" align="center"></td>
 					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
@@ -113,21 +128,28 @@
 			<!-- suite table -->
 			<table id="suite" class="use" border="1">
 				<tr>
-					 <td class="img" rowspan="4"  style="word-break:break-all">
+					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/SUITE.jpg">
 					</td>
 					<td id="suite_name" colspan="3" align="center">SUITE</td>
 				</tr> 
 				<tr>
-					<td id="suite_td" width="20%" align="center">
-						
-					</td>
-					
-					
-					<td id="suite_O" width="20%" align="center">
-						
-					</td>
-					
+					<td id="301" width="20%" align="center">301</td>
+					<td id="301_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 					
+				</tr>
+				<tr>
+					<td id="302" width="20%" align="center">302</td>
+					<td id="302_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="303" width="20%" align="center">303</td>
+					<td id="303_check" align="center"></td>
 					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
@@ -138,35 +160,53 @@
 			<!-- prestige table -->
 			<table id="prestige" class="use" border="1">
 				<tr>
-					 <td class="img" rowspan="4"  style="word-break:break-all">
+					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/PRESTIGE.jpg">
 					</td>
 					<td id="prestige_name" colspan="3" align="center">PRESTIGE</td>
 				</tr> 
 				<tr>
-					<td id="prestige_td" width="20%" align="center">
-						
-					</td>
-					
-					
-					<td id="prestige_O" width="20%" align="center">
-						
-					</td>
-					
+					<td id="401" width="20%" align="center">401</td>
+					<td id="401_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="402" width="20%" align="center">402</td>
+					<td id="402_check" align="center"></td>
+					<td width="20%" align="center">
+						<input type="button" id="res_btn" value="RESERVATION">
+					</td> 
+				</tr>
+				<tr>
+					<td id="403" width="20%" align="center">403</td>
+					<td id="403_check" align="center"></td>
 					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
 					</td> 
 				</tr>
 			</table>			
-					
-			<!-- standard로 객실 검색 눌렀을 때 -->
-			<ul id="standard_search" class="use" >
-			</ul>
+		</div>
+		
+		<!-- 객실 검색 눌렀을 때 -->
+		<div class="room_search">
+			<table id="search_page" class="off" border="1">
+				<tr>
+					<td id="img" class="off" rowspan="4"  width="40%" style="word-break:break-all">
+						<img alt="상품" src="image/STANDARD.jpg">
+					</td>
+					<td id="name" colspan="3" align="center"></td>
+				</tr>
+				<tr id="x">
+				</tr>
+			</table>
+			
 			
 			<!-- 상세페이지 -->
-			<table class="content_info" style="display:none;">
-<%-- 				<tr>
+<%--			<table class="content_info" style="display:none;">
+ 				<tr>
 					<td>
 						<strong>101호</strong>
 						<p class="room_num">남은 객실</p>
@@ -174,8 +214,8 @@
 					<td>
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
-				</tr> --%>	
-			</table>
+				</tr> 
+			</table>--%>	
 
 		</div>
 		
