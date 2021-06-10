@@ -29,10 +29,13 @@ function standard_get() {
 			"today" : today,
 			"room_name" : standard
 		},
+		async: false,
 		success : function(data) {
 			//alert('성공');
 			let table = "";
 			$(data).find("roomnum").each(function(){
+				console.log($(this).find("number").text());
+				
 				let number = $(this).find("number").text();
 				table += number +"<br>";
 				
@@ -40,6 +43,7 @@ function standard_get() {
 			let table2="";
 			$(data).find("roomnum").each(function(){
 				let number = $(this).find("number").text();
+				
 				
 				if(number != null){
 					table2 += "O <br>";
@@ -68,6 +72,7 @@ function deluxe_get() {
 			"today" : today,
 			"room_name" : deluxe
 		},
+		async: false,
 		success : function(data) {
 			//alert('성공');
 			let table = "";
@@ -80,8 +85,11 @@ function deluxe_get() {
 			$(data).find("roomnum").each(function(){
 				let number = $(this).find("number").text();
 				
+				$("#" + number).replace()
+				
 				if(number != null){
 					table2 += "O <br>";
+					
 				}
 			});
 			$("#deluxe_td").append(table);
@@ -107,6 +115,7 @@ function suite_get() {
 			"today" : today,
 			"room_name" : suite
 		},
+		async: false,
 		success : function(data) {
 			//alert('성공');
 			let table = "";
@@ -145,6 +154,7 @@ function prestige_get() {
 			"today" : today,
 			"room_name" : prestige
 		},
+		async: false,
 		success : function(data) {
 			//alert('성공');
 			let table = "";
@@ -191,6 +201,7 @@ btn.addEventListener('click', function() {
 			data : {
 				"D_TWIN" : d_twin
 			},
+			async: false,
 			success : function(data) {
 				//alert('성공');
 				let table = "";
@@ -220,6 +231,9 @@ btn.addEventListener('click', function() {
 
 $(function() {
 	$("#search_btn").click(function() {
+		
+		$("#standard_search").empty();
+		
 		search.classList.replace('off','use');
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
@@ -229,10 +243,11 @@ $(function() {
 		let room = $("#roomName").val();
 		let checkIn = $("#checkIn").val();
 		let checkOut = $("#checkOut").val();
+		
 		console.log(room);
 		console.log(checkIn);
 		console.log(checkOut);
-
+		
 		$.ajax({
 			type : "post",
 			url : "./view/admin/search_room.jsp",

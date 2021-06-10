@@ -71,7 +71,6 @@
 				</tr> 
 				<tr>
 					<td id="standard_td" width="20%" align="center">
-						
 					</td>
 					
 					
