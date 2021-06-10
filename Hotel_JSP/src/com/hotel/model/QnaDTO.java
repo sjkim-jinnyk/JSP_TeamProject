@@ -7,7 +7,9 @@ public class QnaDTO {
 	private String qnaContent;	// 게시물 내용
 	private int qnaGroup;		// 원본 게시물 번호
 	private int qnaStep;		// 답변 출력 순서
-	private int qnaDate;		// 게시물 작성일(sysdate)
+	private String qnaDate;		// 게시물 작성일(sysdate)
+	private int qnaHit;			// 게시물 조회수
+	private String qnaFile;		// 첨부 파일명
 	
 	public int getQnaNo() {
 		return qnaNo;
@@ -45,10 +47,10 @@ public class QnaDTO {
 	public void setQnaStep(int qnaStep) {
 		this.qnaStep = qnaStep;
 	}
-	public int getQnaDate() {
+	public String getQnaDate() {
 		return qnaDate;
 	}
-	public void setQnaDate(int qnaDate) {
+	public void setQnaDate(String qnaDate) {
 		this.qnaDate = qnaDate;
 	}
 	public int getQnaHit() {
@@ -63,6 +65,5 @@ public class QnaDTO {
 	public void setQnaFile(String qnaFile) {
 		this.qnaFile = qnaFile;
 	}
-	private int qnaHit;			// 게시물 조회수
-	private String qnaFile;		// 첨부 파일명
+	
 }

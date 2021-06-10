@@ -67,6 +67,42 @@ public class ReserveDAO {
 
 	}
 	
+	// 현재 날짜에 체크인 되어있는 방 번호를 넘겨주는 메서드
+	public String getRoomNumber(String name, String date) {
+		String result = "";
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where room_name = ? and to_date(?,'yyyy-mm-dd') between to_date(res_in, 'yyyy-mm-dd') and to_date(res_out, 'yyyy-mm-dd')-1 order by room_number";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, name);
+			pstmt.setString(2, date);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<roomnums>";
+			while(rs.next()) {
+				result += "<roomnum>";
+				result += "<number>" + rs.getInt("room_number") + "</number>";
+				result += "</roomnum>";
+			}
+			result += "</roomnums>";
+			
+			System.out.println("test :" + result);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	}
+	
 	public List<ReserveDTO> getInfo(String name, String in, String out) {
 		
 		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
@@ -111,20 +147,21 @@ public class ReserveDAO {
 		try {
 			openConn();
 			
-			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ?";
+			sql = "select * from reserve where room_name = ? and to_date(res_in,'yyyy-mm-dd') between to_date(?, 'yyyy-mm-dd') and to_date(?, 'yyyy-mm-dd')"
+					+ "order by room_number";
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, in);
-			pstmt.setString(2, out);
-			pstmt.setString(3, name);
+			pstmt.setString(1, name);
+			pstmt.setString(2, in);
+			pstmt.setString(3, out);
 			
 			rs = pstmt.executeQuery();
 			
 			result += "<rooms>";
 			while(rs.next()) {
 				result += "<reserve>";
-				result += "<name>" + rs.getString("room_name") +"</name>";
+				result += "<num>" + rs.getString("room_number") +"</num>";
 				result += "<resin>" + rs.getString("res_in") +"</resin>";
 				result += "<resout>" + rs.getString("res_out") +"</resout>";
 				result += "</reserve>";

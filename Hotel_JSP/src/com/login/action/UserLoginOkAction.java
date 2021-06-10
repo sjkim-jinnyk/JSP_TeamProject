@@ -1,7 +1,6 @@
 package com.login.action;
 
 import java.io.IOException;
-
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,5 +61,4 @@ public class UserLoginOkAction implements Action {
 		
 		return forward;
 	}
-
 }

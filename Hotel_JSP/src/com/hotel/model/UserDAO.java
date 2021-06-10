@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import com.hotel.model.UserDTO;
  
 public class UserDAO {
 
@@ -280,9 +278,4 @@ public class UserDAO {
 		return result;
 		
 	} // pwdSearch() 메서드 end
-	
-	
-	
-	
-	
 }

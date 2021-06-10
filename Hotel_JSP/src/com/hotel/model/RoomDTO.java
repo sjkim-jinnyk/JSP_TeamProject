@@ -1,12 +1,19 @@
 package com.hotel.model;
  
 public class RoomDTO {				// 객실 DTO
+	private int roomNumber;			// 객실 번호
 	private String roomName;		// 객실 이름
 	private int roomPrice;			// 가격
 	private String roomContent;		// 상세정보
 	private String roomImage;		// 이미지 파일명
 	private double roomSize;		// 객실 크기(소수점 2자리 까지)
 	
+	public int getRoomNumber() {
+		return roomNumber;
+	}
+	public void setRoomNumber(int roomNumber) {
+		this.roomNumber = roomNumber;
+	}
 	public String getRoomName() {
 		return roomName;
 	}

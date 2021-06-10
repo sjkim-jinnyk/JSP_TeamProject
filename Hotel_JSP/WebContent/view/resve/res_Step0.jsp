@@ -13,7 +13,6 @@
 	
 	<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
-
 		<input type="hidden" name="resIn" id="resIn" value="0">				
 		<input type="hidden" name="resOut" id="resOut" value="0">
 		<input type="hidden" name="resNight" id="resNight" value="0">				

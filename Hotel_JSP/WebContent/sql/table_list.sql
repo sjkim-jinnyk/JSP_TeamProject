@@ -32,13 +32,16 @@ CREATE TABLE reserve                                        -- 예약 테이블
     res_no          NUMBER(5)         PRIMARY KEY,          -- 예약 번호
     user_id         VARCHAR2(20)      NOT NULL,             -- 회원 아이디
     room_name       VARCHAR2(30)      NOT NULL,             -- 객실 이름
+    room_number		NUMBER(5)		  NOT NULL, 			-- 객실 호수
     res_date        DATE              NOT NULL,             -- 예약 날짜(sysdate)
     res_in          VARCHAR2(50)      NOT NULL,             -- 체크인 날짜
     res_out         VARCHAR2(50)      NOT NULL,             -- 체크아웃 날짜
+    res_NoD			NUMBER(5)		  NOT NULL,				-- 숙박일수(NOD : Number of Day의 약자)
     res_adult       NUMBER(5)         DEFAULT 0 NOT NULL,   -- 어른 인원수
     res_child       NUMBER(5)         DEFAULT 0 NOT NULL,   -- 어린이 인원수
     res_adult_br    NUMBER(5)         DEFAULT 0 NOT NULL,   -- 어른 조식 갯수
     res_child_br    NUMBER(5)         DEFAULT 0 NOT NULL,   -- 어린이 조식 갯수
+    res_bed			NUMBER(5)		  DEFAULT 0 NOT NULL,	-- 엑스트라 베드 갯수
     res_total       NUMBER(20)        NOT NULL,             -- 총 가격
     res_request     VARCHAR2(1000)                          -- 요청사항
 );
@@ -58,30 +61,10 @@ CREATE TABLE QNA                                            -- QnA 테이블
 
 CREATE TABLE room                                           -- 객실 테이블
 (
-    room_name       VARCHAR2(30)     PRIMARY KEY,           -- 객실 이름
+	room_number		NUMBER(5)		 PRIMARY KEY, 			-- 객실 호수
+    room_name       VARCHAR2(30)     NOT NULL,           	-- 객실 이름
     room_price      NUMBER(10)       NOT NULL,              -- 가격
     room_content    VARCHAR2(100)    NOT NULL,              -- 상세정보
     room_image      VARCHAR2(500)    NOT NULL,              -- 이미지 파일명
     room_size       NUMBER(5,2)      NOT NULL               -- 객실 크기(소수점 2자리 까지)
 );
-
--- 외래키 설정
--- 관리자 -> 공지사항
-ALTER TABLE INFO
-    ADD CONSTRAINT FK_INFO_admin_id_ADMIN_admin_id FOREIGN KEY (admin_id)
-        REFERENCES HOTEL_ADMIN (admin_id);
-        
--- 회원 -> 예약         
-ALTER TABLE reserve
-    ADD CONSTRAINT FK_reserve_user_id_USER_user_id FOREIGN KEY (user_id)
-        REFERENCES HOTEL_USER (user_id);
-        
--- 예약 -> 방
-ALTER TABLE reserve
-    ADD CONSTRAINT FK_reserve_room_name_room_room FOREIGN KEY (room_name)
-        REFERENCES room (room_name);
-        
--- 회원 -> 질문      
-ALTER TABLE QNA
-    ADD CONSTRAINT FK_QNA_user_id_USER_user_id FOREIGN KEY (user_id)
-        REFERENCES HOTEL_USER (user_id);

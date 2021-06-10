@@ -18,10 +18,11 @@
 }
 
 .mainRes {
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 30%;
+    left: 50%;
 }
+
 
 .reservation{
     width: 100%;
@@ -73,4 +74,38 @@
 .check_InOut {
     padding: 0 20px;
     width: 100%;
+}
+
+/* 새로운 Main CSS */
+
+.roomRes{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.roomRes .tit{
+	position: absolute;
+    left: 30px;
+    top: 10px;
+    font: 400 14px/1 gothamM;
+    color: #b3b3b3;
+    letter-spacing: -1px;
+}
+
+.selectWrap{
+	display: inline-block;
+	position: relative;
+	heigth: 64px;
+	background: transparent;
+}
+
+.text-ui{
+	border-bottom: 0;
+    font: 600 20px gothamB;
+    padding-left: 20px;
+    height: 64px;
+    background: transparent;
+    color: #fff;
+    padding-top: 30px;
 }
