@@ -242,16 +242,14 @@ $(function() {
 						table += "<tr><td width='10%' align='center'>" + $(this).find("num").text()+"</td>"
 						+"<td width='30%' align='center'>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() + "</td>" +
 								"<td width='10%' align='center'><input type='button' id ='check' value='상세보기'></td></tr>";
-						check_btn = document.getElementById('check').value;
+
 						
 					});
-					console.log("b :" + check_btn);
-					$("#content_standard").after(table);
 					
-					//check 클릭시 상세내역 오픈
-					$("#check_btn").click(function() {
-						
-						console("성공");
+					$("#content_standard").after(table);
+								
+					$('body').on('click', '#check', function(){
+						console.log("body 성공");
 						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
 						if (list.style.display === 'none') {
 							list.style.display = 'block';
@@ -286,7 +284,6 @@ $(function() {
 						} else {
 							list.style.display = 'none';
 						}
-						
 					});
 				},
 				error : function() {
