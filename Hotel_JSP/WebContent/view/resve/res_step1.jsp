@@ -11,11 +11,16 @@
 <title>객실 예약 - 객실, 요금 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function() {
-	    $("#rsv_toggle_btn").click(function() {
-	        $("#toggleCont").toggle(); 
-	    });
-	});
+
+	// foreach로 반복생성되는 각각의 toggle들 개별 실행
+	// STANDARD count = 1 / DELUXE = 2 ... 
+	// 참조: https://okky.kr/article/422641
+	function rsvToggle(count) {
+		 $("[name='roomNumber']:eq(" +(count-1)+ ")").toggle('slow');
+		 
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -30,7 +35,7 @@
 				<h2 class="titDep1">Booking</h2>
 				<div class="stepWrap">
 					<ol>
-						<li class="on">
+						<li>
 							 객실, 요금 선택
 						</li>
 						<li></li>
@@ -40,6 +45,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<!-- //topArea -->
 		<div class="selResult">
 			<div class="inner">
@@ -58,70 +64,76 @@
 						<dd><%=request.getAttribute("resChild") %></dd>
 					</dl>
 				</div>
-				<a href="#" class="back_btn" onclick="history.back()">객실 다시 검색</a>
+				<a href="res_Step0.jsp" class="step0_btn">객실 다시 검색</a><br>
+				----------------------------
 			</div>
 		</div>
 		
-		<div class="roomContainer">		
+		<div class="roomType">
 			<c:set var="list" value="${roomList }" />
 			
-			<c:if test="${empty list }">
-				<span>예약 가능한 객실이 없습니다.</span> <br>
-			</c:if>
-			
-			<c:if test="${!empty list }">
-				<ul>
-					<c:forEach items="${list }" var="i">
-						<li>
-							<p class="roomName">
-								${i.getRoomName() }
-							</p>
-							<p class="keyword"><span>ROOM</span></p>
-							<p class="roomBenefit">${i.getRoomContent() } |  ${i.getRoomSize() }</p>
-							<p class="btnView">
-								<a href="#" class="detail_btn">
-									객실 상세보기
-								</a>
-							</p>
-							<p class="priceWrap">
-								<span class="price" >
-									<span id="roomPrice">${i.getRoomPrice() }</span> KRW ~</span>
-								<span class="night"><%=request.getAttribute("resNight") %>박 / 세금 별도</span>
-							</p>
-							<p class="thum">
-								<img src="#" alt="${i.getRoomName() }">										
-							</p>
-							
-							<input type="button" id='rsv_toggle_btn' value="RESERVE"/>
-							
-							<!-- 토글 버튼 클릭시 보이는 영역 -->
-							<div id="toggleCont" style="display: none;" border='1'>
-								<!-- room number table 수정후 반복생성 작업하기 -->
-								<div class="roomInfor">
-			                       <div class="titArea">
-			                           <strong class="tit">[Member Exclusive] SMART CHOICE</strong>
-			                       </div>
-			                       <p class="roomBenefit">클럽 조선 리워드 회원분들을 위한 추가 3% 할인 혜택!</p>
-			                       <div class="date">
-			                           2021.04.14 - 2021.07.22
-			                       </div>
-			                       <span class="price">
-			                           <em>349,200</em>KRW ~
-			                       </span>
-			                       <button type="button" class="btnLine">
-			                           상품 상세보기
-			                       </button>
-			                       <input type="submit" id="rsv_btn" value="예약하기">
-			                   </div>
-							</div> <!-- toggleCont -->	
-						</li>	
-					 </c:forEach>	
-					 	
-				</ul>
+			<c:forEach items="${list }" var="i" varStatus="status" step='3'>
 				
-			</c:if>
-		
-		</div><!-- roomContainer -->
+				<dl class="roomIntro">
+	                 <dt class="roomName">
+	                     ${i.getRoomName() }
+	                 </dt>
+	                 <dd class="keyword"><span>ROOM</span></dd>
+	                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
+	                 <dd class="btnView">
+	                     <a href="#none" class="btnS icoArr">
+	                         객실 상세보기
+	                     </a>
+	                 </dd>
+	                 <dd class="priceWrap">
+	                     <span class="price">
+	                         ${i.getRoomPrice() }<em>KRW ~</em>
+	                     </span>
+	                     <span class="day">1박 / 세금 별도</span>
+	                 </dd>
+	                 <dd class="thum">
+	                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
+	                 </dd>
+	             </dl>
+	             
+	             <!-- toggle btn -->
+	             <button type="button" id="rsv_toggle_btn" style='border: 1px solid' 
+	                 	onclick="rsvToggle(${status.count});return false;">RESERVE</button>
+	             
+	            <!-- toggle inner -->
+	            <div class="roomNumber" name="roomNumber" style='display: none;'>
+	                <h4 class="titDep3">OFFERS</h4>
+	                 
+	                <ul>
+	                	<c:forEach items="${list }" var="i" varStatus="s"
+	                		begin="${s.count}" end="${s.count +2}">
+	                		
+			                <li>
+			                	count >> ${s.count }  index >> ${s.index }
+			                   <div class="roomInfor" style='border: 1px solid'>
+			                       <div class="titArea">
+			                           <strong class="tit">${i.getRoomNumber() }</strong>
+			                       </div>
+			                       
+			                       <span class="price">
+			                           <em> ${i.getRoomPrice() }</em>KRW ~
+			                       </span>
+			                       
+		                           <button type="button" class="detail_btn">
+		                               상품 상세보기
+		                           </button>
+		                           
+		                           <input type="submit" value="예약하기">
+			                   </div>
+	                    	</li>
+	                    </c:forEach>
+                    </ul>
+	            </div>
+	             
+	            <br>
+	             ----------------------------------
+	        </c:forEach>
+		</div>
 		
 	</form>
 		

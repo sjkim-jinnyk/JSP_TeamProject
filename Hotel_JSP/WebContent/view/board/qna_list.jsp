@@ -50,7 +50,7 @@
 	      <tr>
 	         <td colspan="4" align="right">
 	            <input type="button" value="글쓰기"
-	               onclick="location.href='qna_write.do'">
+	               onclick="location.href='qna_write.do'">		<!-- 세션정보 추가 필요 -->
 	         </td>
 	      </tr>
 	   </table>

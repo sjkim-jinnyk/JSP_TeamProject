@@ -40,9 +40,7 @@
 	         <tr>
 	         	<th>첨부파일</th>
 	            <td>
-	               <a href="./upload${dto.getQnaFile() }" target="_blank">
-	                    ${dto.getQnaFile() }
-	               </a>
+	               <a href="<%=request.getContextPath() %>/file/qna/${dto.getQnaFile() }" download>${dto.getQnaFile() }</a>     
 	            </td>
 	         </tr>
 	         
@@ -57,20 +55,14 @@
 	         </tr>
 	      </c:if>
 	      
-	      <c:if test="${empty dto }"> 
-	         <tr> 
-	            <td colspan="2" align="center">
-	               <h3>알 수 없는 오류 발생</h3>
-	            </td>
-	         </tr>
-	      </c:if>
-	      
 	      <tr>
 	         <td colspan="2" align="center">
 	            <input type="button" value="글수정"
-	                onclick="location.href='qna_update.do?no=${dto.getQnaNo() }'">
+	                onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
 	            <input type="button" value="글삭제"
-	                onclick="location.href='qna_delete.do?no=${dto.getQnaNo() }'">
+	                onclick="if(confirm('삭제 하시겠습니까?')) {
+	                			location.href='qna_delete_ok.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'
+							}else {return; }"> 
 	            <input type="button" value="전체목록"
 	                onclick="location.href='qna_list.do'">
 	         </td>

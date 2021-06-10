@@ -106,7 +106,9 @@ function deluxe_get() {
 		}
 	});
 };
+
 deluxe_get();
+
 function suite_get() {
 	let today = '2021-06-14';
 	let suite = $("#suite_name").text();
@@ -147,7 +149,9 @@ function suite_get() {
 		}
 	});
 };
+
 suite_get();
+
 function prestige_get() {
 	let today = '2021-06-14';
 	let prestige = $("#prestige_name").text();
@@ -188,6 +192,7 @@ function prestige_get() {
 		}
 	});
 };
+
 prestige_get();
 
 /* 객실검색 버튼 눌렀을 때*/
@@ -236,20 +241,19 @@ $(function() {
 					alert('page1 성공');
 					console.log(data);
 					let table = "";
-					let check_btn = "";
 					$(data).find("reserve").each(function(){
 						
 						table += "<tr><td width='10%' align='center'>" + $(this).find("num").text()+"</td>"
 						+"<td width='30%' align='center'>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() + "</td>" +
 								"<td width='10%' align='center'><input type='button' id ='check' value='상세보기'></td></tr>";
-
 						
 					});
+
+					$("#content_standard").append(table);
 					
-					$("#content_standard").after(table);
-								
-					$('body').on('click', '#check', function(){
-						console.log("body 성공");
+					//check 클릭시 상세내역 오픈
+					$("body").on('click', '#check', function() {
+						
 						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
 						if (list.style.display === 'none') {
 							list.style.display = 'block';
