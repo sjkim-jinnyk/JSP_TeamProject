@@ -8,7 +8,7 @@
 
 	ReserveDAO dao = ReserveDAO.getInstance();
 	String roomNo = dao.getRoomNumber(roomName, today);
-			
+	
 	out.println(roomNo);
 	
 %>

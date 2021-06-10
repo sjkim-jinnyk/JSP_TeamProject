@@ -87,7 +87,6 @@
 					<td id="103" width="20%" align="center">103</td>
 					<td id="103_check" align="center"></td>
 					
-					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
 					</td> 

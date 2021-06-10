@@ -5,19 +5,20 @@
 <!-- 이게 안되면 pc에서의 100px과 모바일에서의 100px이 디바이스 성능에 따라 달라집니다. -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/CommonStyle.css">
-<link rel="stylesheet" href="css/MainStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
 <link rel="stylesheet" href="css/FooterStyle.css">
-<link rel="stylesheet" href="madal_pop.css" />
+<link rel="stylesheet" href="css/madal_pop.css" />
+<link rel="stylesheet" href="css/cal.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-<script type="text/javascript" src="jqery.bpopup-0.1.1.min.js"></script>
+<script type="text/javascript" src="js/jqery.bpopup-0.1.1.min.js"></script>
 </head>
 <body>
     <header class="headerBox">
