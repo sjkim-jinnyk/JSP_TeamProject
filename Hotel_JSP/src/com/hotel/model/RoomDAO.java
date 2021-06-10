@@ -79,6 +79,7 @@ public class RoomDAO {
 			
 			while(rs.next()) {
 				RoomDTO dto = new RoomDTO();
+				dto.setRoomNumber(rs.getInt("room_number"));
 				dto.setRoomName(rs.getString("room_name"));
 				dto.setRoomPrice(rs.getInt("room_price"));
 				dto.setRoomContent(rs.getString("room_content"));

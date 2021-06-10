@@ -42,7 +42,11 @@
 			}
 		}
 		
-		if(yoil = 1){
+		/*요일 부분 수정 필요*/
+		if(yoil = 0){
+			yoil = '일';
+			t_yoil = '월';
+		}else if(yoil = 1){
 			yoil = '월';
 			t_yoil = '화';
 		}else if(yoil = 2){
@@ -60,9 +64,6 @@
 		}else if(yoil = 6){
 			yoil = '토';
 			t_yoil = '일';
-		}else if(yoil = 7){
-			yoil = '일';
-			t_yoil = '월';
 		}
 		
 	
