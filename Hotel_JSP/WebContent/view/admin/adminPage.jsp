@@ -192,17 +192,53 @@
 		
 		<!-- 객실 검색 눌렀을 때 -->
 		<div class="room_search">
-			<table id="search_page" class="off" border="1">
+			<!-- standard search table -->
+			<table id="search_standard" class="off" border="1">
 				<tr>
-					<td id="img" class="off" rowspan="4"  width="40%" style="word-break:break-all">
+					<td id="img_standard" rowspan="4"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/STANDARD.jpg">
 					</td>
-					<td id="name" colspan="3" align="center"></td>
+					<td id="name_standard" colspan="3" align="center">STANDARD</td>
 				</tr>
-				<tr id="x">
+				<tr id="content_standard">
 				</tr>
 			</table>
 			
+			<!-- deluxe search table -->
+			<table id="search_deluxe" class="off" border="1">
+				<tr>
+					<td id="img_deluxe" rowspan="4"  width="40%" style="word-break:break-all">
+						<img alt="상품" src="image/DELUXE.jpg">
+					</td>
+					<td id="name_deluxe" colspan="3" align="center">DELUXE</td>
+				</tr>
+				<tr id="content_deluxe">
+				</tr>
+			</table>
+			
+			<!-- suite search table -->
+			<table id="search_suite" class="off" border="1">
+				<tr>
+					<td rowspan="4"  width="40%" style="word-break:break-all">
+						<img alt="상품" src="image/SUITE.jpg">
+					</td>
+					<td colspan="3" align="center">SUITE</td>
+				</tr>
+				<tr id="content_suite">
+				</tr>
+			</table>
+			
+			<!-- prestige search table -->
+			<table id="search_prestige" class="off" border="1">
+				<tr>
+					<td rowspan="4"  width="40%" style="word-break:break-all">
+						<img alt="상품" src="image/PRESTIGE.jpg">
+					</td>
+					<td colspan="3" align="center">PRESTIGE</td>
+				</tr>
+				<tr id="content_prestige">
+				</tr>
+			</table>
 			
 			<!-- 상세페이지 -->
 <%--			<table class="content_info" style="display:none;">

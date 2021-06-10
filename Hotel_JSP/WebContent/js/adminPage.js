@@ -7,10 +7,11 @@ const prestige = document.querySelector('#prestige');		// 프레스티지 table
 const contArea2 = document.querySelector('#contArea2');		// 예약관리  table
 const use = document.querySelector('.use');
 const search = document.querySelector('#search');	// 객실버튼 
-const img = document.querySelector('#img');	// 객실버튼 
-const search_page = document.querySelector('#search_page');	// 객실버튼 
 
-
+const search_st = document.querySelector('#search_standard');	// standard 검색 
+const search_d = document.querySelector('#search_deluxe');		// deluxe 검색 
+const search_su = document.querySelector('#search_suite');		// suite 검색 
+const search_p = document.querySelector('#search_prestige');	// prestige 검색 
 
 /* 현재 날짜를 불러오는 함수 */
 function getToday() {
@@ -234,20 +235,154 @@ btn.addEventListener('click', function() {
 
 $(function() {
 	$("#search_btn").click(function() {
+		
 		let room = $("#roomName").val();
 		let checkIn = $("#checkIn").val();
 		let checkOut = $("#checkOut").val();
-		console.log(room);
-		console.log(checkIn);
-		console.log(checkOut);
 		
+		// 예약관리 테이블 숨김
 		if (contArea2.classList == 'on') {
 			contArea2.classList.replace('on', 'off');
 		}
+		
+		// 각각 room 이름에 해당하는 ajax 실행
 		if (room == 'STANDARD') {
-			img.classList.replace('off','on');
-		}
-		search.classList.replace('off','on');
+			$("#content_standard").empty();
+			search_st.classList.replace('off','on');
+			search_d.classList.replace('on','off');
+			
+			// standard
+			$.ajax({
+				type : "post",
+				url : "./view/admin/search_room.jsp",
+				data : {
+					"roomName" : room,
+					"checkIn" : checkIn,
+					"checkOut" : checkOut
+				},
+				async: false,
+				datatype : "xml",
+				success : function(data) {
+					alert('page1 성공');
+					console.log(data);
+					let table = "";
+					$(data).find("reserve").each(function(){
+						
+						table += "<li>" + $(this).find("num").text() + "</li>"
+						table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
+					});
+
+					$("#content_standard").append(table);
+				},
+				error : function() {
+					alert("오류");
+				}
+
+			});
+			
+		// deluxe
+		}else if(room == "DELUXE") {
+			$("#content_deluxe").empty();
+			search_st.classList.replace('on','off');
+			search_d.classList.replace('off','on');
+			
+			$.ajax({
+				type : "post",
+				url : "./view/admin/search_room.jsp",
+				data : {
+					"roomName" : room,
+					"checkIn" : checkIn,
+					"checkOut" : checkOut
+				},
+				async: false,
+				datatype : "xml",
+				success : function(data) {
+					alert('page1 성공');
+					console.log(data);
+					let table = "";
+					$(data).find("reserve").each(function(){
+						
+						table += "<li>" + $(this).find("num").text() + "</li>"
+						table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
+					});
+
+					$("#content_deluxe").append(table);
+				},
+				error : function() {
+					alert("오류");
+				}
+
+			});
+		// suite
+		}else if(room == "SUITE") {
+			$("#content_suite").empty();
+			search_st.classList.replace('on','off');
+			search_d.classList.replace('on','off');
+			search_su.classList.replace('off','on');
+			
+			$.ajax({
+				type : "post",
+				url : "./view/admin/search_room.jsp",
+				data : {
+					"roomName" : room,
+					"checkIn" : checkIn,
+					"checkOut" : checkOut
+				},
+				async: false,
+				datatype : "xml",
+				success : function(data) {
+					alert('page1 성공');
+					console.log(data);
+					let table = "";
+					$(data).find("reserve").each(function(){
+						
+						table += "<li>" + $(this).find("num").text() + "</li>"
+						table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
+					});
+
+					$("#content_suite").append(table);
+				},
+				error : function() {
+					alert("오류");
+				}
+
+			});
+		// prestige
+		}else if(room == "PRESTIGE") {
+			$("#content_prestige").empty();
+			search_st.classList.replace('on','off');
+			search_d.classList.replace('on','off');
+			search_su.classList.replace('on','off');
+			search_p.classList.replace('off','on');
+			
+			$.ajax({
+				type : "post",
+				url : "./view/admin/search_room.jsp",
+				data : {
+					"roomName" : room,
+					"checkIn" : checkIn,
+					"checkOut" : checkOut
+				},
+				async: false,
+				datatype : "xml",
+				success : function(data) {
+					alert('page1 성공');
+					console.log(data);
+					let table = "";
+					$(data).find("reserve").each(function(){
+						
+						table += "<li>" + $(this).find("num").text() + "</li>"
+						table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
+					});
+
+					$("#content_prestige").append(table);
+				},
+				error : function() {
+					alert("오류");
+				}
+
+			});
+		} // if문 끝
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
 		suite.classList.replace('use', 'off');
@@ -257,44 +392,7 @@ $(function() {
 		suite.classList.replace('on', 'off');
 		prestige.classList.replace('on', 'off');
 		
-		$("#search").empty();
 		
-		
-		
-		$.ajax({
-			type : "post",
-			url : "./view/admin/search_room.jsp",
-			data : {
-				"roomName" : room,
-				"checkIn" : checkIn,
-				"checkOut" : checkOut
-			},
-			async: false,
-			datatype : "xml",
-			success : function(data) {
-				alert('page1 성공');
-				console.log(data);
-				let table1 = "";
-				let table2 = "";
-				let table3 = "";
-				console.log($(data).find("reserve"));
-				$(data).find("reserve").each(function(){
-					
-					table1 += "<li>" + $(this).find("num").text() + "</li>"
-					table1 += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
-					table2 += "<img alt='상품' src='image/" + $(this).find("name").text() + ".jpg'>";
-					table3 += $(this).find("name").text();
-				});
-
-				$("#x").append(table1);
-				$("#img").append(table2);
-				$("#name").append(table3);
-			},
-			error : function() {
-				alert("오류");
-			}
-
-		});
 	});
 	
 	
@@ -313,7 +411,7 @@ room_click.addEventListener('click', function() {
 	prestige.classList.replace('off', 'on');		
 	contArea2.classList.replace('use','off');
 	
-	search.classList.replace('use','off');
+	search_page.classList.replace('on','off');
 	if (contArea2.classList == 'on') {
 		contArea2.classList.replace('on', 'off');
 	}
@@ -322,7 +420,7 @@ room_click.addEventListener('click', function() {
 
 /* 예약관리 클릭 */
 res_click.addEventListener('click', function() {
-	search.classList.replace('use','off');
+	search_page.classList.replace('on','off');
 	contArea2.classList.replace('off', 'on');
 	if (standard.classList != 'off') {
 		standard.classList.replace('on', 'off');
