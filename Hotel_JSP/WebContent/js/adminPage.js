@@ -6,7 +6,7 @@ const suite = document.querySelector('#suite');
 const prestige = document.querySelector('#prestige');
 const contArea2 = document.querySelector('#contArea2');
 const use = document.querySelector('.use');
-
+const search = document.querySelector('#standard_search');
 
 /* 현재 날짜를 불러오는 함수 */
 function getToday() {
@@ -220,6 +220,7 @@ btn.addEventListener('click', function() {
 
 $(function() {
 	$("#search_btn").click(function() {
+		search.classList.replace('off','use');
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
 		suite.classList.replace('use', 'off');
@@ -307,18 +308,21 @@ $(function() {
 
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
 
-
-
-
+/* 객실관리 클릭 */
 room_click.addEventListener('click', function() {
 	standard.classList.replace('off', 'on');
+	deluxe.classList.replace('off','on');
+	suite.classList.replace('off','on');
+	prestige.classList.replace('off','on');
 	contArea2.classList.replace('use','off');
+	search.classList.replace('use','off');
 	if (contArea2.classList == 'on') {
 		contArea2.classList.replace('on', 'off');
 	}
 	console.log(contArea1);
 });
 
+/* 예약관리 클릭 */
 res_click.addEventListener('click', function() {
 	standard.classList.replace('use', 'on');
 	contArea2.classList.replace('off', 'on');
