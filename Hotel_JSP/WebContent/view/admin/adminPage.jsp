@@ -195,10 +195,10 @@
 			<!-- standard search table -->
 			<table id="search_standard" class="off" border="1">
 				<tr>
-					<td id="img_standard" rowspan="4"  width="40%" style="word-break:break-all">
+					<td rowspan="10"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/STANDARD.jpg">
 					</td>
-					<td id="name_standard" colspan="3" align="center">STANDARD</td>
+					<td colspan="3" align="center">STANDARD</td>
 				</tr>
 				<tr id="content_standard">
 				</tr>
@@ -207,10 +207,10 @@
 			<!-- deluxe search table -->
 			<table id="search_deluxe" class="off" border="1">
 				<tr>
-					<td id="img_deluxe" rowspan="4"  width="40%" style="word-break:break-all">
+					<td rowspan="7"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/DELUXE.jpg">
 					</td>
-					<td id="name_deluxe" colspan="3" align="center">DELUXE</td>
+					<td colspan="3" align="center">DELUXE</td>
 				</tr>
 				<tr id="content_deluxe">
 				</tr>
@@ -219,7 +219,7 @@
 			<!-- suite search table -->
 			<table id="search_suite" class="off" border="1">
 				<tr>
-					<td rowspan="4"  width="40%" style="word-break:break-all">
+					<td rowspan="7"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/SUITE.jpg">
 					</td>
 					<td colspan="3" align="center">SUITE</td>
@@ -231,7 +231,7 @@
 			<!-- prestige search table -->
 			<table id="search_prestige" class="off" border="1">
 				<tr>
-					<td rowspan="4"  width="40%" style="word-break:break-all">
+					<td rowspan="7"  width="40%" style="word-break:break-all">
 						<img alt="상품" src="image/PRESTIGE.jpg">
 					</td>
 					<td colspan="3" align="center">PRESTIGE</td>
@@ -241,7 +241,7 @@
 			</table>
 			
 			<!-- 상세페이지 -->
-<%--			<table class="content_info" style="display:none;">
+			<table class="content_info" style="display:none;">
  				<tr>
 					<td>
 						<strong>101호</strong>
@@ -251,7 +251,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr> 
-			</table>--%>	
+			</table>	
 
 		</div>
 		
@@ -276,7 +276,7 @@
 				</tr>
 			</table>
 			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-			<table class="content_info">
+<%-- 			<table class="content_info">
 				<tr>
 					<td>
 						<strong>101호</strong>
@@ -286,7 +286,7 @@
 						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
 					</td>
 				</tr>	
-			</table> 
+			</table>  --%>
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />
