@@ -147,13 +147,14 @@ public class ReserveDAO {
 		try {
 			openConn();
 			
-			sql = "select * from reserve where res_in = ? or res_out = ? and room_name = ? order by room_number";
+			sql = "select * from reserve where room_name = ? and to_date(res_in,'yyyy-mm-dd') between to_date(?, 'yyyy-mm-dd') and to_date(?, 'yyyy-mm-dd')"
+					+ "order by room_number";
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, in);
-			pstmt.setString(2, out);
-			pstmt.setString(3, name);
+			pstmt.setString(1, name);
+			pstmt.setString(2, in);
+			pstmt.setString(3, out);
 			
 			rs = pstmt.executeQuery();
 			

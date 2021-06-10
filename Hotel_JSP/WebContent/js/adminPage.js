@@ -250,21 +250,12 @@ $(function() {
 				$(data).find("reserve").each(function(){
 					
 					table += "<li>" + $(this).find("num").text() + "</li>"
-					/*table += "<tr>";
-					table += "<td rowspan='3'><img alt='상품' src='image/"+$(this).find("name").text()+".jpg'></td>"
-					table += "<td colspan='2'>"+$(this).find("name").text()+"</td>"
-					table += "</tr>";
-					table += "<tr>";
-					table += "<td colspan='2' align='left'>"+$(this).find("content").text()+" | Size : "+$(this).find("size").text()+" m² </td>"
-					table += "</tr>";
-					table += "<tr>";
-					table += "<td><h2>"+$(this).find("price").text()+"</h2></td>"
-					table += "</tr>";*/
+					table += "<li>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() +"</li>"
 					
 				});
 				
 				$("#standard_search").append(table);
-
+				
 			},
 			error : function() {
 				alert("오류");
