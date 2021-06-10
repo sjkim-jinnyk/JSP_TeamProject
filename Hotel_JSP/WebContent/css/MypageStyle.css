@@ -3,7 +3,7 @@
 
 .myPage_header {
 	position: relative;
-	width: 95%;
+	width: 80%;
 	margin: auto;
 	max-width: 1300px;
 	margin-top: 150px;
@@ -25,7 +25,7 @@
 
 .myPage {
 	position: relative;
-	width: 95%;
+	width: 80%;
 	margin: auto;
 	margin-top: 20px;
 	padding-bottom: 180px;
@@ -44,14 +44,16 @@
 
 .inner_menu {
 	margin-bottom: 20px;
-	font-size: 18px;
-	font-weight: bold;
+	font: 500 18px/1 notokrR;
+    letter-spacing: -.025em;
 }
 
 .menu_list {
-	font-size: 15px;
 	opacity: 0.8;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
+    font: 500 14px/1 notokrR;
+    letter-spacing: -.025em;
+    line-height: 2;
 }
 
 .menu_content {
@@ -61,9 +63,32 @@
 .mainpage {
 	text-align: center;
 	width: 100%;
+	margin-block: auto;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
-.userInfo{
-	font-size: 20px;
-	margin-top: 150px;
+.welcom_msg {
+	margin-bottom: 40px;
+    font: 500 25px/1 notokrR;
+    letter-spacing: -.025em;
+}
+
+.userName {
+	color: #989442;
+}
+
+.resPoint_box {
+	display: -webkit-box;
+	width: 80%;
+    margin: auto;
+}
+
+.resPoint {
+	border: 1px solid;
+   	width: 50%;
+    padding: 15px;
+    font: 500 15px/1 notokrR;
+    letter-spacing: -.025em;
+    line-height: 2;
 }
