@@ -236,22 +236,19 @@ $(function() {
 					alert('page1 성공');
 					console.log(data);
 					let table = "";
-					let check_btn = "";
 					$(data).find("reserve").each(function(){
 						
 						table += "<tr><td width='10%' align='center'>" + $(this).find("num").text()+"</td>"
 						+"<td width='30%' align='center'>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() + "</td>" +
 								"<td width='10%' align='center'><input type='button' id ='check' value='상세보기'></td></tr>";
-						check_btn = document.getElementById('check').value;
 						
 					});
-					console.log("b :" + check_btn);
-					$("#content_standard").after(table);
+					$("#content_standard").append(table);
 					
 					//check 클릭시 상세내역 오픈
-					$("#check_btn").click(function() {
+					$("body").on('click', '#check', function() {
 						
-						console("성공");
+						console.log("성공");
 						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
 						if (list.style.display === 'none') {
 							list.style.display = 'block';

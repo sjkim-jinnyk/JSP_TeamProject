@@ -65,7 +65,7 @@
 			<table id="standard" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/STANDARD.jpg">
+						<img alt="상품" src="images/STANDARD.jpg">
 					</td>
 					<td id="standard_name" colspan="3" align="center">STANDARD</td>
 				</tr> 
@@ -87,6 +87,7 @@
 					<td id="103" width="20%" align="center">103</td>
 					<td id="103_check" align="center"></td>
 					
+					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
 					</td> 
@@ -97,7 +98,7 @@
 			<table id="deluxe" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/DELUXE.jpg">
+						<img alt="상품" src="images/DELUXE.jpg">
 					</td>
 					<td id="deluxe_name" colspan="3" align="center">DELUXE</td>
 				</tr> 
@@ -128,7 +129,7 @@
 			<table id="suite" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/SUITE.jpg">
+						<img alt="상품" src="images/SUITE.jpg">
 					</td>
 					<td id="suite_name" colspan="3" align="center">SUITE</td>
 				</tr> 
@@ -160,7 +161,7 @@
 			<table id="prestige" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/PRESTIGE.jpg">
+						<img alt="상품" src="images/PRESTIGE.jpg">
 					</td>
 					<td id="prestige_name" colspan="3" align="center">PRESTIGE</td>
 				</tr> 
@@ -195,7 +196,7 @@
 			<table id="search_standard" class="off" border="1">
 				<tr>
 					<td rowspan="10"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/STANDARD.jpg">
+						<img alt="상품" src="images/STANDARD.jpg">
 					</td>
 					<td colspan="3" align="center">STANDARD</td>
 				</tr>
@@ -207,7 +208,7 @@
 			<table id="search_deluxe" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/DELUXE.jpg">
+						<img alt="상품" src="images/DELUXE.jpg">
 					</td>
 					<td colspan="3" align="center">DELUXE</td>
 				</tr>
@@ -219,7 +220,7 @@
 			<table id="search_suite" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/SUITE.jpg">
+						<img alt="상품" src="images/SUITE.jpg">
 					</td>
 					<td colspan="3" align="center">SUITE</td>
 				</tr>
@@ -231,7 +232,7 @@
 			<table id="search_prestige" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/PRESTIGE.jpg">
+						<img alt="상품" src="images/PRESTIGE.jpg">
 					</td>
 					<td colspan="3" align="center">PRESTIGE</td>
 				</tr>
