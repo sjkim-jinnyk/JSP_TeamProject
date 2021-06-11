@@ -106,18 +106,12 @@
 	                 
 	                <ul>
 	                	<c:forEach items="${list }" var="i" varStatus="s"
-	                		begin="${s.count}" end="${s.count +2}">
-	                		
-			                <li>
-			                	count >> ${s.count }  index >> ${s.index }
-			                   <div class="roomInfor" style='border: 1px solid'>
+	                		begin="1" end="3">
+			                <li class="">
+			                   <div id="${status.count }0${s.count}" style='border: 1px solid'>
 			                       <div class="titArea">
-			                           <strong class="tit">${i.getRoomNumber() }</strong>
+			                           <strong class="tit">${status.count }0${s.count}호</strong>
 			                       </div>
-			                       
-			                       <span class="price">
-			                           <em> ${i.getRoomPrice() }</em>KRW ~
-			                       </span>
 			                       
 		                           <button type="button" class="detail_btn">
 		                               상품 상세보기
