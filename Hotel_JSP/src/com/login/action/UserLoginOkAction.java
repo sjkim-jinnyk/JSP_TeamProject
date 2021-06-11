@@ -37,10 +37,13 @@ public class UserLoginOkAction implements Action {
 			UserDTO dto = dao.getUser(userId);
 			
 			session.setAttribute("userId", dto.getUserId());
-			session.setAttribute("userName", dto.getUserPwd());
+			session.setAttribute("userName", dto.getUserName());
+			
+			// 세션값 저장되었는지 콘솔창에서 확인
+			System.out.println("UserLoginOkAction에서 userName >>>" + (String)session.getAttribute("userName"));
 			
 			forward.setRedirect(false);
-			forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
+			forward.setPath("index.jsp");	
 			
 		} else if(check == -1) {
 			// 비밀번호가 틀린 경우

@@ -7,30 +7,44 @@
 }
 
 .mainpageTxt .mainTxt{
-    position: absolute;
-    top: 40%;
-    /* left: 50%; */
-    opacity: 1;
+    position: relative;
     color: white;
     text-align: center;
     font-size: 60px;
     width: 100%;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display SC', serif;
 }
 
 .mainRes {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin: 55px 0 0 -700px;
-    width: 80%;
+    position: relative;
 }
 
 
 .reservation{
-    width: 100%;
     display: flex;
-    padding: 0 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.line-tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 64px;
+    background: #fff;
+    opacity: .2;
+}
+
+.main-div{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
 }
 
 .reservation li {
@@ -47,11 +61,17 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    
+    top: 10px;
+    font: 400 14px/1 gothamM;
+    color: #b3b3b3;
+    letter-spacing: -1px;
+    margin-bottom: 5px;  
 }
+
 .reservation a{
     text-decoration: none;
 }
+
 .reservation .num{
     display: flex;
     width: 100%;
@@ -59,12 +79,14 @@
     align-items: center;
     line-height: 30px;
 }
+
 .check {
     background-color: transparent;
 }
+
 .ser_btn{
     size: 10px;
-    margin-left: 100px;
+    margin-left: 10px;
     cursor: pointer;
     padding: 0 20px;
     background-color: transparent;
@@ -75,7 +97,6 @@
 
 .check_InOut {
     padding: 0 20px;
-    width: 100%;
 }
 
 /* 새로운 Main CSS */
@@ -93,6 +114,7 @@
     font: 400 14px/1 gothamM;
     color: #b3b3b3;
     letter-spacing: -1px;
+    
 }
 
 .selectWrap{
@@ -110,4 +132,34 @@
     background: transparent;
     color: #fff;
     padding-top: 30px;
+}
+
+
+.rBox {
+	position: relative;
+    display: inline-block;
+    min-width: 43px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.rBox >span{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.line_tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    background: #fff;
+    opacity: .2;
+}
+
+.member_num{
+	padding: 0 20px;
 }

@@ -7,50 +7,54 @@
 <title>메인 페이지</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
-	
+	<link rel="stylesheet" href="css/MainStyle.css">
 	<jsp:include page="/include/header.jsp" />
-    
+    	
     <div id="fullpage">
 		<div class="section" style="background: url(image/bg_main01.jpg) no-repeat 50% 50% fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     		<section class="mainpageTxt">    
        	 		<div class="mainTxt"><strong>Experience the Difference</strong></div>
     		</section>
     	<section class="mainRes">
-        	<ul class="reservation">
-            	<li class="hotel">
-                OO호텔
-            	</li>
-            <li class="check_InOut">
+        	<div class="reservation">
+        		<div class="room-name">
+            		<strong class="tit">
+                        RESERVATION
+                 	</strong>
+                	<span class="main-div">ROOM</span>
+                </div>
+            <div class="check_InOut line_tag">
+                <div id="modal_button" class="modal_button">
+                <span class="rBox">
+                    <strong class="tit">
+                        CHECK IN / OUT
+                    </strong>
+                    <span id="dateText">YYYY/MM/DD - YYYY/MM/DD</span>
+                </span>
+                </div>
+            </div>
+            <div class="member_num line_tag">
                 <a href="">
-                    <ul class="tit">
-                        <li>CHECK IN / OUT</li>
-                    </ul>
-                </a>
-                <a href="">
-                    <ul class="num">
-                        <li>YYYY/MM/DD</li>
-                    </ul>
-                </a>
-            </li>
-            <li class="roomselect">
-                <a href="">
-                    <ul class="tit">
-                        <li>ROOM</li>
-                        <li>ADULT</li>
-                        <li>CHILDREN</li>
-                    </ul>
-                </a>
-                <a href="">
-                    <ul class="num">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
-                </a>
-            </li>
+            		<span class="rBox">
+                    	<strong class="tit">ADULT</strong >
+                       	<span id="adultText">2</span>
+                	</span>
+               	 	<span class="rBox">
+                    	<strong class="tit">CHILDREN</strong>
+                        <span id="childText">0</span>
+               		</span>
+               </a>
+            </div>
             <input type="button" class="ser_btn" value="SEARCH" onclick="">
-        </ul>
+        </div>
     </section>
+    <!-- 팝업창란 -->
+    <div id="element_to_pop_up">
+      <a class="b-close">
+        <i class="fas fa-times"></i>
+      </a>
+      <div id="datepicker"></div>
+    </div>
 	</div>
 		<div class="section" style="background : #74b9ff">
 		</div>
@@ -61,6 +65,7 @@
 	
 	<script type="text/javascript" src="js/fullpage.js"></script>
 	<!--  Fullpage.js -->
+	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript">
 	
 	$(document).ready(function() {
@@ -76,8 +81,15 @@
 	    });
 	});
 	
+	(function ($) {
+        $(function () {
+          $("#modal_button").bind("click", function (e) {
+            e.preventDefault();
+            $("#element_to_pop_up").bPopup({});
+          });
+        });
+      })(jQuery);
+
 	</script>
-	
-	
 </body>
 </html>

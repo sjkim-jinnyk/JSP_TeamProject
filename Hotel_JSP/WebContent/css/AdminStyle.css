@@ -3,9 +3,7 @@ a {
 	text-decoration: none;
 }
 
-li {
-	list-style: none;
-}
+
 .admin_topArea {
 	padding: 97px 0 90px 0;
 	
@@ -19,6 +17,7 @@ table{
 	border-spacing: 0 20px;
 	width: 100%;
 }
+
 .admin_search table td{
 	text-align: center;
 }
@@ -33,7 +32,7 @@ table{
 }
 
 
-.content_info{
+ .content_info{
 	display: none;
 }
 
@@ -51,4 +50,9 @@ table{
 .res_manage .on{
 	display: "";
 }
-
+.room_search .off{
+	display: none;
+}
+.room_search .on{
+	display: "";
+}

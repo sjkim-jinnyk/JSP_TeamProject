@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -64,5 +66,230 @@ public class QnaDAO {
 		}
 
 	}
+
+	// qna 테이블의 전체 게시물의 수를 조회하는 메서드
+	public int getListCount() {
+		int count = 0;
+
+		try {
+
+			openConn();
+
+			sql = "select count(*) from qna";
+
+			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return count;
+	}
+
+	// qna 테이블의 페이지에 보여질 게시물의 수만큼 게시물을 조회하는 메서드
+	public List<QnaDTO> getQnaList(int page, int rowsize) {
+		
+		List<QnaDTO> list = new ArrayList<QnaDTO>();
+
+		// 해당 페이지에서의 시작 번호
+		int startNo = (page * rowsize) - (rowsize - 1);
+
+		// 해당 페이지에서의 마지막 번호
+		int endNo = (page * rowsize);
+
+		try {
+			
+			openConn();
+
+			sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, q.* from qna q) where rnum >= ? and rnum <= ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, startNo);
+			pstmt.setInt(2, endNo);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				QnaDTO dto = new QnaDTO();
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+				dto.setQnaContent(rs.getString("qna_content"));
+				dto.setQnaGroup(rs.getInt("qna_group"));
+				dto.setQnaStep(rs.getInt("qna_step"));
+				dto.setQnaDate(rs.getString("qna_date"));
+				dto.setQnaHit(rs.getInt("qna_hit"));
+				dto.setQnaFile(rs.getString("qna_file"));
+
+				list.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return list;
+	}
 	
+	// qna 테이빌의 게시물 조회수를 증가시키는 메서드
+	public void qnaHit(int no) {
+
+		try {
+			
+			openConn();
+
+			sql = "update qna set qna_hit = qna_hit + 1 where qna_no = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+	}
+	
+	// qna 테이블의 게시물 번호에 해당하는 상세내역을 조회하는 메서드
+	public QnaDTO getQnaCont(int no) {
+		
+		QnaDTO dto = new QnaDTO();
+
+		try {
+			openConn();
+
+			sql = "select * from qna where qna_no = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+				dto.setQnaContent(rs.getString("qna_content"));
+				dto.setQnaGroup(rs.getInt("qna_group"));
+				dto.setQnaStep(rs.getInt("qna_step"));
+				dto.setQnaDate(rs.getString("qna_date"));
+				dto.setQnaHit(rs.getInt("qna_hit"));
+				dto.setQnaFile(rs.getString("qna_file"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
+	}
+
+	public int writeQna(QnaDTO dto) {
+		
+		int result = 0, count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select max(qna_no) from qna";
+			
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1) + 1;
+			}
+			
+			sql = "insert into qna values(?, ?, ?, ?, ?, 0, sysdate, 0, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, count);
+			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(3, dto.getQnaTitle());
+			pstmt.setString(4, dto.getQnaContent());
+			pstmt.setInt(5, count);
+			pstmt.setString(6, dto.getQnaFile());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	}
+
+	public int updateQna(QnaDTO dto) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+
+			sql = "select * from qna where qna_no = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, dto.getQnaNo());
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				sql = "update qna set qna_title = ?, qna_content = ?, qna_file = ? where qna_no = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, dto.getQnaTitle());
+				pstmt.setString(2, dto.getQnaContent());
+				pstmt.setString(3, dto.getQnaFile());
+				pstmt.setInt(4, dto.getQnaNo());
+
+				result = pstmt.executeUpdate();
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(null, pstmt, con);
+		}
+		
+		return result;
+	}
+
+	public int deleteQna(int qna_no) {
+		int result = 0, count = 0;
+
+		try {
+			
+			openConn();
+			
+			sql = "delete from qna where qna_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_no);
+
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return result;
+	}
+
 }
