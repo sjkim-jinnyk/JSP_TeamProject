@@ -24,8 +24,8 @@
 .reservation{
     display: flex;
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	width: 100%;
+	justify-content: center;
 }
 
 .line-tag:before{
@@ -100,23 +100,6 @@
 }
 
 /* 새로운 Main CSS */
-
-.roomRes{
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-
-.roomRes .tit{
-	position: absolute;
-    left: 30px;
-    top: 10px;
-    font: 400 14px/1 gothamM;
-    color: #b3b3b3;
-    letter-spacing: -1px;
-    
-}
-
 .selectWrap{
 	display: inline-block;
 	position: relative;
@@ -162,4 +145,49 @@
 
 .member_num{
 	padding: 0 20px;
+}
+
+/* 어린이 어른 선택 */
+
+.member_modal{
+	margin: 20px;
+}
+
+.numMember{
+	width: 100%;
+    float: left;
+    position: relative;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.numMember span{
+    display: block;
+    text-align: center;
+    width: 124px;
+    color: #000;
+    margin: 0 auto;
+    font-family: gothamL;
+}
+
+.numMember button{
+	position: absolute;
+}
+
+.numMember button.btnUp{
+	right: 0;
+	top: 20px;
+}
+
+.numMember_button{
+	text-align: center;
+}
+
+.numMember_button button{
+	margin-top: 20px;
+    border: 1px solid #000;
+    transition: color 0.5s ease-in-out;
+    font-family: gothamL, notokrL;
+    padding: 12px 80px 12px 80px;
 }
