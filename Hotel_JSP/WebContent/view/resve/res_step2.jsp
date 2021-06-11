@@ -55,7 +55,7 @@
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
 				</div>
-				<a href="<%=request.getContextPath()%>/history.back()" class="back_btn">객실 다시 검색</a><br>
+				<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn">객실 다시 검색</a><br>
 				----------------------------
 			</div>
 			
