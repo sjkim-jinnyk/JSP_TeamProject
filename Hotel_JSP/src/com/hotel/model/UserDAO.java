@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -278,4 +280,30 @@ public class UserDAO {
 		return result;
 		
 	} // pwdSearch() 메서드 end
+	
+	// 회원 이름을 통해 정보 찾기
+	public UserDTO getId(String name, String phone) {
+		UserDTO dto = new UserDTO();
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user where user_name = ? and user_phone = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, name);
+			pstmt.setString(2, phone);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setUserId(rs.getString("USER_ID"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return dto;
+	} // getId() 메서드 end
 }

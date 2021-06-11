@@ -16,18 +16,17 @@
 	</div>
 	
 	<!-- 날짜로 객실 조회 -->
-	<div class="admin_search">
-		<!-- 관리자 객실 검색 -->
-		<form method="post">
+	<!-- <div class="admin_search">
+		관리자 객실 검색
 		<table class="hotel">
 				<tr>
-					<th>HOTEL</th><th>DATE</th><th>ROOMS</th>
+					<th></th><th>DATE</th><th>ROOMS</th>
 					<td rows="2" class="search" align="center">
 						<input type="button" id="search_btn" value="객실 검색">
 					</td>
 				</tr>
 				<tr>
-					<td>그랜드 조선 OO</td>
+					<td>객실관리</td>
 					<td>
 						<input type="date" id="checkIn" name="checkIn"> - 
 				    	<input type="date" id="checkOut" name="checkOut">
@@ -43,10 +42,10 @@
 					</td>
 				</tr>
 		</table>
-		</form>
 		
 		
-	</div>
+		
+	</div> -->
 	
 	<!-- 객실, 예약, 매출 관리 -->
 	<div class="admin_manage">
@@ -58,6 +57,53 @@
 			</ul>
 		</div>
 		<!-- //titArea -->
+		<!-- 관리자 검색 -->
+		<div class="admin_search">
+			<!-- 관리자 객실 검색 -->
+			<table id="hotel" class="use">
+					<tr>
+						<th>DATE</th><th>ROOMS</th>
+						<td rowspan="2" class="search" align="center">
+							<input type="button" id="search_btn" value="객실 검색">
+						</td>
+					</tr>
+					<tr>
+						
+						<td>
+							<input type="date" id="checkIn" name="checkIn"> - 
+					    	<input type="date" id="checkOut" name="checkOut">
+					    	
+						</td>
+						<td>
+							<select name="roomName" id="roomName">
+								<option value="STANDARD">STANDARD</option>
+								<option value="DELUXE">DELUXE</option>
+								<option value="SUITE">SUITE</option>
+								<option value="PRESTIGE">PRESTIGE</option>
+							</select>
+						</td>
+					</tr>
+			</table>
+			<!-- 관리자 예약 검색 -->
+			<table id="user" class="off">
+					<tr>
+						<th>NAME</th><th>PHONE</th>
+						<td rowspan="2" class="search" align="center">
+							<input type="button" id="user_btn" value="예약 검색">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="userName">
+						</td>
+						<td>
+							<input type="text" id="userPhone">
+					    	
+						</td>
+						
+					</tr>
+			</table>
+		</div>
 		
 		<!-- 객실관리 페이지  -->
 		<div class="room_manage">
@@ -298,36 +344,9 @@
 		
 		<!-- 예약관리 페이지  -->
 		<div class="res_manage">
-			<table id="contArea2" class="off">
-				<tr>
-					<td class="img" rowspan="3">
-						<img alt="상품" src="images/스마트.jpg">
-					</td>
-					<td colspan="2">AAAAA KING</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="left">
-						Mountain View | Size: 46.7 m² <br>
-						<a href="">객실 상세 보기</a>
-					</td>
-				</tr>
-				<tr>
-					<td><h2>475,300KRW~</h2><br>1박 / 세금 별도</td>
-					<td><input type="button" id="check" value="CHECK" onclick="">
-				</tr>
-			</table>
-			<!-- check 버튼 누르면 나오는 상세 페이지  -->
-<%-- 			<table class="content_info">
-				<tr>
-					<td>
-						<strong>101호</strong>
-						<p class="room_num">남은 객실</p>
-					</td>
-					<td>
-						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
-					</td>
-				</tr>	
-			</table>  --%>
+			<ul id="contArea2" class="off">
+				
+			</ul>
 		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />

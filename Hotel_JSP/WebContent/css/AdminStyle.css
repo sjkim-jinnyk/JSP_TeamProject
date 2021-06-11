@@ -30,8 +30,6 @@ table{
 .titArea ul li {
 	padding: 0 20px;
 }
-
-
  .content_info{
 	display: none;
 }
@@ -54,5 +52,11 @@ table{
 	display: none;
 }
 .room_search .on{
+	display: "";
+}
+.admin_search .off{
+	display: none;
+}
+.admin_search .on{
 	display: "";
 }
