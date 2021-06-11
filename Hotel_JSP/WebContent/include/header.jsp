@@ -14,7 +14,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
@@ -82,7 +81,7 @@
             	<%
             		if(userName == null) { // 로그인 상태 X
             			response.sendRedirect("loginForm.jsp");	
-            	%>
+            	%> 
                 		<li><a href="<%=request.getContextPath() %>/login.do" class="login">로그인</a></li>
                 		<li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li> 
                 		<li><a href="" class="res_check">예약확인</a></li>

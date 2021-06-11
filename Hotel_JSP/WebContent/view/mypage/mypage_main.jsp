@@ -24,14 +24,14 @@
 			<div class="innerBox">
 				<h3 class="inner_menu">예약확인</h3>
         		<ul class="menu_list">
-            		<li class="munu_content"><a href="<%=request.getContextPath() %>/view/mypage/res.jsp" class="res">예약내역</a></li>
-            		<li class="munu_content"><a href="<%=request.getContextPath() %>/view/mypage/res_change.jsp" class="res_change">예약변경</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/res_list.do" class="res">예약내역</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/res_change.do" class="res_change">예약변경</a></li>
         		</ul>
         
         		<h3 class="inner_menu">개인정보관리</h3>
         		<ul class="menu_list">
-            		<li class="munu_content"><a href="<%=request.getContextPath() %>/view/mypage/info_update.jsp" class="login">회원 정보 수정</a></li>
-            		<li class="munu_content"><a href="<%=request.getContextPath() %>/view/mypage/info_del.jsp" class="join">회원탈퇴</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_update.do" class="login">회원 정보 수정</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_del.do" class="join">회원탈퇴</a></li>
         		</ul>
         	</div>
         </div>

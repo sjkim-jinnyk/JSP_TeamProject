@@ -161,10 +161,21 @@ public class ReserveDAO {
 			result += "<rooms>";
 			while(rs.next()) {
 				result += "<reserve>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
 				result += "<name>" + rs.getString("room_name") + "</name>";
-				result += "<num>" + rs.getString("room_number") +"</num>";
+				result += "<num>" + rs.getInt("room_number") +"</num>";
+				result += "<date>" + rs.getString("res_date") +"</date>";
+				result += "<nod>" + rs.getInt("res_NoD") +"</nod>";
 				result += "<resin>" + rs.getString("res_in") +"</resin>";
 				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "<adult>" + rs.getInt("res_adult") +"</adult>";
+				result += "<child>" + rs.getInt("res_child") +"</child>";
+				result += "<adultbr>" + rs.getInt("res_adult_br") +"</adultbr>";
+				result += "<childbr>" + rs.getInt("res_child_br") +"</childbr>";
+				result += "<bed>" + rs.getInt("res_bed") +"</bed>";
+				result += "<total>" + rs.getInt("res_total") +"</total>";
+				result += "<request>" + rs.getString("res_request") +"</request>";
 				result += "</reserve>";
 			}
 			result += "</rooms>";
@@ -180,5 +191,45 @@ public class ReserveDAO {
 		
 		return result;
 	} // getinfo_html()
+	
+	
+	// 마이페이지 - 예약내역 조회하는 메서드
+	public List<ReserveDTO> resList(String userId) {
+		
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+
+		try {openConn();
+		
+			sql = "select * from reserve where user_id = ?";
+		
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReserveDTO dto = new ReserveDTO();
+				
+				dto.setResDate(rs.getString("res_date"));
+				dto.setResIn(rs.getString("res_in"));
+				dto.setResOut(rs.getString("res_out"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setResAdult(rs.getInt("res_adult"));
+				dto.setResChild(rs.getInt("res_child"));
+				dto.setResTotal(rs.getInt("res_total"));
+			
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return list;
+		
+	} // resList() 메서드 end
 	
 }

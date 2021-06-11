@@ -92,3 +92,45 @@
     letter-spacing: -.025em;
     line-height: 2;
 }
+
+.myPage_box {
+	width: 100%;
+	margin: 50px 30px;
+	margin-bottom: 0;
+}
+
+.headline {
+	font: 500 20px/1 notokrR;
+    letter-spacing: -.025em;
+    margin-bottom: 15px;
+}
+
+.myPage_container {
+	display: flex;
+}
+
+.resListChg_on {
+	width: 30%;
+	height: 40px;
+	border: 1px solid black;
+	border-bottom: 0;
+	text-align: center;
+	margin-bottom: 30px;
+	font: 500 14px/1 notokrR;
+    letter-spacing: -.025em;
+    line-height: 2.5;
+}
+
+.resListChg_off {
+	width: 30%;
+	height: 40px;
+	border: 1px solid black;
+	border-left: hidden;
+    border-right: hidden;
+    border-top: hidden;
+	text-align: center;
+	margin-bottom: 30px;
+	font: 500 14px/1 notokrR;
+    letter-spacing: -.025em;
+    line-height: 2.5;
+}
