@@ -181,4 +181,44 @@ public class ReserveDAO {
 		return result;
 	} // getinfo_html()
 	
+	
+	// 마이페이지 - 예약내역 조회하는 메서드
+	public List<ReserveDTO> resList(String userId) {
+		
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+
+		try {openConn();
+		
+			sql = "select * from reserve where user_id = ?";
+		
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReserveDTO dto = new ReserveDTO();
+				
+				dto.setResDate(rs.getString("res_date"));
+				dto.setResIn(rs.getString("res_in"));
+				dto.setResOut(rs.getString("res_out"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setResAdult(rs.getInt("res_adult"));
+				dto.setResChild(rs.getInt("res_child"));
+				dto.setResTotal(rs.getInt("res_total"));
+			
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return list;
+		
+	} // resList() 메서드 end
+	
 }
