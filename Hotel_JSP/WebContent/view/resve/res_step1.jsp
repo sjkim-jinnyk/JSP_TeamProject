@@ -16,10 +16,9 @@
 	// STANDARD count = 1 / DELUXE = 2 ... 
 	// 참조: https://okky.kr/article/422641
 	function rsvToggle(count) {
-		 $("[name='roomNumber']:eq(" +(count-1)+ ")").toggle('slow');
+		 $("[name='roomSelect']:eq(" +(count-1)+ ")").toggle('slow');
 		 
 	}
-	
 	
 </script>
 </head>
@@ -27,11 +26,9 @@
 	
 	<jsp:include page="../../include/header.jsp" />
 	
-	<form name="step1Form" id="step1Form" method="post" 
-		action='<%=request.getContextPath()%>/step2.do'>
-	 
 		<div class="topArea">
 			<div class="topInner">
+				<br><br><br>
 				<h2 class="titDep1">Booking</h2>
 				<div class="stepWrap">
 					<ol>
@@ -52,19 +49,19 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=request.getAttribute("resIn") %>&nbsp;금&nbsp; <!-- 요일 뽑아와야함.. -->
-							-&nbsp;<%=request.getAttribute("resOut") %>&nbsp;토<span>1&nbsp;박</span></dd>
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;금&nbsp; <!-- 요일 뽑아와야함.. -->
+							-&nbsp;<%=session.getAttribute("resOut") %>&nbsp;토<span>1&nbsp;박</span></dd>
 					</dl>
 					<dl class="adults">
 						<dt>ADULTS</dt>
-						<dd><%=request.getAttribute("resAdult") %></dd>
+						<dd><%=session.getAttribute("resAdult") %></dd>
 					</dl>
 					<dl class="children">
 						<dt>CHILDREN</dt>
-						<dd><%=request.getAttribute("resChild") %></dd>
+						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
 				</div>
-				<a href="res_Step0.jsp" class="step0_btn">객실 다시 검색</a><br>
+				<a href="/view/resve/res_step0.jsp" class="step0_btn">객실 다시 검색</a><br>
 				----------------------------
 			</div>
 		</div>
@@ -87,9 +84,11 @@
 	                 </dd>
 	                 <dd class="priceWrap">
 	                     <span class="price">
+	                     	<input type="hidden" name="roomName" value="${i.getRoomName() }">
+	                     	<input type="hidden" name="roomPrice" value="${i.getRoomPrice() }"> 
 	                         ${i.getRoomPrice() }<em>KRW ~</em>
 	                     </span>
-	                     <span class="day">1박 / 세금 별도</span>
+	                     <span class="day">0박 / 세금 별도</span>
 	                 </dd>
 	                 <dd class="thum">
 	                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
@@ -101,12 +100,11 @@
 	                 	onclick="rsvToggle(${status.count});return false;">RESERVE</button>
 	             
 	            <!-- toggle inner -->
-	            <div class="roomNumber" name="roomNumber" style='display: none;'>
+	            <div class="roomNumber" name="roomSelect" style='display: none;'>
 	                <h4 class="titDep3">OFFERS</h4>
 	                 
 	                <ul>
-	                	<c:forEach items="${list }" var="i" varStatus="s"
-	                		begin="1" end="3">
+	                	<c:forEach varStatus="s" begin="1" end="3">
 			                <li class="">
 			                   <div id="${status.count }0${s.count}" style='border: 1px solid'>
 			                       <div class="titArea">
@@ -117,7 +115,9 @@
 		                               상품 상세보기
 		                           </button>
 		                           
-		                           <input type="submit" value="예약하기">
+		                           <c:set var="num" value="${status.count }0${s.count}"></c:set>
+		                           <a href="<%=request.getContextPath() %>/step2.do?num=<c:out value="${num}" />&name=${i.getRoomName() }&price=${i.getRoomPrice() }">
+		                           예약하기</a>
 			                   </div>
 	                    	</li>
 	                    </c:forEach>
@@ -129,11 +129,8 @@
 	        </c:forEach>
 		</div>
 		
-	</form>
 		
-	
 	<jsp:include page="../../include/footer.jsp" />
-	
 	
 	
 </body>

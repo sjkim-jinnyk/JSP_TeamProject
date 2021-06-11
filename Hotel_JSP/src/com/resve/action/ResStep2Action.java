@@ -2,6 +2,7 @@ package com.resve.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
@@ -15,27 +16,29 @@ public class ResStep2Action implements Action {
 		// room_name, room_price
 		// 데이터 받아서 step2.jsp 로 넘겨줌
 		
-		String checkIn = request.getParameter("checkIn").trim();
-		String checkOut = request.getParameter("checkOut").trim();
-		int adult = Integer.parseInt(request.getParameter("adult"));
-		int child = Integer.parseInt(request.getParameter("child"));
+		HttpSession session = request.getSession();
 		
-		String roomId = request.getParameter("roomId").trim();
-		int roomPrice = Integer.parseInt(request.getParameter("roomPrice"));
+		String resIn = (String)session.getAttribute("resIn");
+		String resOut = (String)session.getAttribute("resOut");
+		String resAdult = (String)session.getAttribute("resAdult");
+		String resChild = (String)session.getAttribute("resChild");
+		String num = request.getParameter("num");
+		String name = request.getParameter("name");
+		String price = request.getParameter("price");
 		
-		request.setAttribute("checkIn", checkIn);
-		request.setAttribute("checkOut", checkOut);
-		request.setAttribute("adult", adult);
-		request.setAttribute("child", child);
+		session.setAttribute("resIn", resIn);
+		session.setAttribute("resOut", resOut);
+		session.setAttribute("resAdult", resAdult);
+		session.setAttribute("resChild", resChild);
+		session.setAttribute("roomNumber", num);
+		session.setAttribute("roomName", name);
+		session.setAttribute("roomPrice", price);
 		
-		request.setAttribute("roomId", roomId);
-		request.setAttribute("roomPrice", roomPrice);
 		
 		
-		System.out.println(checkIn + checkOut);
-		System.out.println(adult + child);
-		System.out.println(roomId);
-		System.out.println(roomPrice);
+		System.out.println(resIn);
+		System.out.println(num);
+		System.out.println(price);
 		
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);

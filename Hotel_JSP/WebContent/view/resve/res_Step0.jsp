@@ -26,6 +26,7 @@
 		
 			<div class="topArea">
 				<div class="topInner">
+					<br><br><br>
 					<h2 class="titDep1">Booking</h2>
 					<p class="pageGuide">조선호텔앤리조트의 다양하고 감각적인 인테리어와 특별한 여유를
 									<br> 느낄 수 있는 객실에서 잊을 수 없는 여행의 경험을 선사합니다.</p>
