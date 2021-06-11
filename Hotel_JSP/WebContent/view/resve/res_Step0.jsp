@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
+<script type="text/javascript" src="../../js/reserve.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
+
 </head>
 <body>
 
@@ -76,7 +78,7 @@
 		</div>	
 		
 	</form>
-	<script type="text/javascript" src="../../js/reserve.js"/>
+	
 	<jsp:include page="../../include/footer.jsp" />
 	
 
