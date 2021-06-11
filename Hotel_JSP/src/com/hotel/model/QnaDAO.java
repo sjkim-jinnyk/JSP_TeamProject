@@ -67,12 +67,12 @@ public class QnaDAO {
 
 	}
 
-	// qna 테이블의 전체 게시물의 수를 조회하는 메서드
+	// QnA 테이블의 전체 게시물의 수를 조회하는 메서드
 	public int getListCount() {
+		
 		int count = 0;
 
 		try {
-
 			openConn();
 
 			sql = "select count(*) from qna";
@@ -94,7 +94,7 @@ public class QnaDAO {
 		return count;
 	}
 
-	// qna 테이블의 페이지에 보여질 게시물의 수만큼 게시물을 조회하는 메서드
+	// QnA 테이블의 페이지에 보여질 게시물의 수만큼 게시물을 조회하는 메서드
 	public List<QnaDTO> getQnaList(int page, int rowsize) {
 		
 		List<QnaDTO> list = new ArrayList<QnaDTO>();
@@ -106,10 +106,10 @@ public class QnaDAO {
 		int endNo = (page * rowsize);
 
 		try {
-			
 			openConn();
 
-			sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, q.* from qna q) where rnum >= ? and rnum <= ?";
+			sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, q.* from qna q) "
+					+ "where rnum >= ? and rnum <= ?";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, startNo);
@@ -141,11 +141,10 @@ public class QnaDAO {
 		return list;
 	}
 	
-	// qna 테이빌의 게시물 조회수를 증가시키는 메서드
+	// QnA 테이블의 게시물 조회수를 증가시키는 메서드
 	public void qnaHit(int no) {
 
 		try {
-			
 			openConn();
 
 			sql = "update qna set qna_hit = qna_hit + 1 where qna_no = ?";
@@ -163,7 +162,7 @@ public class QnaDAO {
 
 	}
 	
-	// qna 테이블의 게시물 번호에 해당하는 상세내역을 조회하는 메서드
+	// QnA 테이블의 게시물 번호에 해당하는 상세내역을 조회하는 메서드
 	public QnaDTO getQnaCont(int no) {
 		
 		QnaDTO dto = new QnaDTO();
@@ -199,6 +198,7 @@ public class QnaDAO {
 		return dto;
 	}
 
+	// QnA 테이블의 게시물을 작성하는 메서드
 	public int writeQna(QnaDTO dto) {
 		
 		int result = 0, count = 0;
@@ -235,6 +235,7 @@ public class QnaDAO {
 		return result;
 	}
 
+	// QnA 테이블의 게시물을 수정하는 메서드
 	public int updateQna(QnaDTO dto) {
 		
 		int result = 0;
@@ -269,11 +270,11 @@ public class QnaDAO {
 		return result;
 	}
 
+	// QnA 테이블의 게시물을 삭제하는 메서드
 	public int deleteQna(int qna_no) {
-		int result = 0, count = 0;
+		int result = 0;
 
 		try {
-			
 			openConn();
 			
 			sql = "delete from qna where qna_no = ?";
@@ -282,6 +283,204 @@ public class QnaDAO {
 			pstmt.setInt(1, qna_no);
 
 			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return result;
+	}
+
+	// QnA 테이블의 답변 게시물을 작성하는 메서드
+	public int replyQna(QnaDTO dto) {
+
+		int result = 0, count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select max(qna_no) from qna";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1) + 1;
+			}
+			
+			sql = "insert into qna values(?, ?, ?, ?, ?, ?, sysdate, 0, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, count);
+			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(3, dto.getQnaTitle());
+			pstmt.setString(4, dto.getQnaContent());
+			pstmt.setInt(5, dto.getQnaGroup());
+			pstmt.setInt(6, dto.getQnaStep());
+			pstmt.setString(7, dto.getQnaFile());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	}
+
+	// QnA 테이블의 검색된 전체 게시물의 수를 조회하는 메서드
+	public int getSearchListCount(String search_field, String search_content) {
+
+		int count = 0;
+
+		try {
+			openConn();
+			
+			if (search_field.equals("title")) {
+				sql = "select count(*) from qna where qna_title like ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+
+			} else if (search_field.equals("content")) {
+				sql = "select count(*) from qna where qna_content like ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+
+			} else if (search_field.equals("title_content")) {
+				sql = "select count(*) from qna where qna_title like ? or qna_content like ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+				pstmt.setString(2, "%" + search_content + "%");
+
+			} else {
+				sql = "select count(*) from qna where user_id like ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+
+			}
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return count;
+	}
+
+	// QnA 테이블의 페이지에 보여질 게시물의 수만큼 검색된 게시물을 조회하는 메서드
+	public List<QnaDTO> getSearchQnaList(String search_field, String search_content, int page, int rowsize) {
+		List<QnaDTO> list = new ArrayList<QnaDTO>();
+
+		// 해당 페이지에서 시작 번호
+		int startNo = (page * rowsize) - (rowsize - 1);
+
+		// 해당 페이지에서 마지막 번호
+		int endNo = (page * rowsize);
+		
+		try {
+			openConn();
+			
+			if (search_field.equals("title")) {
+			
+				sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, "
+						+ "q.* from qna q where q.qna_title like ?) where rnum >= ? and rnum <= ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+				pstmt.setInt(2, startNo);
+				pstmt.setInt(3, endNo);
+
+			} else if (search_field.equals("content")) {
+				
+				sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, "
+						+ "q.* from qna q where qna_content like ?) where rnum >= ? and rnum <= ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+				pstmt.setInt(2, startNo);
+				pstmt.setInt(3, endNo);
+
+			} else if (search_field.equals("title_content")) {
+
+				sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, "
+						+ "q.* from qna q where qna_title like ? or qna_content like ?) where rnum >= ? and rnum <= ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+				pstmt.setString(2, "%" + search_content + "%");
+				pstmt.setInt(3, startNo);
+				pstmt.setInt(4, endNo);
+
+			} else {
+				sql = "select * from (select row_number() over(order by qna_group desc, qna_step) rnum, "
+						+ "q.* from qna q where user_id like ?) where rnum >= ? and rnum <= ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, "%" + search_content + "%");
+				pstmt.setInt(2, startNo);
+				pstmt.setInt(3, endNo);
+
+			}
+			
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				QnaDTO dto = new QnaDTO();
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+				dto.setQnaContent(rs.getString("qna_content"));
+				dto.setQnaGroup(rs.getInt("qna_group"));
+				dto.setQnaStep(rs.getInt("qna_step"));
+				dto.setQnaDate(rs.getString("qna_date"));
+				dto.setQnaHit(rs.getInt("qna_hit"));
+				dto.setQnaFile(rs.getString("qna_file"));
+
+				list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return list;
+	}
+	
+	// 관리자 ID 체크용 메서드
+	public int AdminIdCheck(String adminId) {
+
+		int result = 0;
+
+		try {
+			openConn();
+
+			sql = "select admin_id from hotel_admin where admin_id = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, adminId);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				result = 1;
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
