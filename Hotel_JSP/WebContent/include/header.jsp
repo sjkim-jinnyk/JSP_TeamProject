@@ -34,7 +34,7 @@
 						</li>
 						<li class="name">OFFERS
 							<ul class="innerMenu">
-								<li>공지사항</li>
+								<a href="<%=request.getContextPath() %>/info_list.do"><li>공지사항</li></a>
 							</ul>
 						</li>
 						<li class="name">MY PAGE
