@@ -109,7 +109,9 @@ function deluxe_get() {
 		}
 	});
 };
+
 deluxe_get();
+
 function suite_get() {
 	let today = '2021-06-14';
 	let suite = $("#suite_name").text();
@@ -150,7 +152,9 @@ function suite_get() {
 		}
 	});
 };
+
 suite_get();
+
 function prestige_get() {
 	let today = '2021-06-14';
 	let prestige = $("#prestige_name").text();
@@ -191,6 +195,7 @@ function prestige_get() {
 		}
 	});
 };
+
 prestige_get();
 
 /* 객실검색 버튼 눌렀을 때*/
@@ -252,6 +257,7 @@ $(function() {
 						table += "<tr><td width='15%' align='center'>" + $(this).find("num").text()+"</td>"
 						+"<td width='35%' align='center'>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() + "</td></tr>";
 					});
+
 					$("#content_standard").append(table);
 					
 					//check 클릭시 상세내역 오픈
@@ -269,9 +275,11 @@ $(function() {
 							list_p.style.display = 'none';
 						}
 						
+
 						if (list_st.style.display === 'none') {
 							list_st.style.display = 'block';
 							console.log("if문");
+
 							$.ajax({
 								type : "post",
 								url : "./view/admin/search_room.jsp",
@@ -326,7 +334,6 @@ $(function() {
 						} else {
 							list_st.style.display = 'none';
 						}
-						
 					});
 				},
 				error : function() {

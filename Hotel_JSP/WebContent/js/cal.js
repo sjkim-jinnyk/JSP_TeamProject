@@ -7,9 +7,10 @@ $(function () {
     dates: [null, null],
     status: null,
     inputs: {
-      checkin: $("#checkin"),
-      checkout: $("#checkout"),
+      checkin: $("#resIn"),
+      checkout: $("#resOut"),
       dates: $("#dates"),
+      datetext: $("#dateText"),
     },
   };
 
@@ -107,6 +108,9 @@ $(function () {
         datepicker.inputs.checkin.val("");
         datepicker.inputs.checkout.val("");
         datepicker.inputs.dates.val("");
+        
+        //dateText id 값 초기화
+        datepicker.inputs.datetext.val("");
 
         // set current datepicker state
         datepicker.status = "checkin-selected";
@@ -190,6 +194,9 @@ $(function () {
             " - " +
             datepicker.inputs.checkout.val()
         );
+        
+        datepicker.inputs.datetext.text($.datepicker.formatDate(datepicker.dateFormat, checkInDate)+ 
+        		" - " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
       }
     },
   });
