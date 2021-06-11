@@ -82,7 +82,7 @@
             	<%
             		if(userName == null) { // 로그인 상태 X
             			response.sendRedirect("loginForm.jsp");	
-            	%>
+            	%> 
                 		<li><a href="<%=request.getContextPath() %>/login.do" class="login">로그인</a></li>
                 		<li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li> 
                 		<li><a href="" class="res_check">예약확인</a></li>
