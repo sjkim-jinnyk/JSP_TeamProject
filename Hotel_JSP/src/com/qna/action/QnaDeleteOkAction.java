@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 import com.hotel.model.QnaDAO;
-import com.hotel.model.QnaDTO;
 
 public class QnaDeleteOkAction implements Action {
 
