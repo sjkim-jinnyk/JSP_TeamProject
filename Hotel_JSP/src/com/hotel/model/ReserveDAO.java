@@ -161,10 +161,21 @@ public class ReserveDAO {
 			result += "<rooms>";
 			while(rs.next()) {
 				result += "<reserve>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
 				result += "<name>" + rs.getString("room_name") + "</name>";
-				result += "<num>" + rs.getString("room_number") +"</num>";
+				result += "<num>" + rs.getInt("room_number") +"</num>";
+				result += "<date>" + rs.getString("res_date") +"</date>";
+				result += "<nod>" + rs.getInt("res_NoD") +"</nod>";
 				result += "<resin>" + rs.getString("res_in") +"</resin>";
 				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "<adult>" + rs.getInt("res_adult") +"</adult>";
+				result += "<child>" + rs.getInt("res_child") +"</child>";
+				result += "<adultbr>" + rs.getInt("res_adult_br") +"</adultbr>";
+				result += "<childbr>" + rs.getInt("res_child_br") +"</childbr>";
+				result += "<bed>" + rs.getInt("res_bed") +"</bed>";
+				result += "<total>" + rs.getInt("res_total") +"</total>";
+				result += "<request>" + rs.getString("res_request") +"</request>";
 				result += "</reserve>";
 			}
 			result += "</rooms>";

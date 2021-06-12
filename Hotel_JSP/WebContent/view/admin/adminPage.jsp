@@ -65,7 +65,7 @@
 			<table id="standard" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/STANDARD.jpg">
+						<img alt="상품" src="images/STANDARD.jpg">
 					</td>
 					<td id="standard_name" colspan="3" align="center">STANDARD</td>
 				</tr> 
@@ -87,6 +87,7 @@
 					<td id="103" width="20%" align="center">103</td>
 					<td id="103_check" align="center"></td>
 					
+					
 					<td width="20%" align="center">
 						<input type="button" id="res_btn" value="RESERVATION">
 					</td> 
@@ -97,7 +98,7 @@
 			<table id="deluxe" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/DELUXE.jpg">
+						<img alt="상품" src="images/DELUXE.jpg">
 					</td>
 					<td id="deluxe_name" colspan="3" align="center">DELUXE</td>
 				</tr> 
@@ -128,7 +129,7 @@
 			<table id="suite" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/SUITE.jpg">
+						<img alt="상품" src="images/SUITE.jpg">
 					</td>
 					<td id="suite_name" colspan="3" align="center">SUITE</td>
 				</tr> 
@@ -160,7 +161,7 @@
 			<table id="prestige" class="use" border="1">
 				<tr>
 					 <td class="img" rowspan="4" width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/PRESTIGE.jpg">
+						<img alt="상품" src="images/PRESTIGE.jpg">
 					</td>
 					<td id="prestige_name" colspan="3" align="center">PRESTIGE</td>
 				</tr> 
@@ -195,11 +196,16 @@
 			<table id="search_standard" class="off" border="1">
 				<tr>
 					<td rowspan="10"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/STANDARD.jpg">
+						<img alt="상품" src="images/STANDARD.jpg">
 					</td>
-					<td colspan="3" align="center">STANDARD</td>
+					<td colspan="2" align="center">STANDARD</td>
 				</tr>
 				<tr id="content_standard">
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="check_st" value="상세보기">
+					</td>
 				</tr>
 			</table>
 			
@@ -207,11 +213,16 @@
 			<table id="search_deluxe" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/DELUXE.jpg">
+						<img alt="상품" src="images/DELUXE.jpg">
 					</td>
-					<td colspan="3" align="center">DELUXE</td>
+					<td colspan="2" align="center">DELUXE</td>
 				</tr>
 				<tr id="content_deluxe">
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="check_d" value="상세보기">
+					</td>
 				</tr>
 			</table>
 			
@@ -219,11 +230,16 @@
 			<table id="search_suite" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/SUITE.jpg">
+						<img alt="상품" src="images/SUITE.jpg">
 					</td>
-					<td colspan="3" align="center">SUITE</td>
+					<td colspan="2" align="center">SUITE</td>
 				</tr>
 				<tr id="content_suite">
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="check_su" value="상세보기">
+					</td>
 				</tr>
 			</table>
 			
@@ -231,27 +247,53 @@
 			<table id="search_prestige" class="off" border="1">
 				<tr>
 					<td rowspan="7"  width="40%" style="word-break:break-all">
-						<img alt="상품" src="image/PRESTIGE.jpg">
+						<img alt="상품" src="images/PRESTIGE.jpg">
 					</td>
-					<td colspan="3" align="center">PRESTIGE</td>
+					<td colspan="2" align="center">PRESTIGE</td>
 				</tr>
 				<tr id="content_prestige">
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" id="check_p" value="상세보기">
+					</td>
 				</tr>
 			</table>
 			
 			<!-- 상세페이지 -->
-			<table class="content_info" style="display:none;">
- 				<tr>
-					<td>
-						<strong>101호</strong>
-						<p class="room_num">남은 객실</p>
-					</td>
-					<td>
-						<a href="<%=request.getContextPath()%>/room_manage.do">관리</a>
-					</td>
-				</tr> 
-			</table>	
-
+			<ul id="content_info_st" style="display:none;">
+				<li id="101_cont">101호</li>
+					<ul id ="101_ul"></ul>
+			 	<li id="102_cont">102호</li>
+			 		<ul id ="102_ul"></ul>
+			 	<li id="103_cont">103호</li>
+			 		<ul id ="103_ul"></ul>
+			</ul>
+			
+			<ul id="content_info_d" style="display:none;">
+			 	<li id="201_cont">201호</li>
+			 		<ul id ="201_ul"></ul>
+			 	<li id="202_cont">202호</li>
+			 		<ul id ="202_ul"></ul>
+			 	<li id="203_cont">203호</li>
+			 		<ul id ="203_ul"></ul>
+			</ul>
+			<ul id="content_info_su" style="display:none;">
+			 	<li id="301_cont">301호</li>
+			 		<ul id ="301_ul"></ul>
+			 	<li id="302_cont">302호</li>
+			 		<ul id ="302_ul"></ul>
+			 	<li id="303_cont">303호</li>
+			 		<ul id ="303_ul"></ul>
+			</ul>
+			<ul id="content_info_p" style="display:none;">
+			 	<li id="401_cont">401호</li>
+			 		<ul id ="401_ul"></ul>
+			 	<li id="402_cont">402호</li>
+			 		<ul id ="402_ul"></ul>
+			 	<li id="403_cont">403호</li>
+			 		<ul id ="403_ul"></ul>
+			</ul>
 		</div>
 		
 		<!-- 예약관리 페이지  -->
@@ -259,7 +301,7 @@
 			<table id="contArea2" class="off">
 				<tr>
 					<td class="img" rowspan="3">
-						<img alt="상품" src="image/스마트.jpg">
+						<img alt="상품" src="images/스마트.jpg">
 					</td>
 					<td colspan="2">AAAAA KING</td>
 				</tr>

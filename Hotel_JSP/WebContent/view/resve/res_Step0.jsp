@@ -76,7 +76,7 @@
 		</div>	
 		
 	</form>
-	<script type="text/javascript" src="../../js/reserve.js"/>
+	<script type="text/javascript" src="js/reserve.js"/>
 	<jsp:include page="../../include/footer.jsp" />
 	
 

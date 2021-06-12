@@ -42,8 +42,10 @@ public class ResStep1Action implements Action {
 		System.out.println(resln);
 		
 		RoomDAO dao = RoomDAO.getInstance();
+		
 		List<RoomDTO> list = dao.getRoomList();
 		request.setAttribute("roomList", list);
+		
 
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
