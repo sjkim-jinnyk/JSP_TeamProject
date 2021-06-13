@@ -217,10 +217,10 @@ $(function() {
 		
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
-		suite.classList.replace('use', 'off');
-		prestige.classList.replace('use', 'off');
-		standard.classList.replace('on', 'off');
-		deluxe.classList.replace('on', 'off');
+			suite.classList.replace('use', 'off');
+			prestige.classList.replace('use', 'off');
+			standard.classList.replace('on', 'off');
+			deluxe.classList.replace('on', 'off');
 		suite.classList.replace('on', 'off');
 		prestige.classList.replace('on', 'off');
 		
@@ -261,8 +261,8 @@ $(function() {
 					$("#content_standard").append(table);
 					
 					//check 클릭시 상세내역 오픈
-					$("#check_st").click(function() {
-					//$("body").on('click', '#check_st', function() {
+					//$("#check_st").click(function() {
+					$("body").on('click', '#check_st', function() {
 						$("#101_ul").empty();
 						$("#102_ul").empty();
 						$("#103_ul").empty();
@@ -276,10 +276,14 @@ $(function() {
 						}
 						
 
-						if (list_st.style.display === 'none') {
-							list_st.style.display = 'block';
-							console.log("if문");
+						if (list_st.style.display === 'none') {		
+							$("#content_info_st").removeAttr("style")
+							$("#content_info_st").attr('style', 'display: block !important');
 
+							//list_st.style.display = 'block';
+							
+
+							
 							$.ajax({
 								type : "post",
 								url : "./view/admin/search_room.jsp",
@@ -290,12 +294,12 @@ $(function() {
 								},
 								success : function(data) {
 									alert('성공');
+									list_st.style.display = 'block';
 									let table1 = "";
 									let table2 = "";
 									let table3 = "";
 									console.log($(data).find("reserve"));
-									$(data).find("reserve").each(function(){
-										
+									$(data).find("reserve").each(function(){			
 										if($(this).find("num").text() == '101') {
 											table1 += "<li>ID: ";
 											table1 += $(this).find("id").text();
@@ -317,15 +321,14 @@ $(function() {
 											table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
 											table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
 											table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}
-										
-										
+										}	
 									});
 									
 									$("#101_ul").append(table1);
 									$("#102_ul").append(table2);
 									$("#103_ul").append(table3);
 									
+								
 								},
 								error : function() {
 									alert('오류');
