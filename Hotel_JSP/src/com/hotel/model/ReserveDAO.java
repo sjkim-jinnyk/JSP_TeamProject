@@ -211,13 +211,21 @@ public class ReserveDAO {
 			while(rs.next()) {
 				ReserveDTO dto = new ReserveDTO();
 				
+				dto.setResNo(rs.getInt("res_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomNumber(rs.getInt("room_number"));
 				dto.setResDate(rs.getString("res_date"));
 				dto.setResIn(rs.getString("res_in"));
 				dto.setResOut(rs.getString("res_out"));
-				dto.setRoomName(rs.getString("room_name"));
+				dto.setResNod(rs.getString("res_nod"));
 				dto.setResAdult(rs.getInt("res_adult"));
 				dto.setResChild(rs.getInt("res_child"));
+				dto.setResAdultBr(rs.getInt("res_adult_br"));
+				dto.setResChildBr(rs.getInt("res_child_br"));
+				dto.setResBed(rs.getInt("res_bed"));
 				dto.setResTotal(rs.getInt("res_total"));
+				dto.setResRequest(rs.getString("res_request"));
 			
 				list.add(dto);
 			}
@@ -231,5 +239,123 @@ public class ReserveDAO {
 		return list;
 		
 	} // resList() 메서드 end
+	
+	
+	// 마이페이지 - 예약번호에 해당하는 예약 상세내역 가져오는 메서드
+	public ReserveDTO resCont(int resNo) {
+		
+		ReserveDTO dto = new ReserveDTO();
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, resNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setResNo(rs.getInt("res_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomNumber(rs.getInt("room_number"));
+				dto.setResDate(rs.getString("res_date"));
+				dto.setResIn(rs.getString("res_in"));
+				dto.setResOut(rs.getString("res_out"));
+				dto.setResNod(rs.getString("res_nod"));
+				dto.setResAdult(rs.getInt("res_adult"));
+				dto.setResChild(rs.getInt("res_child"));
+				dto.setResAdultBr(rs.getInt("res_adult_br"));
+				dto.setResChildBr(rs.getInt("res_child_br"));
+				dto.setResBed(rs.getInt("res_bed"));
+				dto.setResTotal(rs.getInt("res_total"));
+				dto.setResRequest(rs.getString("res_request"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return dto;
+		
+	} // getResCont() 메서드 end
+	
+	
+	// 마이페이지 - 예약 건수 확인하는 메서드
+	public int rescount(String userId) {
+		
+		int count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select count(*) from reserve where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return count;
+		
+	} // rescount() 메서드 end
+	
+	
+	// 마이페이지 - 예약변경하는 메서드
+	public int resUpdate(ReserveDTO dto) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "update reserve set "
+					+ " res_adult = ?, res_child = ?, "
+					+ " res_adult_br = ?, res_child_br = ?, "
+					+ " res_bed = ?, res_request = ? "
+					+ " where res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, dto.getResAdult());
+			pstmt.setInt(2, dto.getResChild());
+			pstmt.setInt(3, dto.getResAdultBr());
+			pstmt.setInt(4, dto.getResChildBr());
+			pstmt.setInt(5, dto.getResBed());
+			pstmt.setString(6, dto.getResRequest());
+			pstmt.setInt(7, dto.getResNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // resUpdate() 메서드 end
+	
+	
+	
+	
+	
 	
 }

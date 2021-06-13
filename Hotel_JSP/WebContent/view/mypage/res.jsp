@@ -48,42 +48,37 @@
 			</div>
 			
 			<!-- 예약내역 리스트 -->
-			<div>
-				<table border="1" cellspacing="0">
-				<tr>
-					<th>예약날짜</th> <th>숙박 일정</th> <th>객실명</th> 
-					<th>어른</th> <th>어린이</th> <th>총 가격</th> 
-				</tr>
+			<div class="resList_box">
+				<div class="resCount">
+					<span class="resCount">총 <em>n</em>건</span>
+				</div>
 				
-				<c:set var="list" value="${resList }" />
+				<div class="res_Container">
 				<!-- 예약내역이 있는 경우 -->
+				<c:set var="list" value="${resList }" />
 				<c:if test="${!empty list }">
 					<c:forEach items="${list }" var="dto">
-						<tr>
-							<td>${dto.getResDate().substring(0,10) }</td>
-							<td>
-								${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }
-							</td>
-							<td>${dto.getRoomName() }</td>
-							<td>${dto.getResAdult() }</td>
-							<td>${dto.getResChild() }</td>
-							<td><fmt:formatNumber value="${dto.getResTotal() }" />원</td>
-						</tr>
+					<ul class="res_content">
+						<li class="reserved">RESERVED</li>
+						<li>[${dto.getRoomName() }]</li>
+						<li class="res_info">
+							예약번호 ${dto.getResNo() } / 성인 ${dto.getResAdult() },어린이${dto.getResChild() } / 총 예약금액 <fmt:formatNumber value="${dto.getResTotal() }" />원
+						</li>
+						<li>${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }</li>
+					</ul>
 					</c:forEach>
 				</c:if>
 				
 				<!-- 예약내역이 없는 경우 -->
 				<c:if test="${empty list }">
-					<tr>
-						<td colspan="6" align="center"> 
-							<h3>!</h3><br>
-							<h5>예약내역이 없습니다.</h5><br>
-							<h5>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</h5>
-							<input type="button" value="예약하기" onclick="location.href='step0.do'">
-						</td>
-					</tr>
+					<div>
+						<ul>
+							<li>!<br>예약내역이 없습니다.<br>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
+							<li><input type="button" value="예약하기" onclick="location.href='step0.do'"></li>
+						</ul>
+					</div>
 				</c:if>
-				</table>
+				</div>
 			</div>
 		</div>
 	</div>

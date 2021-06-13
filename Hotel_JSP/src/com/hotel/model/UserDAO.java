@@ -278,4 +278,46 @@ public class UserDAO {
 		return result;
 		
 	} // pwdSearch() 메서드 end
+	
+	
+	// 유저 탈퇴하는 메서드
+	public int userDel(String userId, String userPwd) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(userPwd.equals(rs.getString("user_pwd"))) {
+					sql = "delete from hotel_user where user_id = ?";
+					
+					pstmt = con.prepareStatement(sql);
+					
+					pstmt.setString(1, userId);
+					
+					result = pstmt.executeUpdate();
+				} else {
+					// 비밀번호 틀린 경우
+					result = -1;
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // userDel() 메서드 end
 }
