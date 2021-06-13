@@ -5,35 +5,136 @@ a {
 
 
 .admin_topArea {
-	padding: 97px 0 90px 0;
-	
+	padding: 100px 50px 50px 50px;
+	font-family: 'Playfair Display SC', serif;
+	font-size: 30px;
+	font-weight: normal;
 }
 
-.admin_search {
-	margin-bottom: 50px;
-}
-table{
+table {
 	border-collapse: separate;
 	border-spacing: 0 20px;
 	width: 100%;
 }
-
+.admin_manage {
+	padding: 0 50px;
+}
 .admin_search table td{
 	text-align: center;
 }
-.titArea {
-	border: 1px solid black;
-}
+
 .titArea ul{
 	display: flex;
+	text-align: center;
+	
 }
-.titArea ul li {
-	padding: 0 20px;
+.titArea ul #room_click{
+	width: 30%;
+	padding: 5px 20px;
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
 }
- .content_info{
-	display: none;
+.titArea ul #res_click{
+	width: 30%;
+	padding: 5px 20px;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+}
+.titArea .off{
+	border-bottom : 1px solid black;
+}
+.titArea .on{
+	border-bottom : hidden;
+}
+.titArea ul::after {
+	content: "";
+	width: 100%;
+	border-bottom : 1px solid black;
+}
+.admin_search {
+	margin: 20px 0;
+	padding: 20px 0;
+	background-color: #f9f9f9;
+}
+#hotel {
+	
+	align-items: center;
+}
+#bin{
+	content: "";
+	width:15%;
+}
+#roomName {
+	padding: 2px 10px;
+}
+#search_btn, #user_btn {
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+}
+#res_btn {
+	padding: 2px 15px;
+	background-color: black;
+	color: white;
+	border : 1px solid black;
+	cursor: pointer;
+	font-size: 15px;
+	width: 60%;
+	
+}
+.room_manage table {
+	padding : 10px;
+}
+.room_manage .roomname td {
+	font-family: 'Playfair Display SC', serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-left: 50px;
+}
+.room_manage td{
+	text-align: center;
 }
 
+.room_manage img{
+	width: 100%;
+}
+.room_manage .img{
+	padding: 10px 0 10px 50px;
+}
+
+
+/* 객실 검색  */
+.room_search td{
+	text-align: center;
+}
+.room_search img{
+	width: 100%;
+}
+.room_search .roomname td {
+	font-family: 'Playfair Display SC', serif;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+	padding-left: 50px;
+}
+.room_search .img {
+	padding: 10px 0 10px 50px;
+}
+.room_search ul {
+	padding-left: 50px;
+}
+/* 객실 검색 상세내역 */
+#content_info_st, #content_info_d, #content_info_su, #content_info_p{
+	display: none;
+}
+#cont_101, #cont_102, #cont_103, #cont_201, #cont_202, #cont_203, #cont_301, #cont_302, #cont_303, #cont_401, #cont_402, #cont_403 {
+	font-weight: bold;
+}
+#ul_101, #ul_102, #ul_103, #ul_201, #ul_202, #ul_203, #ul_301, #ul_302, #ul_303, #ul_401, #ul_402, #ul_403 {
+	font-weight: normal;
+}
 .room_manage .off{
 	display: none;
 }
@@ -59,4 +160,10 @@ table{
 }
 .admin_search .on{
 	display: "";
+}
+.admin_search .off{
+	display: none;
+}
+.admin_search .on{
+	display : "";
 }

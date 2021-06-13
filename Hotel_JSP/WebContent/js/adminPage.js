@@ -20,6 +20,9 @@ const list_d = document.querySelector('#content_info_d');			// deluxe 검색 상
 const list_su = document.querySelector('#content_info_su');			// suite 검색 상세보기
 const list_p = document.querySelector('#content_info_p');			//  prestige 검색 상세보기
 
+let room = "";
+let checkIn = "";
+let checkOut = "";
 /* 현재 날짜를 불러오는 함수 */
 function getToday() {
 	let date = new Date();
@@ -199,6 +202,28 @@ prestige_get();
 
 $(function() {
 	$("#search_btn").click(function() {
+		
+		// 상세보기 초기화
+		$("#ul_101").empty();
+		$("#ul_102").empty();
+		$("#ul_103").empty();
+		
+		// 상세보기 초기화
+		$("#ul_201").empty();
+		$("#ul_202").empty();
+		$("#ul_203").empty();
+		
+		
+		// 상세보기 초기화
+		$("#ul_301").empty();
+		$("#ul_302").empty();
+		$("#ul_303").empty();
+		
+		
+		// 상세보기 초기화
+		$("#ul_401").empty();
+		$("#ul_402").empty();
+		$("#ul_403").empty();
 		if (list_st.style.display === 'block') {
 			list_st.style.display = 'none';
 		}else if (list_d.style.display === 'block') {
@@ -208,9 +233,9 @@ $(function() {
 		}else if (list_p.style.display === 'block') {
 			list_p.style.display = 'none';
 		}
-		let room = $("#roomName").val();
-		let checkIn = $("#checkIn").val();
-		let checkOut = $("#checkOut").val();
+		room = $("#roomName").val();
+		checkIn = $("#checkIn").val();
+		checkOut = $("#checkOut").val();
 		
 		standard.classList.replace('use', 'off');
 		deluxe.classList.replace('use', 'off');
@@ -233,7 +258,7 @@ $(function() {
 			search_d.classList.replace('on','off');
 			search_su.classList.replace('on','off');
 			search_p.classList.replace('on','off');
-			
+
 			// standard
 			$.ajax({
 				type : "post",
@@ -256,99 +281,28 @@ $(function() {
 					});
 					$("#content_standard").append(table);
 					
-					//check 클릭시 상세내역 오픈
-					$("#check_st").click(function() {
-					//$("body").on('click', '#check_st', function() {
-						$("#101_ul").empty();
-						$("#102_ul").empty();
-						$("#103_ul").empty();
 
-						if (list_d.style.display != 'none') {
-							list_d.style.display = 'none';
-						}else if (list_su.style.display === 'block') {
-							list_su.style.display = 'none';
-						}else if (list_p.style.display === 'block') {
-							list_p.style.display = 'none';
-						}
-						
-						if (list_st.style.display === 'none') {
-							list_st.style.display = 'block';
-							console.log("if문");
-							$.ajax({
-								type : "post",
-								url : "./view/admin/search_room.jsp",
-								data : {
-									"roomName" : room,
-									"checkIn" : checkIn,
-									"checkOut" : checkOut
-								},
-								success : function(data) {
-									//list_st.style.display = 'block';
-									alert('성공');
-									let table1 = "";
-									let table2 = "";
-									let table3 = "";
-									console.log($(data).find("reserve"));
-									$(data).find("reserve").each(function(){
-										
-										if($(this).find("num").text() == '101') {
-											table1 += "<li>ID: ";
-											table1 += $(this).find("id").text();
-											table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '102') {
-											table2 += "<li>ID: ";
-											table2 += $(this).find("id").text();
-											table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '103') {
-											table3 += "<li>ID: ";
-											table3 += $(this).find("id").text();
-											table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}
-										
-										
-									});
-									
-									$("#101_ul").append(table1);
-									$("#102_ul").append(table2);
-									$("#103_ul").append(table3);
-									
-								},
-								error : function() {
-									alert('오류');
-								}
-							});
-						}else {
-							list_st.style.display = 'none';
-						}
-						
-					});
 				},
 				error : function() {
 					alert("오류");
 				}
 
 			});
-			
-
-			 
-			
+		}
 		// deluxe
-		}else if(room == "DELUXE") {
+		else if(room == "DELUXE") {
 			$("#content_deluxe").empty();
 			search_d.classList.replace('off','on');
 			search_st.classList.replace('on','off');
 			search_su.classList.replace('on','off');
 			search_p.classList.replace('on','off');
 			
+			// 상세보기 초기화
+			$("#ul_201").empty();
+			$("#ul_202").empty();
+			$("#ul_203").empty();
+
+
 			
 			$.ajax({
 				type : "post",
@@ -372,80 +326,7 @@ $(function() {
 					});
 					$("#content_deluxe").append(table);
 					
-					//check 클릭시 상세내역 오픈
-					$("#check_d").click(function() {
-					//$("body").on('click', '#check_d', function() {
-						$("#201_ul").empty();
-						$("#202_ul").empty();
-						$("#203_ul").empty();
-						
-						if (list_st.style.display != 'none') {
-							list_st.style.display = 'none';
-						}else if (list_su.style.display === 'block') {
-							list_su.style.display = 'none';
-						}else if (list_p.style.display === 'block') {
-							list_p.style.display = 'none';
-						}
 					
-						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
-						if (list_d.style.display === 'none') {
-							list_d.style.display = 'block';
-							
-							$.ajax({
-								type : "post",
-								url : "./view/admin/search_room.jsp",
-								async: false,
-								data : {
-									"roomName" : room,
-									"checkIn" : checkIn,
-									"checkOut" : checkOut
-								},
-								success : function(data) {
-									alert('성공');
-									let table1 = "";
-									let table2 = "";
-									let table3 = "";
-									console.log($(data).find("reserve"));
-									$(data).find("reserve").each(function(){
-										
-										if($(this).find("num").text() == '201') {
-											table1 += "<li>ID: ";
-											table1 += $(this).find("id").text();
-											table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '202') {
-											table2 += "<li>ID: ";
-											table2 += $(this).find("id").text();
-											table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '203') {
-											table3 += "<li>ID: ";
-											table3 += $(this).find("id").text();
-											table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}	
-									});
-									
-									$("#201_ul").append(table1);
-									$("#202_ul").append(table2);
-									$("#203_ul").append(table3);
-
-								},
-								error : function() {
-									alert('오류');
-								}
-							});
-						} else {
-							list_d.style.display = 'none';
-						}
-						
-					});
 				},
 				error : function() {
 					alert("오류");
@@ -460,6 +341,10 @@ $(function() {
 			search_d.classList.replace('on','off');
 			search_p.classList.replace('on','off');
 			
+			// 상세보기 초기화
+			$("#ul_301").empty();
+			$("#ul_302").empty();
+			$("#ul_303").empty();
 			
 			$.ajax({
 				type : "post",
@@ -482,82 +367,7 @@ $(function() {
 					});
 					$("#content_suite").append(table);
 					
-					//check 클릭시 상세내역 오픈
-					$("#check_su").click(function() {
-					//$("body").on('click', '#check_su', function() {
-						
-						$("#301_ul").empty();
-						$("#302_ul").empty();
-						$("#303_ul").empty();
-						
-						
-						if (list_st.style.display === 'block') {
-							list_st.style.display = 'none';
-						}else if (list_d.style.display === 'block') {
-							list_d.style.display = 'none';
-						}else if (list_p.style.display === 'block') {
-							list_p.style.display = 'none';
-						}
-					
-						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
-						if (list_su.style.display === 'none') {
-							list_su.style.display = 'block';
-							
-							$.ajax({
-								type : "post",
-								url : "./view/admin/search_room.jsp",
-								async: false,
-								data : {
-									"roomName" : room,
-									"checkIn" : checkIn,
-									"checkOut" : checkOut
-								},
-								success : function(data) {
-									alert('성공');
-									let table1 = "";
-									let table2 = "";
-									let table3 = "";
-									console.log($(data).find("reserve"));
-									$(data).find("reserve").each(function(){
-										
-										if($(this).find("num").text() == '301') {
-											table1 += "<li>ID: ";
-											table1 += $(this).find("id").text();
-											table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '302') {
-											table2 += "<li>ID: ";
-											table2 += $(this).find("id").text();
-											table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '303') {
-											table3 += "<li>ID: ";
-											table3 += $(this).find("id").text();
-											table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}	
-									});
-									
-									$("#301_ul").append(table1);
-									$("#302_ul").append(table2);
-									$("#303_ul").append(table3);
 
-								},
-								error : function() {
-									alert('오류');
-								}
-							});
-						} else {
-							list_su.style.display = 'none';
-						}
-						
-					});
 				},
 				error : function() {
 					alert("오류");
@@ -572,6 +382,10 @@ $(function() {
 			search_d.classList.replace('on','off');
 			search_su.classList.replace('on','off');
 			
+			// 상세보기 초기화
+			$("#ul_401").empty();
+			$("#ul_402").empty();
+			$("#ul_403").empty();
 			
 			$.ajax({
 				type : "post",
@@ -592,78 +406,7 @@ $(function() {
 						+"<td width='35%' align='center'>" + $(this).find("resin").text() +"&nbsp;~&nbsp;"+ $(this).find("resout").text() + "</td></tr>";
 					});
 					$("#content_prestige").append(table);
-					
-					//check 클릭시 상세내역 오픈
-					$("#check_p").click(function() {
-					//$("body").on('click', '#check', function() {
-						console.log("성공");
-						if (list_st.style.display === 'block') {
-							list_st.style.display = 'none';
-						}else if (list_d.style.display === 'block') {
-							list_d.style.display = 'none';
-						}else if (list_su.style.display === 'block') {
-							list_su.style.display = 'none';
-						}
-					
-						// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
-						if (list_p.style.display === 'none') {
-							list_p.style.display = 'block';
-							
-							$.ajax({
-								type : "post",
-								url : "./view/admin/search_room.jsp",
-								async: false,
-								data : {
-									"roomName" : room,
-									"checkIn" : checkIn,
-									"checkOut" : checkOut
-								},
-								success : function(data) {
-									alert('성공');
-									let table1 = "";
-									let table2 = "";
-									let table3 = "";
-									console.log($(data).find("reserve"));
-									$(data).find("reserve").each(function(){
-										
-										if($(this).find("num").text() == '401') {
-											table1 += "<li>ID: ";
-											table1 += $(this).find("id").text();
-											table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '402') {
-											table2 += "<li>ID: ";
-											table2 += $(this).find("id").text();
-											table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}else if($(this).find("num").text() == '403') {
-											table3 += "<li>ID: ";
-											table3 += $(this).find("id").text();
-											table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
-											table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
-											table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
-											table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li>"
-										}	
-									});
-									
-									$("#401_ul").append(table1);
-									$("#402_ul").append(table2);
-									$("#403_ul").append(table3);
 
-								},
-								error : function() {
-									alert('오류');
-								}
-							});
-						} else {
-							list_p.style.display = 'none';
-						}
-						
-					});
 				},
 				error : function() {
 					alert("오류");
@@ -672,7 +415,9 @@ $(function() {
 			});
 		} // if문 끝
 
-	
+		
+			
+		
 		
 	});
 	
@@ -715,7 +460,6 @@ $(function() {
 				"userPhone" : userPhone
 			},
 			success : function(data) {
-				alert('성공');
 				let table1 = "";
 				console.log($(data).find("reserve"));
 				$(data).find("reserve").each(function(){
@@ -743,10 +487,312 @@ $(function() {
 });
 
 
+
+
+// standard 객실 검색 상세내역 오픈
+$("#check_st").click(function() {
+	$("#ul_101").empty();
+	$("#ul_102").empty();
+	$("#ul_103").empty();
+
+	if (list_d.style.display != 'none') {
+		list_d.style.display = 'none';
+	}else if (list_su.style.display === 'block') {
+		list_su.style.display = 'none';
+	}else if (list_p.style.display === 'block') {
+		list_p.style.display = 'none';
+	}
+	
+	if (list_st.style.display != 'block') {
+		list_st.style.display = 'block';
+
+		$.ajax({
+			type : "post",
+			url : "./view/admin/search_room.jsp",
+			async: false,
+			data : {
+				"roomName" : room,
+				"checkIn" : checkIn,
+				"checkOut" : checkOut
+			},
+			success : function(data) {
+				alert('성공');
+				let table1 = "";
+				let table2 = "";
+				let table3 = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					if($(this).find("num").text() == '101') {
+						table1 += "<ul id='ul_101'><li>ID: ";
+						table1 += $(this).find("id").text();
+						table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '102') {
+						table2 += "<ul id='ul_102'><li>ID: ";
+						table2 += $(this).find("id").text();
+						table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '103') {
+						table3 += "<ul id='ul_103'><li>ID: ";
+						table3 += $(this).find("id").text();
+						table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}
+					
+					
+				});
+				
+				$("#cont_101").append(table1);
+				$("#cont_102").append(table2);
+				$("#cont_103").append(table3);
+				
+			},
+			error : function() {
+				alert('오류');
+			}
+		});
+	}else {
+		list_st.style.display = 'none';
+	}
+
+});
+
+// deluxe 객실 검색 상세내역 오픈
+$("#check_d").click(function() {
+	
+	$("#ul_201").empty();
+	$("#ul_202").empty();
+	$("#ul_203").empty();
+
+	if (list_st.style.display != 'none') {
+		list_st.style.display = 'none';
+	}else if (list_su.style.display != 'none') {
+		list_su.style.display = 'none';
+	}else if (list_p.style.display != 'none') {
+		list_p.style.display = 'none';
+	}
+
+	// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
+	if (list_d.style.display != 'block') {
+		list_d.style.display = 'block';
+		
+		$.ajax({
+			type : "post",
+			url : "./view/admin/search_room.jsp",
+			async: false,
+			data : {
+				"roomName" : room,
+				"checkIn" : checkIn,
+				"checkOut" : checkOut
+			},
+			success : function(data) {
+				let table1 = "";
+				let table2 = "";
+				let table3 = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					if($(this).find("num").text() == '201') {
+						table1 += "<ul id='ul_201'><li>ID: ";
+						table1 += $(this).find("id").text();
+						table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '202') {
+						table2 += "<ul id='ul_202'><li>ID: ";
+						table2 += $(this).find("id").text();
+						table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '203') {
+						table3 += "<ul id='ul_203'><li>ID: ";
+						table3 += $(this).find("id").text();
+						table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}	
+				});
+				
+				$("#cont_201").append(table1);
+				$("#cont_202").append(table2);
+				$("#cont_203").append(table3);
+
+			},
+			error : function() {
+				alert('오류');
+			}
+		});
+	} else {
+		list_d.style.display = 'none';
+	}
+});
+
+//suite 객실 검색 상세내역 오픈
+$("#check_su").click(function() {
+	
+	$("#ul_301").empty();
+	$("#ul_302").empty();
+	$("#ul_303").empty();
+	
+	
+	if (list_st.style.display === 'block') {
+		list_st.style.display = 'none';
+	}else if (list_d.style.display === 'block') {
+		list_d.style.display = 'none';
+	}else if (list_p.style.display === 'block') {
+		list_p.style.display = 'none';
+	}
+
+	// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
+	if (list_su.style.display === 'none') {
+		list_su.style.display = 'block';
+		
+		$.ajax({
+			type : "post",
+			url : "./view/admin/search_room.jsp",
+			async: false,
+			data : {
+				"roomName" : room,
+				"checkIn" : checkIn,
+				"checkOut" : checkOut
+			},
+			success : function(data) {
+				alert('성공');
+				let table1 = "";
+				let table2 = "";
+				let table3 = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					if($(this).find("num").text() == '301') {
+						table1 += "<ul id='ul_301'><li>ID: ";
+						table1 += $(this).find("id").text();
+						table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '302') {
+						table2 += "<ul id='ul_302'><li>ID: ";
+						table2 += $(this).find("id").text();
+						table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '303') {
+						table3 += "<ul id='ul_303'><li>ID: ";
+						table3 += $(this).find("id").text();
+						table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}	
+				});
+				
+				$("#cont_301").append(table1);
+				$("#cont_302").append(table2);
+				$("#cont_303").append(table3);
+
+			},
+			error : function() {
+				alert('오류');
+			}
+		});
+	} else {
+		list_su.style.display = 'none';
+	}
+	
+});
+
+// prestige 객실 검색 상세내역 오픈
+$("#check_p").click(function() {
+	
+	$("#ul_401").empty();
+	$("#ul_402").empty();
+	$("#ul_403").empty();
+	
+	if (list_st.style.display === 'block') {
+		list_st.style.display = 'none';
+	}else if (list_d.style.display === 'block') {
+		list_d.style.display = 'none';
+	}else if (list_su.style.display === 'block') {
+		list_su.style.display = 'none';
+	}
+
+	// 상세내역 오픈될 때만 룸번호 보여주는 ajax 실행
+	if (list_p.style.display === 'none') {
+		list_p.style.display = 'block';
+		
+		$.ajax({
+			type : "post",
+			url : "./view/admin/search_room.jsp",
+			async: false,
+			data : {
+				"roomName" : room,
+				"checkIn" : checkIn,
+				"checkOut" : checkOut
+			},
+			success : function(data) {
+				let table1 = "";
+				let table2 = "";
+				let table3 = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					if($(this).find("num").text() == '401') {
+						table1 += "<ul id='ul_401'><li>ID: ";
+						table1 += $(this).find("id").text();
+						table1 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table1 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table1 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table1 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '402') {
+						table2 += "<ul id='ul_402'><li>ID: ";
+						table2 += $(this).find("id").text();
+						table2 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table2 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table2 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table2 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}else if($(this).find("num").text() == '403') {
+						table3 += "<ul id='ul_403'><li>ID: ";
+						table3 += $(this).find("id").text();
+						table3 += " / " + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</li>";
+						table3 += "<li>조식: 어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</li>";
+						table3 += "<li>Extra Bed: "+ $(this).find("bed").text() + "개</li>"
+						table3 += "<li>총 금액: " + $(this).find("total").text() + "원<hr></li></ul>"
+					}	
+				});
+				
+				$("#cont_401").append(table1);
+				$("#cont_402").append(table2);
+				$("#cont_403").append(table3);
+
+			},
+			error : function() {
+				alert('오류');
+			}
+		});
+	} else {
+		list_p.style.display = 'none';
+	}
+	
+}); 
+
 /* 객실관리, 예약관리 클릭시 페이시 숨김 or 보임*/
 
 /* 객실관리 클릭 */
 room_click.addEventListener('click', function() {
+	room_click.classList.replace('off','on');
+	res_click.classList.replace('on','off');
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
 	}else if (list_d.style.display === 'block') {
@@ -777,7 +823,8 @@ room_click.addEventListener('click', function() {
 
 /* 예약관리 클릭 */
 res_click.addEventListener('click', function() {
-	
+	room_click.classList.replace('on','off');
+	res_click.classList.replace('off','on');
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
 	}else if (list_d.style.display === 'block') {
