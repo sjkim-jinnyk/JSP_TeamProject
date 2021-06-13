@@ -19,7 +19,8 @@
     		<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
 				<input type="hidden" name="resIn" id="resIn" value="0">				
-				<input type="hidden" name="resOut" id="resOut" value="0">			
+				<input type="hidden" name="resOut" id="resOut" value="0">		
+				<input type="hidden" name="resNight" id="resNight" value="0">			
 				<input type="hidden" name="resAdult" id="resAdult" value="2">								
 				<input type="hidden" name="resChild" id="resChild" value="0">
         	<div class="reservation">
@@ -95,7 +96,23 @@
     </div>
     
 	</div>
-		<div class="section" style="background : #74b9ff">
+		<div class="section">
+			<div class="slide">
+				<div class="fp_bg_1"></div>
+				<div class="slide_box">
+					test 1
+				</div>
+			</div>
+			<div class="slide"> 
+				<div class="slide_box">
+					test 2
+				</div>
+			</div>
+			<div class="slide">
+				<div class="slide_box">
+					test 3
+				</div>
+			</div>
 		</div>	
 		<div class="section" style="background : #0984e3">
 		</div>

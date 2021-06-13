@@ -191,3 +191,11 @@ a {
   width: 100%;
   margin-top: 125px;
 }
+
+#menu_box_img{
+	position: absolute;
+    z-index: 4;
+    top: 40px;
+    right: 50px;
+    font-size: 20px;
+}
