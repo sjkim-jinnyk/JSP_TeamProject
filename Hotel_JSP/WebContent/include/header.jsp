@@ -22,7 +22,7 @@
 <body>
     <header class="headerBox">
         <div class="top-bar text-align-center line-height-0-ch-only">
-	                <i class="fas fa-stream"></i>
+	                <i class="fas fa-stream" id="menu_box_img"></i>
         	<nav class="menu-box inline-block">
 					<ul class="row">
 						<li class="name">ABOUT US

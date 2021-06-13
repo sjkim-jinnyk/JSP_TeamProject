@@ -191,3 +191,33 @@
     font-family: gothamL, notokrL;
     padding: 12px 80px 12px 80px;
 }
+
+/* 2번째 세션 CSS */
+
+.slide_box{
+	width: 55%;
+    background: #fff;
+    height: 50%;
+    text-align: center;
+    margin-top: 50px;
+    margin: auto;
+}
+
+.fp_bg_1{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: url(../images/bg_main01_02.jpg);
+}
+
+
+
+
+
+
+
+
+
+
