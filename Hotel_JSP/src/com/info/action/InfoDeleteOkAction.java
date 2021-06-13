@@ -1,4 +1,4 @@
-package com.qna.action;
+package com.info.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,40 +8,41 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
-import com.hotel.model.QnaDAO;
+import com.hotel.model.InfoDAO;
 
-public class QnaDeleteOkAction implements Action {
+public class InfoDeleteOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		int qna_no = Integer.parseInt(request.getParameter("no").trim());
-		String writerId = request.getParameter("id").trim();
+		int info_no = Integer.parseInt(request.getParameter("no").trim());
 		
-		String userId = null;
-		userId = "id1";	// 임시 아이디 설정, 세션정보 받아오기 필요
+		String adminId = null;
+		adminId = "ADMIN";	// 임시 아이디 설정, 세션정보 받아오기 필요
+		
+		InfoDAO dao = InfoDAO.getInstance();
+		// 관리자 계정 체크 메서드
+		int check = dao.AdminIdCheck(adminId);
 		
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 
-		if (userId.equals(writerId)) {
-			QnaDAO dao = QnaDAO.getInstance();
-			
-			int res = dao.deleteQna(qna_no);
+		if (check == 1) {
+			int res = dao.deleteInfo(info_no);
 			
 			if (res > 0) {
 				forward.setRedirect(true);
-				forward.setPath("qna_list.do");
+				forward.setPath("info_list.do");
 			} else {
 				out.println("<script>");
-				out.println("alert('QnA 삭제 실패')");
+				out.println("alert('공지사항 삭제 실패')");
 				out.println("history.back()");
 				out.println("</script>");
 			}
 			
 		} else {
 			out.println("<script>");
-			out.println("alert('작성자만이 삭제할 수 있습니다.')");
+			out.println("alert('관리자만이 삭제할 수 있습니다.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

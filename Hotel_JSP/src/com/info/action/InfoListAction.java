@@ -1,4 +1,4 @@
-package com.qna.action;
+package com.info.action;
 
 import java.io.IOException;
 import java.util.List;
@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
-import com.hotel.model.QnaDAO;
-import com.hotel.model.QnaDTO;
+import com.hotel.model.InfoDAO;
+import com.hotel.model.InfoDTO;
 
-public class QnaListAction implements Action {
+public class InfoListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		QnaDAO dao = QnaDAO.getInstance();
+
+		InfoDAO dao = InfoDAO.getInstance();
 		
 		// 페이징 작업
 		int rowsize = 10;      // 한 페이지당 보여질 게시물의 수
@@ -60,7 +60,7 @@ public class QnaListAction implements Action {
 		}
 		
 		// 페이지에 해당하는 게시물을 가져오는 메서드 호출
-		List<QnaDTO> pageList = dao.getQnaList(page, rowsize);
+		List<InfoDTO> pageList = dao.getInfoList(page, rowsize);
 		
 		// 지금까지 페이징 처리 시 작업했던 모든 값들을 키로 저장하자.
 		request.setAttribute("page", page);
@@ -79,7 +79,7 @@ public class QnaListAction implements Action {
 		System.out.println("forward >>> " + forward);
 		
 		forward.setRedirect(false);
-		forward.setPath("view/board/qna_list.jsp");
+		forward.setPath("view/board/info_list.jsp");
 		
 		return forward;
 	}

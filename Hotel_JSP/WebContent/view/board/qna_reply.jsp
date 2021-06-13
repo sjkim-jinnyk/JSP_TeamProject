@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,24 +12,28 @@
 <body>
 
 	<div align="center">
-		<hr width="50%" color="gray">
-		<h3>QnA 게시글 입력 폼</h3>
-		<hr width="50%" color="gray">
+		<hr width="50%" color="blue">
+		<h3>QnA 게시물 답변 글 폼</h3>
+		<hr width="50%" color="blue">
 		<br> <br>
 
-		<%-- enctype : 이진 파일 업로드 하기 위한 속성 --%>
 		<form method="post" enctype="multipart/form-data"
-			action="<%=request.getContextPath() %>/qna_write_ok.do">
+			action="<%=request.getContextPath() %>/qna_reply_ok.do">
+			<c:set var="dto" value="${cont }" />
+			<input type="hidden" name="qna_group" value="${dto.getQnaGroup() }">
+			<input type="hidden" name="qna_step" value="${dto.getQnaStep() }">
 
 			<table border="1" cellspacing="0" width="350">
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="qna_id" value="${id }" readonly="readonly"></td>	<!-- 세션으로 작성자 ID 받아올 예정 -->
+					<td><input type="text" name="qna_id"></td>	<!-- 세션으로 작성자 id 받아올 예정 -->
 				</tr>
 
 				<tr>
 					<th>글제목</th>
-					<td><input type="text" name="qna_title"></td>
+					<td>
+						<input type="text" name="qna_title" value="re:${dto.getQnaTitle() }" readonly="readonly">
+					</td>
 				</tr>
 
 				<tr>
@@ -54,6 +61,5 @@
 		</form>
 
 	</div>
-
 </body>
 </html>

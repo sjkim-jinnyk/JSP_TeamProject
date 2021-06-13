@@ -15,10 +15,11 @@ import com.hotel.model.QnaDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class QnaUpdateOkAction implements Action {
+public class QnaReplyOkAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
 		QnaDTO dto = new QnaDTO();
 		
 		String path = null;
@@ -42,37 +43,37 @@ public class QnaUpdateOkAction implements Action {
 				"UTF-8", // 문자 인코딩 방식
 				new DefaultFileRenamePolicy() // 파일 이름이 중복이 안되게 설정
 		);
-		
+
 		// 자료실 폼에서 넘어온 데이터들을 받아주어야 한다.
-		int qna_no = Integer.parseInt(multi.getParameter("qna_no"));
+		String qna_id = multi.getParameter("qna_id").trim();
 		String qna_title = multi.getParameter("qna_title").trim();
 		String qna_content = multi.getParameter("qna_content").trim();
+		int qna_group = Integer.parseInt(multi.getParameter("qna_group").trim());
+		int qna_step = Integer.parseInt(multi.getParameter("qna_step").trim()) + 1;
 
 		// getFilesystemName() : 서버상에 실제로 업로드될 파일 이름을 문자열로 반환
 		String qna_file = multi.getFilesystemName("qna_file");
-
-		if (multi.getFilesystemName("qna_file") == null) {		// 수정시 따로 파일을 첨부 하지 않은 경우 이전 파일명 그대로 유지
-			qna_file = multi.getParameter("qna_file_old");
-		}
 		
-		dto.setQnaNo(qna_no);
+		dto.setUserId(qna_id);
 		dto.setQnaTitle(qna_title);
 		dto.setQnaContent(qna_content);
+		dto.setQnaGroup(qna_group);
+		dto.setQnaStep(qna_step);
 		dto.setQnaFile(qna_file);
-
+		
 		QnaDAO dao = QnaDAO.getInstance();
 
-		int res = dao.updateQna(dto);
+		int res = dao.replyQna(dto);
 
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 
 		if (res > 0) {
 			forward.setRedirect(true);
-			forward.setPath("qna_cont.do?no=" + qna_no);
+			forward.setPath("qna_list.do?");		// 세션정보 넘기기 필요
 		} else {
 			out.println("<script>");
-			out.println("alert('QnA 수정 실패')");
+			out.println("alert('QnA 답글쓰기 실패')");
 			out.println("history.back()");
 			out.println("</script>");
 		}

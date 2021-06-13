@@ -11,10 +11,13 @@ import com.hotel.controller.ActionForward;
 import com.hotel.model.QnaDAO;
 import com.hotel.model.QnaDTO;
 
-public class QnaListAction implements Action {
+public class QnaSearchAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+		String search_field = request.getParameter("search_field").trim();
+		String search_content = request.getParameter("search_content").trim();
 		
 		QnaDAO dao = QnaDAO.getInstance();
 		
@@ -29,7 +32,7 @@ public class QnaListAction implements Action {
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}else {
-			page = 1;   // 처음으로 게시판에 들어온 경우
+			page = 1;   // 처음으로 QnA 게시판에 들어온 경우
 		}
 		
 		
@@ -46,7 +49,8 @@ public class QnaListAction implements Action {
 		int endBlock = (((page - 1) / block) * block) + block;
 		
 		// DB상의 전체 게시물의 수를 확인하는 메서드
-		totalRecord = dao.getListCount();
+		totalRecord = dao.getSearchListCount(search_field, search_content);
+		System.out.println("totalRecord : " + totalRecord);
 		
 		// 전체 게시물의 수를 한 페이지당 보여질 게시물의 수로 나누어 주어야 함.
 		// 이 과정을 거치면 전체 페이지 수가 나오게 됨.
@@ -60,7 +64,7 @@ public class QnaListAction implements Action {
 		}
 		
 		// 페이지에 해당하는 게시물을 가져오는 메서드 호출
-		List<QnaDTO> pageList = dao.getQnaList(page, rowsize);
+		List<QnaDTO> pageList = dao.getSearchQnaList(search_field, search_content, page, rowsize);
 		
 		// 지금까지 페이징 처리 시 작업했던 모든 값들을 키로 저장하자.
 		request.setAttribute("page", page);
@@ -74,12 +78,15 @@ public class QnaListAction implements Action {
 		request.setAttribute("endBlock", endBlock);
 		request.setAttribute("List", pageList);
 		
+		request.setAttribute("search_field", search_field);
+		request.setAttribute("search_content", search_content);
+		
 		// view page로 포워딩
 		ActionForward forward = new ActionForward();
 		System.out.println("forward >>> " + forward);
 		
 		forward.setRedirect(false);
-		forward.setPath("view/board/qna_list.jsp");
+		forward.setPath("view/board/qna_search_list.jsp");
 		
 		return forward;
 	}

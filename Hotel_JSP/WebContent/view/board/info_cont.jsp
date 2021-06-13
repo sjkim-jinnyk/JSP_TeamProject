@@ -13,7 +13,7 @@
 
 	<div align="center">
 		<hr width="50%" color="tomato">
-		<h3>QNA 게시물 상세 내역</h3>
+		<h3>Info 게시물 상세 내역</h3>
 		<hr width="50%" color="tomato">
 		<br> <br>
 
@@ -22,48 +22,40 @@
 			<c:if test="${!empty dto }">
 				<tr>
 					<th>작성자</th>
-					<td>${dto.getUserId() }</td>
+					<td>${dto.getAdminId() }</td>
 				</tr>
 
 				<tr>
 					<th>글제목</th>
-					<td>${dto.getQnaTitle() }</td>
+					<td>${dto.getInfoTitle() }</td>
 				</tr>
 
 				<tr>
 					<th>글내용</th>
 					<td>
-						<textarea rows="7" cols="30" readonly>${dto.getQnaContent() }</textarea>
-					</td>
-				</tr>
-
-				<tr>
-					<th>첨부파일</th>
-					<td>
-						<a href="<%=request.getContextPath() %>/file/qna/${dto.getQnaFile() }" download>${dto.getQnaFile() }</a>
+						<textarea rows="7" cols="30" readonly>${dto.getInfoContent() }</textarea>
 					</td>
 				</tr>
 
 				<tr>
 					<th>조회수</th>
-					<td>${dto.getQnaHit() }</td>
+					<td>${dto.getInfoHit() }</td>
 				</tr>
 
 				<tr>
 					<th>작성일자</th>
-					<td>${dto.getQnaDate() }</td>
+					<td>${dto.getInfoDate() }</td>
 				</tr>
 			</c:if>
 
 			<tr>
 				<td colspan="2" align="center"><input type="button" value="글수정"
-					onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
+					onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
 					<input type="button" value="글삭제"
 						onclick="if(confirm('삭제 하시겠습니까?')) {
-	                				location.href='qna_delete_ok.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'
+	                				location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
 								}else {return; }">
-					<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'">
-					<input type="button" value="전체목록" onclick="location.href='qna_list.do'">
+					<input type="button" value="전체목록" onclick="location.href='info_list.do'">
 				</td>
 			</tr>
 		</table>
