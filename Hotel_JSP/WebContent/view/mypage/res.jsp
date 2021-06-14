@@ -49,8 +49,9 @@
 			
 			<!-- 예약내역 리스트 -->
 			<div class="resList_box">
+				<c:set var="count" value="${resCount }" />
 				<div class="resCount">
-					<span class="resCount">총 <em>n</em>건</span>
+					<span class="resCount">총 <em>${count }</em>건</span>
 				</div>
 				
 				<div class="res_Container">
