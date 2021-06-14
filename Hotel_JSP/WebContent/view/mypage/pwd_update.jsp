@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴</title>
+<title>비밀번호 변경</title>
 </head>
 <body>
 
@@ -42,28 +42,39 @@
 			<div>
 				<ul class="myPage_container">
 					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/info_update.do">회원 정보 수정</a></li>
-					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/pwd_update.do">비밀번호 수정</a></li>
-					<li class="resListChg_on"><a href="<%=request.getContextPath() %>/info_del.do">회원탈퇴</a></li>
+					<li class="resListChg_on"><a href="<%=request.getContextPath() %>/pwd_update.do">비밀번호 수정</a></li>
+					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/info_del.do">회원탈퇴</a></li>
 				</ul>
 			</div>
 			
 			<div>
-				<p>정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.</p>
-				<form method="post" action="<%=request.getContextPath() %>/info_del_ok.do">
+				<form method="post" action="<%=request.getContextPath() %>/pwd_update_ok.do">
+				<p>현재 비밀번호를 올바르게 입력해야만 비밀번호 변경이 가능합니다.</p>
+				
+				<div>
 					<ul>
-						<li>PASSWORD <br>
-							<input type="text" name="delPwd" placeholder="비밀번호를 입력해주세요." required>
+						<li>CURRENT PASSWORD</li>
+						<li><input type="text" name="DbPwd" placeholder="현재 비밀번호를 입력해주세요."></li>
+					</ul>
+					<ul>
+						<li>NEW PASSWORD</li>
+						<li><input type="text" name="newPwd1" placeholder="영문/숫자 포함 15자 미만"></li>
+					</ul>
+					<ul>
+						<li>CONFIRM PASSWORD</li>
+						<li><input type="text" name="newPwd2" placeholder="동일한 비밀번호를 입력해주세요"></li>
+					</ul>
+					<ul>
+						<li>
+							<input type="submit" value="확인">
 						</li>
 					</ul>
-					<div>
-						<input type="submit" value="탈퇴하기">
-					</div>
-				</form>	
+				</div>
+				</form>
 			</div>
 		</div>
 	</div>
 	
-    <jsp:include page="../../include/footer.jsp" />
 
 </body>
 </html>

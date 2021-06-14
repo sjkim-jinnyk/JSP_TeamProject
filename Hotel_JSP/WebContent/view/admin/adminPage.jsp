@@ -21,17 +21,19 @@
 			<ul>
 				<a id="room_click" class="on" href="#none" ><li>객실관리</li></a>
 				<a id="res_click" class="off" href="#none"><li>예약관리</li></a>
+				<a id="member_click" class="off" href="#none"><li>회원관리</li></a>
 				
 			</ul>
 		</div>
 		<!-- //titArea -->
+		
 		<!-- 관리자 검색 -->
 		<div class="admin_search">
 			<!-- 관리자 객실 검색 -->
 			<table id="hotel" class="use">
 					<tr>
 						<td>DATE</td><td id="bin" colspan="3">ROOMS</td>
-						<td rowspan="2" class="search" align="center">
+						<td rowspan="2" align="center">
 							<input type="button" id="search_btn" value="객실 검색 >">
 						</td>
 					</tr>
@@ -61,7 +63,7 @@
 			<table id="user" class="off">
 					<tr>
 						<th>NAME</th><th>PHONE</th>
-						<td rowspan="2" class="search" align="center">
+						<td rowspan="2" align="center">
 							<input type="button" id="user_btn" value="예약 검색 >">
 						</td>
 					</tr>
@@ -71,6 +73,25 @@
 						</td>
 						<td>
 							<input type="text" id="userPhone">
+					    	
+						</td>
+						
+					</tr>
+			</table>
+			<!-- 관리자 회원 검색 -->
+			<table id="member" class="off">
+					<tr>
+						<th>ID</th><th>PHONE</th>
+						<td rowspan="2" align="center">
+							<input type="button" id="member_btn" value="회원 검색 >">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="text" id="memberID">
+						</td>
+						<td>
+							<input type="text" id="memberPhone">
 					    	
 						</td>
 						
@@ -102,7 +123,7 @@
 					<td id="102" width="20%">102</td>
 					<td id="102_check"></td>
 					<td width="20%">
-						<input type="button" id="res_btn" value="RESERVE">
+						<input type="button" id="res_btn" value="RESERVE"> 
 					</td> 
 				</tr>
 				<tr>
@@ -324,10 +345,31 @@
 		
 		<!-- 예약관리 페이지  -->
 		<div class="res_manage">
-			<ul id="contArea2" class="off">
+			<ul id="res_cont" class="off">
 				
 			</ul>
 		</div>
+		
+		<!-- 회원관리 페이지  -->
+		<div class="member_manage">
+			<table id="member_cont" class="off">
+			<tr id="header_tr">
+				<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th>
+			</tr>
+
+			</table>
+			
+			<!-- 회원 검색 눌렀을 때 -->
+			<table id="search_member" class="off">
+				<tr>
+					<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th><th></th>
+				</tr>
+
+			</table>
+		</div>
+		
+
+		
 	</div>
 	<jsp:include page="/include/footer.jsp" />
 	<script type="text/javascript" src="js/adminPage.js"></script>

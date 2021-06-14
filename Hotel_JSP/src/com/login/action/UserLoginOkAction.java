@@ -38,6 +38,7 @@ public class UserLoginOkAction implements Action {
 			
 			session.setAttribute("userId", dto.getUserId());
 			session.setAttribute("userName", dto.getUserName());
+			session.setAttribute("userPoint", dto.getUserPoint());
 			
 			// 세션값 저장되었는지 콘솔창에서 확인
 			System.out.println("UserLoginOkAction에서 userName >>>" + (String)session.getAttribute("userName"));
