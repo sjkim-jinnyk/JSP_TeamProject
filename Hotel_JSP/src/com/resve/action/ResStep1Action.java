@@ -21,10 +21,10 @@ public class ResStep1Action implements Action {
 
 		HttpSession session = request.getSession();
 		
-		String resIn = (String)session.getAttribute("resIn");
-		String resOut = (String)session.getAttribute("resOut");
-		String resAdult = (String)session.getAttribute("resAdult");
-		String resChild = (String)session.getAttribute("resChild");
+		String resIn = request.getParameter("resIn");
+		String resOut = request.getParameter("resOut");
+		String resAdult = request.getParameter("resAdult");
+		String resChild = request.getParameter("resChild");
 		
 		session.setAttribute("resIn", resIn);
 		session.setAttribute("resOut", resOut);

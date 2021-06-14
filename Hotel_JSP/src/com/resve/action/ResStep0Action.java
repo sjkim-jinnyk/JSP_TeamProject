@@ -14,8 +14,8 @@ public class ResStep0Action implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		HttpSession session = request.getSession();
-		session.invalidate(); 	// 세션 종료
+//		HttpSession session = request.getSession();
+//		session.invalidate(); 	// 세션 종료
 		
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);
