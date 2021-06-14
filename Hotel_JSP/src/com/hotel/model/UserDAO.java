@@ -64,10 +64,7 @@ public class UserDAO {
 		}
 
 	} 
-	
-	/*
-	 *  로그인
-	 */
+
 	
 	// 회원 체크하는 메서드
 	public int userCheck(String userId, String userPwd) {
@@ -145,10 +142,6 @@ public class UserDAO {
 	} // getMember() 메서드 end
 	
 	
-	/*
-	 *  회원가입
-	 */
-	
 	// 회원가입 메서드
 	public int userJoin(UserDTO dto) {
 		int result = 0;
@@ -211,10 +204,6 @@ public class UserDAO {
 
 	} // idCheck()메서드 end
 	
-	
-	/*
-	 * 아이디/비밀번호 찾기
-	 */
 	
 	// 아이디 찾기 메서드
 	public String idSearch(String userName, String userPhone) {
@@ -298,6 +287,7 @@ public class UserDAO {
 			
 			if(rs.next()) {
 				if(userPwd.equals(rs.getString("user_pwd"))) {
+					// 디비 비밀번호 = 삭제 비밀번호가 같은 경우
 					sql = "delete from hotel_user where user_id = ?";
 					
 					pstmt = con.prepareStatement(sql);
@@ -306,7 +296,7 @@ public class UserDAO {
 					
 					result = pstmt.executeUpdate();
 				} else {
-					// 비밀번호 틀린 경우
+					// 디비 비밀번호 != 삭제 비밀번호가 다른 경우
 					result = -1;
 				}
 			}

@@ -23,7 +23,7 @@ public class InfoDelOkAction implements Action {
 		
 		// info_del.jsp에서 넘어온 비밀번호 받기
 		String delPwd = request.getParameter("delPwd").trim();
-		System.out.println("비밀번호 >>> " + delPwd);
+		System.out.println("삭제 비밀번호 >>> " + delPwd);
 		
 		// 로그인된 유저 탈퇴하는 메서드
 		UserDAO dao = UserDAO.getInstance();
@@ -34,21 +34,24 @@ public class InfoDelOkAction implements Action {
 		
 		if(check > 0) {
 			// 회원탈퇴 성공
+			session.invalidate();	// 세션 값 만료
+			
 			forward.setRedirect(false);
-			forward.setPath("/view/mypage/info_del.jsp");
+			forward.setPath("/view/mypage/info_del_ok.jsp");
 		}else if(check == -1) {
+			// 비밀번호가 틀린 경우
 			out.println("<script>");
 			out.println("alert('비밀번호가 틀렸습니다. 다시 입력해주세요.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}else {
+			// 회원탈퇴 실패
 			out.println("<script>");
 			out.println("alert('회원 탈퇴에 실패하였습니다.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
 	
-
 		return forward;
 	}
 
