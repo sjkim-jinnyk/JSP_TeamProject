@@ -890,13 +890,7 @@ $(function() {
 							alert("del 성공");
 							if(data == 1) {
 								alert("삭제 성공");
-							}else{
-								alert("삭제실패");
 							}
-							
-							$("tr").remove('#search_member');
-							$("td").remove('#search_member')
-								
 						},
 						error : function() {
 							alert('오류');
