@@ -5,10 +5,6 @@ $(document).ready( function(){
 	$( '.total_toggle' ).click( function() {
     	$( '.toggleCont' ).toggle( 'slow' );
     });
-	
-	$( '.total_toggle' ).click( function() {
-    	$( '.toggleCont' ).toggle( 'slow' );
-    });
 
 	
 	// resDate (예약일-오늘) 구하기 -----------------------------

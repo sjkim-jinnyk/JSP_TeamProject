@@ -22,7 +22,7 @@
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
 
-	
+		<br>
 		<div id="container" class="container">
 		
 			<div class="topArea">
