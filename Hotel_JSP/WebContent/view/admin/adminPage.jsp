@@ -352,8 +352,8 @@
 		
 		<!-- 회원관리 페이지  -->
 		<div class="member_manage">
-			<table id="member_cont" class="off" border="1">
-			<tr>
+			<table id="member_cont" class="off">
+			<tr id="header_tr">
 				<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th>
 			</tr>
 
@@ -362,7 +362,7 @@
 			<!-- 회원 검색 눌렀을 때 -->
 			<table id="search_member" class="off">
 				<tr>
-					<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th>
+					<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th><th></th>
 				</tr>
 
 			</table>
