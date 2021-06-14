@@ -100,7 +100,23 @@
 			<div class="slide">
 				<div class="fp_bg_1"></div>
 				<div class="slide_box">
-					test 1
+					<div class="cont">
+						<strong class="tit">Meet Our Hotel</strong>
+						<span class="sTit">HERITAGE LEADS TO ONE FOR ALL</span>
+						<p class="txt01">
+							어디서나 한결같이 품격있는 서비와 시설로
+							<br>
+							고객에게 깊은 감동을 주는 호텔
+						</p>
+						<p class="txt02">
+							균형있는 라이프스타일을 추구하며 품격의 가치를 아는 고객을 위해
+							<br>
+							세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
+							<br>
+							호텔앤리조트에서 품격 있는 휴식을 즐기실 수 있습니다.
+						</p>
+						<a href="#" class="btnSC btnM">VIEW MORE</a>
+					</div>
 				</div>
 			</div>
 			<div class="slide"> 
@@ -115,6 +131,13 @@
 			</div>
 		</div>	
 		<div class="section" style="background : #0984e3">
+			<div class="inner">
+				<div class="slide">
+				</div>
+				<div class="slide">
+				</div>
+			</div>
+
 		</div>
 		<div class="section fp-auto-height">
 			<jsp:include page="/include/footer.jsp" />
