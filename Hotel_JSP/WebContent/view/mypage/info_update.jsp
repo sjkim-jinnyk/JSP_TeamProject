@@ -12,7 +12,10 @@
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
 	<jsp:include page="../../include/header.jsp" />
-
+	
+	<%
+	 	
+	%>
 	<div class="myPage_header">
 		<div>
 			<h1 class="header_title">MY PAGE</h1>
