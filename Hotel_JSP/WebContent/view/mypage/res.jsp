@@ -33,6 +33,7 @@
         		<h3 class="inner_menu">개인정보관리</h3>
         		<ul class="menu_list">
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_update.do" class="login">회원 정보 수정</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/pwd_update.do" class="login">비밀번호 수정</a></li>
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_del.do" class="join">회원탈퇴</a></li>
         		</ul>
         	</div>

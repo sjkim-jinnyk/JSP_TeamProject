@@ -439,4 +439,46 @@ public class UserDAO {
 		
 		return result;
 	} // memberDelete() 메서드 end
+	
+	// 비밀번호 변경 메서드
+	public int updatePwd(String userId, String DbPwd, String NewPwd) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "select user_pwd from hotel_user where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(DbPwd.equals(rs.getString("user_pwd"))) {
+					// 입력된 기존 비밀번호와 디비 비밀번호가 같은 경우
+					sql = "update hotel_user set user_pwd = ? where user_id = ?";
+					
+					pstmt = con.prepareStatement(sql);
+					
+					pstmt.setString(1, NewPwd);
+					pstmt.setString(2, userId);
+					
+					result = pstmt.executeUpdate();
+				} else {
+					result = -1;
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // updatePwd() 메서드 end
 }
