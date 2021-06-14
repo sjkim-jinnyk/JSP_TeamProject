@@ -1,7 +1,11 @@
 // 페이지 로딩하면 작동
 $(document).ready( function(){
 	
-	// 총액 상세내용 보기토글버튼 -----------------------------
+	// 토글 -------------------------------------------------
+	$( '.total_toggle' ).click( function() {
+    	$( '.toggleCont' ).toggle( 'slow' );
+    });
+	
 	$( '.total_toggle' ).click( function() {
     	$( '.toggleCont' ).toggle( 'slow' );
     });

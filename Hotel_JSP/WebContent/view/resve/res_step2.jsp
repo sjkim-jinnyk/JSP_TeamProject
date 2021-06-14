@@ -61,7 +61,7 @@
 				----------------------------
 			</div>
 			
-			<input type="number" id="roomPrice" value="<%=session.getAttribute("resNight") %>">
+			<input type="text" id="roomTotal" value="<%=session.getAttribute("roomPrice") %>">
 			<input type="number" id="resAdultBr" value="0">
 			<input type="number" id="resChildBr" value="0">
 			<input type="number" id="resBed" value="0">
