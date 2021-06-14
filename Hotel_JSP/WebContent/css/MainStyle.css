@@ -1,0 +1,365 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+
+.mainpageTxt .mainBG img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.mainpageTxt .mainTxt{
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    width: 100%;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.mainRes {
+    position: relative;
+}
+
+
+.reservation{
+    display: flex;
+    position: absolute;
+	width: 100%;
+	justify-content: center;
+}
+
+.line-tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 64px;
+    background: #fff;
+    opacity: .2;
+}
+
+.main-div{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.reservation li {
+    list-style: none;
+    color: white;
+}
+
+.mainRes .hotel {
+    width: 100%;
+    color: white;
+    font-size: 30px;
+}
+.reservation .tit{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    top: 10px;
+    font: 400 14px/1 gothamM;
+    color: #b3b3b3;
+    letter-spacing: -1px;
+    margin-bottom: 5px;  
+}
+
+.reservation a{
+    text-decoration: none;
+}
+
+.reservation .num{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 30px;
+}
+
+.check {
+    background-color: transparent;
+}
+
+.ser_btn{
+    size: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 0 20px;
+    background-color: transparent;
+    border: solid 1px white;
+    color: white;
+
+}
+
+.check_InOut {
+    padding: 0 20px;
+}
+
+/* 새로운 Main CSS */
+.selectWrap{
+	display: inline-block;
+	position: relative;
+	heigth: 64px;
+	background: transparent;
+}
+
+.text-ui{
+	border-bottom: 0;
+    font: 600 20px gothamB;
+    padding-left: 20px;
+    height: 64px;
+    background: transparent;
+    color: #fff;
+    padding-top: 30px;
+}
+
+
+.rBox {
+	position: relative;
+    display: inline-block;
+    min-width: 43px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.rBox >span{
+	display: block;
+    font: 400 20px/1 gothamB;
+    color: #fff;
+    padding-top: 4px;
+}
+
+.line_tag:before{
+	content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 40px;
+    background: #fff;
+    opacity: .2;
+}
+
+.member_num{
+	padding: 0 20px;
+}
+
+/* 어린이 어른 선택 */
+
+.member_modal{
+	margin: 20px;
+}
+
+.numMember{
+	width: 100%;
+    float: left;
+    position: relative;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.numMember span{
+    display: block;
+    text-align: center;
+    width: 124px;
+    color: #000;
+    margin: 0 auto;
+    font-family: gothamL;
+}
+
+.numMember button{
+	position: absolute;
+}
+
+.numMember button.btnUp{
+	right: 0;
+	top: 20px;
+}
+
+.numMember_button{
+	text-align: center;
+}
+
+.numMember_button button{
+	margin-top: 20px;
+    border: 1px solid #000;
+    transition: color 0.5s ease-in-out;
+    font-family: gothamL, notokrL;
+    padding: 12px 80px 12px 80px;
+}
+
+/* 2번째 세션 CSS */
+
+.slide_box{
+	width: 60%;
+    background: #fff;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto 0px auto;
+    padding: 30px 70px 0;
+    min-height: 500px;
+    min-width: 700px;
+}
+
+.fp_bg_1{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: url(../images/bg_main01_02.jpg);
+}
+
+.cont .tit{
+	 font: 400 60px playfair;
+	 font-family: 'Playfair Display SC', serif;
+	 display: block;
+}
+
+.cont .sTit{
+	font: 400 20px gothamM;
+    margin-top: 10px;
+    display: block;
+}
+
+
+.txt01{
+	font-size: 25px;
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.txt02{
+	font-size: 20px;
+    margin: 5px 0 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btnM{
+	border: 1px solid black;
+	min-width: 162px;
+   padding: 10px 25px 11px 25px;
+	font-size: 17px;
+    letter-spacing: -.01em;
+}
+
+.swipeBox{
+	display: block;
+	height: 100%;
+	margin-left: 53px;
+}
+
+.inner{
+    width: 65%;
+    height: 65%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    min-width: 1290px;
+    max-height: 535px;
+}
+
+.offer{
+	 font-weight: bold;
+	 margin-left: 51px;
+	 margin-bottom: 30px;
+}
+
+.thum{
+	position: relative;
+    width: 360px;
+    height: 249px;
+    overflow: hidden;
+}
+
+.thum img{
+	 width: 360px;
+    height: 249px;
+}
+
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+.swipeCont{
+	width: 360px;
+	height: 100%;
+	float: left;
+    margin-right: 50px;
+}
+
+
+.inner .tit{
+	width: 360px;
+	height: 70px;
+	font-size: 26px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 400;
+    display: block;
+    line-height: 30px;
+}
+
+.inner .txt{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 7px;
+	width: 360px;
+	color: #333;
+	font-size: 16px;
+}
+
+.inner .date{
+	font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #333;
+}
+
+.inner .locationTag{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 40px;
+	padding: .5em .64em;
+    color: #fff;
+    width: fit-content;
+}
+
+.inner .locationTag_test{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	padding: .5em .64em;
+    color: #fff;
+
+}
+
+.inner .locationTag_test2{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	margin-bottom: 15px;
+	font-weight: 400;
+	padding: .5em .64em;
+    color: #fff;
+}

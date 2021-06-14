@@ -4,15 +4,53 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디 찾기</title>
 </head>
 <body>
 
-	<h3>아이디 찾기 페이지 입니다.</h3>
+<link rel="stylesheet" href="css/LoginStyle.css">
+	<jsp:include page="../../include/header.jsp" />
 	
-	<div>
-		<a href="<%=request.getContextPath() %>/user_id_search_ok.do">아이디 찾기</a>
+	<div class="topArea">
+		<div class="topInner">
+			<h1 class="idSearch_title">아이디 / 비밀번호 찾기</h1>
+		</div>
+	</div>
+	
+	<div class="idPwdSearch_inner">
+		<form method="post" action="<%=request.getContextPath() %>/user_id_search_ok.do">
+			<ul class="login_form" style="display: flex;">
+				<li class="idPwdSearch_on">
+				<a href="<%=request.getContextPath() %>/user_id_search.do">아이디 찾기</a>
+				</li>
+				<li class="idPwdSearch_off">
+				<a href="<%=request.getContextPath() %>/user_pwd_search.do">비밀번호 찾기</a>
+				</li>
+			</ul>
+			
+			<div class="loginBox">
+				<div class="userLogin">
+					<p class="id_form">
+						<label class="hidden">
+							이름
+						</label>
+						<input type="text" name="userName" placeholder="이름" required>
+					</p>
+					<p class="id_form">
+						<label class="hidden">
+							휴대폰 번호
+						</label>
+						<input type="tel" name="userPhone" placeholder="휴대폰 번호" required>
+					</p>
+					
+					<input type="submit" value="찾 기" class="login_submit">
+				</div>
+			</div>
+		</form>
 	</div>
 
+	<jsp:include page="../../include/footer.jsp" />
+	
 </body>
+
 </html>
