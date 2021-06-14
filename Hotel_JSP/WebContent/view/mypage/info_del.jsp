@@ -44,6 +44,20 @@
 					<li class="resListChg_on"><a href="<%=request.getContextPath() %>/info_del.do">회원탈퇴</a></li>
 				</ul>
 			</div>
+			
+			<div>
+				<p>정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.</p>
+				<form method="post" action="<%=request.getContextPath() %>/info_del_ok.do">
+					<ul>
+						<li>PASSWORD <br>
+							<input type="text" name="delPwd" placeholder="비밀번호를 입력해주세요." required>
+						</li>
+					</ul>
+					<div>
+						<input type="submit" value="탈퇴하기">
+					</div>
+				</form>	
+			</div>
 		</div>
 	</div>
 	
