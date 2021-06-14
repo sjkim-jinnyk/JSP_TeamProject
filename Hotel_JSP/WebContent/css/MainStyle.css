@@ -219,8 +219,6 @@
     background-image: url(../images/bg_main01_02.jpg);
 }
 
-
-
 .cont .tit{
 	 font: 400 60px playfair;
 	 font-family: 'Playfair Display SC', serif;
@@ -242,7 +240,7 @@
 
 .txt02{
 	font-size: 20px;
-    margin: 3px 0 40px;
+    margin: 5px 0 40px;
     font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -254,18 +252,114 @@
     letter-spacing: -.01em;
 }
 
+.swipeBox{
+	display: block;
+	height: 100%;
+	margin-left: 53px;
+}
+
 .inner{
-    width: 80%;
-    height: 70%;
-    background-color: black;
-    margin-top: 100px;
+    width: 65%;
+    height: 65%;
     position: absolute;
     left: 50%;
-    top: 9%;
+    top: 25%;
     transform: translateX(-50%);
-    text-align: center;
+    min-width: 1290px;
+    max-height: 535px;
+}
+
+.offer{
+	 font-weight: bold;
+	 margin-left: 51px;
+	 margin-bottom: 30px;
+}
+
+.thum{
+	position: relative;
+    width: 360px;
+    height: 249px;
+    overflow: hidden;
+}
+
+.thum img{
+	 width: 360px;
+    height: 249px;
+}
+
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+.swipeCont{
+	width: 360px;
+	height: 100%;
+	float: left;
+    margin-right: 50px;
 }
 
 
+.inner .tit{
+	width: 360px;
+	height: 70px;
+	font-size: 26px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 400;
+    display: block;
+    line-height: 30px;
+}
 
+.inner .txt{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 7px;
+	width: 360px;
+	color: #333;
+	font-size: 16px;
+}
 
+.inner .date{
+	font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #333;
+}
+
+.inner .locationTag{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 40px;
+	padding: .5em .64em;
+    color: #fff;
+    width: fit-content;
+}
+
+.inner .locationTag_test{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	padding: .5em .64em;
+    color: #fff;
+
+}
+
+.inner .locationTag_test2{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	margin-bottom: 15px;
+	font-weight: 400;
+	padding: .5em .64em;
+    color: #fff;
+}

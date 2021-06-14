@@ -96,7 +96,7 @@
     </div>
     
 	</div>
-		<div class="section">
+		<div class="section section_menu">
 			<div class="slide">
 				<div class="fp_bg_1"></div>
 				<div class="slide_box">
@@ -130,11 +130,107 @@
 				</div>
 			</div>
 		</div>	
-		<div class="section" style="background : #0984e3">
+		<div class="section" style="background : white">
 			<div class="inner">
-				<div class="slide">
+				<div class="offer">
+					GO TO OFFERS >
 				</div>
 				<div class="slide">
+				
+					<div class="swipeBox">
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="locationTag_test">공지사항</span>
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+						<span class="locationTag_test2">공지사항</span>
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					</div>
+		
+				</div>
+				
+				<div class="slide">
+					
+					<div class="swipeBox">
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					</div>
+		
 				</div>
 			</div>
 
