@@ -306,4 +306,105 @@ public class UserDAO {
 		
 		return dto;
 	} // getId() 메서드 end
+	
+	// 회원 전체 리스트 가져오기
+	public String getMemberList() {
+		String result="";
+		
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user order by user_name";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<users>";
+			while(rs.next()) {
+				result += "<user>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
+				result += "<name>" + rs.getString("user_name") + "</name>";
+				result += "<gen>" + rs.getString("user_gen") + "</gen>";
+				result += "<phone>" + rs.getString("user_phone") + "</phone>";
+				result += "<email>" + rs.getString("user_email") + "</email>";
+				result += "<addr>" + rs.getString("user_addr") + "</addr>";
+				result += "<point>" + rs.getInt("user_point") +"</point>";
+				result += "</user>";
+			}
+			result += "</users>";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getMemberList() 메서드 end
+	
+	
+	// 회원 id에 맞는 리스트 가져오기
+	public String getMemberList_id(String id, String phone) {
+		String result="";
+		
+		try {
+			openConn();
+			
+			sql = "select * from hotel_user where user_id = ? or user_phone = ? order by user_name";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, phone);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<users>";
+			while(rs.next()) {
+				result += "<user>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
+				result += "<name>" + rs.getString("user_name") + "</name>";
+				result += "<gen>" + rs.getString("user_gen") + "</gen>";
+				result += "<phone>" + rs.getString("user_phone") + "</phone>";
+				result += "<email>" + rs.getString("user_email") + "</email>";
+				result += "<addr>" + rs.getString("user_addr") + "</addr>";
+				result += "<point>" + rs.getInt("user_point") +"</point>";
+				result += "</user>";
+			}
+			result += "</users>";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getMemberList_id() 메서드 end
+	
+	public int memberDelete(String id, String phone) {
+		int result = 0;
+		
+		try {
+			openConn();
+			
+			sql = "delete from hotel_user where user_id = ? or user_phone = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, phone);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // memberDelete() 메서드 end
 }

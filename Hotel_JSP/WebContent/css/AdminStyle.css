@@ -1,14 +1,7 @@
 @charset "UTF-8";
+
 a {
 	text-decoration: none;
-}
-
-
-.admin_topArea {
-	padding: 100px 50px 50px 50px;
-	font-family: 'Playfair Display SC', serif;
-	font-size: 30px;
-	font-weight: normal;
 }
 
 table {
@@ -16,31 +9,36 @@ table {
 	border-spacing: 0 20px;
 	width: 100%;
 }
+
+table td {
+	text-align: center;
+}
+/* 관리자 페이지 상단 */
+.admin_topArea {
+	padding: 100px 50px 50px 50px;
+	font-family: 'Playfair Display SC', serif;
+	font-size: 30px;
+	font-weight: normal;
+}
+
 .admin_manage {
 	padding: 0 50px;
 }
-.admin_search table td{
-	text-align: center;
-}
 
+/* 관리 탭 영역*/
 .titArea ul{
 	display: flex;
 	text-align: center;
 	
 }
-.titArea ul #room_click{
+.titArea ul #room_click, #res_click, #member_click{
 	width: 30%;
 	padding: 5px 20px;
 	border-right: 1px solid black;
 	border-left: 1px solid black;
 	border-top: 1px solid black;
 }
-.titArea ul #res_click{
-	width: 30%;
-	padding: 5px 20px;
-	border-right: 1px solid black;
-	border-top: 1px solid black;
-}
+
 .titArea .off{
 	border-bottom : 1px solid black;
 }
@@ -52,6 +50,7 @@ table {
 	width: 100%;
 	border-bottom : 1px solid black;
 }
+
 .admin_search {
 	margin: 20px 0;
 	padding: 20px 0;
@@ -68,7 +67,7 @@ table {
 #roomName {
 	padding: 2px 10px;
 }
-#search_btn, #user_btn {
+#search_btn, #user_btn, #member_btn {
 	padding: 0 10px;
 	background-color: transparent;
 	border : 1px solid black;
@@ -125,6 +124,7 @@ table {
 .room_search ul {
 	padding-left: 50px;
 }
+
 /* 객실 검색 상세내역 */
 #content_info_st, #content_info_d, #content_info_su, #content_info_p{
 	display: none;
@@ -134,6 +134,11 @@ table {
 }
 #ul_101, #ul_102, #ul_103, #ul_201, #ul_202, #ul_203, #ul_301, #ul_302, #ul_303, #ul_401, #ul_402, #ul_403 {
 	font-weight: normal;
+}
+
+/* 예약관리 페이지 */
+.res_manage #res_cont {
+	padding-left: 50px;
 }
 .room_manage .off{
 	display: none;
@@ -166,4 +171,15 @@ table {
 }
 .admin_search .on{
 	display : "";
+}
+
+/* 회원관리 페이지 */
+.member_manage {
+	padding: 0 50px;
+}
+.member_manage .off{
+	display: none;
+}
+.member_manage .on{
+	display: "";
 }

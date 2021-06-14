@@ -92,7 +92,6 @@ public class ReserveDAO {
 			}
 			result += "</roomnums>";
 			
-			System.out.println("test :" + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -181,7 +180,6 @@ public class ReserveDAO {
 			}
 			result += "</rooms>";
 			
-			//System.out.println("test :" + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -280,4 +278,62 @@ public class ReserveDAO {
 		
 		return result;
 	} // getinfo_html()
+	
+	// 체크인 날짜에 해당하는 고객 정보를 가져오는 메서드
+	public String getinfo_user(String resin) {
+		String result ="";
+		
+		try {
+			openConn();
+			
+			sql = "select * frome reserve where res_in = ? order by res_no";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, resin);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<users>";
+			while(rs.next()) {
+				result += "<user>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
+				result += "<name>" + rs.getString("room_name") + "</name>";
+				result += "<num>" + rs.getInt("room_number") +"</num>";
+				result += "<date>" + rs.getString("res_date") +"</date>";
+				result += "<nod>" + rs.getInt("res_NoD") +"</nod>";
+				result += "<resin>" + rs.getString("res_in") +"</resin>";
+				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "<adult>" + rs.getInt("res_adult") +"</adult>";
+				result += "<child>" + rs.getInt("res_child") +"</child>";
+				result += "<adultbr>" + rs.getInt("res_adult_br") +"</adultbr>";
+				result += "<childbr>" + rs.getInt("res_child_br") +"</childbr>";
+				result += "<bed>" + rs.getInt("res_bed") +"</bed>";
+				result += "<total>" + rs.getInt("res_total") +"</total>";
+				result += "<request>" + rs.getString("res_request") +"</request>";
+				result += "</user>";
+			}
+			result += "</users>";
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getinfo_user() 메서드 end
+	
+	
+	
+	
+	
+	
 }
+
+
+
+
