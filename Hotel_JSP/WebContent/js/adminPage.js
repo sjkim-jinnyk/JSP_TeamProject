@@ -894,7 +894,9 @@ $(function() {
 								alert("삭제실패");
 							}
 							
-
+							$("tr").remove('#search_member');
+							$("td").remove('#search_member')
+								
 						},
 						error : function() {
 							alert('오류');

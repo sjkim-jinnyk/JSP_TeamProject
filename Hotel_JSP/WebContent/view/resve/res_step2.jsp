@@ -8,92 +8,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>객실 예약 - 객실, 요금 선택 | 조선호텔앤리조트</title>
+<title>객실 예약 - 옵션 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-	//어른 조식 증감
-	function count(type)  {
-	  // 결과를 표시할 element
-	  let resultElement = document.getElementById('result'); // +- 버튼 안쪽 숫자
-	  let resAdult =  document.getElementById('resAdultBr');
-	  
-	  // 현재 화면에 표시된 값
-	  let number = resultElement.innerText;
-	  
-	  // 더하기/빼기
-	  if(type === 'plus') {
-		  if(number <= 3){
-			   number = parseInt(number) +1;
-			   resAdult.value = number;
-		  }	 
-	  }else if(type === 'minus')  {
-		  if(number >= 1) {
-			  number = parseInt(number) - 1;
-			  resAdult.value = number;
-		  }		    
-	  }
-	  
-	  // 결과 출력	  
-	  resultElement.innerText = number;
-	  
-	} // count() end 
-	
-	// 어린이 조식 증감
-	function count2(type)  {
-	  // 결과를 표시할 element
-	  let resultElement = document.getElementById('result2'); // +- 버튼 안쪽 숫자
-	  let resChild =  document.getElementById('resChildBr');
-	
-	  
-	  // 현재 화면에 표시된 값
-	  let number = resultElement.innerText;
-	  
-	  // 더하기/빼기
-	  if(type === 'plus') {
-		  if(number <= 3){
-			   number = parseInt(number) +1;
-			   resChild.value = number;
-		  }	 
-	  }else if(type === 'minus')  {
-		  if(number >= 1) {
-			  number = parseInt(number) - 1;
-			  resChild.value = number;
-		  }		    
-	  }
-	  
-	  // 결과 출력	  
-	  resultElement.innerText = number;	
-	} // count2() end
-	
-	// 엑스트라베드 증감
-	function count3(type)  {
-	  // 결과를 표시할 element
-	  let resultElement = document.getElementById('result3'); // +- 버튼 안쪽 숫자
-	  let resChild =  document.getElementById('resBed');
-	
-	  
-	  // 현재 화면에 표시된 값
-	  let number = resultElement.innerText;
-	  
-	  // 더하기/빼기
-	  if(type === 'plus') {
-		  if(number <= 3){
-			   number = parseInt(number) +1;
-			   resChild.value = number;
-		  }	 
-	  }else if(type === 'minus')  {
-		  if(number >= 1) {
-			  number = parseInt(number) - 1;
-			  resChild.value = number;
-		  }		    
-	  }
-	  
-	  // 결과 출력	  
-	  resultElement.innerText = number;	
-	} // count2() end
-	
-</script>
+<script type="text/javascript" src="../../js/res_step2.js"></script>
 </head>
 <body>
 	
@@ -139,15 +56,27 @@
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
 				</div>
-				<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn">객실 다시 검색</a><br>
+				<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn" 
+					style="border: solid 1px;">객실 다시 검색</a><br>
 				----------------------------
 			</div>
 			
+			<input type="text" id="roomTotal" value="<%=session.getAttribute("roomPrice") %>">
+			<input type="number" id="resAdultBr" value="0">
+			<input type="number" id="resChildBr" value="0">
+			<input type="number" id="resBed" value="0">
+			<input type="text" id="resDate" value="0">
+			<input type="number" id="resTotal" value="0">
+			
 			<div class="option">
 				
-				<input type="hidden" id="resAdultBr" value="0">
-				<input type="hidden" id="resChildBr" value="0">
-				<input type="hidden" id="resBed" value="0">
+				<h2 class="titDep2">[Member Exclusive] SMART CHOICE</h2>
+				<p class="categoryTxt">
+					<span><%=session.getAttribute("roomName") %></span>&nbsp;/&nbsp;
+					<span><%=session.getAttribute("roomNumber") %></span>&nbsp;/&nbsp;[ROOM VIEW]
+				</p>
+				
+				----------------------------
 				
 				<h3 class="opTit">BREAKFAST</h3>
 				<div class="addOption">
@@ -179,9 +108,90 @@
 					<input type="button" onclick="count3('minus')" value="-"/>
 					<div id="result3" style="display: inline">0</div>
 					<input type="button" onclick="count3('plus')" value="+"/><br>
-				</div>
+				</div><br>
+				
+				<h3 class="opTit">REQUESTS</h3>
+				<textarea name="resRequest" placeholder="호텔 이용 시 문의하실 사항이 있으시면 입력해 주세요."></textarea>
+				<p class="txtGuide">전달해주신 요청사항을 최대한 반영하도록 최선을 다하겠습니다.<br>
+					다만, 부득이하게 반영되지 않을 수 있는 점, 양해 부탁드립니다.</p> 
 				
 			</div><!-- class="option" -->
+			----------------------------
+			
+			<div class="rCont floating" style="transition: margin-top 0.3s ease-out 0s;">
+				
+				<ul class="toggleList rsvList" id="roomInfo">
+					
+					<li class="toggleOn">
+						<strong class="listTit">
+							<span class="price" id="rTotalResult"><em>0</em>KRW</span>
+						</strong>
+						
+						<button type="button" class="total_toggle" style="border: solid 1px;">
+							<span class="hidden" >상세내용 보기</span>
+						</button>
+						
+						<div class="toggleCont" style="display: block;">
+							<div class="toggleInner">
+								<div class="designScroll">
+									<div class="optionTotal scrollWrap" style="">
+										<div class="customScrollBox">
+										
+											<ul class="infoData">
+												<li>
+													<span id="rDateResult">0000.00.00</span>&nbsp;/&nbsp;
+													<span id="roomPriceResult"><%=session.getAttribute("roomPrice") %></span>
+												</li>
+											</ul>
+											
+											<ul class="infoData" id="roomOptInfo">
+												<li>
+													<span class="lfData">성인 조식</span>
+													<span id="aBrResult">0</span>
+												</li>
+												<li>
+													<span class="lfData">어린이 조식</span>
+													<span id="cBrResult">0</span>
+												</li>
+												<li>
+													<span class="lfData">엑스트라 베드</span>
+													<span id="bedResult">0</span>
+												</li>
+											</ul>
+											
+											<ul class="infoData">
+												<li>
+													<span class="lfData">세금</span>
+													<span class="rtData" id="rTaxResult">0</span>
+												</li>
+											</ul>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><!-- class="toggleCont" -->
+						
+					</li>	
+				</ul><!-- class="toggleList rsvList" -->
+					
+				<div class="totalCont">
+					<div class="totalPrice">
+						<span class="txt">총 예약금액</span>
+						<span class="subTxt">+ 세금(10%)</span>										
+						<span class="price"><em id="rTotalResult">0</em>KRW</span>
+					</div>
+					<div class="btnArea">
+						<div>
+							<a href="<%=request.getContextPath() %>/step3.do" class="rsv_btn"
+								style="border: solid 1px;">
+								회원 예약
+							</a>
+						</div>
+					</div>
+				</div><!-- class="totalCont" -->
+				
+			</div><!-- class="rCont floating" -->
 			
 		</div><!-- class="selResult" -->
 		

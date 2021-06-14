@@ -34,8 +34,6 @@ public class ResStep2Action implements Action {
 		session.setAttribute("roomName", name);
 		session.setAttribute("roomPrice", price);
 		
-		
-		
 		System.out.println(resIn);
 		System.out.println(num);
 		System.out.println(price);
