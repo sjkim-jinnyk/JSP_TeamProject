@@ -1,3 +1,4 @@
+<%@page import="com.hotel.model.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -32,6 +33,7 @@
         		<h3 class="inner_menu">개인정보관리</h3>
         		<ul class="menu_list">
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_update.do" class="login">회원 정보 수정</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/pwd_update.do" class="login">비밀번호 수정</a></li>
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_del.do" class="join">회원탈퇴</a></li>
         		</ul>
         	</div>
@@ -42,6 +44,7 @@
 			<div>
 				<ul class="myPage_container">
 					<li class="resListChg_on"><a href="<%=request.getContextPath() %>/info_update.do">회원 정보 수정</a></li>
+					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/pwd_update.do">비밀번호 수정</a></li>
 					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/info_del.do">회원탈퇴</a></li>
 				</ul>
 			</div>
@@ -56,23 +59,38 @@
 						<li>ID <br><input type="text" id="id_txt" class="joinTxt" name="userId" value="${dto.getUserId() }" readonly></li>
 						<li>NAME <br><input type="text" class="joinTxt" name="userName" value="${dto.getUserName() }" readonly></li>
 						<div class="checks">
-						<li class="margin-gen">GENDER </li>
-							 <input type="radio" name="userGen" value="남성"><span>남성</span>
-					  	  	 <input type="radio" class="UserGen" name="userGen" value="여성"><span>여성</span>
+						<li class="margin-gen">GENDER<br>
+							<!-- 남성인 경우 -->
+							<c:if test="${dto.getUserGen() == '남성' }">
+								<input type="radio" name="userGen" value="남성" checked><span>남성</span>
+									<input type="radio" class="UserGen" name="userGen" value="여성"><span>여성</span>
+							</c:if>
+							<!-- 여성인 경우 -->
+							<c:if test="${dto.getUserGen() == '여성' }">
+								<input type="radio" name="userGen" value="남성"><span>남성</span>
+									<input type="radio" class="UserGen" name="userGen" value="여성" checked><span>여성</span>
+							</c:if>
+								
+						</li>
 						</div>
 						<li>PHONE <br><input type="tel" class="joinTxt" name="userPhone" value="${dto.getUserPhone() }"></li>
 						<li>ADDRESS <br>
-							<input type="text" class="joinTxt" id="sample4_postcode" >
+							<!-- 디비에 저장된 주소 -->
+							<input type="text" class="DBaddr" name="DBaddr" value="${dto.getUserAddr() }" readonly><br>
+							<!-- 수정할 주소 -->
+							<input type="text" class="joinTxt" id="sample4_postcode" placeholder="우편번호">
 							<input type="button" class="joinFormBtn" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-							<input type="text" class="joinTxt" id="sample4_roadAddress" name="userAddr_1">
-							<input type="text" class="joinTxt" id="sample4_jibunAddress" name="userAddr_2">
+							<input type="text" class="joinTxt" id="sample4_roadAddress" name="userAddr_1" placeholder="도로명주소">
+							<input type="text" class="joinTxt" id="sample4_jibunAddress" name="userAddr_2" placeholder="지번주소">
 							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" class="joinTxt" id="sample4_detailAddress" name="userAddr_3">
-							<input type="text" class="joinTxt" id="sample4_extraAddress" name="userAddr_4">
+							<input type="text" class="joinTxt" id="sample4_detailAddress" name="userAddr_3" placeholder="상세주소">
+							<input type="text" class="joinTxt" id="sample4_extraAddress" name="userAddr_4" placeholder="참고항목">
 						</li>
-						<li>E-MAIL <br><input type="text" class="joinTxt" name="userEmail_1" onfocus="this.value='';">		
+						<li>E-MAIL 
+							
+							<br><input type="text" class="joinTxt" id="userEmail_1" name="userEmail_1" onfocus="this.value='';" value="${dto.getUserEmail() }" >		
 						   <span>@</span>
-						   <input type="text" class="joinTxt" name="userEmail_2" value="" readonly>
+						   <input type="text" class="joinTxt" id="userEmail_2" name="userEmail_2" value="${dto.getUserEmail() }" readonly>
 						   <select name="userEmail" class="select-box" onchange="email_change()">
 						  		<option value="0" selected>E-Mail 선택</option>	<!-- ★ 옵션 선택시 값이 서블릿에 안 넘어감(직접입력은 됨) -->
 						  		<option value="naver.com">naver.com</option>
@@ -83,14 +101,18 @@
 						   </select>
 						</li>
 						<li>
-							POINT <br><input type="text" class="joinTxt" name="userPoint" value="${dto.getUserPoint() }">p
+							POINT <br><input type="text" class="joinTxt" name="userPoint" value="${dto.getUserPoint() }" readonly>p
 						</li>
+						<li><input type="button" value="수정하기"></li>
+						<li><input type="reset" value="취소하기"></li>    ㅡ   
 					</ul>
 				</div>
 			</form>
 		  </div>			
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="js/joinPage.js"></script>
 	
     <jsp:include page="../../include/footer.jsp" />
 
