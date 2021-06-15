@@ -66,8 +66,10 @@
 						<li class="res_info">
 							예약번호 ${dto.getResNo() } / 성인 ${dto.getResAdult() },어린이${dto.getResChild() } / 총 예약금액 <fmt:formatNumber value="${dto.getResTotal() }" />원
 						</li>
-						<li>${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }</li>
-						<li><input type="button" value="예약변경" onclick="location.href='res_change_ok.do?no=${dto.getResNo() }&roomNo=${dto.getRoomNumber() }'"></li>
+						<li class="res_margin">
+							${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }
+							<input type="button" class="resChng_btn" value="예약변경" onclick="location.href='res_change_ok.do?no=${dto.getResNo() }&roomNo=${dto.getRoomNumber() }'">
+						</li>
 					</ul>
 					</c:forEach>
 				</c:if>

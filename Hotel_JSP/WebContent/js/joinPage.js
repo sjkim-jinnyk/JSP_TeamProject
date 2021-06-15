@@ -9,7 +9,7 @@ function email_change(){
 	if(document.join.userEmail.options[document.join.userEmail.selectedIndex].value == '0'){
 
 			document.join.userEmail_2.readOnly = true;
-			document.join.userEmail_2.value = "";
+			document.join.userEmail_2.value = " ";
  
 	}
 	
@@ -147,6 +147,7 @@ function pwd_check(){
  * 마이페이지 - 회원 정보 변경 js
  */
 
+// 디비 이메일 불러오기
 (function() {
 	console.log("즉시실행함수");
 	
@@ -162,6 +163,7 @@ function pwd_check(){
 /*window.onload = function(){
 	
 	console.log("온로드 함수입니다")
+	
 	var fullEmail = document.getElementById('userEmail_1').value;
 	
 	var email = fullEmail.split('@');
@@ -172,11 +174,5 @@ function pwd_check(){
 	document.getElementById('userEmail_1').value = email[0];
 	document.getElementById('userEmail_2').value = email[1];
 }*/
-
-
-
-	
-
-
 
 

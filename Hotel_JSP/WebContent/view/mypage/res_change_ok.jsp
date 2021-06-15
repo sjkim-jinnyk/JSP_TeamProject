@@ -72,12 +72,12 @@
 							엑스트라 베드<input type="number" class="boxCSS" name="extraBed" min="0" max="2" value="${dto.getResBed() }">
 						</div>
 						<div class="box_inner2">
-							요청사항<br><textarea rows="3" cols="100%" name="requests">${dto.getResRequest() }</textarea>
+							요청사항<br><textarea rows="3" cols="100%" class="request_box" name="requests">${dto.getResRequest() }</textarea>
 						</div>
 						<div class="resPrice_box">
 							<div class="resPrice_inner">
 								<dl class="resPrice_list">
-									<dt>객실 금액</dt>
+									<dt class="price_title">객실 금액</dt>
 									<dd>
 										<ul class="infoData">
 											<li>
@@ -88,18 +88,18 @@
 									</dd>
 								</dl>
 								<dl class="resPrice_list">
-									<dt>옵션 금액</dt>
+									<dt class="price_title">옵션 금액</dt>
 									<dd>
 										<ul class="infoData">
 											<li>
 												<span class="data1">옵션 추가</span>
-												<span class="data2">옵션 가격(원)</span>
+												<span class="data2">(원)</span>
 											</li>
 										</ul>
 									</dd>
 								</dl>
 								<dl class="resPrice_list">
-									<dt>세금 및 봉사료</dt>
+									<dt class="price_title">세금 및 봉사료</dt>
 									<dd>
 										<ul class="infoData">
 											<li>
@@ -115,13 +115,13 @@
 						</div>
 						<div class="box_inner3">
 							<ul>
-								<li><span>총 예약금액</span></li>
-								<li><fmt:formatNumber value="${dto.getResTotal() }" />원</li>
+								<li><span class="price_title">총 예약금액</span></li>
+								<li class="total_price"><fmt:formatNumber value="${dto.getResTotal() }" />KRW</li>
 							</ul>
 						</div>
 						<div class="box_inner4">
-							<input type="submit" value="변경하기">&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="취소하기">
+							<input type="submit" class="submit_btn" value="변경하기">&nbsp;&nbsp;&nbsp;
+							<input type="submit" class="reset_btn" value="취소하기">
 						</div>
 					</li>
 				</ul>

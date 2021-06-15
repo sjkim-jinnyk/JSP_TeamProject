@@ -47,29 +47,29 @@
 				</ul>
 			</div>
 			
-			<div>
+			<div class="myInfo">
+				<p class="warningTxt">* 현재 비밀번호를 올바르게 입력해야만 비밀번호 변경이 가능합니다.</p>
 				<form method="post" action="<%=request.getContextPath() %>/pwd_update_ok.do">
-				<p>현재 비밀번호를 올바르게 입력해야만 비밀번호 변경이 가능합니다.</p>
-				
-				<div>
-					<ul>
-						<li>CURRENT PASSWORD</li>
-						<li><input type="text" name="DbPwd" placeholder="현재 비밀번호를 입력해주세요."></li>
-					</ul>
-					<ul>
-						<li>NEW PASSWORD</li>
-						<li><input type="text" name="newPwd1" placeholder="영문/숫자 포함 15자 미만"></li>
-					</ul>
-					<ul>
-						<li>CONFIRM PASSWORD</li>
-						<li><input type="text" name="newPwd2" placeholder="동일한 비밀번호를 입력해주세요"></li>
-					</ul>
-					<ul>
-						<li>
-							<input type="submit" value="확인">
-						</li>
-					</ul>
-				</div>
+					<div>
+						<ul>
+							<li>CURRENT PASSWORD<br>
+								<input type="password" class="chgTxt2" name="originalPwd" placeholder="현재 비밀번호를 입력해주세요." required>
+							</li>
+						</ul>
+						<ul class="newPwd_box">
+							<li class="newPwd_inner">NEW PASSWORD<br>
+								<input type="password" class="chgTxt2" name="newPwd" placeholder="영문/숫자 포함 15자 미만" required>
+							</li>
+							<li class="newPwd_inner">CONFIRM PASSWORD<br>
+								<input type="password" class="chgTxt2" name="newPwd_check" placeholder="동일한 비밀번호를 입력해주세요." required>
+							</li>
+						</ul>
+						<ul>
+							<li>
+							<input type="submit" class="confirm_btn" value="확인">
+							</li>
+						</ul>
+					</div>
 				</form>
 			</div>
 		</div>

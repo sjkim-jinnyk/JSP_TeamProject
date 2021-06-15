@@ -25,7 +25,7 @@ public class MypageMainAction implements Action {
 		int count =  dao.rescount(userId);
 		
 		request.setAttribute("resCount", count);
-		
+
 		ActionForward forward = new ActionForward();
 		
 		forward.setRedirect(false);
