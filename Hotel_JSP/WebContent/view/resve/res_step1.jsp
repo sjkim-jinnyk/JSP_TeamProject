@@ -49,8 +49,9 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;[요일]&nbsp; <!-- 요일 뽑아와야함.. -->
-							-&nbsp;<%=session.getAttribute("resOut") %>&nbsp;[요일]<span>0&nbsp;박</span></dd>
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;[요일]&nbsp;-&nbsp;
+							<%=session.getAttribute("resOut") %>&nbsp;[요일]
+							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
 					<dl class="adults">
 						<dt>ADULTS</dt>
