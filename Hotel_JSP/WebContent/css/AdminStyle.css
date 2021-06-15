@@ -73,6 +73,7 @@ table td {
 	padding: 0 10px;
 	background-color: transparent;
 	border : 1px solid black;
+	cursor: pointer;
 }
 #res_btn {
 	padding: 2px 15px;
@@ -139,9 +140,35 @@ table td {
 }
 
 /* 예약관리 페이지 */
-.res_manage #res_cont {
-	padding-left: 50px;
+.res_manage {
+	padding: 0 50px 50px 50px;
 }
+.res_manage .off{
+	display: none;
+}
+.res_manage .on{
+	display: "";
+}
+.res_manage td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.res_manage th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 100px;
+}
+.res_manage #res_room {
+	padding : 3px 110px 3px 90px;
+}
+.res_manage #res_add, #res_comp, #res_money {
+	padding : 3px 50px 3px 20px;
+}
+
+
 .room_manage .off{
 	display: none;
 }
@@ -149,13 +176,8 @@ table td {
 .room_manage .on{
 	display: "";
 }
-.res_manage .off{
-	display: none;
-}
 
-.res_manage .on{
-	display: "";
-}
+
 .room_search .off{
 	display: none;
 }
@@ -190,6 +212,7 @@ table td {
 	font-size: 13px;
 	padding : 3px 6px;
 }
+
 .member_manage th {
 	border-top: 1px solid #666;
 	border-bottom: 1px solid #f2f2f2;
@@ -197,6 +220,24 @@ table td {
 	font-weight: bold;
 	padding : 3px 6px;
 }
+/* .member_manage #mem_id{
+	width: 79.44px;
+}
+.member_manage #mem_name{
+	width: 120px;
+}
+.member_manage #mem_phone{
+	width: 213px;
+}
+.member_manage #mem_addr{
+	width: 345px;
+}
+.member_manage #mem_email{
+	width: 245px;
+}
+.member_manage #mem_point{
+	width: 60px;
+} */
 #mem_del {
 	padding: 0 10px;
 	background-color: transparent;

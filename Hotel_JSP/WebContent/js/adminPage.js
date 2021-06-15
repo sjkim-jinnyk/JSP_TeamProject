@@ -9,11 +9,14 @@ const deluxe = document.querySelector('#deluxe');				// 디럭스 table
 const suite = document.querySelector('#suite');					// 스위트 table
 const prestige = document.querySelector('#prestige');			// 프레스티지 table
 const res_cont = document.querySelector('#res_cont');			// 예약관리  table
+const res_cont1 = document.querySelector('#res_cont1');			// 예약관리  table
 const member_cont = document.querySelector('#member_cont');		// 회원관리  table
+const member_cont1 = document.querySelector('#member_cont1');	// 회원관리  table
+const member_cont2 = document.querySelector('#member_cont2');	// 회원관리  table
 const use = document.querySelector('.use');						
 const search = document.querySelector('#search');				// 객실버튼 
 
-const search_mem = document.querySelector('#search_member');	// 회원 검색 
+//const search_mem = document.querySelector('#search_member');	// 회원 검색 
 const search_st = document.querySelector('#search_standard');	// standard 검색 
 const search_d = document.querySelector('#search_deluxe');		// deluxe 검색 
 const search_su = document.querySelector('#search_suite');		// suite 검색 
@@ -429,69 +432,6 @@ $(function() {
 
 });
 
-// 예약 검색 버튼 클릭 함수
-$(function() {
-	$("#user_btn").click(function() {
-		
-		$("#res_cont").empty();
-		if (list_st.style.display === 'block') {
-			list_st.style.display = 'none';
-		}else if (list_d.style.display === 'block') {
-			list_d.style.display = 'none';
-		}else if (list_su.style.display === 'block') {
-			list_su.style.display = 'none';
-		}else if (list_p.style.display === 'block') {
-			list_p.style.display = 'none';
-		}
-		let userName = $("#userName").val();
-		let userPhone = $("#userPhone").val();
-		
-		standard.classList.replace('use', 'off');
-		deluxe.classList.replace('use', 'off');
-		suite.classList.replace('use', 'off');
-		prestige.classList.replace('use', 'off');
-		standard.classList.replace('on', 'off');
-		deluxe.classList.replace('on', 'off');
-		suite.classList.replace('on', 'off');
-		prestige.classList.replace('on', 'off');
-		
-		$.ajax({
-			type : "post",
-			url : "./view/admin/hotel_user.jsp",
-			async: false,
-			data : {
-				"userName" : userName,
-				"userPhone" : userPhone
-			},
-			success : function(data) {
-				let table1 = "";
-				console.log($(data).find("reserve"));
-				$(data).find("reserve").each(function(){
-					
-					table1 += "<li>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</li>"
-					table1 += "<li>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</li>"
-					table1 += "<li>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</li>"
-					table1 += "<li>Extra Bed  " + $(this).find("bed").text() +"개</li>"
-					table1 += "<li>요청사항  " + $(this).find("request").text() + "</li>"
-					table1 += "<li>" + $(this).find("total").text() +"KRW</li>"
-				});
-				$("#res_cont").append(table1);
-				
-
-			},
-			error : function() {
-				alert('오류');
-			}
-		});
-		
-		userName = $("#userName").val("");
-		userPhone = $("#userPhone").val("");
-	
-	});
-});
-
-
-
 
 // standard 객실 검색 상세내역 오픈
 $("#check_st").click(function() {
@@ -793,6 +733,71 @@ $("#check_p").click(function() {
 	
 }); 
 
+//예약 검색 버튼 클릭 함수
+$(function() {
+	$("#user_btn").click(function() {
+		
+		
+		res_cont1.classList.replace('off','on');
+		res_cont.classList.replace('off','on');
+		
+		if (list_st.style.display === 'block') {
+			list_st.style.display = 'none';
+		}else if (list_d.style.display === 'block') {
+			list_d.style.display = 'none';
+		}else if (list_su.style.display === 'block') {
+			list_su.style.display = 'none';
+		}else if (list_p.style.display === 'block') {
+			list_p.style.display = 'none';
+		}
+		let userName = $("#userName").val();
+		let userPhone = $("#userPhone").val();
+		
+		standard.classList.replace('use', 'off');
+		deluxe.classList.replace('use', 'off');
+		suite.classList.replace('use', 'off');
+		prestige.classList.replace('use', 'off');
+		standard.classList.replace('on', 'off');
+		deluxe.classList.replace('on', 'off');
+		suite.classList.replace('on', 'off');
+		prestige.classList.replace('on', 'off');
+		
+		$.ajax({
+			type : "post",
+			url : "./view/admin/hotel_user.jsp",
+			async: false,
+			data : {
+				"userName" : userName,
+				"userPhone" : userPhone
+			},
+			success : function(data) {
+				let table1 = "";
+				console.log($(data).find("reserve"));
+				$(data).find("reserve").each(function(){
+					
+					table1 += "<tr><td>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
+					table1 += "<td>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</td>"
+					table1 += "<td>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</td>"
+					table1 += "<td>Extra Bed  " + $(this).find("bed").text() +"개</td>"
+					table1 += "<td>" + $(this).find("request").text() + "</td>"
+					table1 += "<td>" + $(this).find("total").text() +"KRW</td></tr>"
+				});
+				$("#res_cont1").empty();
+				$("#res_cont1").append(table1);
+				
+
+			},
+			error : function() {
+				alert('오류');
+			}
+		});
+		
+		userName = $("#userName").val("");
+		userPhone = $("#userPhone").val("");
+		
+	});
+});
+
 /* 회원 전체 리스트 */
 function getMember() {
 	$.ajax({
@@ -803,16 +808,16 @@ function getMember() {
 			let table = "";
 			$(data).find("user").each(function(){
 				
-				table += "<tr><td>" + $(this).find("id").text() + "</td>" +
-						"<td>" + $(this).find("name").text() + "</td>" +
-						"<td>" + $(this).find("phone").text() + "</td>" +
-						"<td>" + $(this).find("addr").text() + "</td>" +
-						"<td>" + $(this).find("email").text() + "</td>" +
-						"<td>" + $(this).find("point").text() + "</td>" +
+				table += "<tr><td width='8%'>" + $(this).find("id").text() + "</td>" +
+						"<td width='16.2%'>" + $(this).find("name").text() + "</td>" +
+						"<td width='18.3%'>" + $(this).find("phone").text() + "</td>" +
+						"<td width='22.8%'>" + $(this).find("addr").text() + "</td>" +
+						"<td width='18.1%'>" + $(this).find("email").text() + "</td>" +
+						"<td width='16.5%'>" + $(this).find("point").text() + "</td>" +
 						"</tr>";
 				
 			});
-			$("#member_cont").append(table);
+			$("#member_cont1").append(table);
 			
 
 		},
@@ -827,8 +832,8 @@ getMember();
 $(function() {
 	
 	$("#member_btn").click(function() {
-		search_mem.classList.replace('off','on');
-		member_cont.classList.replace('on','off');
+		member_cont1.classList.replace('on','off');
+		member_cont2.classList.replace('off','on');
 		if (list_st.style.display === 'block') {
 			list_st.style.display = 'none';
 		}else if (list_d.style.display === 'block') {
@@ -863,17 +868,18 @@ $(function() {
 				let table = "";
 				$(data).find("user").each(function(){
 					
-					table += "<tr><td>" + $(this).find("id").text() + "</td>" +
-							"<td>" + $(this).find("name").text() + "</td>" +
-							"<td>" + $(this).find("phone").text() + "</td>" +
-							"<td>" + $(this).find("addr").text() + "</td>" +
-							"<td>" + $(this).find("email").text() + "</td>" +
-							"<td>" + $(this).find("point").text() + "</td>" +
+					table += "<tr><td width='8%'>" + $(this).find("id").text() + "</td>" +
+							"<td width='16.2%'>" + $(this).find("name").text() + "</td>" +
+							"<td width='18.3%'>" + $(this).find("phone").text() + "</td>" +
+							"<td width='22.8%'>" + $(this).find("addr").text() + "</td>" +
+							"<td width='18.1%'>" + $(this).find("email").text() + "</td>" +
+							"<td width='16.5%'>" + $(this).find("point").text() + "</td>" +
 							"<td><input type='button' id='mem_del' value='삭제'>"+ "</td>" +
 							"</tr>";
 					
 				});
-				$("#search_member").append(table);
+				$("#member_cont2").empty();
+				$("#member_cont2").append(table);
 				
 				$("html").on('click', '#mem_del', function() { 
 					console.log(memberID);
@@ -906,8 +912,8 @@ $(function() {
 			
 		});
 		
-		//memberID = $("#memberID").val("");
-		//memberPhone = $("#memberPhone").val("");
+		memberID = $("#memberID").val("");
+		memberPhone = $("#memberPhone").val("");
 	});
 });
 
@@ -917,9 +923,21 @@ $(function() {
 /* 객실관리 클릭 */
 room_click.addEventListener('click', function() {
 	
+	// bottom border on, 나머지 off
 	room_click.classList.replace('off','on');
 	res_click.classList.replace('on','off');
 	member_click.classList.replace('on','off');
+	
+	// 검색table, 내용 on
+	hotel.classList.replace('off', 'on');
+	standard.classList.replace('off', 'on');		
+	deluxe.classList.replace('off', 'on');			
+	suite.classList.replace('off', 'on');			
+	prestige.classList.replace('off', 'on');
+	
+	// 나머지 검색table, 내용 off
+	user.classList.replace('on','off');
+	member.classList.replace('on','off');
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
 	}else if (list_d.style.display === 'block') {
@@ -929,34 +947,38 @@ room_click.addEventListener('click', function() {
 	}else if (list_p.style.display === 'block') {
 		list_p.style.display = 'none';
 	}
-	user.classList.replace('on','off');
-	hotel.classList.replace('off', 'on');
-	member.classList.replace('on','off');
-	search_mem.classList.replace('on','off');
-	
-	standard.classList.replace('off', 'on');		
-	deluxe.classList.replace('off', 'on');			
-	suite.classList.replace('off', 'on');			
-	prestige.classList.replace('off', 'on');		
-	res_cont.classList.replace('use','off');
+			
+	res_cont.classList.replace('on','off');
+	res_cont1.classList.replace('on', 'off');
 	member_cont.classList.replace('on', 'off');
+	member_cont1.classList.replace('on', 'off');
+	member_cont2.classList.replace('on', 'off');
 	
 	search_st.classList.replace('on','off');
 	search_d.classList.replace('on','off');
 	search_su.classList.replace('on','off');
 	search_p.classList.replace('on','off');
-	
-	if (res_cont.classList == 'on') {
-		res_cont.classList.replace('on', 'off');
-	}
 	
 });
 
 /* 예약관리 클릭 */
 res_click.addEventListener('click', function() {
-	room_click.classList.replace('on','off');
+	
+	// bottom border on, 나머지 off
 	res_click.classList.replace('off','on');
+	room_click.classList.replace('on','off');
 	member_click.classList.replace('on','off');
+	
+	// 검색table, 내용 on
+	user.classList.replace('off','on');
+	
+	// 나머지 검색 table, 내용 off
+	member.classList.replace('on','off');
+	if (hotel.classList != 'off') {
+		hotel.classList.replace('on', 'off');
+		hotel.classList.replace('use', 'off');
+	}
+	
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
 	}else if (list_d.style.display === 'block') {
@@ -967,21 +989,17 @@ res_click.addEventListener('click', function() {
 		list_p.style.display = 'none';
 	}
 	
-	if (hotel.classList != 'off') {
-		hotel.classList.replace('on', 'off');
-		hotel.classList.replace('use', 'off');
-	}
-	user.classList.replace('off','on');
-	member.classList.replace('on','off');
-	search_mem.classList.replace('on','off');
-	
 	search_st.classList.replace('on','off');
 	search_d.classList.replace('on','off');
 	search_su.classList.replace('on','off');
 	search_p.classList.replace('on','off');
 	
 	member_cont.classList.replace('on', 'off');
-	res_cont.classList.replace('off', 'on');
+	member_cont1.classList.replace('on','off');
+	member_cont2.classList.replace('on','off');
+	res_cont.classList.replace('on', 'off');
+	res_cont1.classList.replace('on', 'off');
+	
 	if (standard.classList != 'off') {
 		standard.classList.replace('on', 'off');
 		standard.classList.replace('use', 'off');
@@ -1003,19 +1021,23 @@ res_click.addEventListener('click', function() {
 
 /* 회원관리 클릭 */
 member_click.addEventListener('click', function() {
-	member_cont.classList.replace('off','on');
-	member.classList.replace('off','on');
-	member_click.classList.replace('off','on');
 	
-	search_mem.classList.replace('on','off');
+	// bottom border on, 나머지 off
+	member_click.classList.replace('off','on');
+	room_click.classList.replace('on','off');
+	res_click.classList.replace('on','off');
+	
+	// 검색table, 내용 on
+	member.classList.replace('off','on');
+	member_cont.classList.replace('off','on');
+	member_cont1.classList.replace('off','on');
+	
+	// 나머지 검색 table, 내용 off
 	user.classList.replace('on','off');
 	hotel.classList.replace('on','off');
-	if (res_cont.classList != 'off') {
-		res_cont.classList.replace('on', 'off');
-		res_cont.classList.replace('use','off');
-	}
-	res_click.classList.replace('on','off');
-	room_click.classList.replace('on','off');
+	
+	res_cont.classList.replace('on', 'off');
+	res_cont1.classList.replace('on', 'off');
 	
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
