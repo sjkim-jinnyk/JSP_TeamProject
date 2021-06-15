@@ -169,18 +169,14 @@ $(document).ready( function(){
 	    // /1000:초, /60:분, /60:시간, /24:일 단위
 	    let night_date = (end_date.getTime() - start_date.getTime())/1000/60/60/24;
 	    
-	    // 화면에 값 넣어주기
-	    nightResult.innerText = Number(night_date);
-	    resNight.value = Number(night_date);
-	    
 	    console.log(night_date);
 	    
-//		if(dateDiff >= 1){
-//			resNight.value = dateDiff;
-//			nightResult.innerText = dateDiff;		
-//		}else if(dateDiff <= 0){
-//			alert('정확한 숙박 날짜를 선택해주세요.');
-//		}   
-	    
+		if(night_date >= 1){
+			// 화면에 값 넣어주기
+		    nightResult.innerText = Number(night_date);
+		    resNight.value = Number(night_date);	
+		}else if(night_date <= 0){
+			alert('정확한 숙박 날짜를 선택해주세요.');
+		}   
 	} // countNight() end
 		
