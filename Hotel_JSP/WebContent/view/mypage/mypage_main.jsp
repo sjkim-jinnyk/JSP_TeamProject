@@ -46,11 +46,11 @@
         	<div class="resPoint_box">
         		<ul class="resPoint">
         			<li>현재 예약 건수</li>
-        			<li>${count }개</li>
+        			<li><span class="mypageCount">${count }</span> 개</li>
         		</ul>
         		<ul class="resPoint">
         			<li>잔여 포인트</li>
-        			<li>${userPoint } p</li>
+        			<li><span class="mypageCount">${userPoint }</span> p</li>
         		</ul>
         	</div>
         </section>
