@@ -62,12 +62,25 @@
 				----------------------------
 			</div>
 			
-			<input type="text" id="roomTotal" name="roomTotal" value="0">
-			<input type="text" id="resAdultBr" name="resAdultBr" value="0">
-			<input type="text" id="resChildBr" name="resChildBr" value="0">
-			<input type="text" id="resBed" name="resBed" value="0">
-			<input type="text" id="resDate" name="resDate" value="0">
-			<input type="text" id="resTotal" name="resTotal" value="0">
+			<%--step3action 으로 넘길 값 --%>
+			<input type="hidden" id="resAdultBr" name="resAdultBr" value="0">
+			<input type="hidden" id="resChildBr" name="resChildBr" value="0">
+			<input type="hidden" id="resBed" name="resBed" value="0">
+			<input type="hidden" id="resDate" name="resDate" value="0">
+			
+			<%--테이블에 들어가는 값은 아니고 view페이지 출력용 --%>
+			<input type="hidden" id="roomTotal" name="roomTotal" value="0"> <!-- 옵션,세금 미포함 -->
+			<input type="hidden" id="resTax" name="resTax" value="0">
+			<input type="hidden" id="resPretax" name="resPretax" value="0"> <!-- 세금미포함 총금액 -->
+			<input type="hidden" id="resTotal" name="resTotal" value="0"><!-- 세금포함 총금액 -->
+			
+			
+			<%--resTotal(총금액) 계산에 필요한 세션 값 받아오기 --%>
+			<input type="hidden" id="roomPrice" value="<%=session.getAttribute("roomPrice") %>">
+			<input type="hidden" id="resNight" value="<%=session.getAttribute("resNight") %>">
+			<input type="hidden" id="resAdult" value="<%=session.getAttribute("resAdult") %>">
+			<input type="hidden" id="resChild" value="<%=session.getAttribute("resChild") %>">
+			
 			
 			<div class="option">
 				
@@ -164,7 +177,7 @@
 											<ul class="infoData">
 												<li>
 													<span class="lfData">세금</span>
-													<span class="rtData" id="rTaxResult">[resTotal/10]</span>
+													<span id="taxResult">[resTotal/10]</span>
 												</li>
 											</ul>
 											
@@ -181,7 +194,7 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="rTotalResult">[resTotal]</em>KRW</span>
+						<span class="price"><em id="totalResult">[resTotal]</em>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>

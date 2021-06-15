@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/reserve.js"></script>
+<script type="text/javascript" src="../../js/res_step0.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
 </head>
@@ -18,9 +18,9 @@
 			action="<%=request.getContextPath()%>/step1.do">
 			
 		<br><br><br><br><br>
-		<input type="text" name="resIn" id="resIn" value="0">				
-		<input type="text" name="resOut" id="resOut" value="0">
-		<input type="text" name="resNight" id="resNight" value="0">				
+		<input type="hidden" name="resIn" id="resIn" value="0">				
+		<input type="hidden" name="resOut" id="resOut" value="0">
+		<input type="hidden" name="resNight" id="resNight" value="0">				
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
 
@@ -45,7 +45,6 @@
 							<span id="resInView">0000.00.00</span>&nbsp;<span id="inYoil">[요일]</span>&nbsp;-&nbsp;
 							<span id="resOutView">0000.00.00</span>&nbsp;<span id="outYoil">[요일]</span>&nbsp;|&nbsp;
 							<span id="nightResult" >0</span> 박
-							<input type="button" onclick="countNight()" value="일수계산">
 						</p>
 						<button type="button" class="dToggleBtn">V</button><br>
 						<div class="dToggleInner">

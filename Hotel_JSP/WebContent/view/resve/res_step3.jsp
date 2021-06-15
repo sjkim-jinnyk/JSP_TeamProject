@@ -92,29 +92,29 @@
 											<ul class="infoData">
 												<li>
 													<span id="rDateResult">0000.00.00</span>&nbsp;/&nbsp;
-													<span id="roomPriceResult">[roomTotal]</span>
+													<span id="roomPriceResult"><%=session.getAttribute("roomTotal") %></span>
 												</li>
 											</ul>
 											
 											<ul class="infoData" id="roomOptInfo">
 												<li>
 													<span class="lfData">성인 조식</span>
-													<span id="aBrResult"><%=session.getAttribute("resAdultBr") %></span>
+													<span id="aBrResult">0</span>
 												</li>
 												<li>
 													<span class="lfData">어린이 조식</span>
-													<span id="cBrResult"><%=session.getAttribute("resChildBr") %></span>
+													<span id="cBrResult">0</span>
 												</li>
 												<li>
 													<span class="lfData">엑스트라 베드</span>
-													<span id="bedResult"><%=session.getAttribute("resBed") %></span>
+													<span id="bedResult">0</span>
 												</li>
 											</ul>
 											
 											<ul class="infoData">
 												<li>
 													<span class="lfData">세금</span>
-													<span class="rtData" id="rTaxResult">[resTotal/10]</span>
+													<span class="rtData" id="rTaxResult"><%=session.getAttribute("resTax") %></span>
 												</li>
 											</ul>
 											
@@ -131,7 +131,7 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="rTotalResult">[resTotal]</em>KRW</span>
+						<span class="price"><em id="rTotalResult"><%=session.getAttribute("resTax") %></em>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>

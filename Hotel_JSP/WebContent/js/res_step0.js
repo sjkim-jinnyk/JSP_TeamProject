@@ -150,7 +150,7 @@ $(document).ready( function(){
 	
 	// 숙박 일수 계산
 	function countNight(){		
-		let resNight = document.getElementById('resNight'); 		// hidden 값
+				// hidden 값
 		let nightResult = document.getElementById('nightResult'); 	// 텍스트 표시 부분
 		
 		// 직접 input date 에서 받은 값 받기 (yyyy-mm-dd 형식)

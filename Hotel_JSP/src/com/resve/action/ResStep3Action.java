@@ -14,25 +14,24 @@ public class ResStep3Action implements Action {
 
 		HttpSession session = request.getSession();
 		
-		String roomTotal = request.getParameter("roomTotal");
 		String resAdultBr = request.getParameter("resAdultBr");
 		String resChildBr = request.getParameter("resChildBr");
 		String resBed = request.getParameter("resBed");
 		String resRequest = request.getParameter("resRequest");
+		
+		String roomTotal = request.getParameter("roomTotal");
+		String resTax = request.getParameter("resTax");
 		String resTotal = request.getParameter("resTotal");
 		
-		session.setAttribute("roomTotal", roomTotal); // 방 가격 * 숙박일수
 		session.setAttribute("resAdultBr", resAdultBr); // 어른 조식
 		session.setAttribute("resChildBr", resChildBr); // 아이 조식
 		session.setAttribute("resBed", resBed);		// 엑스트라 베드 수
 		session.setAttribute("resRequest", resRequest);		// 문의사항
+		
+		session.setAttribute("roomTotal", roomTotal); // 방 가격 * 숙박일수
+		session.setAttribute("resTax", resTax); // 방 가격 * 숙박일수
 		session.setAttribute("resTotal", resTotal); // 총금액
 		
-		System.out.println(roomTotal);
-		System.out.println(resAdultBr);
-		System.out.println(resChildBr);
-		System.out.println(resBed);
-		System.out.println(resRequest);
 		System.out.println(resTotal);
 		
 		ActionForward forward = new ActionForward();		

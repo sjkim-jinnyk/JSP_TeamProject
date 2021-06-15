@@ -89,7 +89,7 @@
 	                     	<input type="hidden" name="roomPrice" value="${i.getRoomPrice() }"> 
 	                         ${i.getRoomPrice() }<em>KRW ~</em>
 	                     </span>
-	                     <span class="day">0박 / 세금 별도</span>
+	                     <span class="day"><%=session.getAttribute("resNight") %>박 / 세금 별도</span>
 	                 </dd>
 	                 <dd class="thum">
 	                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
