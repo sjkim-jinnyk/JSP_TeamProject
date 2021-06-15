@@ -77,8 +77,7 @@
 					<li id="type2">${dto.getUserId() }</li>
 					<li id="type3">${dto.getQnaHit() }</li>
 					<li id="type4">${dto.getQnaDate().substring(0,10) }</li>
-					
-
+				
 				</ul>
 						</c:forEach>
 					</c:if>
