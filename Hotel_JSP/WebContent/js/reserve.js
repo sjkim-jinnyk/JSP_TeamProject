@@ -21,7 +21,9 @@ $(document).ready( function(){
 	let resOutView = document.getElementById('resOutView'); 
 
 	
-	let now = new Date(); // 현재 날짜
+	let now = new Date(); // 현재
+	
+	let today = new Date(now); // 오늘 날짜
 	let year = now.getFullYear();
 	let month = now.getMonth() +1;
 	let date = now.getDate();
@@ -50,7 +52,7 @@ $(document).ready( function(){
 	
 
 	// 결과 저장
-	resIn.value = now;
+	resIn.value = today;
 	resOut.value = tomorrow;
 	
 	resIn_val.value = year+ '-' +month+ '-' +date;
@@ -135,32 +137,42 @@ $(document).ready( function(){
 			resIn.value = resultIn.value;
 			resultIn.innerText = resultIn.value;
 			resInView.innerText = resultIn.value;
+			countNight();
 		}else if(type === 'out'){
 			resOut.value = resultOut.value;
 			resultOut.innerText = resultOut.value;
 			resOutView.innerText = resultOut.value;
+			countNight();
 		}
-
+		
+		//숙박일수 
 	} // viewDate() end
 	
 	
 	
 	// 숙박 일수 계산 (미완)
 	function countNight(){		
+		
 		let resNight = document.getElementById('resNight'); 		// hidden 값
 		let nightResult = document.getElementById('nightResult'); 	// 텍스트 표시 부분
 		
- 		let startDate = new Date('resIn');
-		let endDate = new Date('resOut');
+		//직접 input date에서 받은 값 받기.
+		let start_string = $("#resIn_val").val();
+		let end_string = $("#resOut_val").val();
+			
+		// split으로 - 로 분해
+		let start_res = start_string.split("-");
+		let end_res = end_string.split("-");
 		
-		let diffSec = endDate.getTime() - startDate.getTime();
-		let diffDate =  diffSec / 1000 / 60 / 60 / 24;
+		// 분해된 데이터를 DATE형식으로 계산하기위해 다시 재정렬.
+		let start_date = new Date(start_res[0], Number(start_res[1]), start_res[2]);
+		let end_date = new Date(end_res[0], Number(end_res[1]), end_res[2]);
 		
-		if(diffDate >= 1){
-			resNight.value = dateDiff;
-			nightResult.innerText = dateDiff;		
-		}else if(dateDiff <= 0){
-			alert('정확한 숙박 날짜를 선택해주세요.');
-		}   
+		// 1000을 나누면 초, 60을 나누면 분, 60을 나누면 시간, 24을 나누면 일 단위. 초단위.
+		let night_date = (end_date.getTime()- start_date.getTime())/1000/60/60/24; 
+		
+		nightResult.innerText = Number(night_date);
+		resNight.value = Number(night_date);
+
 	} // countNight() end
 		
