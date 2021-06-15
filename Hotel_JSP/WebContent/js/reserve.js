@@ -21,7 +21,9 @@ $(document).ready( function(){
 	let resOutView = document.getElementById('resOutView'); 
 
 	
-	let now = new Date(); // 현재 날짜
+	let now = new Date(); // 현재
+	
+	let today = new Date(now); // 오늘 날짜
 	let year = now.getFullYear();
 	let month = now.getMonth() +1;
 	let date = now.getDate();
@@ -50,7 +52,7 @@ $(document).ready( function(){
 	
 
 	// 결과 저장
-	resIn.value = now;
+	resIn.value = today;
 	resOut.value = tomorrow;
 	
 	resIn_val.value = year+ '-' +month+ '-' +date;
@@ -149,18 +151,27 @@ $(document).ready( function(){
 	function countNight(){		
 		let resNight = document.getElementById('resNight'); 		// hidden 값
 		let nightResult = document.getElementById('nightResult'); 	// 텍스트 표시 부분
+	
+		let startDate = document.getElementById('resIn_val');  // input date 입력값 (yyyy-mm-dd)
+		let endDate = document.getElementById('resOut_val');
+
+		console.log(startDate);
 		
- 		let startDate = new Date('resIn');
-		let endDate = new Date('resOut');
-		
-		let diffSec = endDate.getTime() - startDate.getTime();
-		let diffDate =  diffSec / 1000 / 60 / 60 / 24;
-		
-		if(diffDate >= 1){
-			resNight.value = dateDiff;
-			nightResult.innerText = dateDiff;		
-		}else if(dateDiff <= 0){
-			alert('정확한 숙박 날짜를 선택해주세요.');
-		}   
+//		let f = document.form;
+//		let v1 = f.start.value.split("-");
+//	    let v2 = f.end.value.split("-");
+//	    
+//	    let a1 = new Date(v1[0],v1[1],v1[2]).getTime();
+//	    let a2 = new Date(v2[0],v2[1],v2[2]).getTime();
+//	    let dateDiff = (a2-a1)/(1000*60*60*24);
+//	    
+//	    console.log(dateDiff);
+	    
+//		if(dateDiff >= 1){
+//			resNight.value = dateDiff;
+//			nightResult.innerText = dateDiff;		
+//		}else if(dateDiff <= 0){
+//			alert('정확한 숙박 날짜를 선택해주세요.');
+//		}   
 	} // countNight() end
 		
