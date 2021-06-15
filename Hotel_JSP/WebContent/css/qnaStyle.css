@@ -7,6 +7,7 @@
     position: relative;
     width: 1400px;
     margin: 0 auto;
+    margin-top: 100px;
 }
 
 .topInner{
@@ -41,7 +42,6 @@
 .titDep2{
 	font-size: 30px;
 	font-weight: 500;
-	margin: 90px 0 15px;
 }
 
 .searchBox{
@@ -203,3 +203,53 @@ listTit{
     letter-spacing: -1px;
     text-transform: uppercase;
 }
+
+.qna_paging{
+	margin-top: 60px;
+    text-align: center;
+}
+
+.qna_paging .select_page{
+	border: 1px solid #000;
+    background: #f9f9f9;
+    box-sizing: border-box;
+    color: #000;
+}
+
+.qna_paging > *{
+	display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #ccc;
+    line-height: 50px;
+    margin: 0 4px;
+    color: #666;
+    font-family: 'Noto Sans KR', sans-serif;
+    box-sizing: border-box;	
+}
+
+.write_button{
+	height: 50px;
+}
+
+.qna_write_button{
+	right: 0px;
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border: 0.1px solid;
+    position: absolute;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+
+
+
