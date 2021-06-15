@@ -137,35 +137,43 @@ $(document).ready( function(){
 			resIn.value = resultIn.value;
 			resultIn.innerText = resultIn.value;
 			resInView.innerText = resultIn.value;
+			countNight();
 		}else if(type === 'out'){
 			resOut.value = resultOut.value;
 			resultOut.innerText = resultOut.value;
 			resOutView.innerText = resultOut.value;
+			countNight();
 		}
 
 	} // viewDate() end
 	
 	
 	
-	// 숙박 일수 계산 (미완)
+	// 숙박 일수 계산
 	function countNight(){		
 		let resNight = document.getElementById('resNight'); 		// hidden 값
 		let nightResult = document.getElementById('nightResult'); 	// 텍스트 표시 부분
-	
-		let startDate = document.getElementById('resIn_val');  // input date 입력값 (yyyy-mm-dd)
-		let endDate = document.getElementById('resOut_val');
-
-		console.log(startDate);
 		
-//		let f = document.form;
-//		let v1 = f.start.value.split("-");
-//	    let v2 = f.end.value.split("-");
-//	    
-//	    let a1 = new Date(v1[0],v1[1],v1[2]).getTime();
-//	    let a2 = new Date(v2[0],v2[1],v2[2]).getTime();
-//	    let dateDiff = (a2-a1)/(1000*60*60*24);
-//	    
-//	    console.log(dateDiff);
+		// 직접 input date 에서 받은 값 받기 (yyyy-mm-dd 형식)
+		let start_string = $('#resIn_val').val(); 
+		let end_string = $('#resOut_val').val();
+
+		// split 으로 - 분해 (배열로 저장됨)
+		let start_res = start_string.split("-");
+		let end_res = end_string.split("-");
+		
+		// 분해된 데이터를 DATE 형식으로 계산하기 위해 재정렬
+	    let start_date = new Date(start_res[0],Number(start_res[1]),start_res[2]);
+	    let end_date = new Date(end_res[0],Number(end_res[1]),end_res[2]);
+	    
+	    // /1000:초, /60:분, /60:시간, /24:일 단위
+	    let night_date = (end_date.getTime() - start_date.getTime())/1000/60/60/24;
+	    
+	    // 화면에 값 넣어주기
+	    nightResult.innerText = Number(night_date);
+	    resNight.value = Number(night_date);
+	    
+	    console.log(night_date);
 	    
 //		if(dateDiff >= 1){
 //			resNight.value = dateDiff;
@@ -173,5 +181,6 @@ $(document).ready( function(){
 //		}else if(dateDiff <= 0){
 //			alert('정확한 숙박 날짜를 선택해주세요.');
 //		}   
+	    
 	} // countNight() end
 		
