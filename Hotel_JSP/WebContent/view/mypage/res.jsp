@@ -66,17 +66,19 @@
 						<li class="res_info">
 							예약번호 ${dto.getResNo() } / 성인 ${dto.getResAdult() },어린이${dto.getResChild() } / 총 예약금액 <fmt:formatNumber value="${dto.getResTotal() }" />원
 						</li>
-						<li>${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }</li>
+						<li class="res_margin">${dto.getResIn().substring(0,10) } - ${dto.getResOut().substring(0,10) }</li>
 					</ul>
 					</c:forEach>
 				</c:if>
 				
 				<!-- 예약내역이 없는 경우 -->
 				<c:if test="${empty list }">
-					<div>
-						<ul>
-							<li>!<br>예약내역이 없습니다.<br>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
-							<li><input type="button" value="예약하기" onclick="location.href='step0.do'"></li>
+					<div class="noRes_box">
+						<ul class="noRes_inner">
+							<li>!</li>
+							<li>예약내역이 없습니다.</li>
+							<li>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
+							<li><input type="button" class="goRes_btn" value="예약하기" onclick="location.href='step0.do'"></li>
 						</ul>
 					</div>
 				</c:if>
