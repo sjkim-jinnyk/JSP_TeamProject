@@ -83,6 +83,10 @@
     line-height: 30px;
 }
 
+.room-name{
+	margin-right: 20px;
+}
+
 .check {
     background-color: transparent;
 }
@@ -205,9 +209,9 @@
     display: flex;
     justify-content: center;
     margin: 50px auto 0px auto;
-    padding: 30px 70px 0;
     min-height: 500px;
     min-width: 700px;
+    align-items: center;
 }
 
 .fp_bg_1{
@@ -253,9 +257,11 @@
 }
 
 .swipeBox{
-	display: block;
+	display: flex;
 	height: 100%;
 	margin-left: 53px;
+	align-items: center;
+    justify-content: center;
 }
 
 .inner{
@@ -342,24 +348,3 @@ img{
     width: fit-content;
 }
 
-.inner .locationTag_test{
-	display: block;
-	font-family: 'Noto Sans KR', sans-serif;
-	background: #d199ab;
-	font-size: 15px;
-	font-weight: 400;
-	padding: .5em .64em;
-    color: #fff;
-
-}
-
-.inner .locationTag_test2{
-	display: block;
-	font-family: 'Noto Sans KR', sans-serif;
-	background: #d199ab;
-	font-size: 15px;
-	margin-bottom: 15px;
-	font-weight: 400;
-	padding: .5em .64em;
-    color: #fff;
-}

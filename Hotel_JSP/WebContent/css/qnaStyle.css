@@ -1,0 +1,205 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+.topArea{
+	display: table;
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.topInner{
+	display: table-cell;
+    padding: 97px 0 90px;
+}
+
+.titDep1{
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.pageGuide{
+	margin-top: 18px;
+    font-size: 20px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.inner{
+	position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 180px;
+}
+
+.myContents{
+	position: relative;
+}
+
+.titDep2{
+	font-size: 30px;
+	font-weight: 500;
+	margin: 90px 0 15px;
+}
+
+.searchBox{
+	margin: 35px auto;
+    padding: 26px 30px 26px;
+    background: #f9f9f9;
+}
+
+.searchOp{
+	position: relative;
+    margin-bottom: 30px;
+}
+
+.selectWrap{
+	display: inline-block;
+    position: relative;
+    height: 60px;
+    background: #fff;
+    width: 15%
+}
+
+.intWord{
+	margin: 0 0 0 40px;
+    display: inline-block;
+    width: 80%
+}
+
+.intArea{
+	display: inline-block;
+	width: 100%;
+}
+
+.select_ct{
+	display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    line-height: 58px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: none;
+    border-bottom: 1px solid #000;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    font-family: gothamL,notokrL;
+    background-color: transparent;
+}
+
+.searchBox .selectWrap, .searchBox .selectWrap .ui-selectmenu-button, .searchBox .intArea input {
+    background-color: transparent;
+}
+
+.search_txt{
+	height: 60px;
+    padding: 8px 13px 8px 0;
+    color: #000;
+    border: solid #ccc;
+    border-width: 0 0 1px 0;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: gothamL,notokrL;
+    width: 100%;
+}
+
+.btnWrap{
+	text-align: center;
+}
+
+.search_button{
+	background: transparent;
+	min-width: 162px;
+    height: 50px;
+    padding: 0 25px;
+    line-height: 48px;
+    font-size: 17px;
+    letter-spacing: -.01em;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.qnaType{
+	position: relative;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 10px;
+}
+
+.qnaType li{
+	position: relative;
+    display: table-cell;
+    border: solid #aaa;
+    border-width: 1px 0 0 1px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.qnaType li:last-child {
+    border-right: 1px solid #aaa;
+}
+
+#type0{
+	width: 10%;
+}
+
+#type1{
+	width: 50%;
+}
+
+.qnaList #type1{
+	width: 50%;
+	text-align: left;
+}
+
+#type2{
+	width: 15%;
+}
+
+#type3{
+	width: 10%;
+}
+
+#type4{
+	width: 15%;
+}
+
+listTit{
+	width: 10%;
+}
+
+.qnaList{
+	position: relative;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.qnaList li{
+	position: relative;
+    display: table-cell;
+    border: solid #aaa;
+    border-width: 0 0 1px 0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}

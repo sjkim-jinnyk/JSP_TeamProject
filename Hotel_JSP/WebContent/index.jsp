@@ -8,6 +8,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
 	<link rel="stylesheet" href="css/MainStyle.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<jsp:include page="include/header.jsp" />
     	
     <div id="fullpage">
@@ -23,7 +24,7 @@
 				<input type="hidden" name="resNight" id="resNight" value="0">			
 				<input type="hidden" name="resAdult" id="resAdult" value="2">								
 				<input type="hidden" name="resChild" id="resChild" value="0">
-        	<div class="reservation">
+        	<div class="reservation" data-aos="fade-up">
         		<div class="room-name">
             		<strong class="tit">
                         RESERVATION
@@ -140,7 +141,6 @@
 					<div class="swipeBox">
 					<ul class="swipeCont">
 						<li class="swipeSlide">
-							<span class="locationTag_test">공지사항</span>
 							<span class="thum">
 								<img src="images/STANDARD.jpg">
 								<a href="#" class="btnSC btnL">
@@ -150,11 +150,11 @@
 							<strong class="tit">Testing SWIPECONT is GooD</strong>
 							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
 							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
 						</li>						
 					</ul>
 					<ul class="swipeCont">
 						<li class="swipeSlide">
-						<span class="locationTag_test2">공지사항</span>
 							<span class="thum">
 								<img src="images/STANDARD.jpg">
 								<a href="#" class="btnSC btnL">
@@ -164,6 +164,7 @@
 							<strong class="tit">Testing SWIPECONT is GooD</strong>
 							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
 							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
 						</li>						
 					</ul>
 					<ul class="swipeCont">
@@ -244,5 +245,9 @@
 	<script type="text/javascript" src="js/fullpage.js"></script>
 	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  	<script>
+    	AOS.init();
+  	</script>
 </body>
 </html>
