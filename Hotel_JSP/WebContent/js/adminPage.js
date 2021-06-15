@@ -806,6 +806,7 @@ $(function() {
 
 /* 회원 전체 리스트 */
 function getMember() {
+	
 	$.ajax({
 		type : "post",
 		url : "./view/admin/member_main.jsp",
@@ -823,6 +824,7 @@ function getMember() {
 						"</tr>";
 				
 			});
+			$("#member_cont1").empty();
 			$("#member_cont1").append(table);
 			
 
@@ -832,7 +834,7 @@ function getMember() {
 		}
 	});
 };
-getMember();
+
 
 // 회원 검색 버튼 클릭 함수
 $(function() {
@@ -901,10 +903,10 @@ $(function() {
 							"memphone" : memberPhone
 						},
 						success : function(data) {
-							alert("del 성공");
-							if(data == 1) {
-								alert("삭제 성공");
-							}
+							//alert("del 성공");
+							//if(data == 1) {
+								//alert("삭제 성공");
+							//}
 							$("#member_search").empty();
 							$("#member_search1").empty();
 						},
@@ -920,7 +922,7 @@ $(function() {
 					// $("#member_cont").load(window.location.href + "#member_cont");
 					//location.reload();
 					console.log("reload");
-					//click();
+					click();
 					
 				}); // #mem_del click 함수 end
 
@@ -1041,8 +1043,8 @@ res_click.addEventListener('click', function() {
 
 /* 회원관리 클릭 */
 member_click.addEventListener('click', click);
-
 function click() {
+	getMember();
 	console.log("실행확인");
 	// bottom border on, 나머지 off
 	member_click.classList.replace('off','on');
