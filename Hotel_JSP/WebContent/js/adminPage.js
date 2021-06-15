@@ -16,7 +16,8 @@ const member_cont2 = document.querySelector('#member_cont2');	// 회원관리  t
 const use = document.querySelector('.use');						
 const search = document.querySelector('#search');				// 객실버튼 
 
-//const search_mem = document.querySelector('#search_member');	// 회원 검색 
+const search_mem = document.querySelector('#member_search');	// 회원 검색 
+const search_mem1 = document.querySelector('#member_search1');	// 회원 검색 
 const search_st = document.querySelector('#search_standard');	// standard 검색 
 const search_d = document.querySelector('#search_deluxe');		// deluxe 검색 
 const search_su = document.querySelector('#search_suite');		// suite 검색 
@@ -34,6 +35,11 @@ let checkOut = "";
 let memberID = "";
 let memberPhone = "";
 
+function getContextPath() {
+
+    return window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+
+}
 /* 현재 날짜를 불러오는 함수 */
 function getToday() {
 	let date = new Date();
@@ -775,12 +781,12 @@ $(function() {
 				console.log($(data).find("reserve"));
 				$(data).find("reserve").each(function(){
 					
-					table1 += "<tr><td>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
-					table1 += "<td>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</td>"
-					table1 += "<td>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</td>"
-					table1 += "<td>Extra Bed  " + $(this).find("bed").text() +"개</td>"
-					table1 += "<td>" + $(this).find("request").text() + "</td>"
-					table1 += "<td>" + $(this).find("total").text() +"KRW</td></tr>"
+					table1 += "<tr><td id='res_room'>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
+					table1 += "<td id='res_period'>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</td>"
+					table1 += "<td id='res_person'>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</td>"
+					table1 += "<td id='res_add'>Extra Bed  " + $(this).find("bed").text() +"개</td>"
+					table1 += "<td id='res_req'>" + $(this).find("request").text() + "</td>"
+					table1 += "<td id='res_money'>" + $(this).find("total").text() +"KRW</td></tr>"
 				});
 				$("#res_cont1").empty();
 				$("#res_cont1").append(table1);
@@ -808,12 +814,12 @@ function getMember() {
 			let table = "";
 			$(data).find("user").each(function(){
 				
-				table += "<tr><td width='8%'>" + $(this).find("id").text() + "</td>" +
-						"<td width='16.2%'>" + $(this).find("name").text() + "</td>" +
-						"<td width='18.3%'>" + $(this).find("phone").text() + "</td>" +
-						"<td width='22.8%'>" + $(this).find("addr").text() + "</td>" +
-						"<td width='18.1%'>" + $(this).find("email").text() + "</td>" +
-						"<td width='16.5%'>" + $(this).find("point").text() + "</td>" +
+				table += "<tr><td id='mem_id'>" + $(this).find("id").text() + "</td>" +
+						"<td id='mem_name'>" + $(this).find("name").text() + "</td>" +
+						"<td id='mem_phone'>" + $(this).find("phone").text() + "</td>" +
+						"<td id='mem_addr'>" + $(this).find("addr").text() + "</td>" +
+						"<td id='mem_email'>" + $(this).find("email").text() + "</td>" +
+						"<td id='mem_point'>" + $(this).find("point").text() + "</td>" +
 						"</tr>";
 				
 			});
@@ -830,10 +836,12 @@ getMember();
 
 // 회원 검색 버튼 클릭 함수
 $(function() {
-	
+	//$(".member_manage").load(location.href + ".member_manage");
 	$("#member_btn").click(function() {
+		search_mem.classList.replace('off','on');
+		search_mem1.classList.replace('off','on');
+		member_cont.classList.replace('on','off');
 		member_cont1.classList.replace('on','off');
-		member_cont2.classList.replace('off','on');
 		if (list_st.style.display === 'block') {
 			list_st.style.display = 'none';
 		}else if (list_d.style.display === 'block') {
@@ -868,18 +876,18 @@ $(function() {
 				let table = "";
 				$(data).find("user").each(function(){
 					
-					table += "<tr><td width='8%'>" + $(this).find("id").text() + "</td>" +
-							"<td width='16.2%'>" + $(this).find("name").text() + "</td>" +
-							"<td width='18.3%'>" + $(this).find("phone").text() + "</td>" +
-							"<td width='22.8%'>" + $(this).find("addr").text() + "</td>" +
-							"<td width='18.1%'>" + $(this).find("email").text() + "</td>" +
-							"<td width='16.5%'>" + $(this).find("point").text() + "</td>" +
+					table += "<tr><td id='mem_id1'>" + $(this).find("id").text() + "</td>" +
+							"<td id='mem_name1'>" + $(this).find("name").text() + "</td>" +
+							"<td id='mem_phone1'>" + $(this).find("phone").text() + "</td>" +
+							"<td id='mem_addr1'>" + $(this).find("addr").text() + "</td>" +
+							"<td id='mem_email1'>" + $(this).find("email").text() + "</td>" +
+							"<td id='mem_point1'>" + $(this).find("point").text() + "</td>" +
 							"<td><input type='button' id='mem_del' value='삭제'>"+ "</td>" +
 							"</tr>";
 					
 				});
-				$("#member_cont2").empty();
-				$("#member_cont2").append(table);
+				$("#member_search1").empty();
+				$("#member_search1").append(table);
 				
 				$("html").on('click', '#mem_del', function() { 
 					console.log(memberID);
@@ -897,12 +905,23 @@ $(function() {
 							if(data == 1) {
 								alert("삭제 성공");
 							}
+							$("#member_search").empty();
+							$("#member_search1").empty();
 						},
 						error : function() {
 							alert('오류');
 						}
 						
+						
 					}); // #mem_del ajax
+					
+					memberID = $("#memberID").val("");
+					memberPhone = $("#memberPhone").val("");
+					// $("#member_cont").load(window.location.href + "#member_cont");
+					//location.reload();
+					console.log("reload");
+					//click();
+					
 				}); // #mem_del click 함수 end
 
 			},
@@ -912,8 +931,7 @@ $(function() {
 			
 		});
 		
-		memberID = $("#memberID").val("");
-		memberPhone = $("#memberPhone").val("");
+		
 	});
 });
 
@@ -947,7 +965,8 @@ room_click.addEventListener('click', function() {
 	}else if (list_p.style.display === 'block') {
 		list_p.style.display = 'none';
 	}
-			
+	search_mem.classList.replace('on','off');
+	search_mem1.classList.replace('on','off');
 	res_cont.classList.replace('on','off');
 	res_cont1.classList.replace('on', 'off');
 	member_cont.classList.replace('on', 'off');
@@ -978,7 +997,8 @@ res_click.addEventListener('click', function() {
 		hotel.classList.replace('on', 'off');
 		hotel.classList.replace('use', 'off');
 	}
-	
+	search_mem.classList.replace('on','off');
+	search_mem1.classList.replace('on','off');
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
 	}else if (list_d.style.display === 'block') {
@@ -1020,8 +1040,10 @@ res_click.addEventListener('click', function() {
 });
 
 /* 회원관리 클릭 */
-member_click.addEventListener('click', function() {
-	
+member_click.addEventListener('click', click);
+
+function click() {
+	console.log("실행확인");
 	// bottom border on, 나머지 off
 	member_click.classList.replace('off','on');
 	room_click.classList.replace('on','off');
@@ -1034,10 +1056,15 @@ member_click.addEventListener('click', function() {
 	
 	// 나머지 검색 table, 내용 off
 	user.classList.replace('on','off');
-	hotel.classList.replace('on','off');
+	if (hotel.classList != 'off') {
+		hotel.classList.replace('on', 'off');
+		hotel.classList.replace('use', 'off');
+	}
 	
 	res_cont.classList.replace('on', 'off');
 	res_cont1.classList.replace('on', 'off');
+	search_mem.classList.replace('on','off');
+	search_mem1.classList.replace('on','off');
 	
 	if (list_st.style.display === 'block') {
 		list_st.style.display = 'none';
@@ -1083,4 +1110,4 @@ member_click.addEventListener('click', function() {
 	
 
 	
-});
+};
