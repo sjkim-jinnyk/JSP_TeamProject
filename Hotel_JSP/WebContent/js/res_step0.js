@@ -137,7 +137,6 @@ $(document).ready( function(){
 			resIn.value = resultIn.value;
 			resultIn.innerText = resultIn.value;
 			resInView.innerText = resultIn.value;
-			countNight();
 		}else if(type === 'out'){
 			resOut.value = resultOut.value;
 			resultOut.innerText = resultOut.value;
