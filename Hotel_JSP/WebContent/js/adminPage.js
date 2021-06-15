@@ -897,7 +897,7 @@ function getMember() {
 			});
 			$("#member_cont1").append(table);
 			
-
+			
 		},
 		error : function() {
 			alert('오류');
