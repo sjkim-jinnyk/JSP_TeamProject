@@ -1188,6 +1188,6 @@ function click() {
 	search_su.classList.replace('on','off');
 	search_p.classList.replace('on','off');
 	
-
+	
 	
 };
