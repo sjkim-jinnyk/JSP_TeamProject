@@ -165,4 +165,42 @@ public class RoomDAO {
 		return result;
 	} // checkRoom()
 	
+	
+	// 마이페이지 - 객실호수에 해당하는 객실 정보 가져오기
+	public RoomDTO roomCont(int roomNo) {
+		
+		RoomDTO dto = new RoomDTO();
+
+		try {
+			openConn();
+			
+			sql = "select * from room where room_number = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, roomNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setRoomNumber(rs.getInt("room_number"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomPrice(rs.getInt("room_price"));
+				dto.setRoomContent(rs.getString("room_content"));
+				dto.setRoomImage(rs.getString("room_image"));
+				dto.setRoomSize(rs.getInt("room_size"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return dto;
+	
+	} // roomCont() 메서드 end
+	
+	
+	
 }

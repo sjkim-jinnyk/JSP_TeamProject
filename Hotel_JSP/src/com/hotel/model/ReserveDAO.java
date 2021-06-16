@@ -92,7 +92,6 @@ public class ReserveDAO {
 			}
 			result += "</roomnums>";
 			
-			System.out.println("test :" + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -181,7 +180,6 @@ public class ReserveDAO {
 			}
 			result += "</rooms>";
 			
-			//System.out.println("test :" + result);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -211,13 +209,21 @@ public class ReserveDAO {
 			while(rs.next()) {
 				ReserveDTO dto = new ReserveDTO();
 				
+				dto.setResNo(rs.getInt("res_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomNumber(rs.getInt("room_number"));
 				dto.setResDate(rs.getString("res_date"));
 				dto.setResIn(rs.getString("res_in"));
 				dto.setResOut(rs.getString("res_out"));
-				dto.setRoomName(rs.getString("room_name"));
+				dto.setResNod(rs.getString("res_nod"));
 				dto.setResAdult(rs.getInt("res_adult"));
 				dto.setResChild(rs.getInt("res_child"));
+				dto.setResAdultBr(rs.getInt("res_adult_br"));
+				dto.setResChildBr(rs.getInt("res_child_br"));
+				dto.setResBed(rs.getInt("res_bed"));
 				dto.setResTotal(rs.getInt("res_total"));
+				dto.setResRequest(rs.getString("res_request"));
 			
 				list.add(dto);
 			}
@@ -280,4 +286,172 @@ public class ReserveDAO {
 		
 		return result;
 	} // getinfo_html()
+	
+
+	// 마이페이지 - 예약번호에 해당하는 예약 상세내역 가져오는 메서드
+	public ReserveDTO resCont(int resNo) {
+		
+		ReserveDTO dto = new ReserveDTO();
+		
+		try {
+			openConn();
+			
+			sql = "select * from reserve where res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, resNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setResNo(rs.getInt("res_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setRoomName(rs.getString("room_name"));
+				dto.setRoomNumber(rs.getInt("room_number"));
+				dto.setResDate(rs.getString("res_date"));
+				dto.setResIn(rs.getString("res_in"));
+				dto.setResOut(rs.getString("res_out"));
+				dto.setResNod(rs.getString("res_nod"));
+				dto.setResAdult(rs.getInt("res_adult"));
+				dto.setResChild(rs.getInt("res_child"));
+				dto.setResAdultBr(rs.getInt("res_adult_br"));
+				dto.setResChildBr(rs.getInt("res_child_br"));
+				dto.setResBed(rs.getInt("res_bed"));
+				dto.setResTotal(rs.getInt("res_total"));
+				dto.setResRequest(rs.getString("res_request"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return dto;
+		
+	} // getResCont() 메서드 end
+	
+	
+	// 마이페이지 - 예약 건수 확인하는 메서드
+	public int rescount(String userId) {
+		
+		int count = 0;
+		
+		try {
+			openConn();
+			
+			sql = "select count(*) from reserve where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return count;
+		
+	} // rescount() 메서드 end
+	
+	
+	// 마이페이지 - 예약변경하는 메서드
+	public int resUpdate(ReserveDTO dto) {
+		
+		int result = 0;
+
+		try {
+			openConn();
+			
+			sql = "update reserve set "
+					+ " res_adult = ?, res_child = ?, "
+					+ " res_adult_br = ?, res_child_br = ?, "
+					+ " res_bed = ?, res_request = ? "
+					+ " where res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, dto.getResAdult());
+			pstmt.setInt(2, dto.getResChild());
+			pstmt.setInt(3, dto.getResAdultBr());
+			pstmt.setInt(4, dto.getResChildBr());
+			pstmt.setInt(5, dto.getResBed());
+			pstmt.setString(6, dto.getResRequest());
+			pstmt.setInt(7, dto.getResNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // resUpdate() 메서드 end
+	
+
+	// 체크인 날짜에 해당하는 고객 정보를 가져오는 메서드
+	public String getinfo_user(String resin) {
+		String result ="";
+		
+		try {
+			openConn();
+			
+			sql = "select * frome reserve where res_in = ? order by res_no";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, resin);
+			
+			rs = pstmt.executeQuery();
+			
+			result += "<users>";
+			while(rs.next()) {
+				result += "<user>";
+				
+				result += "<id>" + rs.getString("user_id") + "</id>";
+				result += "<name>" + rs.getString("room_name") + "</name>";
+				result += "<num>" + rs.getInt("room_number") +"</num>";
+				result += "<date>" + rs.getString("res_date") +"</date>";
+				result += "<nod>" + rs.getInt("res_NoD") +"</nod>";
+				result += "<resin>" + rs.getString("res_in") +"</resin>";
+				result += "<resout>" + rs.getString("res_out") +"</resout>";
+				result += "<adult>" + rs.getInt("res_adult") +"</adult>";
+				result += "<child>" + rs.getInt("res_child") +"</child>";
+				result += "<adultbr>" + rs.getInt("res_adult_br") +"</adultbr>";
+				result += "<childbr>" + rs.getInt("res_child_br") +"</childbr>";
+				result += "<bed>" + rs.getInt("res_bed") +"</bed>";
+				result += "<total>" + rs.getInt("res_total") +"</total>";
+				result += "<request>" + rs.getString("res_request") +"</request>";
+				result += "</user>";
+			}
+			result += "</users>";
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return result;
+	} // getinfo_user() 메서드 end
+	
+	
+	
+	
+	
+	
 }

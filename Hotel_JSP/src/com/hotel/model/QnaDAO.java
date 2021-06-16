@@ -163,7 +163,7 @@ public class QnaDAO {
 	}
 	
 	// QnA 테이블의 게시물 번호에 해당하는 상세내역을 조회하는 메서드
-	public QnaDTO getQnaCont(int no) {
+	public QnaDTO getQnaCont(int qna_no) {
 		
 		QnaDTO dto = new QnaDTO();
 
@@ -173,7 +173,7 @@ public class QnaDAO {
 			sql = "select * from qna where qna_no = ?";
 
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, no);
+			pstmt.setInt(1, qna_no);
 
 			rs = pstmt.executeQuery();
 
@@ -489,6 +489,100 @@ public class QnaDAO {
 		}
 
 		return result;
+	}
+
+	// QnA글 상세내역 보기 시 답변글 호출하는 메서드
+	public QnaDTO getQnaReplyCont(int qna_no) {
+		
+		QnaDTO dto = new QnaDTO();
+
+		try {
+			openConn();
+
+			sql = "select * from qna where qna_group = ? and qna_step = 1";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setUserId(rs.getString("user_id"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+				dto.setQnaContent(rs.getString("qna_content"));
+				dto.setQnaGroup(rs.getInt("qna_group"));
+				dto.setQnaStep(rs.getInt("qna_step"));
+				dto.setQnaDate(rs.getString("qna_date"));
+				dto.setQnaHit(rs.getInt("qna_hit"));
+				dto.setQnaFile(rs.getString("qna_file"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
+	}
+
+	// 다음글 호출하는 메서드
+	public QnaDTO getQnaUp(int qna_no) {
+		
+		QnaDTO dto = new QnaDTO();
+
+		try {
+			openConn();
+
+			sql = "select qna_no, qna_title from qna where qna_no > ? and qna_step = 0 order by qna_no";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
+	}
+
+	// 이전글 호출하는 메서드
+	public QnaDTO getQnaDown(int qna_no) {
+		
+		QnaDTO dto = new QnaDTO();
+
+		try {
+			openConn();
+
+			sql = "select qna_no, qna_title from qna where qna_no < ? and qna_step = 0 order by qna_no desc";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setQnaNo(rs.getInt("qna_no"));
+				dto.setQnaTitle(rs.getString("qna_title"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
 	}
 
 }
