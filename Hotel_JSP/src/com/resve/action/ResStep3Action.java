@@ -21,7 +21,12 @@ public class ResStep3Action implements Action {
 		
 		String roomTotal = request.getParameter("roomTotal");
 		String resTax = request.getParameter("resTax");
+		String resPretax = request.getParameter("resPretax");
 		String resTotal = request.getParameter("resTotal");
+		
+		String aBrPrice = request.getParameter("aBrPrice");
+		String cBrPrice = request.getParameter("cBrPrice");
+		String bedPrice = request.getParameter("bedPrice");
 		
 		session.setAttribute("resAdultBr", resAdultBr); // 어른 조식
 		session.setAttribute("resChildBr", resChildBr); // 아이 조식
@@ -30,7 +35,12 @@ public class ResStep3Action implements Action {
 		
 		session.setAttribute("roomTotal", roomTotal); // 방 가격 * 숙박일수
 		session.setAttribute("resTax", resTax); // 방 가격 * 숙박일수
-		session.setAttribute("resTotal", resTotal); // 총금액
+		session.setAttribute("resPretax", resPretax); // 세금미포함 총금액
+		session.setAttribute("resTotal", resTotal); // 총금액 (pretax + tax)
+		
+		session.setAttribute("aBrPrice", aBrPrice); 
+		session.setAttribute("cBrPrice", cBrPrice); 
+		session.setAttribute("bedPrice", bedPrice); 
 		
 		System.out.println(resTotal);
 		

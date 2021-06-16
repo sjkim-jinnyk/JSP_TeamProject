@@ -141,6 +141,10 @@ function getTotal(){
 	let resTotal = document.getElementById('resTotal'); 
 	let resPretax = document.getElementById('resPretax'); 
 	
+	let aBrPrice = document.getElementById('aBrPrice'); //어른조식*45000
+	let cBrPrice = document.getElementById('cBrPrice'); //어린이조식*27000 
+	let bedPrice = document.getElementById('bedPrice'); //엑스트라베드*44000
+	
 	// 화면 출력용 변수
 	let roomPriceResult = document.getElementById('roomPriceResult'); 
 	let taxResult = document.getElementById('taxResult'); 
@@ -159,12 +163,17 @@ function getTotal(){
 	resTotal.value = total; // 세금포함
 	resTax.value = tax;
 	
+	aBrPrice.value = resAdultBr*45000;
+	cBrPrice.value = resChildBr*27000;
+	bedPrice.value = resBed*44000;
+	
+	// 화면 출력
 	roomPriceResult.innerText = rmTotal;
 	totalResult.innerText = total;
 	taxResult.innerText = tax;
 	// resPretax는 step3에서만 쓰이므로 step2에서는 출력하지 않음
 	
-	console.log(resAdult+resChild);
+	console.log(raBrPrice);
 	
 } // getTotal() end
 

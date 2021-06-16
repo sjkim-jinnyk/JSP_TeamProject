@@ -70,10 +70,13 @@
 			
 			<%--테이블에 들어가는 값은 아니고 view페이지 출력용 --%>
 			<input type="hidden" id="roomTotal" name="roomTotal" value="0"> <!-- 옵션,세금 미포함 -->
-			<input type="hidden" id="resTax" name="resTax" value="0">
+			<input type="hidden" id="resTax" name="resTax" value="0">  <!-- 세금 () -->
 			<input type="hidden" id="resPretax" name="resPretax" value="0"> <!-- 세금미포함 총금액 -->
 			<input type="hidden" id="resTotal" name="resTotal" value="0"><!-- 세금포함 총금액 -->
 			
+			<input type="hidden" id="aBrPrice" name="aBrPrice" value="0"> <!-- 어른조식*45000 -->
+			<input type="hidden" id="cBrPrice" name="cBrPrice" value="0"> <!-- 어린이조식*27000 -->
+			<input type="hidden" id="bedPrice" name="bedPrice" value="0"> <!-- 엑스트라베드*44000 -->
 			
 			<%--resTotal(총금액) 계산에 필요한 세션 값 받아오기 --%>
 			<input type="hidden" id="roomPrice" value="<%=session.getAttribute("roomPrice") %>">
