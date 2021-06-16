@@ -33,7 +33,7 @@ public class UserLoginOkAction implements Action {
 		/*
 		 * 1.관리자 계정 확인하는 로직
 		 */
-		
+		 
 		AdminDAO dao2 = AdminDAO.getInstance();
 		int adminLogin = dao2.adminLogin(userId, userPwd);
 		

@@ -65,7 +65,7 @@ public class AdminDAO {
 
 	}
 	
-	
+	 
 	// 관리자 로그인 메서드
 	public int adminLogin(String loginId, String loginPwd) {
 		
