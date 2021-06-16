@@ -37,34 +37,54 @@
 								<a href="<%=request.getContextPath() %>/info_list.do"><li>공지사항</li></a>
 							</ul>
 						</li>
-						<li class="name">MY PAGE
-							<ul class="innerMenu">
-								<!-- 세션값으로 로그인 상태를 판단해 '메뉴바' 클릭 시 로그인 or 마이페이지 이동 작업 -->
-								<%
-									// 세션값 받아오기
-									String userName = (String)session.getAttribute("userName");
-								
-									if(userName == null) {	// 로그인 상태 X => 로그인 페이지로 이동
-								%>
-										<li><a href="<%=request.getContextPath() %>/login.do">MY PAGE</a></li>
-										<li><a href="<%=request.getContextPath() %>/login.do">MY POINT</a></li>
-										<li><a href="<%=request.getContextPath() %>/login.do">MY COUPON</a></li>
-										<li><a href="<%=request.getContextPath() %>/login.do">예약확인</a></li>
-										<li><a href="<%=request.getContextPath() %>/login.do">개인정보관리</a></li>
-										
-								<%
-									} else {  // 로그인 상태 O => 마이 페이지로 이동
-								%>
+						
+						<!-- MY PAGE / ADMIN PAGE -->
+						<!-- 세션값으로 로그인 상태를 판단해 '메뉴바' 클릭 시 로그인 or 마이 페이지 or 관리자 페이지 이동 작업 -->
+						<%
+							// 세션값 받아오기
+							String userId = (String)session.getAttribute("userId");
+							String adminId = (String)session.getAttribute("adminId");
+						
+							if(userId == null) {	// 회원 로그인 X
+								if(adminId == null) {	// 관리자 로그인 X
+						%>			
+									<li class="name">MY PAGE
+										<ul class="innerMenu">
+											<li><a href="<%=request.getContextPath() %>/login.do">MY PAGE</a></li>
+											<li><a href="<%=request.getContextPath() %>/login.do">MY POINT</a></li>
+											<li><a href="<%=request.getContextPath() %>/login.do">MY COUPON</a></li>
+											<li><a href="<%=request.getContextPath() %>/login.do">예약확인</a></li>
+											<li><a href="<%=request.getContextPath() %>/login.do">개인정보관리</a></li>
+										</ul>
+									</li>
+						<%
+								} else {  // 관리자 로그인 O
+						%>
+									<li class="name">ADMIN PAGE
+										<ul class="innerMenu">
+											<!-- !! 경로 수정 필요 -->
+											<li><a href="<%=request.getContextPath() %>/admin_login_ok.do">객실관리</a></li>
+											<li><a href="<%=request.getContextPath() %>/admin_login_ok.do">예약관리</a></li>
+											<li><a href="<%=request.getContextPath() %>/admin_login_ok.do">회원관리</a></li>
+										</ul>
+									</li>
+						<%
+								}
+							} else {  // 회원 로그인 O
+						%>
+								<li class="name">MY PAGE
+									<ul class="innerMenu">
 										<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY PAGE</a></li>
 										<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY POINT</a></li>
 										<li><a href="<%=request.getContextPath() %>/mypage_main.do">MY COUPON</a></li>
 										<li><a href="<%=request.getContextPath() %>/res_list.do">예약확인</a></li>
 										<li><a href="<%=request.getContextPath() %>/info_update.do">개인정보관리</a></li>
-								<%
-									}
-								%>
-							</ul>
-						</li>
+									</ul>
+								</li>
+						<%
+							}
+						%>
+							
 						<li class="name">CUSTOMER SERVICE
 							<ul class="innerMenu">
 								<a href="<%=request.getContextPath() %>/qna_list.do"><li>Q&A</li></a>
@@ -82,19 +102,30 @@
 
         <div class="menu">
             <ul>
-            	<!-- 세션값으로 로그인 상태를 판단해 '헤더 메뉴' 클릭 시 로그인 or 마이페이지 이동 작업 -->
+            	<!-- 세션값으로 로그인 상태를 판단해 '헤더 메뉴' 클릭 시 로그인 or 마이 페이지 or 관리자 페이지 이동 작업 -->
+            	<!-- 1> 회원/관리자 로그인 X ==> 메뉴 : 로그인/회원가입/예약확인
+            	 	 2> 회원 O ==> 메뉴 : 마이페이지/로그아웃/예약확인
+            	 	 3> 관리자 X ==> 메뉴 : 관리자페이지/로그아웃
+            	 -->
             	<%
-            		if(userName == null) { // 로그인 상태 X
+            		if(userId == null) {   // 회원 로그인 X
             			response.sendRedirect("loginForm.jsp");	
+            			if(adminId == null) {	// 관리자 로그인 X
             	%> 
-                		<li><a href="<%=request.getContextPath() %>/login.do" class="login">로그인</a></li>
-                		<li><a href="<%=request.getContextPath() %>/join.do" class="join">회원가입</a></li> 
-                		<li><a href="<%=request.getContextPath() %>/login.do" class="res_check">예약확인</a></li>
+                			<li><a href="<%=request.getContextPath() %>/login.do">로그인</a></li>
+                			<li><a href="<%=request.getContextPath() %>/join.do">회원가입</a></li> 
+                			<li><a href="<%=request.getContextPath() %>/login.do">예약확인</a></li>
                 <% 
-            		} else { // 로그인 상태 O
+            			} else {   // 관리자 로그인 O
+            	%>
+            				<li><a href="<%=request.getContextPath() %>/admin_login_ok.do">관리자페이지</a></li>
+        		       		<li><a href="<%=request.getContextPath() %>/user_logout.do">로그아웃</a></li> 
+            	<%
+            			}
+            		} else {   // 회원 로그인 O
                 %>
                 		<li><a href="<%=request.getContextPath() %>/mypage_main.do" class="login">마이페이지</a></li>
-                		<li><a href="<%=request.getContextPath() %>/user_logout.do" class="join">로그아웃</a></li> 
+                		<li><a href="<%=request.getContextPath() %>/user_logout.do" class="logout">로그아웃</a></li> 
                 		<li><a href="<%=request.getContextPath() %>/res_list.do" class="res_check">예약확인</a></li>
                 <%
             		}
