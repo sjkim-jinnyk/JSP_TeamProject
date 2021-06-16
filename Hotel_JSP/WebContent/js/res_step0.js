@@ -52,11 +52,14 @@ $(document).ready( function(){
 	
 
 	// 결과 저장
-	resIn.value = today;
-	resOut.value = tomorrow;
+	//resIn.value = today;
+	//resOut.value = tomorrow;
 	
 	resIn_val.value = year+ '-' +month+ '-' +date;
 	resOut_val.value = t_year+ '-' +t_month+ '-' +t_date;
+	
+	resIn.value = resIn_val.value;
+	resOut.value = resOut_val.value;
 	
 	resInView.innerText = resIn_val.value;
 	resOutView.innerText = resOut_val.value;
