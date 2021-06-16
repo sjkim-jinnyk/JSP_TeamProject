@@ -12,7 +12,7 @@
 	<jsp:include page="/include/header.jsp" />
 	<!-- 관리자페이지 상단 제목 -->
 	<div class="admin_topArea">
-		<h2 class="top_tit">ADMIN PAGE</h2>
+		<h2 class="top_tit">Admin Page</h2>
 	</div>
 	
 	<!-- 객실, 예약, 매출 관리 -->
