@@ -21,7 +21,7 @@
 			<table border="1" cellspacing="0" width="350">
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="qna_id" value="${id }" readonly="readonly"></td>	<!-- 세션으로 작성자 ID 받아올 예정 -->
+					<td><input type="text" name="qna_id" value="${userId }" readonly="readonly"></td>	<!-- 세션으로 작성자 ID 받아옴 -->
 				</tr>
 
 				<tr>

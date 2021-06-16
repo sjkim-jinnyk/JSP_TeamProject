@@ -70,7 +70,7 @@ public class QnaReplyOkAction implements Action {
 
 		if (res > 0) {
 			forward.setRedirect(true);
-			forward.setPath("qna_list.do?");		// 세션정보 넘기기 필요
+			forward.setPath("qna_list.do?");
 		} else {
 			out.println("<script>");
 			out.println("alert('QnA 답글쓰기 실패')");
