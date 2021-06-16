@@ -38,6 +38,50 @@
     padding-bottom: 180px;
 }
 
+.inner .infoData {
+	margin-top: 25px;
+	font-size: 20px;
+}
+.inner .infoData li {
+	float: left;
+}
+.inner .infoData li+li:before{
+	display: inline-block;
+	content: '';
+	width: 1px;
+	height: 18px;
+	background: #ccc;
+	margin: 0 20px;
+	vertical-align: middle;
+}
+.inner .infoData:after {
+	content: '';
+    width: 100%;
+}
+
+.inner #infohit {
+	width: 85%;
+	text-align: right;
+}
+.inner .txtBox{
+	margin-top: 30px;
+	padding: 60px 0 30px 0;
+	border-top: 1px solid black;
+	border-bottom: 1px solid #ccc;
+}
+.inner .shortList li{
+	padding: 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+.inner .shortList span {
+	padding: 0 20px 0 0;
+}
+.inner #list_btn {
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
 .myContents{
 	position: relative;
 }

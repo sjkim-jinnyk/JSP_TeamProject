@@ -432,21 +432,21 @@ $("#check_st").click(function() {
 						table1 += "<tr><td id='st_id'>" + $(this).find("id").text() +"</td>";
 						table1 += "<td id='st_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table1 += "<td id='st_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table1 += "<td id='st_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table1 += "<td id='st_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table1 += "<td id='st_req'>"+ $(this).find("request").text() + "</td>"
 						table1 += "<td id='st_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '102') {
 						table2 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table2 += "<td id='st_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table2 += "<td id='st_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table2 += "<td id='st_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table2 += "<td id='st_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table2 += "<td id='st_req'>"+ $(this).find("request").text() + "</td>"
 						table2 += "<td id='st_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '103') {
 						table3 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table3 += "<td id='st_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table3 += "<td id='st_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table3 += "<td id='st_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table3 += "<td id='st_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table3 += "<td id='st_req'>"+ $(this).find("request").text() + "</td>"
 						table3 += "<td id='st_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}
@@ -507,21 +507,21 @@ $("#check_d").click(function() {
 						table1 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table1 += "<td id='d_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table1 += "<td id='d_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table1 += "<td id='d_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table1 += "<td id='d_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table1 += "<td id='d_req'>"+ $(this).find("request").text() + "</td>"
 						table1 += "<td id='d_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '202') {
 						table2 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table2 += "<td id='d_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table2 += "<td id='d_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table2 += "<td id='d_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table2 += "<td id='d_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table2 += "<td id='d_req'>"+ $(this).find("request").text() + "</td>"
 						table2 += "<td id='d_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '203') {
 						table3 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table3 += "<td id='d_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table3 += "<td id='d_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table3 += "<td id='d_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table3 += "<td id='d_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table3 += "<td id='d_req'>"+ $(this).find("request").text() + "</td>"
 						table3 += "<td id='d_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}
@@ -578,21 +578,21 @@ $("#check_su").click(function() {
 						table1 += "<tr><td id='su_id'>" + $(this).find("id").text() +"</td>";
 						table1 += "<td id='su_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table1 += "<td id='su_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table1 += "<td id='su_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table1 += "<td id='su_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table1 += "<td id='su_req'>"+ $(this).find("request").text() + "</td>"
 						table1 += "<td id='su_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '302') {
 						table2 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table2 += "<td id='su_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table2 += "<td id='su_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table2 += "<td id='su_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table2 += "<td id='su_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table2 += "<td id='su_req'>"+ $(this).find("request").text() + "</td>"
 						table2 += "<td id='su_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '303') {
 						table3 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table3 += "<td id='su_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table3 += "<td id='su_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table3 += "<td id='su_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table3 += "<td id='su_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table3 += "<td id='su_req'>"+ $(this).find("request").text() + "</td>"
 						table3 += "<td id='su_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}
@@ -651,21 +651,21 @@ $("#check_p").click(function() {
 						table1 += "<tr><td id='p_id'>" + $(this).find("id").text() +"</td>";
 						table1 += "<td id='p_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table1 += "<td id='p_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table1 += "<td id='p_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table1 += "<td id='p_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table1 += "<td id='p_req'>"+ $(this).find("request").text() + "</td>"
 						table1 += "<td id='p_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '402') {
 						table2 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table2 += "<td id='p_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table2 += "<td id='p_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table2 += "<td id='p_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table2 += "<td id='p_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table2 += "<td id='p_req'>"+ $(this).find("request").text() + "</td>"
 						table2 += "<td id='p_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}else if($(this).find("num").text() == '403') {
 						table3 += "<tr><td id='d_id'>" + $(this).find("id").text() +"</td>";
 						table3 += "<td id='p_in'>" + $(this).find("resin").text() + "(" + $(this).find("nod").text() +"박)</td>";
 						table3 += "<td id='p_person'>어른 " + $(this).find("adultbr").text() + "명 아이 " +$(this).find("childbr").text()+ "명</td>";
-						table3 += "<td id='p_add'>ExtraBed: "+ $(this).find("bed").text() + "개</td>"
+						table3 += "<td id='p_add'>Extra Bed  "+ $(this).find("bed").text() + "개</td>"
 						table3 += "<td id='p_req'>"+ $(this).find("request").text() + "</td>"
 						table3 += "<td id='p_money'>" + $(this).find("total").text() + "원</td></tr>"
 					}

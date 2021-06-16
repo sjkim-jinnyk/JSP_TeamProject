@@ -1,7 +1,6 @@
 package com.hotel.model;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -450,7 +449,46 @@ public class ReserveDAO {
 	} // getinfo_user() 메서드 end
 	
 	
-	
+	//예약된 룸 번호 받기
+	public List<ReserveDTO> getRoomNum(String in, String out) {
+		
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		
+		try {
+			openConn();
+			
+			System.out.println(in);
+			System.out.println(out);
+			
+			
+			// 해당 예약일에서 룸번호를 받아오기윈한 sql문.
+			sql = "select room_number from reserve where to_date(?,'yyyy-mm-dd') between to_date(res_in, 'yyyy-mm-dd') and to_date(res_out, 'yyyy-mm-dd')-1 OR TO_DATE(?, 'YYYY-MM-DD') BETWEEN TO_DATE(res_in, 'YYYY-MM-DD') " + 
+					"AND TO_DATE(res_out, 'YYYY-MM-DD')-1 order by room_number";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, in);
+			pstmt.setString(2, out);
+			
+			rs = pstmt.executeQuery();
+			
+			// 룸번호만 저장.
+			while(rs.next()) {
+				
+				ReserveDTO dto = new ReserveDTO();
+				dto.setRoomNumber(rs.getInt("room_number"));
+				list.add(dto);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return list;
+	} // getInfo()
 	
 	
 	
