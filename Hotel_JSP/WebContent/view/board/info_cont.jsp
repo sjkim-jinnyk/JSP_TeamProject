@@ -19,34 +19,34 @@
 
 		<table border="1" cellspacing="0" width="500">
 			<c:set var="dto" value="${cont }" />
-			<c:if test="${!empty dto }">
-				<tr>
-					<th>작성자</th>
-					<td>${dto.getAdminId() }</td>
-				</tr>
 
-				<tr>
-					<th>글제목</th>
-					<td>${dto.getInfoTitle() }</td>
-				</tr>
+			<tr>
+				<th>작성자</th>
+				<td>${dto.getAdminId() }</td>
+			</tr>
+			
+			<tr>
+				<th>글제목</th>
+				<td>${dto.getInfoTitle() }</td>
+			</tr>
 
-				<tr>
-					<th>글내용</th>
-					<td>
-						<textarea rows="7" cols="30" readonly>${dto.getInfoContent() }</textarea>
-					</td>
-				</tr>
+			<tr>
+				<th>글내용</th>
+				<td>
+					<textarea rows="7" cols="30" readonly>${dto.getInfoContent() }</textarea>
+				</td>
+			</tr>
 
-				<tr>
-					<th>조회수</th>
-					<td>${dto.getInfoHit() }</td>
-				</tr>
+			<tr>
+				<th>조회수</th>
+				<td>${dto.getInfoHit() }</td>
+			</tr>
 
-				<tr>
-					<th>작성일자</th>
-					<td>${dto.getInfoDate() }</td>
-				</tr>
-			</c:if>
+			<tr>
+				<th>작성일자</th>
+				<td>${dto.getInfoDate() }</td>
+			</tr>
+
 
 			<tr>
 				<td colspan="2" align="center"><input type="button" value="글수정"
