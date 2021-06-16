@@ -1,28 +1,46 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
+:root {
+    --content-size: 18px;
+    --headline-size : 25px;
+    --bottom-color : #ccc;
+    --background-color :#f9f9f9;
+}
 a {
 	text-decoration: none;
 }
-
 table {
 	border-collapse: separate;
 	border-spacing: 0 20px;
 	width: 100%;
 }
-
 table td {
 	text-align: center;
-}
-/* 관리자 페이지 상단 */
-.admin_topArea {
-	padding: 100px 50px 50px 50px;
-	font-family: 'Playfair Display SC', serif;
-	font-size: 30px;
-	font-weight: normal;
+	font-size: var(--content-size);
 }
 
+/* 관리자 페이지 상단 */
+.admin_topArea {
+	padding: 50px 0;
+	font-size: 30px;
+	font-weight: normal;
+	width: 1400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.admin_topArea .top_tit {
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
 .admin_manage {
-	padding: 0 50px;
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 180px;
+  	font-family: 'Noto Sans KR', sans-serif;
+  	font-size: var(--content-size);
 }
 
 /* 관리 탭 영역*/
@@ -54,10 +72,9 @@ table td {
 .admin_search {
 	margin: 20px 0;
 	padding: 20px 0;
-	background-color: #f9f9f9;
+	background-color: var(--background-color);
 }
 #hotel {
-	
 	align-items: center;
 }
 #bin{
@@ -85,19 +102,18 @@ table td {
 	width: 60%;
 	
 }
+
+/* 객실관리 css */
 .room_manage table {
-	padding : 10px;
+	padding : 20px 10px 40px 10px;
+	border-bottom: 1px solid var(--bottom-color);
 }
+
 .room_manage .roomname td {
-	font-family: 'Playfair Display SC', serif;
-	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
+	font-size: var(--headline-size);
 	padding-left: 50px;
 }
-.room_manage td{
-	text-align: center;
-}
+
 
 .room_manage img{
 	width: 100%;
@@ -108,17 +124,11 @@ table td {
 
 
 /* 객실 검색  */
-.room_search td{
-	text-align: center;
-}
 .room_search img{
 	width: 100%;
 }
 .room_search .roomname td {
-	font-family: 'Playfair Display SC', serif;
 	font-size: 30px;
-	font-weight: bold;
-	text-align: center;
 	padding-left: 50px;
 }
 .room_search .img {
@@ -133,6 +143,10 @@ table td {
 	display: none;
 	padding: 20px 50px 20px 50px;
 }
+.content_info_st p {
+	font-size: 20px;
+	font-weight: bold;
+}
 #check_st, #check_d, #check_su, #check_p{
 	padding: 0 10px;
 	background-color: transparent;
@@ -140,14 +154,12 @@ table td {
 	cursor: pointer;
 }
 .content_info_st td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 .content_info_st th{
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -158,14 +170,12 @@ table td {
 	width: 20%;
 }
 .content_info_d td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 .content_info_d th{
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -176,14 +186,12 @@ table td {
 	width: 20%;
 }
 .content_info_su td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 .content_info_su th{
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -194,14 +202,12 @@ table td {
 	width: 20%;
 }
 .content_info_p td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 .content_info_p th{
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -225,14 +231,18 @@ table td {
 	display: "";
 }
 .res_manage td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
+}
+.res_manage #res_none td{
+	border-bottom: none;
+}
+.res_manage #res_cont1 #user_none{
+	border-bottom: none;
 }
 .res_manage th{
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -278,7 +288,7 @@ table td {
 
 /* 회원관리 페이지 */
 .member_manage {
-	padding: 0 50px 0 50px;
+	padding: 0 50px;
 }
 .member_manage .off{
 	display: none;
@@ -286,38 +296,45 @@ table td {
 .member_manage .on{
 	display: "";
 }
+.member_manage #member_search1 #user_none{
+	border-bottom: none;
+}
 .member_manage td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 
 .member_manage th {
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
 
-.member_manage #mem_id, #mem_name, #mem_point, #mem_phone{
+.member_manage #mem_id, #mem_point{
+	width: 5%;
+}
+.member_manage #mem_name {
 	width: 10%;
 }
-.member_manage #mem_email{
+.member_manage #mem_email, #mem_phone{
 	width: 20%;
 }
 .member_manage #mem_addr{
 	width: 40%;
 }
 /* 회원관리 검색 페이지 */
+.search_member {
+	padding: 0 50px;
+}
 .search_member #mem_point1{
+	width: 5%;
+}
+.search_member #mem_id1, #mem_name1{
 	width: 10%;
 }
-.search_member #mem_id1, #mem_name1, #mem_phone1{
-	width: 10%;
-}
-.search_member #mem_email1{
-	width: 10%;
+.search_member #mem_email1, #mem_phone1{
+	width: 15%;
 }
 .search_member #mem_addr1{
 	width: 40%;
@@ -330,15 +347,13 @@ table td {
 }
 
 .search_member td{
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	padding : 3px 6px;
 }
 
 .search_member th {
 	border-top: 1px solid #666;
-	border-bottom: 1px solid #f2f2f2;
-	font-size: 13px;
+	border-bottom: 1px solid var(--bottom-color);
 	font-weight: bold;
 	padding : 3px 6px;
 }
@@ -346,6 +361,7 @@ table td {
 	padding: 0 10px;
 	background-color: transparent;
 	border : 1px solid black;
-	font-size: 13px;
-	width: 50%;
+	font-size: 15px;
+	width: 90%;
+	cursor: pointer;
 }
