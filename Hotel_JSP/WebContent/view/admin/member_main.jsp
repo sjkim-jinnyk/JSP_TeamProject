@@ -4,6 +4,5 @@
 <%
 	UserDAO dao = UserDAO.getInstance();
 	String list = dao.getMemberList();
-	System.out.println("mem :  " + list);
 	out.println(list);
 %>

@@ -49,6 +49,7 @@
 						
 						<td>
 							<select name="roomName" id="roomName">
+								<option value="none" selected>선택</option>
 								<option value="STANDARD">STANDARD</option>
 								<option value="DELUXE">DELUXE</option>
 								<option value="SUITE">SUITE</option>
@@ -240,6 +241,13 @@
 		
 		<!-- 객실 검색 눌렀을 때 -->
 		<div class="room_search">
+		
+			<!-- none table -->
+			<table id="search_none" class="off">
+				<tr>
+					<td colspan="3"><br><br>찾는 정보가 없습니다.<br><br></td>
+				</tr>
+			</table>
 			<!-- standard search table -->
 			<table id="search_standard" class="off">
 				<tr class="roomname">
@@ -319,32 +327,109 @@
 			
 			
 			<!-- 상세페이지 -->
-			<ul id="content_info_st">
-				<li id="cont_101">101호</li>
-			 	<li id="cont_102">102호</li>
-			 	<li id="cont_103">103호</li>
-			</ul>
+			<!-- standard -->
+			<div class="content_info_st">
+				<p>101호</p>
+				<table id="cont_1">
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
+				</table>
+				<table id="cont_101"></table>
+				<br>
+				<p>102호</p>
+				<table id="cont_2">
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
+				</table>
+				<table id="cont_102"></table>
+				<br>
+				<p>103호</p>
+				<table id="cont_3">
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
+				</table>
+				<table id="cont_103"></table>
+			</div>
 			
-			<ul id="content_info_d">
-			 	<li id="cont_201">201호</li>
-			 	<li id="cont_202">202호</li>
-			 	<li id="cont_203">203호</li>
-			</ul>
-			<ul id="content_info_su">
-			 	<li id="cont_301">301호</li>
-			 	<li id="cont_302">302호</li>
-			 	<li id="cont_303">303호</li>
-			</ul>
-			<ul id="content_info_p">
-			 	<li id="cont_401">401호</li>
-			 	<li id="cont_402">402호</li>
-			 	<li id="cont_403">403호</li>
-			</ul>
+			<!-- deluxe -->
+			<div class="content_info_d">
+				<p>201호</p>
+				<table id="cont_1">
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
+				</table>
+				<table id="cont_201"></table>
+				<br>
+				<p>202호</p>
+				<table id="cont_2">
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
+				</table>
+				<table id="cont_202"></table>
+				<br>
+				<p>203호</p>
+				<table id="cont_3">
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
+				</table>
+				<table id="cont_203"></table>
+			</div>
 			
-		</div>
+			<!-- suite -->
+			<div class="content_info_su">
+				<p>301호</p>
+				<table id="cont_1">
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
+				</table>
+				<table id="cont_301"></table>
+				<br>
+				<p>302호</p>
+				<table id="cont_2">
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
+				</table>
+				<table id="cont_302"></table>
+				<br>
+				<p>303호</p>
+				<table id="cont_3">
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
+				</table>
+				<table id="cont_303"></table>
+			</div>
+			
+			<!-- prestige -->
+			<div class="content_info_p">
+				<p>401호</p>
+				<table id="cont_1">
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
+				</table>
+				<table id="cont_401"></table>
+				<br>
+				<p>402호</p>
+				<table id="cont_2">
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
+				</table>
+				<table id="cont_402"></table>
+				<br>
+				<p>403호</p>
+				<table id="cont_3">
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
+				</table>
+				<table id="cont_403"></table>
+			</div>
 		
 		<!-- 예약관리 페이지  -->
 		<div class="res_manage">
+			<table id="res_none" class="off">
+				<tr>
+					<td colspan="6"><br>회원 이름과 번호를 입력하세요.<br></td>
+				</tr>
+			</table>
 			<table id="res_cont" class="off">
 				<tr>
 					<th id="res_room">객실</th><th id="res_period">투숙기간</th>
@@ -383,6 +468,7 @@
 			<table id="member_search1" class="off">
 			</table>
 		</div>
+	</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />
 	<script type="text/javascript" src="js/adminPage.js"></script>

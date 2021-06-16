@@ -129,19 +129,94 @@ table td {
 }
 
 /* 객실 검색 상세내역 */
-#content_info_st, #content_info_d, #content_info_su, #content_info_p{
+.content_info_st, .content_info_d, .content_info_su, .content_info_p{
 	display: none;
+	padding: 20px 50px 20px 50px;
 }
-#cont_101, #cont_102, #cont_103, #cont_201, #cont_202, #cont_203, #cont_301, #cont_302, #cont_303, #cont_401, #cont_402, #cont_403 {
+#check_st, #check_d, #check_su, #check_p{
+	padding: 0 10px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
+.content_info_st td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.content_info_st th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
 	font-weight: bold;
+	padding : 3px 6px;
 }
-#ul_101, #ul_102, #ul_103, #ul_201, #ul_202, #ul_203, #ul_301, #ul_302, #ul_303, #ul_401, #ul_402, #ul_403 {
-	font-weight: normal;
+.content_info_st #st_id, #st_money{
+	width: 10%;
 }
-
+.content_info_st #st_in, #st_person, #st_add, #st_req{
+	width: 20%;
+}
+.content_info_d td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.content_info_d th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_d #d_id, #d_money{
+	width: 10%;
+}
+.content_info_d #d_in, #d_person, #d_add, #d_req{
+	width: 20%;
+}
+.content_info_su td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.content_info_su th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_su #su_id, #su_money{
+	width: 10%;
+}
+.content_info_su #su_in, #su_person, #su_add, #su_req{
+	width: 20%;
+}
+.content_info_p td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.content_info_p th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.content_info_p #p_id, #p_money{
+	width: 10%;
+}
+.content_info_p #p_in, #p_person, #p_add, #p_req{
+	width: 20%;
+}
 /* 예약관리 페이지 */
 .res_manage {
-	padding: 0 50px 0 50px;
+	padding: 0 50px;
+}
+.res_manage #res_none td{
+	padding: 100px 0;
 }
 .res_manage .off{
 	display: none;
