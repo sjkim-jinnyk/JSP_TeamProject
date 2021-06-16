@@ -65,4 +65,77 @@ public class AdminDAO {
 
 	}
 	
+	 
+	// 관리자 로그인 메서드
+	public int adminLogin(String loginId, String loginPwd) {
+		
+		int result = 0;
+		
+		
+		try {
+			openConn();
+			
+			sql = "select * from hotel_admin where admin_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, loginId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {	// 비밀번호가 같은 경우
+				if(loginPwd.equals(rs.getString("admin_pwd"))) {
+					// 비밀번호가 같은 경우
+					result = 1;
+				} else {	
+					// 비밀번호가 틀린 경우
+					result = -1;
+				}
+			} else {
+				// 관리자 아이디가 없는 경우
+				result = -2;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // adminLogin() 메서드 end
+	
+	
+	// 관리자 정보 가져오는 메서드
+	public AdminDTO getAdmin(String adminId) {
+		
+		AdminDTO dto = new AdminDTO();
+		
+		try {
+			openConn();
+			
+			sql = "select * from hotel_admin where admin_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, adminId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setAdminId(rs.getString("admin_id"));
+				dto.setAdminPwd(rs.getString("admin_pwd"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return dto;
+		
+	} // getAdmin() 메서드 end
+	
 }
