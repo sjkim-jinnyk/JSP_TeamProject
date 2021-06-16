@@ -20,7 +20,7 @@
                 <address>서울시 마포구 월드컵로</address>
                 <p class="ceo">CEO : 김OO</p>
                 <p class="tel">T. 02-1234-1234</p>
-                <p class="copyright">©2020 JOSUN HOTELS & RESORTS Co. All rights</p>
+                <p class="copyright">©2021 HOTELS & RESORTS Co. All rights</p>
             </div>
         </div>
         <div class="icon">

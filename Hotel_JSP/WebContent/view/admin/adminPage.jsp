@@ -345,31 +345,44 @@
 		
 		<!-- 예약관리 페이지  -->
 		<div class="res_manage">
-			<ul id="res_cont" class="off">
+			<table id="res_cont" class="off">
+				<tr>
+					<th id="res_room">객실</th><th id="res_period">투숙기간</th>
+					<th id="res_person">인원</th><th id="res_add">추가사항</th>
+					<th id="res_req">요청사항</th><th id="res_money">결제금액</th>
+				</tr>
+			</table>
+			<table id="res_cont1" class="off">
 				
-			</ul>
+			</table>
 		</div>
 		
 		<!-- 회원관리 페이지  -->
 		<div class="member_manage">
 			<table id="member_cont" class="off">
-			<tr id="header_tr">
-				<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th>
-			</tr>
-
-			</table>
-			
-			<!-- 회원 검색 눌렀을 때 -->
-			<table id="search_member" class="off">
 				<tr>
-					<th>ID</th><th>NAME</th><th>PHONE</th><th>ADDRESS</th><th>E-MAIL</th><th>POINT</th><th></th>
+					<th id="mem_id">ID</th><th id="mem_name">NAME</th>
+					<th id="mem_phone">PHONE</th><th id="mem_addr">ADDRESS</th>
+					<th id="mem_email">E-MAIL</th><th id="mem_point">POINT</th>
 				</tr>
-
+			</table>
+			<table id="member_cont1" class="off">
+			</table>
+			<table id="member_cont2" class="off">
 			</table>
 		</div>
-		
-
-		
+		<!-- 회원관리 검색 페이지  -->
+		<div class="search_member">
+			<table id="member_search" class="off">
+				<tr>
+					<th id="mem_id1">ID</th><th id="mem_name1">NAME</th>
+					<th id="mem_phone1">PHONE</th><th id="mem_addr1">ADDRESS</th>
+					<th id="mem_email1">E-MAIL</th><th id="mem_point1">POINT</th><th></th>
+				</tr>
+			</table>
+			<table id="member_search1" class="off">
+			</table>
+		</div>
 	</div>
 	<jsp:include page="/include/footer.jsp" />
 	<script type="text/javascript" src="js/adminPage.js"></script>

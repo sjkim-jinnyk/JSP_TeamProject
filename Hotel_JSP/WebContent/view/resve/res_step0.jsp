@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/reserve.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
 </head>
@@ -16,13 +15,14 @@
 	
 	<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
-		<input type="hidden" name="resIn" id="resIn" value="0">				
-		<input type="hidden" name="resOut" id="resOut" value="0">
+			
+		<br><br><br><br><br>
+		<input type="text" name="resIn" id="resIn" value="0">				
+		<input type="text" name="resOut" id="resOut" value="0">
 		<input type="text" name="resNight" id="resNight" value="0">				
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
 
-		<br>
 		<div id="container" class="container">
 		
 			<div class="topArea">
@@ -43,12 +43,13 @@
 						<p class="dateText" id="dateText" style="display: inline">
 							<span id="resInView">0000.00.00</span>&nbsp;<span id="inYoil">[요일]</span>&nbsp;-&nbsp;
 							<span id="resOutView">0000.00.00</span>&nbsp;<span id="outYoil">[요일]</span>&nbsp;|&nbsp;
-							<span id="nightResult" onchange="countNight()">0</span> 박
+							<span id="nightResult" >0</span> 박
+							<input type="button" onclick="countNight()" value="일수계산">
 						</p>
 						<button type="button" class="dToggleBtn">V</button><br>
 						<div class="dToggleInner">
-							<input type="date" id="resIn_val" onchange="viewDate('in')">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="date" id="resOut_val"  onchange="viewDate('out')">
+							<input type="date" id="resIn_val" onchange="viewDate('in');">&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="date" id="resOut_val" onchange="viewDate('out');">
 						</div>
 						<hr>
 					</li>				
@@ -82,7 +83,7 @@
 		</div>	
 		
 	</form>
-	
+	<script type="text/javascript" src="js/reserve.js"></script>
 	<jsp:include page="../../include/footer.jsp" />
 	
 

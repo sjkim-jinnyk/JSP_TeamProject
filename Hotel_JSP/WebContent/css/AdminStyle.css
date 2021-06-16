@@ -73,6 +73,7 @@ table td {
 	padding: 0 10px;
 	background-color: transparent;
 	border : 1px solid black;
+	cursor: pointer;
 }
 #res_btn {
 	padding: 2px 15px;
@@ -139,9 +140,39 @@ table td {
 }
 
 /* 예약관리 페이지 */
-.res_manage #res_cont {
-	padding-left: 50px;
+.res_manage {
+	padding: 0 50px 0 50px;
 }
+.res_manage .off{
+	display: none;
+}
+.res_manage .on{
+	display: "";
+}
+.res_manage td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+.res_manage th{
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 6px;
+}
+.res_manage #res_person, #res_room{
+	width: 15%;
+}
+.res_manage #res_money{
+	width: 10%;
+}
+.res_manage #res_period, #res_req, #res_add {
+	width: 20%;
+}
+
+
+
 .room_manage .off{
 	display: none;
 }
@@ -149,13 +180,8 @@ table td {
 .room_manage .on{
 	display: "";
 }
-.res_manage .off{
-	display: none;
-}
 
-.res_manage .on{
-	display: "";
-}
+
 .room_search .off{
 	display: none;
 }
@@ -177,7 +203,7 @@ table td {
 
 /* 회원관리 페이지 */
 .member_manage {
-	padding: 0 50px 50px 50px;
+	padding: 0 50px 0 50px;
 }
 .member_manage .off{
 	display: none;
@@ -190,7 +216,51 @@ table td {
 	font-size: 13px;
 	padding : 3px 6px;
 }
+
 .member_manage th {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	font-weight: bold;
+	padding : 3px 6px;
+}
+
+.member_manage #mem_id, #mem_name, #mem_point, #mem_phone{
+	width: 10%;
+}
+.member_manage #mem_email{
+	width: 20%;
+}
+.member_manage #mem_addr{
+	width: 40%;
+}
+/* 회원관리 검색 페이지 */
+.search_member #mem_point1{
+	width: 10%;
+}
+.search_member #mem_id1, #mem_name1, #mem_phone1{
+	width: 10%;
+}
+.search_member #mem_email1{
+	width: 10%;
+}
+.search_member #mem_addr1{
+	width: 40%;
+}
+.search_member .off{
+	display: none;
+}
+.search_member .on{
+	display: "";
+}
+
+.search_member td{
+	border-bottom: 1px solid #f2f2f2;
+	font-size: 13px;
+	padding : 3px 6px;
+}
+
+.search_member th {
 	border-top: 1px solid #666;
 	border-bottom: 1px solid #f2f2f2;
 	font-size: 13px;
@@ -202,4 +272,5 @@ table td {
 	background-color: transparent;
 	border : 1px solid black;
 	font-size: 13px;
+	width: 50%;
 }
