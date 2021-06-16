@@ -60,7 +60,9 @@
 					<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
 	                	location.href='qna_delete_ok.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'
 						}else {return; }">
-					<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'">
+					<c:if test="${dto.getQnaStep() == 0 }">
+						<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'">
+					</c:if>
 					<input type="button" value="전체목록" onclick="location.href='qna_list.do'">
 				</td>
 			</tr>
