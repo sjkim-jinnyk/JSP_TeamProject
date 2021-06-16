@@ -15,9 +15,6 @@ public class ResStep1Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		
-		// step0.jsp (날짜, 입력 폼페이지) 에서 넘어온  
-		// 데이터 받아서 step1.jsp 로 넘겨줌
 
 		HttpSession session = request.getSession();
 		
@@ -25,13 +22,15 @@ public class ResStep1Action implements Action {
 		String resOut = request.getParameter("resOut");
 		String resAdult = request.getParameter("resAdult");
 		String resChild = request.getParameter("resChild");
+		String resNight = request.getParameter("resNight");
 		
 		session.setAttribute("resIn", resIn);
 		session.setAttribute("resOut", resOut);
 		session.setAttribute("resAdult", resAdult);
 		session.setAttribute("resChild", resChild);
+		session.setAttribute("resNight", resNight);
 		
-		System.out.println(resIn);
+		System.out.println(resNight);
 		
 		RoomDAO dao = RoomDAO.getInstance();
 		List<RoomDTO> list = dao.getRoomList();

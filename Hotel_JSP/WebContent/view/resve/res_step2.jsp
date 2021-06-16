@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 옵션 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/res_step2.js"></script>
+
 </head>
 <body>
 	
@@ -40,8 +40,9 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;금&nbsp; <!-- 요일 뽑아와야함.. -->
-							-&nbsp;<%=session.getAttribute("resOut") %>&nbsp;토<span>1&nbsp;박</span></dd>
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;[요일]&nbsp;-&nbsp;
+							<%=session.getAttribute("resOut") %>&nbsp;[요일]
+							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
 					<dl class="room">
 						<dt>ROOM</dt>
@@ -61,12 +62,28 @@
 				----------------------------
 			</div>
 			
-			<input type="text" id="roomTotal" value="<%=session.getAttribute("roomPrice") %>">
-			<input type="number" id="resAdultBr" value="0">
-			<input type="number" id="resChildBr" value="0">
-			<input type="number" id="resBed" value="0">
-			<input type="text" id="resDate" value="0">
-			<input type="number" id="resTotal" value="0">
+			<%--step3action 으로 넘길 값 --%>
+			<input type="hidden" id="resAdultBr" name="resAdultBr" value="0">
+			<input type="hidden" id="resChildBr" name="resChildBr" value="0">
+			<input type="hidden" id="resBed" name="resBed" value="0">
+			<input type="hidden" id="resDate" name="resDate" value="0">
+			
+			<%--테이블에 들어가는 값은 아니고 view페이지 출력용 --%>
+			<input type="hidden" id="roomTotal" name="roomTotal" value="0"> <!-- 옵션,세금 미포함 -->
+			<input type="hidden" id="resTax" name="resTax" value="0">  <!-- 세금 () -->
+			<input type="hidden" id="resPretax" name="resPretax" value="0"> <!-- 세금미포함 총금액 -->
+			<input type="hidden" id="resTotal" name="resTotal" value="0"><!-- 세금포함 총금액 -->
+			
+			<input type="hidden" id="aBrPrice" name="aBrPrice" value="0"> <!-- 어른조식*45000 -->
+			<input type="hidden" id="cBrPrice" name="cBrPrice" value="0"> <!-- 어린이조식*27000 -->
+			<input type="hidden" id="bedPrice" name="bedPrice" value="0"> <!-- 엑스트라베드*44000 -->
+			
+			<%--resTotal(총금액) 계산에 필요한 세션 값 받아오기 --%>
+			<input type="hidden" id="roomPrice" value="<%=session.getAttribute("roomPrice") %>">
+			<input type="hidden" id="resNight" value="<%=session.getAttribute("resNight") %>">
+			<input type="hidden" id="resAdult" value="<%=session.getAttribute("resAdult") %>">
+			<input type="hidden" id="resChild" value="<%=session.getAttribute("resChild") %>">
+			
 			
 			<div class="option">
 				
@@ -111,7 +128,8 @@
 				</div><br>
 				
 				<h3 class="opTit">REQUESTS</h3>
-				<textarea name="resRequest" placeholder="호텔 이용 시 문의하실 사항이 있으시면 입력해 주세요."></textarea>
+				<textarea 	name="resRequest" 
+							placeholder="호텔 이용 시 문의하실 사항이 있으시면 입력해 주세요.""></textarea>
 				<p class="txtGuide">전달해주신 요청사항을 최대한 반영하도록 최선을 다하겠습니다.<br>
 					다만, 부득이하게 반영되지 않을 수 있는 점, 양해 부탁드립니다.</p> 
 				
@@ -140,7 +158,7 @@
 											<ul class="infoData">
 												<li>
 													<span id="rDateResult">0000.00.00</span>&nbsp;/&nbsp;
-													<span id="roomPriceResult"><%=session.getAttribute("roomPrice") %></span>
+													<span id="roomPriceResult">[roomTotal]</span>
 												</li>
 											</ul>
 											
@@ -162,7 +180,7 @@
 											<ul class="infoData">
 												<li>
 													<span class="lfData">세금</span>
-													<span class="rtData" id="rTaxResult">0</span>
+													<span id="taxResult">[resTotal/10]</span>
 												</li>
 											</ul>
 											
@@ -179,14 +197,11 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="rTotalResult">0</em>KRW</span>
+						<span class="price"><em id="totalResult">[resTotal]</em>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>
-							<a href="<%=request.getContextPath() %>/step3.do" class="rsv_btn"
-								style="border: solid 1px;">
-								회원 예약
-							</a>
+							<input type="submit" value="회원 예약">
 						</div>
 					</div>
 				</div><!-- class="totalCont" -->
@@ -199,7 +214,7 @@
 		
 	</form>
 		
-	
+	<script type="text/javascript" src="js/res_step2.js"></script>
 	<jsp:include page="../../include/footer.jsp" />
 	
 	
