@@ -442,5 +442,63 @@ public class InfoDAO {
 
 		return list;
 	}
+	
+	// 다음글 호출하는 메서드
+	public InfoDTO getInfoUp(int info_no) {
+
+		InfoDTO dto = new InfoDTO();
+
+		try {
+			openConn();
+
+			sql = "select info_no, info_title from info where info_no > ? order by info_no";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, info_no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setInfoNo(rs.getInt("info_no"));
+				dto.setInfoTitle(rs.getString("info_title"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
+	}
+
+	// 이전글 호출하는 메서드
+	public InfoDTO getInfoDown(int info_no) {
+
+		InfoDTO dto = new InfoDTO();
+
+		try {
+			openConn();
+
+			sql = "select info_no, info_title from info where info_no < ? order by info_no desc";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, info_no);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				dto.setInfoNo(rs.getInt("info_no"));
+				dto.setInfoTitle(rs.getString("info_title"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return dto;
+	}
 
 }

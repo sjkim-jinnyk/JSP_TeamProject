@@ -24,9 +24,16 @@ public class InfoContAction implements Action {
 
 		// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
 		InfoDTO dto = dao.getInfoCont(info_no);
+		
+		InfoDTO up = dao.getInfoUp(info_no);
+		InfoDTO down = dao.getInfoDown(info_no);
+		System.out.println("up_no >>> " + up.getInfoNo());
+		System.out.println("down_no >>> " + down.getInfoNo());
 
 		// 키로 저장하여 view page로 이동
 		request.setAttribute("cont", dto);
+		request.setAttribute("up", up);
+		request.setAttribute("down", down);
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
