@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 
 .topArea{
 	display: table;
@@ -42,6 +45,8 @@
 .titDep2{
 	font-size: 30px;
 	font-weight: 500;
+	font-family: 'Roboto', sans-serif;
+	
 }
 
 .searchBox{
@@ -246,10 +251,181 @@ listTit{
 }
 
 
+/* QNA_WRITE 디자인 */
+
+.txtBox{
+	position: relative;
+    background: #f9f9f9;
+    padding: 40px 30px;
+    margin-top: 15px;
+}
+
+.txtBox .txt{
+	font-weight: 400;
+	font-size: 18px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
 
 
+.intWarp{
+	margin-top: 35px;
+}
+
+.intList > li .tit{
+	display: inline-block;
+    position: relative;
+}
 
 
+.intList > li .tit label{
+	display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.intList input[type=text]{
+	height: 60px;
+    padding: 8px 13px 8px 0;
+    color: #000;
+    border: solid #ccc;
+    border-width: 0 0 1px 0;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%
+}
+
+#dsId{
+	border-width: 0;
+	width: 50%
+}
+
+.intInner .intArea>textarea {
+    margin-top: 7px;
+}
+
+#dsTitle{
+	width: 70%;
+}
+
+textarea.noLine {
+    height: 115px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    width: 70%;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.intList > li .txtGuide {
+}
+
+p.txtGuide, .txtGuide li {
+    position: relative;
+    color: #888;
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -.01em;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.txtContGuide{
+	margin-top: -3px !important;
+}
+
+/* 파일 업로드 부분 CSS */
+
+.intDel .btnDel {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: transparent;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    line-height: 0;
+}
+
+.btnSC{
+	position: relative;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    color: #000;
+    border: 1px solid #000;
+    background: #fff;
+    transition: color 0.5s ease-in-out;
+    overflow: hidden;
+    z-index: 1;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btnM{
+    height: 60px;
+    padding: 0 25px;
+    line-height: 55px;
+    font-size: 17px;
+    letter-spacing: -.01em;
+    margin-left: 10px;
+}
+	
+
+.fileUpload>.btnSC.btnM {
+    position: absolute;
+    top: 5px;
+}
+
+.fileUpload label {
+    margin-left: 20px;
+}
+
+.fileUpload{
+	float: left;
+	width: 40%;
+}
+
+
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.btnArea{
+	text-align: center;
+    margin-top: 78px;
+}
+
+.qna_write_submit{
+	background: #151515 !important;
+    color: #fff !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    border-style: none;   /* 추가 */
+    min-width: 180px;
+}
+
+.qna_write_reset{
+	background: #fff !important;
+    color: black !important;
+    height: 50px;
+    padding: 0 25px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    min-width: 180px;
+    border: 0.1px solid; 
+}
 
 
 
