@@ -255,6 +255,7 @@ $(function() {
 		// 각각 room 이름에 해당하는 ajax 실행
 		if (room == 'STANDARD') {
 			$("#content_standard").empty();
+			search_none.classList.replace('on','off');
 			search_st.classList.replace('off','on');
 			search_d.classList.replace('on','off');
 			search_su.classList.replace('on','off');
@@ -295,7 +296,7 @@ $(function() {
 			search_st.classList.replace('on','off');
 			search_su.classList.replace('on','off');
 			search_p.classList.replace('on','off');
-
+			search_none.classList.replace('on','off');
 			$.ajax({
 				type : "post",
 				url : "./view/admin/search_room.jsp",
@@ -329,7 +330,7 @@ $(function() {
 			search_st.classList.replace('on','off');
 			search_d.classList.replace('on','off');
 			search_p.classList.replace('on','off');
-			
+			search_none.classList.replace('on','off');
 			$.ajax({
 				type : "post",
 				url : "./view/admin/search_room.jsp",
@@ -362,7 +363,7 @@ $(function() {
 			search_st.classList.replace('on','off');
 			search_d.classList.replace('on','off');
 			search_su.classList.replace('on','off');
-			
+			search_none.classList.replace('on','off');
 			$.ajax({
 				type : "post",
 				url : "./view/admin/search_room.jsp",
@@ -693,7 +694,7 @@ $("#check_p").click(function() {
 $(function() {
 	$("#user_btn").click(function() {
 		
-		
+		res_none.classList.replace('on','off');
 		res_cont1.classList.replace('off','on');
 		res_cont.classList.replace('off','on');
 		
