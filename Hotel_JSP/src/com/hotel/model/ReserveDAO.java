@@ -461,7 +461,7 @@ public class ReserveDAO {
 			System.out.println(out);
 			
 			
-			// 해당 예약일에서 룸번호를 받아오기윈한 sql문.
+			// 해당 예약일에서 룸번호를 받아오기윈한 sql문
 			sql = "select room_number from reserve where to_date(?,'yyyy-mm-dd') between to_date(res_in, 'yyyy-mm-dd') and to_date(res_out, 'yyyy-mm-dd')-1 OR TO_DATE(?, 'YYYY-MM-DD') BETWEEN TO_DATE(res_in, 'YYYY-MM-DD') " + 
 					"AND TO_DATE(res_out, 'YYYY-MM-DD')-1 order by room_number";
 			
