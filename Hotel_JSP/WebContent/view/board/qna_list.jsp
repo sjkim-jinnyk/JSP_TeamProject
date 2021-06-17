@@ -73,7 +73,7 @@
 						</strong>
 					</li>
 					<c:forEach begin="1" end="${dto.getQnaStep() }"></c:forEach>
-					<li id="type1"><a href="<%=request.getContextPath() %>/qna_cont.do?no=${dto.getQnaNo() }">${dto.getQnaTitle() }</a></span>
+					<li id="type1"><a href="<%=request.getContextPath() %>/qna_cont.do?no=${dto.getQnaGroup() }">${dto.getQnaTitle() }</a></span>
 					<li id="type2">${dto.getUserId() }</li>
 					<li id="type3">${dto.getQnaHit() }</li>
 					<li id="type4">${dto.getQnaDate().substring(0,10) }</li>
