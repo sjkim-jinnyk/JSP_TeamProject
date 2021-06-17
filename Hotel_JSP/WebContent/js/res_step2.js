@@ -25,10 +25,7 @@ $(document).ready( function(){
 	let rDateResult = document.getElementById('rDateResult'); // 총액 부분 표시값
 	rDateResult.innerText = year+ '.' +month+ '.' +date;
 	
-	
-	// resTotal 총액 구하기 -----------------------------
-	let roomPrice = document.getElementById('roomPrice'); // 세션으로 넘어온 방 가격 (hidden)
-	
+	getTotal();
 });
 
 
@@ -57,7 +54,9 @@ function count(type)  {
   
   // 결과 출력	  
   resultElement.innerText = number;
-  aBrResult.innerText = number;
+  aBrResult.innerText = number *45000;
+  
+  getTotal();
   
 } // count() end 
 
@@ -87,7 +86,9 @@ function count2(type)  {
   
   // 결과 출력	  
   resultElement.innerText = number;	
-  cBrResult.innerText = number;
+  cBrResult.innerText = number*27000;
+  
+  getTotal();
 } // count2() end
 
 // 엑스트라베드 증감
@@ -116,9 +117,63 @@ function count3(type)  {
   
   // 결과 출력	  
   resultElement.innerText = number;	
-  bedResult.innerText = number;
+  bedResult.innerText = number*44000;
+  
+  getTotal();
 } // count2() end
 
 
-
+// 총금액 구하기
+function getTotal(){
+	
+	// 필요한 값 받아오기
+	let roomPrice = Number($('#roomPrice').val()); 
+	let resNight = Number($('#resNight').val()); 
+	let resAdult = Number($('#resAdult').val()); 
+	let resChild = Number($('#resChild').val()); 
+	let resAdultBr = Number($('#resAdultBr').val()); 
+	let resChildBr = Number($('#resChildBr').val()); 
+	let resBed = Number($('#resBed').val()); 
+	
+	// 값 저장용 변수
+	let roomTotal = document.getElementById('roomTotal'); 
+	let resTax = document.getElementById('resTax'); 
+	let resTotal = document.getElementById('resTotal'); 
+	let resPretax = document.getElementById('resPretax'); 
+	
+	let aBrPrice = document.getElementById('aBrPrice'); //어른조식*45000
+	let cBrPrice = document.getElementById('cBrPrice'); //어린이조식*27000 
+	let bedPrice = document.getElementById('bedPrice'); //엑스트라베드*44000
+	
+	// 화면 출력용 변수
+	let roomPriceResult = document.getElementById('roomPriceResult'); 
+	let taxResult = document.getElementById('taxResult'); 
+	let totalResult = document.getElementById('totalResult'); 
+	
+	// 계산
+	let rmTotal = roomPrice * resNight * (resAdult + resChild);
+	let pretax = rmTotal+ (resAdultBr*45000)+(resChildBr*27000)+(resBed*44000); // 세금미포함
+	let tax = pretax /10;
+	let total = pretax + tax;
+	
+	
+	// 값 저장
+	roomTotal.value = rmTotal;
+	resPretax.value = pretax; // 세금미포함
+	resTotal.value = total; // 세금포함
+	resTax.value = tax;
+	
+	aBrPrice.value = resAdultBr*45000;
+	cBrPrice.value = resChildBr*27000;
+	bedPrice.value = resBed*44000;
+	
+	// 화면 출력
+	roomPriceResult.innerText = rmTotal;
+	totalResult.innerText = total;
+	taxResult.innerText = tax;
+	// resPretax는 step3에서만 쓰이므로 step2에서는 출력하지 않음
+	
+	console.log(raBrPrice);
+	
+} // getTotal() end
 

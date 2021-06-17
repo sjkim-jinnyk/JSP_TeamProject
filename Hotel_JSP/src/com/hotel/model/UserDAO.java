@@ -1,3 +1,4 @@
+
 package com.hotel.model;
 
 import java.sql.Connection;
