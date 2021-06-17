@@ -6,8 +6,14 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 
+<!-- <link rel="stylesheet" href="/resources/demos/style.css">-->
+
+<!--  
+<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+<link rel="stylesheet" href="css/MainStyle.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+-->
 
 </head>
 <body>
@@ -50,6 +56,13 @@
 						</p>
 						<button type="button" class="dToggleBtn">V</button><br>
 						<div class="dToggleInner">
+							[datepicker]
+							 <div id="element_to_pop_up">
+							      <a class="b-close">
+							        <i class="fas fa-times"></i>
+							      </a>
+							      <div id="datepicker"></div>
+							 </div>
 							<input type="date" id="resIn_val" onchange="viewDate('in');">&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="date" id="resOut_val" onchange="viewDate('out');">
 						</div>
@@ -85,9 +98,19 @@
 		</div>	
 		
 	</form>
-	<script type="text/javascript" src="js/res_step0.js"></script>
+	
 	<jsp:include page="../../include/footer.jsp" />
 	
+	<script type="text/javascript" src="js/res_step0.js"></script>
+	<!--  
+	<script type="text/javascript" src="js/fullpage.js"></script>
+	<script type="text/javascript" src="js/cal.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  	<script>
+    	AOS.init();
+  	</script>
+	-->
 
 </body>
 </html>

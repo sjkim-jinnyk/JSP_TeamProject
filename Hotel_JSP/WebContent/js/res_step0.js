@@ -15,6 +15,8 @@ $(document).ready( function(){
     	$( '.pToggleInner' ).toggle( 'slow' );
     });
 	
+	
+	
 	getDate();	// 달력 기본값 설정
 	
 	countNight(); // 숙박일수 계산
@@ -147,6 +149,7 @@ function count2(type)  {
 	  resultC.innerText = number;
 } // count2() end 
 
+
 // 날짜 입력값 받아서 화면에 출력하기 (완료)
 function viewDate(type){
 	let resultIn = document.getElementById('resIn_val'); 		// input type=date 안에 표시 날짜
@@ -157,6 +160,8 @@ function viewDate(type){
 
 	let resInView = document.getElementById('resInView'); 		// 상단 표시 날짜
 	let resOutView = document.getElementById('resOutView'); 
+	
+	if(resultIn.value )
 	
 	if(type === 'in'){
 		resIn.value = resultIn.value;
@@ -211,12 +216,3 @@ function countNight(){
 
 
 		
-// 어른인원 1명 이하일경우 제한
-function checkPerson(){
-	let resAdult = '<%=session.getAttribute("resAdult")%>';
-	
-	if(resAdult < 1){
-		alert('정확한 인원을 선택하여 주십시오.');
-		location.replace("history.back()");
-	}
-}
