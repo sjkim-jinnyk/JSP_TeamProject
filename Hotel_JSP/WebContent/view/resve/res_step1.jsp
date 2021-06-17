@@ -18,12 +18,15 @@
 <script>
 	
 	$(document).ready( function(){
+		
 		let userId = '<%=(String)session.getAttribute("userId")%>';
+		let resAdult = '<%=session.getAttribute("resAdult")%>';
 		
 		if(userId == 'null'){ // 로그인 안한 경우
 			alert('로그인 후 이용 가능합니다.');
 			location.replace("<%=request.getContextPath() %>/login.do");
 		}
+	
 	});
 	
 	// foreach로 반복생성되는 각각의 toggle들 개별 실행
@@ -70,13 +73,13 @@
 		</div>
 		
 		<!-- //topArea -->
-		<div class="selResult">
+<!-- 		<div class="selResult"> -->
 			<div class="inner">
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;[요일]&nbsp;-&nbsp;
-							<%=session.getAttribute("resOut") %>&nbsp;[요일]
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;-&nbsp;
+							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
 							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
 					<dl class="adults">
@@ -182,35 +185,10 @@
 		  		$("#"+roomNumber[i].number).empty();
 			}
 			
+			
+			
+			
 		</script>
 	<jsp:include page="../../include/footer.jsp" />
-
-	<script>
-	
-		// list로 가져오기 위한 변수 설정
-		var roomNumber = [];
-		var loop = 0;
-		
-		// java에서 가져온 변수를 JS List값으로 사용하기위해 JSON으로 파싱.
-		<%
-		for(int i=0; i < list.size(); i++){
-	  	%>
-	  	roomNumber[loop] = {
-	    	number:"<%=list.get(i).getRoomNumber() %>"
-	  	};
-	  	loop++;
-	  	<%
-		}
-		%>
-		
-		// 룸번호 값으로 받아서 해당 ID값 을 삭제.
-		for(i=0; i< roomNumber.length; i++){
-	  		console.log("list: "+roomNumber[i].number);
-	  		console.log($("#"+roomNumber[i].number));
-	  		
-	  		$("#"+roomNumber[i].number).empty();
-		}
-		
-	</script>
 </body>
 </html>

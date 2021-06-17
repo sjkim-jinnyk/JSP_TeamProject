@@ -40,8 +40,8 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;[요일]&nbsp;-&nbsp;
-							<%=session.getAttribute("resOut") %>&nbsp;[요일]
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;-&nbsp;
+							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
 							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
 					<dl class="room">
