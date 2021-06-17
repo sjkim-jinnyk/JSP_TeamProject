@@ -57,7 +57,8 @@
 			</div>
 		</div>
 			<!-- 질문글인 경우 답변글도 같이 보이게 -->
-		<c:set var="reply" value="${reply }" />
+		<c:set var="list" value="${reply }" />
+		<c:forEach items="${list }" var="reply">
 		<div class="qna_reply">
 				<c:if test="${reply.getQnaNo() != 0 }">
 					<div class="qna_topArea">
@@ -75,7 +76,9 @@
 						<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
 					</div>
 				</c:if>
-			</div>	
+			</div>
+		</c:forEach>
+				
 			<ul class="shortList">
 				<li class="prev">
 					<span>이전 글</span>
