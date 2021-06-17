@@ -189,7 +189,7 @@ $(function () {
           datepicker.inputs.checkin.val() +
             " - " +
             datepicker.inputs.checkout.val()
-        );
+        ); 
       }
     },
   });
