@@ -75,30 +75,30 @@
 						<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
 					</div>
 				</c:if>
-			</div>	
-			<ul class="shortList">
-				<li class="prev">
-					<span>이전 글</span>
-					<c:if test="${down.getQnaNo() != 0 }">
-						<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
-					</c:if>
-					<c:if test="${down.getQnaNo() == 0 }">
-						이전글이 없습니다.
-					</c:if>
-				</li>
-				<li class="next">
-					<span>다음 글</span>
-					<c:if test="${up.getQnaNo() != 0 }">
-						<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
-					</c:if>
-					<c:if test="${up.getQnaNo() == 0 }">
-						<td>다음글이 없습니다.</td>
-					</c:if>
-				</li>
-			</ul>
-			<br>
-			<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
-			<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+		</div>	
+		<ul class="shortList">
+			<li class="prev">
+				<span>이전 글</span>
+				<c:if test="${down.getQnaNo() != 0 }">
+					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
+				</c:if>
+				<c:if test="${down.getQnaNo() == 0 }">
+					이전글이 없습니다.
+				</c:if>
+			</li>
+			<li class="next">
+				<span>다음 글</span>
+				<c:if test="${up.getQnaNo() != 0 }">
+					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a>
+				</c:if>
+				<c:if test="${up.getQnaNo() == 0 }">
+					다음글이 없습니다.
+				</c:if>
+			</li>
+		</ul>
+		<br>
+		<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
+		<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
 	
 				
 					
@@ -108,9 +108,7 @@
 							}else {return; }">
 						<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"> --%>
 						
-					
-			<br> <br>
-		</div>
+		
 	</div>
 </body>
 </html>
