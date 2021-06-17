@@ -121,11 +121,13 @@
 				</div>
 			</div>
 			<div class="slide"> 
+				<div class="fp_bg_2"></div>
 				<div class="slide_box">
 					test 2
 				</div>
 			</div>
 			<div class="slide">
+				<div class="fp_bg_1"></div>
 				<div class="slide_box">
 					test 3
 				</div>
@@ -143,9 +145,11 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_room1.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+									<figcaption>
+    									<h3>a comfortable rest</h3>
+    									<p>Price : 407,400KRW ~</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
+								<a href="#"></a>
 							</span>
 							<strong class="tit">DELUXE KING</strong>
 							<span class="txt">
@@ -160,9 +164,7 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_room2.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">PREMIER SUITE KING</strong>
 							<span class="txt">
@@ -177,9 +179,7 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_room3.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">PRESTIGE HILL SUITE</strong>
 							<span class="txt">
@@ -203,9 +203,7 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_fitness.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">WestinWORKOUT®<br>Fitness Club</strong>
 							<span class="txt">
@@ -221,9 +219,7 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_swimmingPool.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">WestinWORKOUT®<br>Swimming Pool</strong>
 							<span class="txt">
@@ -238,9 +234,7 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_sauna.jpg">
-								<a href="#" class="btnSC btnL">
-									자세히 보기
-								</a>
+								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">WestinWORKOUT®<br>Sauna</strong>
 							<span class="txt">
