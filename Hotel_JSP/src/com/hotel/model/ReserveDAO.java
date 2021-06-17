@@ -508,10 +508,8 @@ public class ReserveDAO {
 			if(rs.next()) {
 				count = rs.getInt(1) + 1;
 			}
-				
-			System.out.println("예약 넘버 : " + count);
-			
-			sql = "insert into reserve values(?,?,?,?,sysdate,?,?,?,?,?,?,?,?,?,?)";
+						
+			sql = "insert into reserve values(?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
