@@ -104,30 +104,6 @@ $(".numMember button").on("click", function(){
 })
 
 
-// 숙박 일수 계산
-function countNight(){		
-	
-	// 직접 input date 에서 받은 값 받기 (yyyy-mm-dd 형식)
-	let start_string = $('#resIn').val(); 
-	let end_string = $('#resOut').val();
-
-	// split 으로 - 분해 (배열로 저장됨)
-	let start_res = start_string.split("/");
-	let end_res = end_string.split("/");
-	
-	// 분해된 데이터를 DATE 형식으로 계산하기 위해 재정렬
-    let start_date = new Date(start_res[0],Number(start_res[1]),start_res[2]);
-    let end_date = new Date(end_res[0],Number(end_res[1]),end_res[2]);
-    
-    // /1000:초, /60:분, /60:시간, /24:일 단위
-    let night_date = (end_date.getTime() - start_date.getTime())/1000/60/60/24;
-    
-    resNight.value = Number(night_date);
-    
-    console.log(night_date);
-    
-  
-} // countNight() end
 
 
 

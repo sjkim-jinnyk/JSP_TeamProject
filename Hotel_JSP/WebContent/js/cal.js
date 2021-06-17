@@ -197,8 +197,6 @@ $(function () {
         
         datepicker.inputs.datetext.text($.datepicker.formatDate(datepicker.dateFormat, checkInDate)+ 
         		" - " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
-        
-        countNight();
       }
     },
   });

@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 <%@page import="com.hotel.model.ReserveDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
+=======
+<%@page import="java.util.List"%>
+>>>>>>> branch 'main' of https://eunsooo@github.com/mc1128/JSP_TeamProject.git
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@page import="com.hotel.model.ReserveDAO"%>
+<%@page import="com.hotel.model.ReserveDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -20,7 +25,6 @@
 	// 참조: https://okky.kr/article/422641
 	function rsvToggle(count) {
 		 $("[name='roomSelect']:eq(" +(count-1)+ ")").toggle('slow');
-		 
 	}
 	
 </script>
@@ -38,7 +42,6 @@
 	List<ReserveDTO> list = dao.getRoomNum(checkIn, checkOut);
 	
 %>
-
 </head>
 <body>
 	
@@ -148,7 +151,33 @@
 	        </c:forEach>
 		</div>
 		
+		<script>
 		
+			// list로 가져오기 위한 변수 설정
+			var roomNumber = [];
+			var loop = 0;
+			
+			// java에서 가져온 변수를 JS List값으로 사용하기위해 JSON으로 파싱.
+			<%
+			for(int i=0; i < list.size(); i++){
+		  	%>
+		  	roomNumber[loop] = {
+		    	number:"<%=list.get(i).getRoomNumber() %>"
+		  	};
+		  	loop++;
+		  	<%
+			}
+			%>
+			
+			// 룸번호 값으로 받아서 해당 ID값 을 삭제.
+			for(i=0; i< roomNumber.length; i++){
+		  		console.log("list: "+roomNumber[i].number);
+		  		console.log($("#"+roomNumber[i].number));
+		  		
+		  		$("#"+roomNumber[i].number).empty();
+			}
+			
+		</script>
 	<jsp:include page="../../include/footer.jsp" />
 
 	<script>
