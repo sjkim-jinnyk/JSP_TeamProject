@@ -1,4 +1,7 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
 
 .mainpageTxt .mainBG img {
     position: absolute;
@@ -78,6 +81,10 @@
     justify-content: space-around;
     align-items: center;
     line-height: 30px;
+}
+
+.room-name{
+	margin-right: 20px;
 }
 
 .check {
@@ -195,12 +202,16 @@
 /* 2번째 세션 CSS */
 
 .slide_box{
-	width: 55%;
+	width: 60%;
     background: #fff;
     height: 50%;
     text-align: center;
-    margin-top: 50px;
-    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto 0px auto;
+    min-height: 500px;
+    min-width: 700px;
+    align-items: center;
 }
 
 .fp_bg_1{
@@ -212,12 +223,128 @@
     background-image: url(../images/bg_main01_02.jpg);
 }
 
+.cont .tit{
+	 font: 400 60px playfair;
+	 font-family: 'Playfair Display SC', serif;
+	 display: block;
+}
+
+.cont .sTit{
+	font: 400 20px gothamM;
+    margin-top: 10px;
+    display: block;
+}
 
 
+.txt01{
+	font-size: 25px;
+    margin-top: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.txt02{
+	font-size: 20px;
+    margin: 5px 0 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btnM{
+	border: 1px solid black;
+	min-width: 162px;
+   padding: 10px 25px 11px 25px;
+	font-size: 17px;
+    letter-spacing: -.01em;
+}
+
+.swipeBox{
+	display: flex;
+	height: 100%;
+	margin-left: 53px;
+	align-items: center;
+    justify-content: center;
+}
+
+.inner{
+    width: 65%;
+    height: 65%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateX(-50%);
+    min-width: 1290px;
+    max-height: 535px;
+}
+
+.offer{
+	 font-weight: bold;
+	 margin-left: 51px;
+	 margin-bottom: 30px;
+}
+
+.thum{
+	position: relative;
+    width: 360px;
+    height: 249px;
+    overflow: hidden;
+}
+
+.thum img{
+	 width: 360px;
+    height: 249px;
+}
+
+img{
+	border: 0;
+	vertical-align: top;
+}
+
+.swipeCont{
+	width: 360px;
+	height: 100%;
+	float: left;
+    margin-right: 50px;
+}
 
 
+.inner .tit{
+	width: 360px;
+	height: 70px;
+	font-size: 26px;
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 400;
+    display: block;
+    line-height: 30px;
+}
 
+.inner .txt{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 7px;
+	width: 360px;
+	color: #333;
+	font-size: 16px;
+}
 
+.inner .date{
+	font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #333;
+}
 
-
+.inner .locationTag{
+	display: block;
+	font-family: 'Noto Sans KR', sans-serif;
+	background: #d199ab;
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: 40px;
+	padding: .5em .64em;
+    color: #fff;
+    width: fit-content;
+}
 

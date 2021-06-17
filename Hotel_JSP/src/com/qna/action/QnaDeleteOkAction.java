@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
@@ -18,8 +19,11 @@ public class QnaDeleteOkAction implements Action {
 		int qna_no = Integer.parseInt(request.getParameter("no").trim());
 		String writerId = request.getParameter("id").trim();
 		
-		String userId = null;
-		userId = "id1";	// 임시 아이디 설정, 세션정보 받아오기 필요
+		HttpSession session = request.getSession();
+		String userId = (String)session.getAttribute("userId");
+		System.out.println("qna_del 세션 >>> " + (String)session.getAttribute("userId"));	// 세션 정보 확인
+		
+		// 관리자 세션정보 추가 필요
 		
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();

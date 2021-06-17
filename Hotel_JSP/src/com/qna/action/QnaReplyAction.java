@@ -36,7 +36,7 @@ public class QnaReplyAction implements Action {
 			request.setAttribute("cont", dto);
 			
 			forward.setRedirect(false);
-			forward.setPath("view/board/qna_reply.jsp");		// 세션정보 넘기기 필요
+			forward.setPath("view/board/qna_reply.jsp");
 		} else {
 			out.println("<script>");
 			out.println("alert('관리자만 답글을 달 수 있습니다.')");

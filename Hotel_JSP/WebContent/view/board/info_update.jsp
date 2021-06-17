@@ -17,7 +17,7 @@
 		<br> <br>
 
 		<form method="post"
-			action="<%=request.getContextPath() %>/info_update_ok.do">
+			action="<%=request.getContextPath() %>/info_update1_ok.do">
 
 			<table border="1" cellspacing="0" width="350">
 				<c:set var="dto" value="${cont }" />

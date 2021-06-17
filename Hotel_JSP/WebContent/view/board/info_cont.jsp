@@ -51,13 +51,40 @@
 			<tr>
 				<td colspan="2" align="center"><input type="button" value="글수정"
 					onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
-					<input type="button" value="글삭제"
-						onclick="if(confirm('삭제 하시겠습니까?')) {
-	                				location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
-								}else {return; }">
+					<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
+	                	location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
+						}else {return; }">
 					<input type="button" value="전체목록" onclick="location.href='info_list.do'">
 				</td>
 			</tr>
+		</table>
+		<br> <br>
+		
+		<!-- 다음글, 이전글 -->
+		<table border="1" cellspacing="0" width="500">
+			<c:set var="up" value="${up }" />
+			<c:set var="down" value="${down }" />
+				
+			<tr>
+				<th>다음글</th>
+				<c:if test="${up.getInfoNo() != 0 }">
+					<td><a href="<%=request.getContextPath() %>/info_cont.do?no=${up.getInfoNo() }">${up.getInfoTitle() }</a></td>
+				</c:if>
+				<c:if test="${up.getInfoNo() == 0 }">
+					<td>다음글이 없습니다.</td>
+				</c:if>
+			</tr>
+			
+			<tr>
+				<th>이전글</th>
+				<c:if test="${down.getInfoNo() != 0 }">
+					<td><a href="<%=request.getContextPath() %>/info_cont.do?no=${down.getInfoNo() }">${down.getInfoTitle() }</a></td>
+				</c:if>
+				<c:if test="${down.getInfoNo() == 0 }">
+					<td>이전글이 없습니다.</td>
+				</c:if>
+			</tr>
+
 		</table>
 
 	</div>

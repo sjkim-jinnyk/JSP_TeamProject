@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,23 +32,25 @@
         		<h3 class="inner_menu">개인정보관리</h3>
         		<ul class="menu_list">
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_update.do" class="login">회원 정보 수정</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/pwd_update.do" class="login">비밀번호 수정</a></li>
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_del.do" class="join">회원탈퇴</a></li>
         		</ul>
         	</div>
         </div>
         
         <section class="mainpage">
+        	<c:set var="count" value="${resCount }" />
         	<div class="welcom_msg">
-        		<p><span class="userName">ㅇㅇㅇ</span>님 환영합니다.</p>
+        		<p><span class="userName">${userName }</span>님 환영합니다.</p>
         	</div>
         	<div class="resPoint_box">
         		<ul class="resPoint">
         			<li>현재 예약 건수</li>
-        			<li>1 개</li>
+        			<li><span class="mypageCount">${count }</span> 개</li>
         		</ul>
         		<ul class="resPoint">
         			<li>잔여 포인트</li>
-        			<li>1000 p</li>
+        			<li><span class="mypageCount">${userPoint }</span> p</li>
         		</ul>
         	</div>
         </section>

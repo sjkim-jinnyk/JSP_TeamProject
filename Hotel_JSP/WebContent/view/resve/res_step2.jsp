@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 옵션 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/res_step2.js"></script>
+
 </head>
 <body>
 	
@@ -214,7 +214,7 @@
 		
 	</form>
 		
-	
+	<script type="text/javascript" src="js/res_step2.js"></script>
 	<jsp:include page="../../include/footer.jsp" />
 	
 	

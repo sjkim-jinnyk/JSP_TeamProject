@@ -2,9 +2,6 @@
   margin: 20px 20px 20px 20px;
 }
 
-input[type="text"] {
-  height: 30px;
-}
 
 .ui-datepicker-hover a,
 .ui-datepicker-hover:after {

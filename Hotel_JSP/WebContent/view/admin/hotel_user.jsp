@@ -10,12 +10,10 @@
 	UserDAO dao = UserDAO.getInstance();
 	UserDTO dto = dao.getId(userName, userPhone);
 	
-	//System.out.println("dto: " + dto.getUserId());
 	
 	ReserveDAO resdao = ReserveDAO.getInstance();
 	String list = resdao.getinfo_id(dto.getUserId());
 	
-	System.out.println("list: " + list);
 	out.println(list);
 
 %>

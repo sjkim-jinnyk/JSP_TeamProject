@@ -8,7 +8,8 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
 	<link rel="stylesheet" href="css/MainStyle.css">
-	<jsp:include page="/include/header.jsp" />
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<jsp:include page="include/header.jsp" />
     	
     <div id="fullpage">
 		<div class="section" style="background: url(images/bg_main01.jpg) no-repeat 50% 50% fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
@@ -23,7 +24,7 @@
 				<input type="hidden" name="resNight" id="resNight" value="0">			
 				<input type="hidden" name="resAdult" id="resAdult" value="2">								
 				<input type="hidden" name="resChild" id="resChild" value="0">
-        	<div class="reservation">
+        	<div class="reservation" data-aos="fade-up">
         		<div class="room-name">
             		<strong class="tit">
                         RESERVATION
@@ -96,11 +97,27 @@
     </div>
     
 	</div>
-		<div class="section">
+		<div class="section section_menu">
 			<div class="slide">
 				<div class="fp_bg_1"></div>
 				<div class="slide_box">
-					test 1
+					<div class="cont">
+						<strong class="tit">Meet Our Hotel</strong>
+						<span class="sTit">HERITAGE LEADS TO ONE FOR ALL</span>
+						<p class="txt01">
+							어디서나 한결같이 품격있는 서비와 시설로
+							<br>
+							고객에게 깊은 감동을 주는 호텔
+						</p>
+						<p class="txt02">
+							균형있는 라이프스타일을 추구하며 품격의 가치를 아는 고객을 위해
+							<br>
+							세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
+							<br>
+							호텔앤리조트에서 품격 있는 휴식을 즐기실 수 있습니다.
+						</p>
+						<a href="#" class="btnSC btnM">VIEW MORE</a>
+					</div>
 				</div>
 			</div>
 			<div class="slide"> 
@@ -114,7 +131,110 @@
 				</div>
 			</div>
 		</div>	
-		<div class="section" style="background : #0984e3">
+		<div class="section" style="background : white">
+			<div class="inner">
+				<div class="offer">
+					GO TO OFFERS >
+				</div>
+				<div class="slide">
+				
+					<div class="swipeBox">
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					</div>
+		
+				</div>
+				
+				<div class="slide">
+					
+					<div class="swipeBox">
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					<ul class="swipeCont">
+						<li class="swipeSlide">
+							<span class="thum">
+								<img src="images/STANDARD.jpg">
+								<a href="#" class="btnSC btnL">
+									자세히 보기
+								</a>
+							</span>
+							<strong class="tit">Testing SWIPECONT is GooD</strong>
+							<span class="txt">슬라이드 공지사항 작동 테스트 글 입니다. 잘 작동하는지 확인 바랍니다.</span>
+							<span class="date">2021.06.14</span>
+							<span class="locationTag">공지사항</span>
+						</li>						
+					</ul>
+					</div>
+		
+				</div>
+			</div>
+
 		</div>
 		<div class="section fp-auto-height">
 			<jsp:include page="/include/footer.jsp" />
@@ -125,5 +245,9 @@
 	<script type="text/javascript" src="js/fullpage.js"></script>
 	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  	<script>
+    	AOS.init();
+  	</script>
 </body>
 </html>

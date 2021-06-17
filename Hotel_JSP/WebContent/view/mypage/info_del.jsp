@@ -31,6 +31,7 @@
         		<h3 class="inner_menu">개인정보관리</h3>
         		<ul class="menu_list">
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_update.do" class="login">회원 정보 수정</a></li>
+            		<li class="munu_content"><a href="<%=request.getContextPath() %>/pwd_update.do" class="login">비밀번호 수정</a></li>
             		<li class="munu_content"><a href="<%=request.getContextPath() %>/info_del.do" class="join">회원탈퇴</a></li>
         		</ul>
         	</div>
@@ -41,8 +42,23 @@
 			<div>
 				<ul class="myPage_container">
 					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/info_update.do">회원 정보 수정</a></li>
+					<li class="resListChg_off"><a href="<%=request.getContextPath() %>/pwd_update.do">비밀번호 수정</a></li>
 					<li class="resListChg_on"><a href="<%=request.getContextPath() %>/info_del.do">회원탈퇴</a></li>
 				</ul>
+			</div>
+			
+			<div class="myInfo">
+				<p class="warningTxt">* 정보를 안전하게 보호하기 위해 비밀번호를 다시 한 번 확인합니다.</p>
+				<form method="post" action="<%=request.getContextPath() %>/info_del_ok.do">
+					<ul>
+						<li>PASSWORD <br>
+							<input type="password" class="chgTxt2" name="delPwd" placeholder="비밀번호를 입력해주세요." required>
+						</li>
+					</ul>
+					<div>
+						<input type="submit" class="confirm_btn" value="탈퇴하기">
+					</div>
+				</form>	
 			</div>
 		</div>
 	</div>
