@@ -38,19 +38,20 @@
 				<p>조회수</p>
 				<li>${dto.getInfoHit() }</li>
 			</ul>
-		</div>
-		<div class="qna_txtBox">
-			<p>${dto.getInfoContent() }</p>
-			
-			<p id="btn_p">
-			<c:if test="${adminId == dto.getAdminId()}">
-				<input type="button" id="qna_del" value="수정" onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
-				<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
-	                	location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
-						}else {return; }">
-			</c:if>
-			</p>
-			</c:if>
+		
+			<div class="qna_txtBox">
+				<p>${dto.getInfoContent() }</p>
+				
+				<p id="btn_p">
+				<c:if test="${adminId == dto.getAdminId()}">
+					<input type="button" id="qna_del" value="수정" onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
+					<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
+		                	location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
+							}else {return; }">
+				</c:if>
+				</p>
+				</c:if>
+			</div>
 		</div>
 		<c:set var="up" value="${up }" />
 		<c:set var="down" value="${down }" />
