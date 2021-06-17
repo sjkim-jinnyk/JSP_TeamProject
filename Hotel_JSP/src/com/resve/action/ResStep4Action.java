@@ -1,29 +1,72 @@
 package com.resve.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.ReserveDAO;
+import com.hotel.model.ReserveDTO;
 
 public class ResStep4Action implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
-		// step3.jsp(예약자 정보 입력 폼) 에서 넘어온
-		// checkIn, checkOut, adult, child,
-		// room_name, room_price
-
-		// resDate, resTotal, adult_br, child_br, extraBed, request 
-		// user_id, user_name
-		// 데이터 받아서 DB로 보내고,  step4.jsp 로 이동
-
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
+		// res_step0~3.jsp 에서 저장한 세션 값 받기
+		HttpSession session = request.getSession();
+		
+		String user_id = (String) session.getAttribute("userId");
+		String room_name = (String) session.getAttribute("roomName");
+		int room_number = Integer.parseInt((String) session.getAttribute("roomNumber"));
+		String res_in = (String) session.getAttribute("resIn");
+		String res_out = (String) session.getAttribute("resOut");
+		String res_nod = (String) session.getAttribute("resNight");
+		int res_adult = Integer.parseInt((String) session.getAttribute("resAdult"));
+		int res_child = Integer.parseInt((String) session.getAttribute("resChild"));
+		int res_adult_br = Integer.parseInt((String) session.getAttribute("resAdultBr"));
+		int res_child_br = Integer.parseInt((String) session.getAttribute("resChildBr"));
+		int res_bed = Integer.parseInt((String) session.getAttribute("resBed"));
+		int res_total = Integer.parseInt((String) session.getAttribute("resTotal"));
+		String res_request = (String) session.getAttribute("resRequest");
+		
+		// DTO 객체의 setter() 메서드에 넘어온 데이터들을 인자로 넘겨주자.
+		ReserveDTO dto = new ReserveDTO();
+		dto.setUserId(user_id);
+		dto.setRoomName(room_name);
+		dto.setRoomNumber(room_number);
+		dto.setResIn(res_in);
+		dto.setResOut(res_out);
+		dto.setResNod(res_nod);
+		dto.setResAdult(res_adult);
+		dto.setResChild(res_child);
+		dto.setResAdultBr(res_adult_br);
+		dto.setResChildBr(res_child_br);
+		dto.setResBed(res_bed);
+		dto.setResTotal(res_total);
+		dto.setResRequest(res_request);
+		
+		// DAO 객체에 DTO 객체를 인자로 넘겨서 DB에 예약내용을 저장하자.
+		ReserveDAO dao = ReserveDAO.getInstance();
+		int res = dao.resInsert(dto);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-
-		forward.setPath("/view/resve/res_step4.jsp");
+		PrintWriter out = response.getWriter();
+		
+		if(res > 0) {
+			forward.setRedirect(false);
+			forward.setPath("/view/resve/res_step4.jsp");
+		}else {
+			out.println("<script>");
+			out.println("alert('예약 실패')");
+			out.println("hidtory.back()");
+			out.println("</script>");
+		}
+		
 		return forward;
 	}
 

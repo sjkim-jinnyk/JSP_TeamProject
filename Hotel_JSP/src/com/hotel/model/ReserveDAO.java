@@ -491,6 +491,51 @@ public class ReserveDAO {
 	} // getInfo()
 	
 	
-	
-}
+	// 예약페이지 - 사용자가 예약 등록하는 메서드
+	public int resInsert(ReserveDTO dto) {
+		
+		int result = 0, count = 0;
 
+		try {
+			openConn();
+			
+			// 자동으로 커밋되는 것을 방지하는 기능
+			con.setAutoCommit(false);
+			sql = "select max(res_no) from reserve";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1) + 1;
+			}
+						
+			sql = "insert into reserve values(?,?,?,?,sysdate,?,?,?,?,?,?,?,?,?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, count);
+			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(3, dto.getRoomName());
+			pstmt.setInt(4, dto.getRoomNumber());
+			pstmt.setString(5, dto.getResIn());
+			pstmt.setString(6, dto.getResOut());
+			pstmt.setString(7, dto.getResNod());
+			pstmt.setInt(8, dto.getResAdult());
+			pstmt.setInt(9, dto.getResChild());
+			pstmt.setInt(10, dto.getResAdultBr());
+			pstmt.setInt(11, dto.getResChildBr());
+			pstmt.setInt(12, dto.getResBed());
+			pstmt.setInt(13, dto.getResTotal());
+			pstmt.setString(14, dto.getResRequest());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+	} // resInsert() end
+
+}
