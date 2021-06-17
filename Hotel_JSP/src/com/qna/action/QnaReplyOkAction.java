@@ -49,7 +49,9 @@ public class QnaReplyOkAction implements Action {
 		String qna_title = multi.getParameter("qna_title").trim();
 		String qna_content = multi.getParameter("qna_content").trim();
 		int qna_group = Integer.parseInt(multi.getParameter("qna_group").trim());
-		int qna_step = Integer.parseInt(multi.getParameter("qna_step").trim()) + 1;
+		
+		QnaDAO dao = QnaDAO.getInstance();
+		int qna_step = dao.getQnaStep(qna_group);
 
 		// getFilesystemName() : 서버상에 실제로 업로드될 파일 이름을 문자열로 반환
 		String qna_file = multi.getFilesystemName("qna_file");
@@ -60,8 +62,6 @@ public class QnaReplyOkAction implements Action {
 		dto.setQnaGroup(qna_group);
 		dto.setQnaStep(qna_step);
 		dto.setQnaFile(qna_file);
-		
-		QnaDAO dao = QnaDAO.getInstance();
 
 		int res = dao.replyQna(dto);
 

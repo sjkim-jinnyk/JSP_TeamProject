@@ -6,15 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>마이 페이지</title>
-</head>
-<body>
 
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
 	<jsp:include page="../../include/header.jsp" />
 
 	<div class="myPage_header">
-		<div>
+		<div class="top_Area">
 			<h1 class="header_title">MY PAGE</h1>
 			<p class="header_txt">멤버십 회원을 위한 다양한 혜택이 준비되어 있습니다.</p>
 		</div>

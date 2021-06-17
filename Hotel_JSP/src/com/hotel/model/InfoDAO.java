@@ -451,7 +451,7 @@ public class InfoDAO {
 		try {
 			openConn();
 
-			sql = "select info_no, info_title from info where info_no > ? order by info_no";
+			sql = "select info_no, info_title from info where info_no < ? order by info_no desc";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, info_no);
@@ -480,7 +480,7 @@ public class InfoDAO {
 		try {
 			openConn();
 
-			sql = "select info_no, info_title from info where info_no < ? order by info_no desc";
+			sql = "select info_no, info_title from info where info_no > ? order by info_no";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, info_no);

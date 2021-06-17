@@ -1,4 +1,7 @@
+<%@page import="com.hotel.model.ReserveDTO"%>
 <%@page import="java.util.List"%>
+<%@page import="com.hotel.model.ReserveDAO"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
@@ -13,7 +16,16 @@
 <title>객실 예약 - 객실, 요금 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
+	
+	$(document).ready( function(){
+		let userId = '<%=(String)session.getAttribute("userId")%>';
+		
+		if(userId == 'null'){ // 로그인 안한 경우
+			alert('로그인 후 이용 가능합니다.');
+			location.replace("<%=request.getContextPath() %>/login.do");
+		}
+	});
+	
 	// foreach로 반복생성되는 각각의 toggle들 개별 실행
 	// STANDARD count = 1 / DELUXE = 2 ... 
 	// 참조: https://okky.kr/article/422641
@@ -22,18 +34,18 @@
 	}
 	
 </script>
-
 <%
-	// 세션값에서 체크인, 체크아웃 날짜를 받아옴. 
-	String checkIn =  (String)session.getAttribute("resIn");
-	String checkOut =  (String)session.getAttribute("resOut");
+	// 세션값에서 체크인, 체크아웃 날짜 받아오기
+	String checkIn = (String)session.getAttribute("resIn");
+	String checkOut = (String)session.getAttribute("resOut");
 	
 	System.out.println(checkIn);
 	System.out.println(checkOut);
 	
-	// getRoomNum을 통해 예약된 방번호를 받아온다.
+	// ReserveDAO의 getSoldRoom()을 통해 예약된 방 번호을 받아온다.
 	ReserveDAO dao = ReserveDAO.getInstance();
 	List<ReserveDTO> list = dao.getRoomNum(checkIn, checkOut);
+	
 %>
 </head>
 <body>
@@ -123,7 +135,7 @@
 			                <li class="">
 			                   <div id="${status.count }0${s.count}" style='border: 1px solid'>
 			                       <div class="titArea">
-			                           <strong class="tit">${status.count }0${s.count}호</strong>
+										 <strong class="tit">${status.count }0${s.count}호</strong>
 			                       </div>
 			                       
 		                           <button type="button" class="detail_btn">
@@ -172,7 +184,33 @@
 			
 		</script>
 	<jsp:include page="../../include/footer.jsp" />
+
+	<script>
 	
-	
+		// list로 가져오기 위한 변수 설정
+		var roomNumber = [];
+		var loop = 0;
+		
+		// java에서 가져온 변수를 JS List값으로 사용하기위해 JSON으로 파싱.
+		<%
+		for(int i=0; i < list.size(); i++){
+	  	%>
+	  	roomNumber[loop] = {
+	    	number:"<%=list.get(i).getRoomNumber() %>"
+	  	};
+	  	loop++;
+	  	<%
+		}
+		%>
+		
+		// 룸번호 값으로 받아서 해당 ID값 을 삭제.
+		for(i=0; i< roomNumber.length; i++){
+	  		console.log("list: "+roomNumber[i].number);
+	  		console.log($("#"+roomNumber[i].number));
+	  		
+	  		$("#"+roomNumber[i].number).empty();
+		}
+		
+	</script>
 </body>
 </html>

@@ -215,7 +215,7 @@ public class ReserveDAO {
 				dto.setResDate(rs.getString("res_date"));
 				dto.setResIn(rs.getString("res_in"));
 				dto.setResOut(rs.getString("res_out"));
-				dto.setResNod(rs.getString("res_nod"));
+				dto.setResNod(rs.getInt("res_nod"));
 				dto.setResAdult(rs.getInt("res_adult"));
 				dto.setResChild(rs.getInt("res_child"));
 				dto.setResAdultBr(rs.getInt("res_adult_br"));
@@ -311,7 +311,7 @@ public class ReserveDAO {
 				dto.setResDate(rs.getString("res_date"));
 				dto.setResIn(rs.getString("res_in"));
 				dto.setResOut(rs.getString("res_out"));
-				dto.setResNod(rs.getString("res_nod"));
+				dto.setResNod(rs.getInt("res_nod"));
 				dto.setResAdult(rs.getInt("res_adult"));
 				dto.setResChild(rs.getInt("res_child"));
 				dto.setResAdultBr(rs.getInt("res_adult_br"));
@@ -489,7 +489,7 @@ public class ReserveDAO {
 		}
 		
 		return list;
-	} // getInfo()
+	} // getRoomNum()
 	
 	
 	// 예약페이지 - 사용자가 예약 등록하는 메서드
@@ -501,7 +501,8 @@ public class ReserveDAO {
 			openConn();
 			
 			// 자동으로 커밋되는 것을 방지하는 기능
-			con.setAutoCommit(false);
+			//con.setAutoCommit(false);
+			
 			sql = "select max(res_no) from reserve";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -509,7 +510,7 @@ public class ReserveDAO {
 				count = rs.getInt(1) + 1;
 			}
 						
-			sql = "insert into reserve values(?,?,?,?,sysdate,?,?,?,?,?,?,?,?,?,?)";
+			sql = "insert into reserve values(?, ?, ?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -519,7 +520,7 @@ public class ReserveDAO {
 			pstmt.setInt(4, dto.getRoomNumber());
 			pstmt.setString(5, dto.getResIn());
 			pstmt.setString(6, dto.getResOut());
-			pstmt.setString(7, dto.getResNod());
+			pstmt.setInt(7, dto.getResNod());
 			pstmt.setInt(8, dto.getResAdult());
 			pstmt.setInt(9, dto.getResChild());
 			pstmt.setInt(10, dto.getResAdultBr());
@@ -539,4 +540,5 @@ public class ReserveDAO {
 		return result;
 	} // resInsert() end
 
+	
 }

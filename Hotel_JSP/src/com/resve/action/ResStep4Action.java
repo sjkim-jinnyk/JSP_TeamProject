@@ -20,19 +20,20 @@ public class ResStep4Action implements Action {
 		// res_step0~3.jsp 에서 저장한 세션 값 받기
 		HttpSession session = request.getSession();
 		
-		String user_id = (String) session.getAttribute("userId");
+		String user_id =  (String)session.getAttribute("userId");
 		String room_name = (String) session.getAttribute("roomName");
-		int room_number = Integer.parseInt((String) session.getAttribute("roomNumber"));
+		int room_number = ((Integer)(session.getAttribute("roomNumber"))).intValue();
 		String res_in = (String) session.getAttribute("resIn");
 		String res_out = (String) session.getAttribute("resOut");
-		String res_nod = (String) session.getAttribute("resNight");
-		int res_adult = Integer.parseInt((String) session.getAttribute("resAdult"));
-		int res_child = Integer.parseInt((String) session.getAttribute("resChild"));
-		int res_adult_br = Integer.parseInt((String) session.getAttribute("resAdultBr"));
-		int res_child_br = Integer.parseInt((String) session.getAttribute("resChildBr"));
-		int res_bed = Integer.parseInt((String) session.getAttribute("resBed"));
-		int res_total = Integer.parseInt((String) session.getAttribute("resTotal"));
-		String res_request = (String) session.getAttribute("resRequest");
+		int res_nod = ((Integer)(session.getAttribute("resNight"))).intValue();
+		int res_adult = ((Integer)(session.getAttribute("resAdult"))).intValue();
+		int res_child = ((Integer)(session.getAttribute("resChild"))).intValue();
+		int res_adult_br = ((Integer)(session.getAttribute("resAdultBr"))).intValue();
+		int res_child_br = ((Integer)(session.getAttribute("resChildBr"))).intValue();
+		int res_bed = ((Integer)(session.getAttribute("resBed"))).intValue();
+		int res_total = ((Integer)(session.getAttribute("resTotal"))).intValue();
+		String res_request = (String)session.getAttribute("resRequest");
+
 		
 		// DTO 객체의 setter() 메서드에 넘어온 데이터들을 인자로 넘겨주자.
 		ReserveDTO dto = new ReserveDTO();
