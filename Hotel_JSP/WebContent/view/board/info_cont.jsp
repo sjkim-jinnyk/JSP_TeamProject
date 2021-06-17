@@ -76,7 +76,7 @@
 			</li>
 		</ul>
 		<br>
-		<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='info_list.do'"> </p>
+		<p id="btn_list"> <input type="button" value="목록" id="list_btn" onclick="location.href='info_list.do'"> </p>
 	</div>
 
 </body>
