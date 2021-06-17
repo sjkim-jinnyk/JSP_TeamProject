@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
@@ -16,8 +17,9 @@ public class InfoUpdateAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String adminId = null;
-		adminId = "ADMIN";	// 임시 아이디 설정, 세션정보 받아오기 필요
+		HttpSession session = request.getSession();
+		String adminId = (String)session.getAttribute("adminId");
+		System.out.println("info_write 세션 >>> " + (String)session.getAttribute("adminId"));	// 세션 정보 확인
 		
 		InfoDAO dao = InfoDAO.getInstance();
 		// 관리자 계정 체크 메서드
@@ -33,7 +35,6 @@ public class InfoUpdateAction implements Action {
 
 			// 키로 저장하여 view page로 이동
 			request.setAttribute("cont", dto);
-			request.setAttribute("id", adminId);
 			
 			forward.setRedirect(false);
 			forward.setPath("view/board/info_update.jsp");	// 세션정보 넘기기 필요

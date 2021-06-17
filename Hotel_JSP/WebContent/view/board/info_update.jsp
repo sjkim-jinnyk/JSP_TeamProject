@@ -26,7 +26,7 @@
 					<tr>
 						<th>작성자</th>
 						<td>
-							<input type="text" name="info_id" readonly="readonly" value="${id }">
+							<input type="text" name="info_id" readonly="readonly" value="${dto.getAdminId() }">
 						</td>
 					</tr>
 
