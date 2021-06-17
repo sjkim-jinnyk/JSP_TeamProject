@@ -19,6 +19,7 @@ public class UserLogoutAction implements Action {
 		
 		// 세션 만료
 		session.removeAttribute("userId");
+		session.removeAttribute("adminId");
         session.removeAttribute("userName");
         session.removeAttribute("userPoint");
 		

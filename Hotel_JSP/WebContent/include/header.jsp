@@ -135,7 +135,8 @@
             
             <input type="button" class="res_btn" value="RESERVATION" onclick="location.href='step0.do'" >
             
-            <%System.out.println((String)session.getAttribute("userId")); %>
+            <%System.out.println("헤더에서 userId 세션값 >>> " + (String)session.getAttribute("userId")); %>
+            <%System.out.println("헤더에서 user_save 세션값 >>> " + (String)session.getAttribute("user_save")); %>
         </div>
     </header>
 

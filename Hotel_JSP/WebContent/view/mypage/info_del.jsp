@@ -38,6 +38,7 @@
         </div>
         
         <div class="myPage_box">
+        <div class="myPage_box_inner">
 			<p class="headline">개인정보관리</p>
 			<div>
 				<ul class="myPage_container">
@@ -52,14 +53,15 @@
 				<form method="post" action="<%=request.getContextPath() %>/info_del_ok.do">
 					<ul>
 						<li>PASSWORD <br>
-							<input type="password" class="chgTxt2" name="delPwd" placeholder="비밀번호를 입력해주세요." required>
+							<input type="password" class="chgTxt2_origin" name="delPwd" placeholder="비밀번호를 입력해주세요." required>
 						</li>
 					</ul>
-					<div>
+					<ul class="submint_box">
 						<input type="submit" class="confirm_btn" value="탈퇴하기">
-					</div>
+					</ul>
 				</form>	
 			</div>
+		  </div>
 		</div>
 	</div>
 	

@@ -14,19 +14,19 @@ public class ResStep3Action implements Action {
 
 		HttpSession session = request.getSession();
 		
-		String resAdultBr = request.getParameter("resAdultBr");
-		String resChildBr = request.getParameter("resChildBr");
-		String resBed = request.getParameter("resBed");
+		int resAdultBr = Integer.parseInt(request.getParameter("resAdultBr"));
+		int resChildBr = Integer.parseInt(request.getParameter("resChildBr"));
+		int resBed = Integer.parseInt(request.getParameter("resBed"));
 		String resRequest = request.getParameter("resRequest");
 		
-		String roomTotal = request.getParameter("roomTotal");
-		String resTax = request.getParameter("resTax");
-		String resPretax = request.getParameter("resPretax");
-		String resTotal = request.getParameter("resTotal");
+		int roomTotal = Integer.parseInt(request.getParameter("roomTotal"));
+		int resTax = Integer.parseInt(request.getParameter("resTax"));
+		int resPretax = Integer.parseInt(request.getParameter("resPretax"));
+		int resTotal = Integer.parseInt(request.getParameter("resTotal"));
 		
-		String aBrPrice = request.getParameter("aBrPrice");
-		String cBrPrice = request.getParameter("cBrPrice");
-		String bedPrice = request.getParameter("bedPrice");
+		int aBrPrice = Integer.parseInt(request.getParameter("aBrPrice"));
+		int cBrPrice = Integer.parseInt(request.getParameter("cBrPrice"));
+		int bedPrice = Integer.parseInt(request.getParameter("bedPrice"));
 		
 		session.setAttribute("resAdultBr", resAdultBr); // 어른 조식
 		session.setAttribute("resChildBr", resChildBr); // 아이 조식

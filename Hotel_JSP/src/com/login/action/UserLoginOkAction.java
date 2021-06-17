@@ -21,11 +21,13 @@ public class UserLoginOkAction implements Action {
 
 		String userId = request.getParameter("userId").trim();
 		String userPwd = request.getParameter("userPwd").trim();
-		int login_save = Integer.parseInt(request.getParameter("id_save_int").trim());
+		int login_save = Integer.parseInt(request.getParameter("id_save_int").trim()); // 아이디 저장 히든 값
+		
 		
 		// loginForm에서 넘어온 값 콘솔 창에 출력
 		System.out.println("아이디 >>> " + userId);
 		System.out.println("비밀번호 >>> " + userPwd);
+		System.out.println("아이디 체크 >>> " + login_save);
 		
 		ActionForward forward = new ActionForward();
 		PrintWriter out = response.getWriter();
@@ -64,10 +66,11 @@ public class UserLoginOkAction implements Action {
 				// 회원인 경우 회원 정보 가져오기
 				UserDTO dto = dao.getUser(userId);
 				
-				
+				// 아이디 저장 히든 값 확인
 				if(login_save == 1) {
 					session.setAttribute("user_save", dto.getUserId());
-					System.out.println("값 저장 완료");
+					System.out.println("값 저장 완료 >>> " + (String)session.getAttribute("user_save"));
+					
 				}
 				
 				// 세션 값 저장

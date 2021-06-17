@@ -12,6 +12,7 @@
 	
 	<jsp:include page="../../include/header.jsp" />
 	
+	
 	<div class="delBox">
 		<div class="delinner">
 			<p>회원 탈퇴 되었습니다.</p>
@@ -19,6 +20,7 @@
 			<input type="button" value="메인 홈으로 가기" class="goMain_btn" onclick="location.href='index.do'">
 		</div>
 	</div>
+	
 	
 	<jsp:include page="../../include/footer.jsp" />
 

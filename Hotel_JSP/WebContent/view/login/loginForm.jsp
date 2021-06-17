@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인 페이지</title>
 
-<link rel="stylesheet" href="css/LoginStyle.css">
+	<link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />
 	
 	<div class="topArea">
@@ -19,6 +19,7 @@
 	<div class="login_inner">
 		<form method="post" action="<%=request.getContextPath() %>/user_login_ok.do">
 			
+			<!-- 아이디 저장 히든 값 -->
 			<input type="hidden" name="id_save_int" id="id_save_int" value="0">
 			
 			<ul class="login_form">
@@ -66,14 +67,20 @@
 		
 	  </form>
 	</div>
+	
+	<!-- 아이디 저장 히든 값 스크립트 -->
 	<script>
-		let userId_get = <%=(String)session.getAttribute("user_save") %>
-		
+		let userId_get = "<%=(String)session.getAttribute("user_save") %>"
+
 		if(userId_get != null){
 			$("#userId").val(userId_get);
 		}
 	</script>
+	
+	<!-- 로그인 스크립트 -->
 	<script type="text/javascript" src="js/loginPage.js"></script>
+	
+	<!-- 푸터 -->
 	<jsp:include page="../../include/footer.jsp" />
 
 </body>
