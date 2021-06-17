@@ -174,19 +174,3 @@ function pwd_check(){
 	document.getElementById('userEmail_1').value = email[0];
 	document.getElementById('userEmail_2').value = email[1];
 }*/
-
-
-// 아이디 저장 
-$(document).ready(function() {
-	
-	 $("#idSaveCheck").change(function(){ 
-	        if($("#idSaveCheck").is(":checked")){ 
-	        	console.log("체크 동작확인.")
-	   
-	        }else{ 
-	          
-	        }
-	    });
-    
-});
-

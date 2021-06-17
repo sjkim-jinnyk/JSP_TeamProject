@@ -21,11 +21,13 @@ public class UserLoginOkAction implements Action {
 
 		String userId = request.getParameter("userId").trim();
 		String userPwd = request.getParameter("userPwd").trim();
-		int login_save = Integer.parseInt(request.getParameter("id_save_int").trim());
+		int login_save = Integer.parseInt(request.getParameter("id_save_int").trim()); // 아이디 저장 히든 값
+		
 		
 		// loginForm에서 넘어온 값 콘솔 창에 출력
 		System.out.println("아이디 >>> " + userId);
 		System.out.println("비밀번호 >>> " + userPwd);
+		System.out.println("아이디 체크 >>> " + login_save);
 		
 		ActionForward forward = new ActionForward();
 		PrintWriter out = response.getWriter();
@@ -37,9 +39,6 @@ public class UserLoginOkAction implements Action {
 		 
 		AdminDAO dao2 = AdminDAO.getInstance();
 		int adminLogin = dao2.adminLogin(userId, userPwd);
-		
-		
-
 		
 		if(adminLogin > 0) {
 			// 관리자인 경우 관리자 정보 가져오기
@@ -67,18 +66,20 @@ public class UserLoginOkAction implements Action {
 				// 회원인 경우 회원 정보 가져오기
 				UserDTO dto = dao.getUser(userId);
 				
+				// 아이디 저장 히든 값 확인
 				if(login_save == 1) {
-		               session.setAttribute("user_save", dto.getUserId());
-		               System.out.println("값 저장 완료");
-		            }
+					session.setAttribute("user_save", dto.getUserId());
+					System.out.println("값 저장 완료 >>> " + (String)session.getAttribute("user_save"));
+					
+				}
 				
 				// 세션 값 저장
 				session.setAttribute("userId", dto.getUserId());
 				session.setAttribute("userName", dto.getUserName());
 				session.setAttribute("userPoint", dto.getUserPoint());
-				
+			
 				// 세션값 저장되었는지 콘솔창에서 확인
-				System.out.println("UserLoginOkAction에서 userId 세션값 >>>" + (String)session.getAttribute("userId"));
+				System.out.println("UserLoginOkAction에서 userId >>>" + (String)session.getAttribute("userId"));
 			
 				forward.setRedirect(true);
 				forward.setPath("index.do");	

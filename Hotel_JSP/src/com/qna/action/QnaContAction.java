@@ -24,10 +24,26 @@ public class QnaContAction implements Action {
 
 		// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
 		QnaDTO dto = dao.getQnaCont(qna_no);
+				
+		// 답글이 아닌 질문글인 경우
+		if (dto.getQnaStep() == 0) {
+			// 해당 글의 답변 상세 내역을 조회하는 메서드 호출
+			QnaDTO dto2 = dao.getQnaReplyCont(qna_no);
+			System.out.println("reply_no >>> " + dto2.getQnaNo());
+			request.setAttribute("reply", dto2);
 
+		}
+		
+		QnaDTO up = dao.getQnaUp(qna_no);
+		QnaDTO down = dao.getQnaDown(qna_no);
+		System.out.println("up_no >>> " + up.getQnaNo());
+		System.out.println("down_no >>> " + down.getQnaNo());
+		
 		// 키로 저장하여 view page로 이동
 		request.setAttribute("cont", dto);
-
+		request.setAttribute("up", up);
+		request.setAttribute("down", down);
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("view/board/qna_cont.jsp");

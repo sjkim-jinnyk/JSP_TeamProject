@@ -19,8 +19,8 @@ public class UserLogoutAction implements Action {
 		
 		// 세션 만료
 		session.removeAttribute("userId");
-		session.removeAttribute("userName");
-		session.removeAttribute("userPoint");
+        session.removeAttribute("userName");
+        session.removeAttribute("userPoint");
 		
 		forward.setRedirect(true);
 		forward.setPath("index.do");
