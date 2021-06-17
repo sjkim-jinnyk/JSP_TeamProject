@@ -2,7 +2,13 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	HttpSession session1 = request.getSession();
+	String userId = (String)session1.getAttribute("userId");
+	String adminId = (String)session1.getAttribute("adminId");
+	System.out.println("admin 세션 >>> " + adminId);	// 세션 정보 확인
 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,103 +27,87 @@
 			</p>
 		</div>
 	</div>
+	
 	<div class="inner">
-		<div class="qna_cont">
 		<c:set var="dto" value="${cont }" />
+		<div class="qna_cont">
 			<h2 class="titDep2">${dto.getQnaTitle() }</h2>
 			<ul class="infoData">
-				<li id="qna_id">${dto.getUserId() }</li>
+				<p>작성자</p>
+				<li>${dto.getUserId() }</li>
+				<p>등록일자</p>
 				<li>${dto.getQnaDate().substring(0,10) }</li>
-				<li id="infohit">조회수: ${dto.getQnaHit() }</li>
+				<p>조회수</p>
+				<li>${dto.getQnaHit() }</li>
 			</ul>
-			
-			<p class="txtBox">
-				${dto.getQnaContent() }
-				<br><br><br><br>
-				첨부파일: 
+		
+			<div class="qna_txtBox">
+				<p>${dto.getQnaContent() }</p>
+				<span id="file_p">첨부파일 &nbsp; </span>
 				<a href="<%=request.getContextPath() %>/file/qna/${dto.getQnaFile() }" download>${dto.getQnaFile() }</a>
-			</p>
-			
-			<ul class="shortList">
-				<li class="prev">
-					<span>이전 글</span>
-					<c:if test="${down.getQnaNo() != 0 }">
-						<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
-					</c:if>
-					<c:if test="${down.getQnaNo() == 0 }">
-						이전글이 없습니다.
-					</c:if>
-				</li>
-				<li class="next">
-					<span>다음 글</span>
-					<c:if test="${up.getQnaNo() != 0 }">
-						<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
-					</c:if>
-					<c:if test="${up.getQnaNo() == 0 }">
-						<td>다음글이 없습니다.</td>
-					</c:if>
-				</li>
-			</ul>
-			<br>
-			<input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'">
-	
 				
-					
-						<%-- <input type="button" value="글수정" onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
-						<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
+				<p id="btn_p">
+				<c:if test="${userId == dto.getUserId()}">
+					<input type="button" id="qna_del" value="수정" onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
+					<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
 		                	location.href='qna_delete_ok.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'
 							}else {return; }">
-						<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"> --%>
-						
-					
-			<br> <br>
+				</c:if>
+				</p>
+			</div>
 		</div>
-			
 			<!-- 질문글인 경우 답변글도 같이 보이게 -->
+		<c:set var="list" value="${reply }" />
+		<c:forEach items="${list }" var="reply">
 		<div class="qna_reply">
-			<c:set var="reply" value="${reply }" />
-			<c:if test="${reply.getQnaNo() != 0 }">
-				<table border="1" cellspacing="0" width="500">
-	
-					<tr>
-						<th>작성자</th>
-						<td>${reply.getUserId() }</td>
-					</tr>
-	
-					<tr>
-						<th>글제목</th>
-						<td>${reply.getQnaTitle() }</td>
-					</tr>
-	
-					<tr>
-						<th>글내용</th>
-						<td>
-							<textarea rows="7" cols="30" readonly>${reply.getQnaContent() }</textarea>
-						</td>
-					</tr>
-	
-					<tr>
-						<th>첨부파일</th>
-						<td>
-							<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
-						</td>
-					</tr>
-	
-					<tr>
-						<th>조회수</th>
-						<td>${reply.getQnaHit() }</td>
-					</tr>
-	
-					<tr>
-						<th>작성일자</th>
-						<td>${reply.getQnaDate() }</td>
-					</tr>
-				</table>
-				<br> <br>
+				<c:if test="${reply.getQnaNo() != 0 }">
+					<div class="qna_topArea">
+						<h4 class="titDep2"><i class="fas fa-angle-double-right"></i> [답변] ${dto.getQnaTitle() }</h4>
+						<ul class="infoData">
+							<p>답변자</p>
+							<li>${reply.getUserId() }</li>
+							<p>등록일자</p>
+							<li>${reply.getQnaDate().substring(0,10) }</li>
+						</ul>
+					</div>
+					<div class="qna_txtBox">
+						<p>${reply.getQnaContent() }</p>
+						<span id="file_p">첨부파일 &nbsp; </span>
+						<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
+					</div>
+				</c:if>
+			</div>
+		</c:forEach>
+				
+		<ul class="shortList">
+			<li class="prev">
+				<span>이전 글</span>
+				<c:if test="${down.getQnaNo() != 0 }">
+					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
+				</c:if>
+				<c:if test="${down.getQnaNo() == 0 }">
+					이전글이 없습니다.
+				</c:if>
+			</li>
+			<li class="next">
+				<span>다음 글</span>
+				<c:if test="${up.getQnaNo() != 0 }">
+					<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
+				</c:if>
+				<c:if test="${up.getQnaNo() == 0 }">
+					<td>다음글이 없습니다.</td>
+				</c:if>
+			</li>
+		</ul>
+		<c:forEach items="${list }" var="reply">
+			<c:if test="${adminId == reply.getUserId()}">
+				<p id="btn_p"> 
+					<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
 			</c:if>
-		</div>
+		</c:forEach>
+		<p id="btn_list">
+		<input type="button" value="목록" id="list_btn" onclick="location.href='qna_list.do'"></p>
 			
-		
 	</div>
 </body>
 </html>

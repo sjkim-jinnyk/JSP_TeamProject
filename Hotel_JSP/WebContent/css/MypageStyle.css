@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 /* 
  * 마이 페이지 메인
  */
@@ -10,7 +10,10 @@
 	width: 85%;
 	margin: auto;
 	margin-top: 150px;
+	max-width: 1800px;
+	padding: 97px 0 90px;
 }
+
 
 .header_title {
 	font: 500 60px playfair;
@@ -21,7 +24,7 @@
 
 .header_txt {
 	margin-top: 5px;
-	font-size: 20px;
+	font-size: 22px;
 	font-family: 'Noto Sans KR', sans-serif;
 	letter-spacing: -.01em;
 	opacity: 0.8;
@@ -32,7 +35,9 @@
 	width: 85%;
 	margin: auto;
 	margin-top: 20px;
-	padding-bottom: 800px;
+	padding-bottom: 100px;
+	max-width: 1800px;
+	min-height: 1400px;
 }
 
 .myPage_inner {
@@ -41,23 +46,29 @@
 }
 
 .innerBox {
+	font-size: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+	font-weight: 600;
 	padding: 50px;
     background-color: #f9f9f9;
     margin-top: 50px;
+    height: 1200px;
 }
 
 .inner_menu {
+	font-weight: 600;
 	margin-bottom: 20px;
-	font: 500 25px playfair;
     letter-spacing: -.025em;
+    font-size: 25px;
 }
 
 .menu_list {
 	opacity: 0.8;
     margin-bottom: 30px;
-    font: 500 20px playfair;
+    font-size: 22px;
     letter-spacing: -.025em;
     line-height: 2.5;
+    font-size: 18px;
 }
 
 .mainpage {
@@ -69,16 +80,14 @@
 
 .mainpage_box {
 	margin: 150px 0;
+	font-size: 22px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .welcom_msg {
 	margin-bottom: 60px;
-    font: 500 35px playfair;
-    letter-spacing: -.025em;
-}
-
-.userName {
-	color: #989442;
+    font-size: 35px;
+    font-weight: 600;
 }
 
 .resPoint_box {
@@ -91,7 +100,7 @@
 	border: 1px solid;
    	width: 50%;
     padding: 15px;
-    font: 500 25px playfair;
+    font-size: 25px;
     letter-spacing: -.025em;
     line-height: 1.5;
 }
@@ -100,7 +109,7 @@
 	border: 1px solid;
    	width: 50%;
     padding: 15px;
-    font: 500 25px playfair;
+    font-size: 25px;
     letter-spacing: -.025em;
     line-height: 1.5;
     border-left: 0;
@@ -114,18 +123,25 @@
 .myPage_box {
 	width: 75%;
     display: table;
-	margin: 50px 0px 50px 30px;
-	margin-bottom: 0;
+}
+
+.myPage_box_inner {
+	margin: 50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    
 }
 
 .headline {
-	font: 500 20px/1 notokrR;
+	font-size: 30px;
+	font-weight: 600;
     letter-spacing: -.025em;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
 .myPage_container {
 	display: flex;
+	font-size: 22px;
 }
 
 /*
@@ -133,36 +149,37 @@
  */
 
 .resListChg_on {
-	width: 25%;
-	height: 40px;
-	border: 1px solid black;
-	border-bottom: 0;
-	text-align: center;
-	margin-bottom: 30px;
-	font: 500 14px/1 notokrR;
+	font-weight: 600;
+	width: 50%;
+    height: 50px;
+    border: 1.2px solid black;
+    border-bottom: 0;
+    text-align: center;
+    margin-bottom: 30px;
     letter-spacing: -.025em;
-    line-height: 2.5;
+    line-height: 2;
 }
 
 .resListChg_off {
-	width: 25%;
-	height: 40px;
-	border: 1px solid black;
+	font-weight: 600;
+	width: 50%;
+	height: 50px;
+	border: 1.2px solid black;
 	border-left: hidden;
     border-right: hidden;
     border-top: hidden;
 	text-align: center;
 	margin-bottom: 30px;
-	font: 500 14px/1 notokrR;
     letter-spacing: -.025em;
-    line-height: 2.5;
+    line-height: 2;
 }
 
 .res_Container {
+	font-size: 25px;
 }
 
 .res_content {
-	border: 1px solid #ccc;
+	border: 2px solid #ccc;
 	width: 49%;
 	margin: 10px 0;
 	padding: 10px 15px;
@@ -171,17 +188,20 @@
 
 .reserved {
 	color: #989442;
+	font-weight: 600;
 }
 
 .res_info {
-	font: 500 14px/1 notokrR;
+	font-size: 20px;
     letter-spacing: -.025em;
     opacity: 0.8;
     margin: 10px 0;
 }
 
 .res_margin{
-	margin-top: 30px
+	font-size: 18px;
+	margin-top: 30px;
+	letter-spacing: 0px;
 }
 
 .noRes_box {
@@ -192,6 +212,11 @@
     width: 50%;
     display: inline-block;
     padding: 20px 0;
+}
+
+.noRes_inner li.noRes_Point {
+	font-size: 50px;
+    font-weight: 600;
 }
 
 .goRes_btn{
@@ -206,33 +231,37 @@
 
 .resInfo_title {
 	padding: 10px 0;
+	font-weight: 600;
+}
+
+.resInfo_inner {
+	border-top: 2px solid #ccc;
+	border-bottom: 2px solid #ccc;
+	padding: 20px 10px 10px;
 }
 
 .resList_box {
-    border-bottom: 1px solid #ccc;
-    padding: 30px 20px 20px;
+    padding: 0 20px;
     margin-bottom: 70px;
-    font: 500 17px/1 notokrR;
     letter-spacing: -.025em;
     line-height: 2;
 }
 
 .resCount {
 	margin-bottom: 15px;
-	font: 500 17px/1 notokrR;
 	font-weight: bold;
 }
 
 .resChng_btn {
 	background: #151515 !important;
     color: #fff !important;
-    height: 50px;
-    font-size: 14px;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
     letter-spacing: -.01em;
     border-style: none;
-    min-width: 100px;
-    height: 27px;
     float: right;
+    font-size: 16px;
 	
 }
 
@@ -241,9 +270,10 @@
 }
 
 .res_container2 {
+	font-size: 22px;
     display: inline-block;
     position: absolute;
-    margin: 30px 50px;
+    margin: 20px 50px;
     line-height: 2;
 }
 
@@ -256,37 +286,45 @@
 }
 
 .resList_box2 {
-    border-bottom: 1px solid #ccc;
     padding: 20px 20px;
     margin-bottom: 70px;
-    font: 500 14px/1 notokrR;
     letter-spacing: -.025em;
     line-height: 2;
 }
 
+.resInfo_inner {
+	font-size: 22px
+}
+
 .box_inner{
 	text-align: center;
-	margin-bottom: 15px;
+	margin-bottom: 60px;
 }
 
 .box_inner2 {
-	margin-bottom: 20px;
+	margin-bottom: 60px;
 }
 
 .request_box {
 	width: 100%;
 	margin-top: 8px;
+	font-size: 22px;
 }
 
 .boxCSS {
 	border: 0;
 	border-bottom: 1px solid;
-	margin: 0 53px 0 8px;
+	margin: 0 60px 0 10px;
 	text-align: center;
+	margin-bottom: 10px;
+}
+
+.boxCSS:after{
+	border-bottom: 1px solid;
 }
 
 .resPrice_box {
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 .resPrice_inner {
@@ -299,19 +337,20 @@
 	display: table-cell;
     vertical-align: top;
     padding: 0 50px 0 0;
-    
+    font-weight: 600;
 }
 
 .price_title {
 	color: #989442;
-	font-weight: 550;
-    margin-bottom: 5px;s
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 .infoData {
 	margin: 0;
     padding: 0;
     list-style: none;
+    font-weight: 500;
 }
 
 .data1 {
@@ -325,7 +364,8 @@
 
 .box_inner3{
 	border: 0;
-	border-top: 1px solid #ccc;
+	border-top: 2px solid #ccc;
+	font-weight: 600;
 	background-color: #f9f9f9;
 	text-align: center;
 	padding: 20px 0;
@@ -333,7 +373,7 @@
 
 .total_price {
 	font-family: 'Playfair Display SC', serif;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .box_inner4{
@@ -343,19 +383,23 @@
 }
 
 .submit_btn {
+	font-size: 22px;
+	font-family: 'Noto Sans KR', sans-serif;
 	background: #151515 !important;
     color: #fff !important;
-    height: 40px;
+    height: 60px;
     padding: 0 25px;
-    font-size: 15px;
+    width: 150px;
     border-style: none;
 }
 
 .reset_btn {
+	font-size: 22px;
+	font-family: 'Noto Sans KR', sans-serif;
     background: #fff !important;
-    height: 40px;
+    height: 60px;
     padding: 0 25px;
-    font-size: 15px;
+    width: 150px;
     border: 0.1px solid; 
 }
 
@@ -364,20 +408,24 @@
  */
  
 .myInfo {
-	font: 500 17px/1 notokrR;
+	font-size: 22px;
+	font-weight: 600;
 }
 
 .chgTxt_no {
+	font-size: 22px;
 	border: 1px solid black;
 	border-left: hidden;
 	border-right: hidden;
 	border-top: hidden;
-	min-width: 250px;
+	min-width: 200px;
 	height: 50px;
 	margin-bottom: 25px;
+	margin-right: 10px;
 }
 
 .chgTxt {
+	font-size: 22px;
 	border: 1px solid black;
 	border-left: hidden;
 	border-right: hidden;
@@ -390,17 +438,18 @@
 
 .addrChg {
 	color: #989442;
-    font: 500 14px gothamM,notokrR;
-    margin-top: 10px;
+    font-size: 16px;
 }
 
 .DBaddr{
-	width: 755px;
+	font-size: 22px;
+	width: 100%;
 	border-left: hidden;
 	border-right: hidden;
 	border-top: hidden;
 	margin-bottom: 25px;
 	height: 50px;
+	
 }
 
 input[type='radio'],
@@ -434,6 +483,7 @@ input[type='radio']:checked {
 }
 
 .addrSearch_Btn{
+	font-size: 22px;
 	background: #fff !important;
     color: black !important;
     height: 50px;
@@ -447,7 +497,7 @@ input[type='radio']:checked {
 
 .infoChg_btn {
 	margin-top: 50px;
-	padding-left: 250px;
+	text-align: center;
 }
 
 .select-box{
@@ -492,19 +542,33 @@ input[type='radio']:checked {
  
 .warningTxt {
 	color: #989442;
-    font: 500 14px gothamM,notokrR;
+    font-size: 20px;
+    font-weight: 600;
     margin-bottom: 40px;
 }
 
-.chgTxt2 {
+.chgTxt2_origin {
 	border: 1px solid black;
 	border-left: hidden;
 	border-right: hidden;
 	border-top: hidden;
 	opacity: 0.5;
-	min-width: 300px;
+	width: 45%;
 	height: 50px;
 	margin-bottom: 25px;
+	font-size: 22px;
+}
+
+.chgTxt2_new {
+	border: 1px solid black;
+	border-left: hidden;
+	border-right: hidden;
+	border-top: hidden;
+	opacity: 0.5;
+	width: 100%;
+	height: 50px;
+	margin-bottom: 25px;
+	font-size: 22px;
 }
 
 .newPwd_box {
@@ -513,22 +577,30 @@ input[type='radio']:checked {
 
 .newPwd_inner {
 	display: block;
-	margin-right: 40px
+	margin-right: 40px;
+	width: 100%;
+}
+
+.submint_box {
+	text-align: center;	
+	margin-top: 50px;
 }
 
 .confirm_btn{
-	background: #151515 !important;
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    background: #151515 !important;
     color: #fff !important;
-    height: 40px;
-    padding: 0 40px;
-    font-size: 15px;
+    height: 50px;
+    padding: 0 50px;
     border-style: none;
-    margin: 20px 0 0 300px;
 }
 
 .delBox {
 	margin: 300px 0;
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
 }
 
 .delinner {
@@ -541,13 +613,14 @@ input[type='radio']:checked {
 }
 
 .goMain_btn {
-	background: #151515 !important;
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    background: #151515 !important;
     color: #fff !important;
-    height: 40px;
-    padding: 0 40px;
-    font-size: 15px;
+    height: 50px;
+    padding: 0 50px;
     border-style: none;
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
 input{

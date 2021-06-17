@@ -40,6 +40,7 @@
         </div>
         
         <div class="myPage_box">
+        	<div class="myPage_box_inner">
 			<p class="headline">개인정보관리</p>
 			<div>
 				<ul class="myPage_container">
@@ -102,7 +103,7 @@
 						   </select>
 						</li>
 						<li>
-							POINT <br><input type="text" class="chgTxt_no" name="userPoint" value="${dto.getUserPoint() }" readonly>p
+							POINT <br><input type="text" class="chgTxt_no" name="userPoint" value="${dto.getUserPoint() }" readonly>P
 						</li>
 					</ul>
 					<div class="infoChg_btn">
@@ -111,7 +112,8 @@
 					</div>
 				</div>
 			</form>
-		  </div>			
+		  </div>	
+		  </div>		
 		</div>
 	</div>
 	

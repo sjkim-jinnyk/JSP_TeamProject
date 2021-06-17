@@ -492,21 +492,22 @@ public class QnaDAO {
 	}
 
 	// QnA글 상세내역 보기 시 답변글 호출하는 메서드
-	public QnaDTO getQnaReplyCont(int qna_no) {
+	public List<QnaDTO> getQnaReplyCont(int qna_no) {
 		
-		QnaDTO dto = new QnaDTO();
+		List<QnaDTO> list = new ArrayList<QnaDTO>();
 
 		try {
 			openConn();
 
-			sql = "select * from qna where qna_group = ? and qna_step = 1";
+			sql = "select * from qna where qna_group = ? and qna_step != 0 order by qna_step";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qna_no);
 
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
+			while (rs.next()) {
+				QnaDTO dto = new QnaDTO();
 				dto.setQnaNo(rs.getInt("qna_no"));
 				dto.setUserId(rs.getString("user_id"));
 				dto.setQnaTitle(rs.getString("qna_title"));
@@ -516,6 +517,8 @@ public class QnaDAO {
 				dto.setQnaDate(rs.getString("qna_date"));
 				dto.setQnaHit(rs.getInt("qna_hit"));
 				dto.setQnaFile(rs.getString("qna_file"));
+				
+				list.add(dto);
 			}
 
 		} catch (SQLException e) {
@@ -524,7 +527,7 @@ public class QnaDAO {
 			closeConn(rs, pstmt, con);
 		}
 
-		return dto;
+		return list;
 	}
 
 	// 다음글 호출하는 메서드
@@ -535,7 +538,7 @@ public class QnaDAO {
 		try {
 			openConn();
 
-			sql = "select qna_no, qna_title from qna where qna_no > ? and qna_step = 0 order by qna_no";
+			sql = "select qna_no, qna_title from qna where qna_no < ? and qna_step = 0 order by qna_no desc";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qna_no);
@@ -564,7 +567,7 @@ public class QnaDAO {
 		try {
 			openConn();
 
-			sql = "select qna_no, qna_title from qna where qna_no < ? and qna_step = 0 order by qna_no desc";
+			sql = "select qna_no, qna_title from qna where qna_no > ? and qna_step = 0 order by qna_no";
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qna_no);
@@ -583,6 +586,32 @@ public class QnaDAO {
 		}
 
 		return dto;
+	}
+
+	public int getQnaStep(int qna_group) {
+		int step = 1;
+		
+		try {
+			openConn();
+
+			sql = "select max(qna_step) from qna where qna_group = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_group);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				step = rs.getInt(1) + 1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return step;
 	}
 
 }

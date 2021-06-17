@@ -6,15 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>마이 페이지</title>
-</head>
-<body>
 
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
 	<jsp:include page="../../include/header.jsp" />
 
 	<div class="myPage_header">
-		<div>
+		<div class="top_Area">
 			<h1 class="header_title">MY PAGE</h1>
 			<p class="header_txt">멤버십 회원을 위한 다양한 혜택이 준비되어 있습니다.</p>
 		</div>
@@ -42,7 +40,7 @@
         	<div class="mainpage_box">
         		<c:set var="count" value="${resCount }" />
         		<div class="welcom_msg">
-        			<p><span class="userName">${userName }</span>님 환영합니다.</p>
+        			<span style="color: #989442;">${userName }</span>님 환영합니다.
         		</div>
         		<div class="resPoint_box">
         			<ul class="resPoint_count">
