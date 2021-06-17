@@ -8,7 +8,7 @@ public class ReserveDTO {		// 예약 DTO
 	private String resDate;		// 예약 날짜(sysdate)
 	private String resIn;		// 체크인 날짜
 	private String resOut;		// 체크아웃 날짜
-	private String resNod;		// 숙박일수(NOD : Number of Day의 약자)
+	private int resNod;		    // 숙박일수(NOD : Number of Day의 약자)
 	private int resAdult;		// 어른 인원수
 	private int resChild;		// 어린이 인원수
 	private int resAdultBr;		// 어른 조식 갯수
@@ -59,10 +59,10 @@ public class ReserveDTO {		// 예약 DTO
 	public void setResOut(String resOut) {
 		this.resOut = resOut;
 	}
-	public String getResNod() {
+	public int getResNod() {
 		return resNod;
 	}
-	public void setResNod(String resNod) {
+	public void setResNod(int resNod) {
 		this.resNod = resNod;
 	}
 	public int getResAdult() {

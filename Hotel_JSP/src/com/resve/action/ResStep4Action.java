@@ -25,7 +25,8 @@ public class ResStep4Action implements Action {
 		int room_number = Integer.parseInt((String) session.getAttribute("roomNumber"));
 		String res_in = (String) session.getAttribute("resIn");
 		String res_out = (String) session.getAttribute("resOut");
-		String res_nod = (String) session.getAttribute("resNight");
+		//String res_nod = (String) session.getAttribute("resNight");
+		int res_nod = Integer.parseInt((String) session.getAttribute("resNight"));
 		int res_adult = Integer.parseInt((String) session.getAttribute("resAdult"));
 		int res_child = Integer.parseInt((String) session.getAttribute("resChild"));
 		int res_adult_br = Integer.parseInt((String) session.getAttribute("resAdultBr"));
