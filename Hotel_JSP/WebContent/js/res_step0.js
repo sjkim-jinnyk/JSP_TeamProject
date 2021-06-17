@@ -10,7 +10,14 @@ $(document).ready( function(){
     	$( '.pToggleInner' ).toggle( 'slow' );
     });
 	
-	// 달력 날짜 표시 ------------------------------------
+	getDate();	// 달력 기본값 설정
+	
+	countNight(); // 숙박일수 계산
+});
+	
+// 달력 날짜 표시
+function getDate(){
+	
 	let resIn_val = document.getElementById('resIn_val'); 		// input type=date 안에 표시 날짜
 	let resOut_val = document.getElementById('resOut_val'); 		
 	
@@ -62,9 +69,8 @@ $(document).ready( function(){
 	resInView.innerText = dateStr;
 	resOutView.innerText = t_dateStr;
 	
-	countNight();
-});
-	
+}
+
 	
 	// 어른 인원 증감 (완료)
 	function count(type)  {
@@ -181,7 +187,8 @@ $(document).ready( function(){
 		}   
 	} // countNight() end
 	
-	
+
+	// 로그인 여부 확인
 	function checkLogin(){
 		let userId = '<%=(String)session.getAttribute("userId")%>';
 		let form = document.step0Form;
