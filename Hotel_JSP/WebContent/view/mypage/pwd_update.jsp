@@ -38,6 +38,7 @@
         </div>
         
         <div class="myPage_box">
+        <div class="myPage_box_inner">
 			<p class="headline">개인정보관리</p>
 			<div>
 				<ul class="myPage_container">
@@ -53,18 +54,18 @@
 					<div>
 						<ul>
 							<li>CURRENT PASSWORD<br>
-								<input type="password" class="chgTxt2" name="originalPwd" placeholder="현재 비밀번호를 입력해주세요." required>
+								<input type="password" class="chgTxt2_origin" name="originalPwd" placeholder="현재 비밀번호를 입력해주세요." required>
 							</li>
 						</ul>
 						<ul class="newPwd_box">
 							<li class="newPwd_inner">NEW PASSWORD<br>
-								<input type="password" class="chgTxt2" name="newPwd" placeholder="영문/숫자 포함 15자 미만" required>
+								<input type="password" class="chgTxt2_new" name="newPwd" placeholder="영문/숫자 포함 15자 미만" required>
 							</li>
 							<li class="newPwd_inner">CONFIRM PASSWORD<br>
-								<input type="password" class="chgTxt2" name="newPwd_check" placeholder="동일한 비밀번호를 입력해주세요." required>
+								<input type="password" class="chgTxt2_new" name="newPwd_check" placeholder="동일한 비밀번호를 입력해주세요." required>
 							</li>
 						</ul>
-						<ul>
+						<ul class="submint_box">
 							<li>
 							<input type="submit" class="confirm_btn" value="확인">
 							</li>
@@ -72,6 +73,7 @@
 					</div>
 				</form>
 			</div>
+		</div>
 		</div>
 	</div>
 	
