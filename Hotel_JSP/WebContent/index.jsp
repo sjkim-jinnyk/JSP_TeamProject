@@ -137,7 +137,7 @@
 			<div class="inner">
 				<div class="offer">
 					<p>
-					GO TO OFFERS >
+					GO TO OFFERS
 					</p>
 				</div>
 				<div class="slide">

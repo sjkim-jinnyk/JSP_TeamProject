@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
 	<jsp:include page="../../include/header.jsp" />
-
+	<div>
 	<div class="myPage_header">
 		<div>
 			<h1 class="header_title">MY PAGE</h1>
@@ -76,7 +76,9 @@
 		</div>
 		</div>
 	</div>
+	</div>
 	
+	<jsp:include page="../../include/footer.jsp" />
 
 </body>
 </html>

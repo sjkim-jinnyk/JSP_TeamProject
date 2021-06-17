@@ -103,7 +103,7 @@
 						   </select>
 						</li>
 						<li>
-							POINT <br><input type="text" class="chgTxt_no" name="userPoint" value="${dto.getUserPoint() }" readonly>p
+							POINT <br><input type="text" class="chgTxt_no" name="userPoint" value="${dto.getUserPoint() }" readonly>P
 						</li>
 					</ul>
 					<div class="infoChg_btn">

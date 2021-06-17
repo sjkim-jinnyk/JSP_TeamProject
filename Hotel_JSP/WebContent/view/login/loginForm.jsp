@@ -71,8 +71,11 @@
 	<!-- 아이디 저장 히든 값 스크립트 -->
 	<script>
 		let userId_get = "<%=(String)session.getAttribute("user_save") %>"
-
-		if(userId_get != null){
+		
+		if(userId_get == "null"){
+			
+		}
+		else if(userId_get != null){
 			$("#userId").val(userId_get);
 		}
 	</script>
