@@ -18,7 +18,9 @@
 	
 	<div class="login_inner">
 		<form method="post" action="<%=request.getContextPath() %>/user_login_ok.do">
-			
+		
+		<input type="hidden" name="id_save_int" id="id_save_int" value="0">
+
 			<ul class="login_form">
 				<li class="login_on">
 				아이디 로그인	
@@ -27,7 +29,7 @@
 			<div class="loginBox">
 				<div class="userLogin">
 					<p class="id_form">
-						<label class="hidden">
+						<label class="hidden"> 
 							아이디
 						</label>
 						<input type="text" name="userId" placeholder="아이디" required>
@@ -63,6 +65,7 @@
 	  </form>
 	</div>
 	
+	<script type="text/javascript" src="js/loginPage.js"></script>
 	<jsp:include page="../../include/footer.jsp" />
 
 </body>

@@ -38,22 +38,24 @@
         	</div>
         </div>
         
-        <section class="mainpage">
-        	<c:set var="count" value="${resCount }" />
-        	<div class="welcom_msg">
-        		<p><span class="userName">${userName }</span>님 환영합니다.</p>
+        <div class="mainpage">
+        	<div class="mainpage_box">
+        		<c:set var="count" value="${resCount }" />
+        		<div class="welcom_msg">
+        			<p><span class="userName">${userName }</span>님 환영합니다.</p>
+        		</div>
+        		<div class="resPoint_box">
+        			<ul class="resPoint_count">
+        				<li>현재 예약 건수</li>
+        				<li><span class="mypageCount">${count }</span> 개</li>
+        			</ul>
+        			<ul class="resPoint_point">
+        				<li>잔여 포인트</li>
+        				<li><span class="mypageCount">${userPoint }</span> p</li>
+        			</ul>
+        		</div>
         	</div>
-        	<div class="resPoint_box">
-        		<ul class="resPoint">
-        			<li>현재 예약 건수</li>
-        			<li><span class="mypageCount">${count }</span> 개</li>
-        		</ul>
-        		<ul class="resPoint">
-        			<li>잔여 포인트</li>
-        			<li><span class="mypageCount">${userPoint }</span> p</li>
-        		</ul>
-        	</div>
-        </section>
+        </div>
     </div>
 
     <jsp:include page="../../include/footer.jsp" />
