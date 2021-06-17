@@ -28,7 +28,6 @@
 		</div>
 	</div>
 	
-	
 	<div class="inner">
 		<c:set var="dto" value="${cont }" />
 		<div class="qna_cont">
@@ -41,6 +40,7 @@
 				<p>조회수</p>
 				<li>${dto.getQnaHit() }</li>
 			</ul>
+		
 			<div class="qna_txtBox">
 				<p>${dto.getQnaContent() }</p>
 				<span id="file_p">첨부파일 &nbsp; </span>
@@ -79,39 +79,35 @@
 			</div>
 		</c:forEach>
 				
-			<ul class="shortList">
-				<li class="prev">
-					<span>이전 글</span>
-					<c:if test="${down.getQnaNo() != 0 }">
-						<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
-					</c:if>
-					<c:if test="${down.getQnaNo() == 0 }">
-						이전글이 없습니다.
-					</c:if>
-				</li>
-				<li class="next">
-					<span>다음 글</span>
-					<c:if test="${up.getQnaNo() != 0 }">
-						<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
-					</c:if>
-					<c:if test="${up.getQnaNo() == 0 }">
-						<td>다음글이 없습니다.</td>
-					</c:if>
-				</li>
-			</ul>
-			<br>
-			<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
-			<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
-
-		</div>	
-					
-						<%-- <input type="button" value="글수정" onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
-						<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
-		                	location.href='qna_delete_ok.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'
-							}else {return; }">
-						<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"> --%>
-						
-		
+		<ul class="shortList">
+			<li class="prev">
+				<span>이전 글</span>
+				<c:if test="${down.getQnaNo() != 0 }">
+					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
+				</c:if>
+				<c:if test="${down.getQnaNo() == 0 }">
+					이전글이 없습니다.
+				</c:if>
+			</li>
+			<li class="next">
+				<span>다음 글</span>
+				<c:if test="${up.getQnaNo() != 0 }">
+					<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
+				</c:if>
+				<c:if test="${up.getQnaNo() == 0 }">
+					<td>다음글이 없습니다.</td>
+				</c:if>
+			</li>
+		</ul>
+		<c:forEach items="${list }" var="reply">
+			<c:if test="${adminId == reply.getUserId()}">
+				<p id="btn_p"> 
+					<input type="button" id="reply_btn" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+			</c:if>
+		</c:forEach>
+		<p id="btn_list">
+		<input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"></p>
+			
 	</div>
 </body>
 </html>
