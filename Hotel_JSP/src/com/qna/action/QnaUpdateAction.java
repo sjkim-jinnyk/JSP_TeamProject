@@ -22,14 +22,15 @@ public class QnaUpdateAction implements Action {
 		
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
-		System.out.println("qna_update 세션 >>> " + (String)session.getAttribute("userId"));	// 세션 정보 확인
+		System.out.println("qna_update user 세션 >>> " + (String)session.getAttribute("userId"));	// 세션 정보 확인
 		
-		// 관리자 세션정보 추가 필요
+		String adminId = (String)session.getAttribute("adminId");
+		System.out.println("qna_update admin 세션 >>> " + (String)session.getAttribute("adminId"));
 
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 
-		if (userId.equals(writerId)) {
+		if (userId.equals(writerId) || adminId.equals(writerId)) {	// 글쓴이와 세션 id가 일치하면 수정 가능
 			QnaDAO dao = QnaDAO.getInstance();
 			
 			// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
