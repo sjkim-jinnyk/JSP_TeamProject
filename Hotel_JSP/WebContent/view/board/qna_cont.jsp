@@ -102,11 +102,11 @@
 		<c:forEach items="${list }" var="reply">
 			<c:if test="${adminId == reply.getUserId()}">
 				<p id="btn_p"> 
-					<input type="button" id="reply_btn" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+					<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
 			</c:if>
 		</c:forEach>
 		<p id="btn_list">
-		<input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"></p>
+		<input type="button" value="목록" id="list_btn" onclick="location.href='qna_list.do'"></p>
 			
 	</div>
 </body>
