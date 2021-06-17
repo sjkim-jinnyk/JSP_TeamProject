@@ -1,3 +1,4 @@
+// 로그인시 아이디 저장 기능 스크립트
 $(document).ready(function() {
 	
 	$("#idSaveCheck").change(function(){ 

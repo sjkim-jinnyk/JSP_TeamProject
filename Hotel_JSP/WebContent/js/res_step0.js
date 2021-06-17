@@ -51,17 +51,18 @@ $(document).ready( function(){
 	}
 	
 	let dateStr = year+ '-' +month+ '-' +date;
+	let t_dateStr = t_year+ '-' +t_month+ '-' +t_date;
 	
 	resIn_val.value = dateStr;
-	resOut_val.value = dateStr;
+	resOut_val.value = t_dateStr;
 	
 	resIn.value = dateStr;
-	resOut.value = dateStr;
+	resOut.value = t_dateStr;
 	
 	resInView.innerText = dateStr;
-	resOutView.innerText = dateStr;
+	resOutView.innerText = t_dateStr;
 	
-	
+	countNight();
 });
 	
 	

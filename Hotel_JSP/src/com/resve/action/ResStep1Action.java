@@ -22,7 +22,7 @@ public class ResStep1Action implements Action {
 		String resOut = request.getParameter("resOut");
 		int resAdult = Integer.parseInt(request.getParameter("resAdult"));
 		int resChild = Integer.parseInt(request.getParameter("resChild"));
-		String resNight = request.getParameter("resNight");
+		int resNight = Integer.parseInt(request.getParameter("resNight"));
 		
 		session.setAttribute("resIn", resIn);
 		session.setAttribute("resOut", resOut);

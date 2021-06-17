@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 <%@page import="com.hotel.model.ReserveDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
-=======
-<%@page import="java.util.List"%>
->>>>>>> branch 'main' of https://eunsooo@github.com/mc1128/JSP_TeamProject.git
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
@@ -28,7 +25,6 @@
 	}
 	
 </script>
-
 <%
 	// 세션값에서 체크인, 체크아웃 날짜 받아오기
 	String checkIn = (String)session.getAttribute("resIn");
@@ -130,7 +126,7 @@
 			                <li class="">
 			                   <div id="${status.count }0${s.count}" style='border: 1px solid'>
 			                       <div class="titArea">
-			                           <strong class="tit">${status.count }0${s.count}호</strong>
+										 <strong class="tit">${status.count }0${s.count}호</strong>
 			                       </div>
 			                       
 		                           <button type="button" class="detail_btn">

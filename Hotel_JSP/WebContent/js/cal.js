@@ -3,7 +3,7 @@ $(function () {
 
   var datepicker = {
     container: $("#datepicker"),
-    dateFormat: "yy/mm/dd",
+    dateFormat: "yy-mm-dd",
     dates: [null, null],
     status: null,
     inputs: {
@@ -191,12 +191,14 @@ $(function () {
           .change();
         datepicker.inputs.dates.val(
           datepicker.inputs.checkin.val() +
-            " - " +
+            " / " +
             datepicker.inputs.checkout.val()
         );
         
         datepicker.inputs.datetext.text($.datepicker.formatDate(datepicker.dateFormat, checkInDate)+ 
-        		" - " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
+        		" / " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
+        
+        countNight();
       }
     },
   });
@@ -217,8 +219,8 @@ function countNight(){
 	let end_string = $('#resOut').val();
 
 	// split 으로 - 분해 (배열로 저장됨)
-	let start_res = start_string.split("/");
-	let end_res = end_string.split("/");
+	let start_res = start_string.split("-");
+	let end_res = end_string.split("-");
 	
 	// 분해된 데이터를 DATE 형식으로 계산하기 위해 재정렬
     let start_date = new Date(start_res[0],Number(start_res[1]),start_res[2]);

@@ -18,8 +18,8 @@
 			action="<%=request.getContextPath()%>/step1.do">
 			
 		<br><br><br><br><br>
-		<input type="text" name="resIn" id="resIn" value="0">				
-		<input type="text" name="resOut" id="resOut" value="0">
+		<input type="hidden" name="resIn" id="resIn" value="0">				
+		<input type="hidden" name="resOut" id="resOut" value="0">
 		<input type="hidden" name="resNight" id="resNight" value="0">				
 		<input type="hidden" name="resAdult" id="resAdult" value="0">								
 		<input type="hidden" name="resChild" id="resChild" value="0">

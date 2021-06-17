@@ -25,7 +25,7 @@ public class ResStep4Action implements Action {
 		int room_number = ((Integer)(session.getAttribute("roomNumber"))).intValue();
 		String res_in = (String) session.getAttribute("resIn");
 		String res_out = (String) session.getAttribute("resOut");
-		String res_nod = (String) session.getAttribute("resNight");
+		int res_nod = ((Integer)(session.getAttribute("resNight"))).intValue();
 		int res_adult = ((Integer)(session.getAttribute("resAdult"))).intValue();
 		int res_child = ((Integer)(session.getAttribute("resChild"))).intValue();
 		int res_adult_br = ((Integer)(session.getAttribute("resAdultBr"))).intValue();
@@ -33,6 +33,7 @@ public class ResStep4Action implements Action {
 		int res_bed = ((Integer)(session.getAttribute("resBed"))).intValue();
 		int res_total = ((Integer)(session.getAttribute("resTotal"))).intValue();
 		String res_request = (String)session.getAttribute("resRequest");
+
 		
 		// DTO 객체의 setter() 메서드에 넘어온 데이터들을 인자로 넘겨주자.
 		ReserveDTO dto = new ReserveDTO();
