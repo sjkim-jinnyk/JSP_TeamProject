@@ -17,7 +17,7 @@ public class ResStep1Action implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 
 		HttpSession session = request.getSession();
-		
+
 		String resIn = request.getParameter("resIn");
 		String resOut = request.getParameter("resOut");
 		int resAdult = Integer.parseInt(request.getParameter("resAdult"));

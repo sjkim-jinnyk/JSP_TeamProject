@@ -42,10 +42,15 @@
 	margin-top: 25px;
 	font-size: 20px;
 }
-.inner .infoData li {
+ .inner .infoData p {
+	float: left;
+	padding: 0 30px 0 0;
+	font-weight: bold;
+}
+ .inner .infoData li {
 	float: left;
 }
-.inner .infoData li+li:before{
+.inner .infoData li+p:before{
 	display: inline-block;
 	content: '';
 	width: 1px;
@@ -59,15 +64,58 @@
     width: 100%;
 }
 
-.inner #infohit {
-	width: 85%;
-	text-align: right;
-}
-.inner .txtBox{
+.inner .qna_cont .qna_txtBox{
 	margin-top: 30px;
-	padding: 60px 0 30px 0;
+	padding: 30px 0;
 	border-top: 1px solid black;
-	border-bottom: 1px solid #ccc;
+	
+}
+.inner .qna_txtBox p {
+	padding: 0 0 40px 0;
+}
+.inner .qna_txtBox #file_p {
+	font-weight: bold;
+	padding: 0;
+}
+.inner #btn_p{
+	text-align: end;
+	padding: 0;
+}
+.inner .qna_txtBox #qna_del{
+	padding: 0 10px;
+	font-size: 20px;
+	background-color: transparent;
+	border : 1px solid black;
+	cursor: pointer;
+}
+.inner .qna_reply{
+	margin: 30px 0;
+	border-top : 1px solid #ccc;
+	padding: 0 50px;
+	background: #f9f9f9;
+}
+
+.inner .qna_reply .qna_txtBox{
+	margin-top: 30px;
+	padding: 30px 0;
+	
+}
+.inner .qna_reply .titDep2 {
+	font-size: 24px;
+}
+.inner .qna_reply .qna_topArea{
+	padding: 20px 0;
+	margin-top: 30px;
+	background: #f9f9f9;
+}
+.inner .qna_reply .qna_topArea ul:after{
+	padding-top: 20px;
+	width: 100%;
+	content: "";
+	border-bottom : 1px solid #ccc;
+}
+.inner .shortList .prev{
+	border-top: 1px solid #ccc;
 }
 .inner .shortList li{
 	padding: 20px 0;
@@ -78,9 +126,11 @@
 }
 .inner #list_btn {
 	padding: 0 10px;
+	font-size: 20px;
 	background-color: transparent;
 	border : 1px solid black;
 	cursor: pointer;
+	text-align: center;
 }
 .myContents{
 	position: relative;
@@ -175,6 +225,7 @@
     box-sizing: border-box;
     color: #000;
     border: 1px solid #000;
+    cursor: pointer;
 }
 
 .qnaType{
@@ -292,6 +343,7 @@ listTit{
     border: 0.1px solid;
     position: absolute;
     margin-left: 20px;
+    cursor: pointer;
 }
 
 
@@ -391,6 +443,7 @@ p.txtGuide, .txtGuide li {
     height: 14px;
     margin-top: -7px;
     line-height: 0;
+    cursor: pointer;
 }
 
 .btnSC{
@@ -406,6 +459,7 @@ p.txtGuide, .txtGuide li {
     overflow: hidden;
     z-index: 1;
     font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
 }
 
 .btnM{
@@ -415,6 +469,7 @@ p.txtGuide, .txtGuide li {
     font-size: 17px;
     letter-spacing: -.01em;
     margin-left: 10px;
+    cursor: pointer;
 }
 	
 
@@ -458,6 +513,7 @@ input[type="file"] {
     letter-spacing: -.01em;
     border-style: none;   /* 추가 */
     min-width: 180px;
+    cursor: pointer;
 }
 
 .qna_write_reset{
@@ -469,6 +525,7 @@ input[type="file"] {
     letter-spacing: -.01em;
     min-width: 180px;
     border: 0.1px solid; 
+    cursor: pointer;
 }
 
 
