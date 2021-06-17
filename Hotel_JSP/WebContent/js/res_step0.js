@@ -186,14 +186,12 @@ $(document).ready( function(){
 		let userId = '<%=(String)session.getAttribute("userId")%>';
 		let form = document.step0Form;
 		
-		console.log(userId);
-		console.log(form);
+		if(userId == 'null'){ // 로그인 안한 경우
+			alert('로그인 후 이용 가능합니다.');
+			response.sendRedirect("view/login/loginForm.jsp");
+		}else{
+			form.submit();
+		}
 		
-//		if(userId == null){ // 로그인 안한 경우
-//			alert('로그인 후 이용 가능합니다.');
-//			response.sendRedirect("view/login/loginForm.jsp");
-//		} 
-//		
-//		form.submit();
 	}
 		

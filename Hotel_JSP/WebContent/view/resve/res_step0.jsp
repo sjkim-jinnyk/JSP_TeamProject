@@ -76,7 +76,7 @@
 						</div>
 					</li>
 				</ul>
-				<input type="submit" value="객실 검색" onclick="checkLogin()">
+				<input type="submit" value="객실 검색">
 				
 			</div>
 			
