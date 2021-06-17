@@ -102,8 +102,8 @@
 			<br>
 			<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
 			<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
-	
-				
+
+		</div>	
 					
 						<%-- <input type="button" value="글수정" onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
 						<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
@@ -111,9 +111,7 @@
 							}else {return; }">
 						<input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"> --%>
 						
-					
-			<br> <br>
-		</div>
+		
 	</div>
 </body>
 </html>
