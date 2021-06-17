@@ -42,7 +42,7 @@
         	<div class="mainpage_box">
         		<c:set var="count" value="${resCount }" />
         		<div class="welcom_msg">
-        			<p><span class="userName">${userName }</span>님 환영합니다.</p>
+        			<span style="color: #989442;">${userName }</span>님 환영합니다.
         		</div>
         		<div class="resPoint_box">
         			<ul class="resPoint_count">

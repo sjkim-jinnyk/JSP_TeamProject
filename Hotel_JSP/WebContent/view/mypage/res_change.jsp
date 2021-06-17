@@ -6,10 +6,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약변경</title>
+<title>예약내역</title>
 </head>
 <body>
-	
+
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
 	<jsp:include page="../../include/header.jsp" />
@@ -40,6 +40,7 @@
         </div>
         
         <div class="myPage_box">
+        	<div class="myPage_box_inner">
 			<p class="headline">예약확인</p>
 			<div>
 				<ul class="myPage_container">
@@ -52,7 +53,7 @@
 			<div class="resList_box">
 				<c:set var="count" value="${resCount }" />
 				<div class="resCount">
-					<span class="resCount">총 <em>${count }</em>건</span>
+					<span>총 <em>${count }</em>건</span>
 				</div>
 				
 				<div class="res_Container">
@@ -76,19 +77,22 @@
 				
 				<!-- 예약내역이 없는 경우 -->
 				<c:if test="${empty list }">
-					<div>
-						<ul>
-							<li>!<br>예약내역이 없습니다.<br>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
-							<li><input type="button" value="예약하기" onclick="location.href='step0.do'"></li>
+					<div class="noRes_box">
+						<ul class="noRes_inner">
+							<li class="noRes_Point">!</li>
+							<li>예약내역이 없습니다.</li>
+							<li>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
+							<li><input type="button" class="goMain_btn" value="예약하기" onclick="location.href='step0.do'"></li>
 						</ul>
 					</div>
 				</c:if>
-				</div>
+			  </div>
 			</div>
+		  </div>
 		</div>
 	</div>
 	
     <jsp:include page="../../include/footer.jsp" />
-
+	
 </body>
 </html>

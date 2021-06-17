@@ -40,29 +40,32 @@
         </div>
         
         <div class="myPage_box">
+        <div class="myPage_box_inner">
         <form method="post" action="<%=request.getContextPath() %>/res_change_check.do">
         	<c:set var="dto" value="${resCont }" />
         	<c:set var="dto2" value="${roomCont }" />
         	<!-- 예약번호 히든값으로 넘기기 -->
         	<input type="hidden" name="resNo" value="${dto.getResNo() }">
 			<c:if test="${!empty dto }">
-				<p class="resInfo_title">예약 정보</p>
 				<div class="resList_box">
-					<div>
-						<div class="room_img">
-							<img alt="상품" src="image/${dto2.getRoomImage() }.jpeg" style="width: 250px; height: 168px; display: block">
-						</div>	
-						<div class="res_container2">
-							<span class="res_block">예약번호 ${dto.getResNo() } | RESERVED</span>
-							<span class="res_block">${dto.getResIn() } - ${dto.getResOut() } (${dto.getResNod() }박)</span>
-							<span class="res_block">${dto.getRoomName() } / ${dto.getRoomNumber() }호 / ${dto2.getRoomSize() }㎡</span>
+						<p class="resInfo_title">예약 정보</p>
+						<div class="resInfo_inner">
+							<div class="room_img">
+								<img alt="상품" src="image/${dto2.getRoomImage() }.jpeg" style="width: 250px; height: 168px; display: block">
+							</div>	
+							<div class="res_container2">
+								<span class="res_block">
+									예약번호 ${dto.getResNo() } | RESERVED<br>
+									${dto.getResIn() } - ${dto.getResOut() } (${dto.getResNod() }박)<br>
+									${dto.getRoomName() } / ${dto.getRoomNumber() }호 / ${dto2.getRoomSize() }㎡
+								</span>
+							</div>
 						</div>
-					</div>
 				</div>
 				
-				<p class="resInfo_title">객실 상세 내역</p>
 				<div class="resList_box2">
-				<ul>
+				<p class="resInfo_title">객실 상세 내역</p>
+				<ul class="resInfo_inner">
 					<li>
 						<div class="box_inner">
 							성인<input type="number" class="boxCSS" name="adult" min="1" max="3" value="${dto.getResAdult() }">
@@ -128,6 +131,7 @@
 				</div>
 			</c:if>
 		</form>
+		</div>
 		</div>
 	</div>
 	
