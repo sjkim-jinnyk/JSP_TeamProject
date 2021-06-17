@@ -201,6 +201,4 @@ public class RoomDAO {
 	
 	} // roomCont() 메서드 end
 	
-	
-	
 }

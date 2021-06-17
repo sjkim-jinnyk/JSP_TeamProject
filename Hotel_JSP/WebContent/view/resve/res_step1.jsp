@@ -24,7 +24,6 @@
 </script>
 
 <%
-
 	// 세션값에서 체크인, 체크아웃 날짜를 받아옴. 
 	String checkIn =  (String)session.getAttribute("resIn");
 	String checkOut =  (String)session.getAttribute("resOut");
@@ -35,7 +34,6 @@
 	// getRoomNum을 통해 예약된 방번호를 받아온다.
 	ReserveDAO dao = ReserveDAO.getInstance();
 	List<ReserveDTO> list = dao.getRoomNum(checkIn, checkOut);
-	
 %>
 </head>
 <body>
@@ -173,7 +171,6 @@
 			}
 			
 		</script>
-		
 	<jsp:include page="../../include/footer.jsp" />
 	
 	
