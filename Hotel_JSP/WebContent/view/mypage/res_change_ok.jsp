@@ -40,101 +40,134 @@
         </div>
         
         <div class="myPage_box">
-        <div class="myPage_box_inner">
-        <form method="post" action="<%=request.getContextPath() %>/res_change_check.do">
-        	<c:set var="dto" value="${resCont }" />
-        	<c:set var="dto2" value="${roomCont }" />
-        	<!-- 예약번호 히든값으로 넘기기 -->
-        	<input type="hidden" name="resNo" value="${dto.getResNo() }">
-			<c:if test="${!empty dto }">
-				<div class="resList_box">
-						<p class="resInfo_title">예약 정보</p>
-						<div class="resInfo_inner">
-							<div class="room_img">
-								<img alt="상품" src="image/${dto2.getRoomImage() }.jpeg" style="width: 250px; height: 168px; display: block">
-							</div>	
-							<div class="res_container2">
-								<span class="res_block">
-									예약번호 ${dto.getResNo() } | RESERVED<br>
-									${dto.getResIn() } - ${dto.getResOut() } (${dto.getResNod() }박)<br>
-									${dto.getRoomName() } / ${dto.getRoomNumber() }호 / ${dto2.getRoomSize() }㎡
-								</span>
+	        <div class="myPage_box_inner">
+		        <form method="post" action="<%=request.getContextPath() %>/res_change_check.do">
+		        
+		        	<c:set var="dto" value="${resCont }" />
+		        	<c:set var="dto2" value="${roomCont }" />
+		        	
+		        	<!-- 히든 값(예약 번호 / 총 예약금액) -->
+		        	<input type="hidden" name="resNo" value="${dto.getResNo() }">
+		        	<input type="hidden" id="updateTotal" name="updateTotal" value="0"> 
+		        	
+					<c:if test="${!empty dto }">
+						<div class="resList_box">
+							<p class="resInfo_title">예약 정보</p>
+							<div class="resInfo_inner">
+								<div class="room_img">
+									<img alt="상품" src="image/${dto2.getRoomImage() }.jpeg" style="width: 250px; height: 168px; display: block">
+								</div>	
+								<div class="res_container2">
+									<span class="res_block">
+										예약번호 ${dto.getResNo() } | RESERVED<br>
+										${dto.getResIn() } - ${dto.getResOut() } (${dto.getResNod() }박)<br>
+										${dto.getRoomName() } / ${dto.getRoomNumber() }호 / ${dto2.getRoomSize() }㎡
+									</span>
+								</div>
 							</div>
 						</div>
-				</div>
-				
-				<div class="resList_box2">
-				<p class="resInfo_title">객실 상세 내역</p>
-				<ul class="resInfo_inner">
-					<li>
-						<div class="box_inner">
-							성인<input type="number" class="boxCSS" name="adult" min="1" max="3" value="${dto.getResAdult() }">
-							성인 조식<input type="number" class="boxCSS" name="child" min="0" max="3" value="${dto.getResChild() }">
-							어린이<input type="number" class="boxCSS" name="adultBr" min="0" max="2" value="${dto.getResAdultBr() }">
-							어린이 조식<input type="number" class="boxCSS" name="childBr" min="0" max="2" value="${dto.getResAdultBr() }">
-							엑스트라 베드<input type="number" class="boxCSS" name="extraBed" min="0" max="2" value="${dto.getResBed() }">
-						</div>
-						<div class="box_inner2">
-							요청사항<br><textarea rows="3" cols="100%" class="request_box" name="requests">${dto.getResRequest() }</textarea>
-						</div>
-						<div class="resPrice_box">
-							<div class="resPrice_inner">
-								<dl class="resPrice_list">
-									<dt class="price_title">객실 금액</dt>
-									<dd>
-										<ul class="infoData">
-											<li>
-												<span class="data1">${dto.getResDate().substring(0,10) }</span>
-												<span class="data2"><fmt:formatNumber value="${dto2.getRoomPrice() }" />(원)</span>
-											</li>
+						
+						<div class="resList_box2">
+							<p class="resInfo_title">객실 상세 내역</p>
+							<ul class="resInfo_inner">
+								<li>
+									<div class="box_inner">
+										성인 <input type="number" class="boxCSS" id="adult_num" name="adult" min="1" max="3" value="${dto.getResAdult() }">
+										성인 조식<input type="number" class="boxCSS" id="adultBr" name="child" min="0" max="3" value="${dto.getResChild() }">
+										어린이<input type="number" class="boxCSS" id="child_num" name="adultBr" min="0" max="2" value="${dto.getResAdultBr() }">
+										어린이 조식<input type="number" class="boxCSS" id="childBr" name="childBr" min="0" max="2" value="${dto.getResAdultBr() }">
+										엑스트라 베드<input type="number" class="boxCSS" id="extraBed" name="extraBed" min="0" max="2" value="${dto.getResBed() }">
+									</div>
+									<div class="box_inner2">
+										요청사항<br><textarea rows="3" cols="100%" class="request_box" name="requests">${dto.getResRequest() }</textarea>
+									</div>
+									<div class="resPrice_box">
+										<div class="resPrice_inner">
+											<dl class="resPrice_list">
+												<dt class="price_title">객실 금액</dt>
+												<dd>
+													<ul class="infoData">
+														<li>
+															<span class="data1">${dto.getResDate().substring(0,10) }</span>
+															<span class="data2" id="room_price" >
+																<%-- <fmt:formatNumber value="${dto2.getRoomPrice() }" /> --%>
+																${dto2.getRoomPrice() }(원)
+															</span>
+														</li>
+													</ul>
+												</dd>	
+											</dl>
+											<dl class="resPrice_list">
+												<dt class="price_title">옵션 금액</dt>
+												<dd>
+													<ul class="infoData">
+														<li>
+															<span class="data1">옵션 추가</span>
+															<span class="data2" id="option_price">(원)</span>
+														</li>
+													</ul>
+												</dd>
+											</dl>
+											<dl class="resPrice_list">
+												<dt class="price_title">세금 및 봉사료</dt>
+												<dd>
+													<ul class="infoData">
+														<li>
+															<span class="data1">세금 (10%)</span>
+															<span class="data2" id="tax">
+																<%-- <fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" /> --%>
+																${dto2.getRoomPrice() * 0.1 } (원)
+															</span>
+														</li>
+													</ul>
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<div class="box_inner3">
+										<ul>
+											<li><span class="price_title">총 예약금액</span></li>
+											<li class="total_price" id="total_price"><fmt:formatNumber value="${dto.getResTotal() }" />KRW</li>
 										</ul>
-									</dd>
-								</dl>
-								<dl class="resPrice_list">
-									<dt class="price_title">옵션 금액</dt>
-									<dd>
-										<ul class="infoData">
-											<li>
-												<span class="data1">옵션 추가</span>
-												<span class="data2">(원)</span>
-											</li>
-										</ul>
-									</dd>
-								</dl>
-								<dl class="resPrice_list">
-									<dt class="price_title">세금 및 봉사료</dt>
-									<dd>
-										<ul class="infoData">
-											<li>
-												<span class="data1">세금 (10%)</span>
-												<span class="data2">
-													<fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" />(원)
-												</span>
-											</li>
-										</ul>
-									</dd>
-								</dl>
-							</div>
-						</div>
-						<div class="box_inner3">
-							<ul>
-								<li><span class="price_title">총 예약금액</span></li>
-								<li class="total_price"><fmt:formatNumber value="${dto.getResTotal() }" />KRW</li>
+									</div>
+									<div class="box_inner4">
+										<input type="submit" class="submit_btn" value="변경하기">&nbsp;&nbsp;&nbsp;
+										<input type="submit" class="reset_btn" value="취소하기">
+									</div>
+								</li>
 							</ul>
 						</div>
-						<div class="box_inner4">
-							<input type="submit" class="submit_btn" value="변경하기">&nbsp;&nbsp;&nbsp;
-							<input type="submit" class="reset_btn" value="취소하기">
-						</div>
-					</li>
-				</ul>
-				</div>
-			</c:if>
-		</form>
-		</div>
+					</c:if>
+				</form>
+			</div>
 		</div>
 	</div>
 	
+	<!-- 옵션 변경 시 실행되는 스크립트 -->
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			$("#adult_num").change(function() {
+				calTotal();
+			});
+			$("#adultBr").change(function() {
+				calTotal();
+			});
+			$("#child_num").change(function() {
+				calTotal();
+			});
+			$("#childBr").change(function() {
+				calTotal();
+			});
+			$("#extraBed").change(function() {
+				calTotal();
+			});
+			
+		});
+		
+	</script>
+	
+	<!-- 마이 페이지 스크립트 -->
 	<script type="text/javascript" src="js/myPage.js"></script>
 	
     <jsp:include page="../../include/footer.jsp" />
