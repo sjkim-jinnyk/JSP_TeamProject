@@ -588,5 +588,31 @@ public class QnaDAO {
 		return dto;
 	}
 
+	public int getQnaStep(int qna_group) {
+		int step = 1;
+		
+		try {
+			openConn();
+
+			sql = "select max(qna_step) from qna where qna_group = ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qna_group);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				step = rs.getInt(1) + 1;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+
+		return step;
+	}
+
 }
 
