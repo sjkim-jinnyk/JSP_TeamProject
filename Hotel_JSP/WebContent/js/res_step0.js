@@ -50,20 +50,19 @@ $(document).ready( function(){
 		}
 	}
 	
-
-	// 결과 저장
-	//resIn.value = today;
-	//resOut.value = tomorrow;
+	let dateStr = year+ '-' +month+ '-' +date;
+	let t_dateStr = t_year+ '-' +t_month+ '-' +t_date;
 	
-	resIn_val.value = year+ '-' +month+ '-' +date;
-	resOut_val.value = t_year+ '-' +t_month+ '-' +t_date;
+	resIn_val.value = dateStr;
+	resOut_val.value = t_dateStr;
 	
-	resIn.value = resIn_val.value;
-	resOut.value = resOut_val.value;
+	resIn.value = dateStr;
+	resOut.value = t_dateStr;
 	
-	resInView.innerText = resIn_val.value;
-	resOutView.innerText = resOut_val.value;
-
+	resInView.innerText = dateStr;
+	resOutView.innerText = t_dateStr;
+	
+	countNight();
 });
 	
 	
@@ -181,4 +180,18 @@ $(document).ready( function(){
 			alert('정확한 숙박 날짜를 선택해주세요.');
 		}   
 	} // countNight() end
+	
+	
+	function checkLogin(){
+		let userId = '<%=(String)session.getAttribute("userId")%>';
+		let form = document.step0Form;
+		
+		if(userId == 'null'){ // 로그인 안한 경우
+			alert('로그인 후 이용 가능합니다.');
+			response.sendRedirect("view/login/loginForm.jsp");
+		}else{
+			form.submit();
+		}
+		
+	}
 		

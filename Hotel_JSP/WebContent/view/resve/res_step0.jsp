@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <link rel="stylesheet" href="/resources/demos/style.css">
+
 
 </head>
 <body>
@@ -62,7 +62,7 @@
 							성인 <div id="resultA" style="display: inline">0</div>명 | 
 							어린이 <div id="resultC" style="display: inline">0</div>명
 						<button type="button" class="pToggleBtn">V</button><br>
-						<div class="pToggleInner" >
+						<div class="pToggleInner"  style="display: none">
 							<div class="count">
 								<input type="button" onclick="count('minus')" value="-"/>
 								성인<div id="result" style="display: inline">0</div>

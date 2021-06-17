@@ -16,7 +16,16 @@
 <title>객실 예약 - 객실, 요금 선택 | 조선호텔앤리조트</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
+	
+	$(document).ready( function(){
+		let userId = '<%=(String)session.getAttribute("userId")%>';
+		
+		if(userId == 'null'){ // 로그인 안한 경우
+			alert('로그인 후 이용 가능합니다.');
+			location.replace("<%=request.getContextPath() %>/login.do");
+		}
+	});
+	
 	// foreach로 반복생성되는 각각의 toggle들 개별 실행
 	// STANDARD count = 1 / DELUXE = 2 ... 
 	// 참조: https://okky.kr/article/422641
