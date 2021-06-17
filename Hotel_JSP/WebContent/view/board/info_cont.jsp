@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="css/qnaStyle.css" />
 <jsp:include page="../../include/header.jsp" />
 
-
 	<div class="topArea">
 		<div class="topInner">
 			<h2 class="titDep1">Info / News</h2>

@@ -57,7 +57,8 @@
 			</div>
 		</div>
 			<!-- 질문글인 경우 답변글도 같이 보이게 -->
-		<c:set var="reply" value="${reply }" />
+		<c:set var="list" value="${reply }" />
+		<c:forEach items="${list }" var="reply">
 		<div class="qna_reply">
 				<c:if test="${reply.getQnaNo() != 0 }">
 					<div class="qna_topArea">
@@ -75,32 +76,34 @@
 						<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
 					</div>
 				</c:if>
-		</div>	
-		<ul class="shortList">
-			<li class="prev">
-				<span>이전 글</span>
-				<c:if test="${down.getQnaNo() != 0 }">
-					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
-				</c:if>
-				<c:if test="${down.getQnaNo() == 0 }">
-					이전글이 없습니다.
-				</c:if>
-			</li>
-			<li class="next">
-				<span>다음 글</span>
-				<c:if test="${up.getQnaNo() != 0 }">
-					<a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a>
-				</c:if>
-				<c:if test="${up.getQnaNo() == 0 }">
-					다음글이 없습니다.
-				</c:if>
-			</li>
-		</ul>
-		<br>
-		<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
-		<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
-	
+			</div>
+		</c:forEach>
 				
+			<ul class="shortList">
+				<li class="prev">
+					<span>이전 글</span>
+					<c:if test="${down.getQnaNo() != 0 }">
+						<a href="<%=request.getContextPath() %>/qna_cont.do?no=${down.getQnaNo() }">${down.getQnaTitle() }</a>
+					</c:if>
+					<c:if test="${down.getQnaNo() == 0 }">
+						이전글이 없습니다.
+					</c:if>
+				</li>
+				<li class="next">
+					<span>다음 글</span>
+					<c:if test="${up.getQnaNo() != 0 }">
+						<td><a href="<%=request.getContextPath() %>/qna_cont.do?no=${up.getQnaNo() }">${up.getQnaTitle() }</a></td>
+					</c:if>
+					<c:if test="${up.getQnaNo() == 0 }">
+						<td>다음글이 없습니다.</td>
+					</c:if>
+				</li>
+			</ul>
+			<br>
+			<p id="btn_p"> <input type="button" value="전체목록" id="list_btn" onclick="location.href='qna_list.do'"> </p>
+			<p id="btn_p"> <input type="button" value="글답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+
+		</div>	
 					
 						<%-- <input type="button" value="글수정" onclick="location.href='qna_update.do?no=${dto.getQnaNo() }&id=${dto.getUserId() }'">
 						<input type="button" value="글삭제" onclick="if(confirm('삭제 하시겠습니까?')) {

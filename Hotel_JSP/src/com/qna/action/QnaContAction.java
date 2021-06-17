@@ -1,6 +1,7 @@
 package com.qna.action;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,9 +29,8 @@ public class QnaContAction implements Action {
 		// 답글이 아닌 질문글인 경우
 		if (dto.getQnaStep() == 0) {
 			// 해당 글의 답변 상세 내역을 조회하는 메서드 호출
-			QnaDTO dto2 = dao.getQnaReplyCont(qna_no);
-			System.out.println("reply_no >>> " + dto2.getQnaNo());
-			request.setAttribute("reply", dto2);
+			List<QnaDTO> list = dao.getQnaReplyCont(qna_no);
+			request.setAttribute("reply", list);
 
 		}
 		
