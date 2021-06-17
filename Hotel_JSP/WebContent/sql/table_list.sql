@@ -22,7 +22,7 @@ CREATE TABLE INFO                                           -- 공지사항 테�
     info_no         NUMBER(5)       PRIMARY KEY,            -- 공지사항 번호
     admin_id        VARCHAR2(20)    NOT NULL,               -- 작성자 아이디
     info_title      VARCHAR2(20)    NOT NULL,               -- 공지사항 제목
-    info_content    VARCHAR2(20)    NOT NULL,               -- 공지사항 내용
+    info_content    VARCHAR2(1000)    NOT NULL,               -- 공지사항 내용
     info_hit        NUMBER(5)       DEFAULT 0 NOT NULL,     -- 공지사항 조회수
     info_date       DATE            NOT NULL                -- 공지사항 작성일(sysdate)
 );
