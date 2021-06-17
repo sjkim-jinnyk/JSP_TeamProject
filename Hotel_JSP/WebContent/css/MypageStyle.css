@@ -7,13 +7,13 @@
 
 .myPage_header {
 	position: relative;
-	width: 80%;
+	width: 85%;
 	margin: auto;
 	margin-top: 150px;
 }
 
 .header_title {
-	font: 500 40px playfair;
+	font: 500 60px playfair;
 	font-family: 'Playfair Display SC', serif;
 	color: #151515;
 	font-feature-settings: 'lnum', 'pnum';
@@ -21,55 +21,59 @@
 
 .header_txt {
 	margin-top: 5px;
-	font-size: 15px;
+	font-size: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
 	letter-spacing: -.01em;
 	opacity: 0.8;
 }
 
 .myPage {
 	position: relative;
-	width: 80%;
+	width: 85%;
 	margin: auto;
 	margin-top: 20px;
-	padding-bottom: 180px;
-	display: flex;
+	padding-bottom: 800px;
 }
 
 .myPage_inner {
-	width: 20%;
+	width: 25%;
+	float: left;
 }
 
 .innerBox {
-	padding: 30px 20px;
+	padding: 50px;
     background-color: #f9f9f9;
     margin-top: 50px;
 }
 
 .inner_menu {
 	margin-bottom: 20px;
-	font: 500 18px/1 notokrR;
+	font: 500 25px playfair;
     letter-spacing: -.025em;
 }
 
 .menu_list {
 	opacity: 0.8;
     margin-bottom: 30px;
-    font: 500 14px/1 notokrR;
+    font: 500 20px playfair;
     letter-spacing: -.025em;
     line-height: 2.5;
 }
 
 .mainpage {
 	text-align: center;
-	width: 100%;
-	margin-block: auto;
-	margin-left: 30px;
-	margin-right: 30px;
+    width: 75%;
+    display: table;
+    margin-block: auto;
+}
+
+.mainpage_box {
+	margin: 150px 0;
 }
 
 .welcom_msg {
-	margin-bottom: 40px;
-    font: 500 25px/1 notokrR;
+	margin-bottom: 60px;
+    font: 500 35px playfair;
     letter-spacing: -.025em;
 }
 
@@ -83,13 +87,23 @@
     margin: auto;
 }
 
-.resPoint {
+.resPoint_count {
 	border: 1px solid;
    	width: 50%;
     padding: 15px;
-    font: 500 17px/1 notokrR;
+    font: 500 25px playfair;
     letter-spacing: -.025em;
     line-height: 1.5;
+}
+
+.resPoint_point {
+	border: 1px solid;
+   	width: 50%;
+    padding: 15px;
+    font: 500 25px playfair;
+    letter-spacing: -.025em;
+    line-height: 1.5;
+    border-left: 0;
 }
 
 .mypageCount {
@@ -98,7 +112,8 @@
 }
 
 .myPage_box {
-	width: 100%;
+	width: 75%;
+    display: table;
 	margin: 50px 0px 50px 30px;
 	margin-bottom: 0;
 }
