@@ -174,6 +174,3 @@ function pwd_check(){
 	document.getElementById('userEmail_1').value = email[0];
 	document.getElementById('userEmail_2').value = email[1];
 }*/
-
-
-

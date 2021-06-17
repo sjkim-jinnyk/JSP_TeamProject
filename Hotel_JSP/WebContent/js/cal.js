@@ -3,7 +3,7 @@ $(function () {
 
   var datepicker = {
     container: $("#datepicker"),
-    dateFormat: "yy/mm/dd",
+    dateFormat: "yy-mm-dd",
     dates: [null, null],
     status: null,
     inputs: {
@@ -191,12 +191,12 @@ $(function () {
           .change();
         datepicker.inputs.dates.val(
           datepicker.inputs.checkin.val() +
-            " - " +
+            " / " +
             datepicker.inputs.checkout.val()
         );
         
         datepicker.inputs.datetext.text($.datepicker.formatDate(datepicker.dateFormat, checkInDate)+ 
-        		" - " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
+        		" / " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
       }
     },
   });

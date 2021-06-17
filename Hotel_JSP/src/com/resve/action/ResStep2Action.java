@@ -14,15 +14,15 @@ public class ResStep2Action implements Action {
 		
 		HttpSession session = request.getSession();
 
-		String num = request.getParameter("num");
+		int num = Integer.parseInt(request.getParameter("num"));
 		String name = request.getParameter("name");
-		String price = request.getParameter("price");
+		int price = Integer.parseInt(request.getParameter("price"));
 		
 		session.setAttribute("roomNumber", num);
 		session.setAttribute("roomName", name);
 		session.setAttribute("roomPrice", price);
 		
-		System.out.println(price);
+		System.out.println(num);
 		
 		ActionForward forward = new ActionForward();		
 		forward.setRedirect(false);

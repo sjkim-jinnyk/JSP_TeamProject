@@ -16,7 +16,7 @@ $(document).ready(function() {
 		    var month = ("0" + (1 + date.getMonth())).slice(-2);
 		    var day = ("0" + date.getDate()).slice(-2);
 
-		    return year + "/" + month + "/" + day;
+		    return year + "-" + month + "-" + day;
 		}
 	    
 	    function getNextday(){	    
@@ -26,11 +26,14 @@ $(document).ready(function() {
 		    var month = ("0" + (1 + tomorrow.getMonth())).slice(-2);
 		    var day = ("0" + tomorrow.getDate()).slice(-2);
 		    
-		    return year + "/" + month + "/" + day;    	
+		    return year + "-" + month + "-" + day;    	
 	    }
 		
+	    
+	    
+	    
 	    // 기본 값을 오늘날짜 - 내일 날짜로 설정.
-	    $("#dateText").text(getToday() + " - " + getNextday());
+	    $("#dateText").text(getToday() + " / " + getNextday());
 	    $("#resIn").val(getToday());
 	    $("#resOut").val(getNextday()); 
 	});
