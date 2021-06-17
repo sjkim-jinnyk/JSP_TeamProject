@@ -31,7 +31,7 @@
 				<li id="infohit">조회수: ${dto.getQnaHit() }</li>
 			</ul>
 			
-			<p class="txtBox">
+			<p class="qna_txtBox">
 				${dto.getQnaContent() }
 				<br><br><br><br>
 				첨부파일: 
