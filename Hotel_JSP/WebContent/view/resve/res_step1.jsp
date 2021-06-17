@@ -20,7 +20,6 @@
 	$(document).ready( function(){
 		
 		let userId = '<%=(String)session.getAttribute("userId")%>';
-		let resAdult = '<%=session.getAttribute("resAdult")%>';
 		
 		if(userId == 'null'){ // 로그인 안한 경우
 			alert('로그인 후 이용 가능합니다.');
