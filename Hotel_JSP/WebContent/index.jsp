@@ -136,7 +136,9 @@
 		<div class="section" style="background : white">
 			<div class="inner">
 				<div class="offer">
-					GO TO OFFERS >
+					<p>
+					GO TO OFFERS
+					</p>
 				</div>
 				<div class="slide">
 				

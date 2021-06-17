@@ -44,7 +44,7 @@
 						</div>
 						<div class="intInner">
 							<span class="intArea">
-								<input type="text" id="dsId" name="info_id" value="${adminId }" aria-required="true" readonly="readonly"><!-- 세션으로 작성자 ID 받아올 예정 -->
+								<input type="text" id="dsId" name="info_id" value="${adminId }" aria-required="true" readonly="readonly"><!-- 세션으로 작성자 ID 받아옴 -->
 							</span>
 						</div>
 					</li>

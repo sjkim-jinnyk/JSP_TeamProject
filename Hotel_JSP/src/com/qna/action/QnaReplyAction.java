@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
@@ -16,8 +17,9 @@ public class QnaReplyAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String adminId = null;
-		adminId = "ADMIN";	// 임시 아이디 설정, 세션정보 받아오기 필요
+		HttpSession session = request.getSession();
+		String adminId = (String)session.getAttribute("adminId");
+		System.out.println("qna_reply 세션 >>> " + (String)session.getAttribute("adminId"));	// 세션 정보 확인
 		
 		QnaDAO dao = QnaDAO.getInstance();
 		// 관리자 계정 체크 메서드

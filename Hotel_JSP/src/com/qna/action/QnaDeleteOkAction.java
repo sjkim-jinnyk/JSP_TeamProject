@@ -23,12 +23,13 @@ public class QnaDeleteOkAction implements Action {
 		String userId = (String)session.getAttribute("userId");
 		System.out.println("qna_del 세션 >>> " + (String)session.getAttribute("userId"));	// 세션 정보 확인
 		
-		// 관리자 세션정보 추가 필요
+		String adminId = (String)session.getAttribute("adminId");
+		System.out.println("qna_update admin 세션 >>> " + (String)session.getAttribute("adminId"));
 		
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 
-		if (userId.equals(writerId)) {
+		if (userId.equals(writerId) || adminId.equals(writerId)) {	// 글쓴이와 세션 id가 일치하면 수정 가능
 			QnaDAO dao = QnaDAO.getInstance();
 			
 			int res = dao.deleteQna(qna_no);

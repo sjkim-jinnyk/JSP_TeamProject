@@ -26,13 +26,13 @@
 			<table border="1" cellspacing="0" width="350">
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="qna_id"></td>	<!-- 세션으로 작성자 id 받아올 예정 -->
+					<td><input type="text" name="qna_id" value="${adminId }" readonly="readonly"></td>	<!-- 세션으로 관리자 id 받아옴 -->
 				</tr>
 
 				<tr>
 					<th>글제목</th>
 					<td>
-						<input type="text" name="qna_title" value="re:${dto.getQnaTitle() }" readonly="readonly">
+						<input type="text" name="qna_title" value="re:${dto.getQnaTitle() }" readonly="readonly">	<!-- 답글 제목을 're:원글'로 고정 -->
 					</td>
 				</tr>
 
