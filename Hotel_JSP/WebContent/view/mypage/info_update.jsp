@@ -40,6 +40,7 @@
         </div>
         
         <div class="myPage_box">
+        	<div class="myPage_box_inner">
 			<p class="headline">개인정보관리</p>
 			<div>
 				<ul class="myPage_container">
@@ -111,7 +112,8 @@
 					</div>
 				</div>
 			</form>
-		  </div>			
+		  </div>	
+		  </div>		
 		</div>
 	</div>
 	
