@@ -58,6 +58,7 @@
 		</div>
 			<!-- 질문글인 경우 답변글도 같이 보이게 -->
 		<c:set var="list" value="${reply }" />
+		
 		<c:forEach items="${list }" var="reply">
 		<div class="qna_reply">
 				<c:if test="${reply.getQnaNo() != 0 }">
@@ -99,10 +100,14 @@
 				</c:if>
 			</li>
 		</ul>
+		<c:set var="loop_flag" value="false" />
 		<c:forEach items="${list }" var="reply">
-			<c:if test="${adminId == reply.getUserId()}">
-				<p id="btn_p"> 
-					<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+			 <c:if test="${not loop_flag }">
+					<c:if test="${adminId == reply.getUserId()}">
+						<p id="btn_p"> 
+						<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+						<c:set var="loop_flag" value="true" />
+					</c:if>
 			</c:if>
 		</c:forEach>
 		<p id="btn_list">
