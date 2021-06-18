@@ -96,7 +96,7 @@
 		
 		<div class="qna_paging">
 		<c:if test="${page > block }">
-			<a href="info_search.do?page=1&search_field=${search_field }&search_content=${search_content }">[맨처음]</a>
+			<a href="info_search.do?page=1&search_field=${search_field }&search_content=${search_content }">◀◀</a>
 			<a href="info_search.do?page=${startBlock - 1 }&search_field=${search_field }&search_content=${search_content }">◀</a>
 		</c:if>
 
@@ -112,7 +112,7 @@
 
 		<c:if test="${endBlock < allPage }">
 			<a href="info_search.do?page=${endBlock + 1 }&search_field=${search_field }&search_content=${search_content }">▶</a>
-			<a href="info_search.do?page=${allPage }&search_field=${search_field }&search_content=${search_content }">[마지막]</a>
+			<a href="info_search.do?page=${allPage }&search_field=${search_field }&search_content=${search_content }">▶▶</a>
 		</c:if>
 		</div>
 		

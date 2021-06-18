@@ -96,7 +96,7 @@
 		
 		<div class="qna_paging">
 		<c:if test="${page > block }">
-			<a href="info_list.do?page=1">[맨처음]</a>
+			<a href="info_list.do?page=1">◀◀</a>
 			<a href="info_list.do?page=${startBlock - 1 }">◀</a>
 		</c:if>
 
@@ -112,7 +112,7 @@
 
 		<c:if test="${endBlock < allPage }">
 			<a href="info_list.do?page=${endBlock + 1 }">▶</a>
-			<a href="info_list.do?page=${allPage }">[마지막]</a>
+			<a href="info_list.do?page=${allPage }">▶▶</a>
 		</c:if>
 		</div>
 		
