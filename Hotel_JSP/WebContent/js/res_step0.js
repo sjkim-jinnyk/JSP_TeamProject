@@ -33,7 +33,35 @@ $(document).ready( function(){
 	let t_month = tomorrow.getMonth() +1;
 	let t_date = tomorrow.getDate();
 	
+	function getToday(){
+    	let date = new Date();
+	    var year = date.getFullYear();
+	    var month = ("0" + (1 + date.getMonth())).slice(-2);
+	    var day = ("0" + date.getDate()).slice(-2);
+
+	    return year + "-" + month + "-" + day;
+	}
+    
+    function getNextday(){	    
+    	let date = new Date();
+    	let tomorrow = new Date(date.setDate(date.getDate() + 1));
+	    var year = tomorrow.getFullYear();
+	    var month = ("0" + (1 + tomorrow.getMonth())).slice(-2);
+	    var day = ("0" + tomorrow.getDate()).slice(-2);
+	    
+	    return year + "-" + month + "-" + day;    	
+    }
 	
+    countNight();
+    
+    
+    // 기본 값을 오늘날짜 - 내일 날짜로 설정.
+    $("#dateText").text(getToday() + " / " + getNextday());
+    $("#resIn").val(getToday());
+    $("#resOut").val(getNextday()); 
+	
+    
+    
 	if(month < 10){
 		month = '0' +month;
 		
@@ -179,6 +207,8 @@ $(document).ready( function(){
 		}else if(night_date <= 0){
 			alert('정확한 숙박 날짜를 선택해주세요.');
 		}   
+		
+		return night_date;
 	} // countNight() end
 	
 	

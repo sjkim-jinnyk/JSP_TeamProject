@@ -25,3 +25,28 @@
     letter-spacing: -.01em;
     font-family: 'Noto Sans KR', sans-serif;
 }
+
+.inner {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 180px;
+}
+
+.dateSelect > li {
+    padding: 21px 20px 22px;
+    border-top: 1px solid #ccc;
+}
+
+.listTit{
+	font: 400 22px gothamB,notokrL;
+}
+
+.intValue {
+    position: absolute;
+    right: 76px;
+    top: 19px;
+    font-size: 22px;
+    font-family: gothamL,notokrL;
+    letter-spacing: -.04em;
+}

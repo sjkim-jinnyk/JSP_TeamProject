@@ -44,6 +44,7 @@ function calTotal() {
 	let roomPrice = parseInt(document.getElementById('room_price').innerHTML);	// 룸 가격
 	let tax = parseInt(document.getElementById('tax').innerHTML);				// 세금
 	
+	
 	// 2. 계산하는 변수
 	let calOption = adult_num + child_num + adultBr + childBr + extraBed;		// 옵션 금액
 	let calTotal = calOption + roomPrice + tax;									// 총 예약 금액

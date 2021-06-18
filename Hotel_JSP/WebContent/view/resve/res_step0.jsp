@@ -24,8 +24,7 @@
 	
 	<form id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
-			
-		<br><br><br><br><br>
+
 		<input type="hidden" name="resIn" id="resIn" value="0">				
 		<input type="hidden" name="resOut" id="resOut" value="0">
 		<input type="hidden" name="resNight" id="resNight" value="0">				
@@ -33,26 +32,31 @@
 		<input type="hidden" name="resChild" id="resChild" value="0">
 			
 			<div class="inner">
-			
-				<ul class="dateSelect">					
+				<ul class="dateSelect">		
+					<li>
+						<strong class="listTit">테스트문구</strong>	
+					</li>			
 					<li class="selectResDate">
-						<hr>
-						<p class="listTitle" style="display: inline">투숙기간 선택</p>
+						<strong class="listTit">투숙기간선택</strong>
+						<em class="intValue" id="dateText">
+							<span>
+	
+							</span>
+						</em>
+						<button type="button" class="dToggleBtn">V</button>
 						<p class="dateText" id="dateText" style="display: inline">
 							<span id="resInView">0000.00.00</span>&nbsp;<span id="inYoil">[요일]</span>&nbsp;-&nbsp;
 							<span id="resOutView">0000.00.00</span>&nbsp;<span id="outYoil">[요일]</span>&nbsp;|&nbsp;
 							<span id="nightResult" >0</span> 박
 						</p>
-						<button type="button" class="dToggleBtn">V</button><br>
+						<button type="button" class="dToggleBtn">V</button>
 						<div class="dToggleInner">
+							<div id="datepicker"></div>
 							<input type="date" id="resIn_val" onchange="viewDate('in');">&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="date" id="resOut_val" onchange="viewDate('out');">
 						</div>
 						<hr>
 					</li>				
-				</ul>
-				
-				<ul class="personSelect">	
 					<li class="personCount">
 						<p class="listTitle2" style="display: inline">인원 선택</p>
 						<p class="countText" id="countText" style="display: inline">
@@ -78,6 +82,7 @@
 			</div>
 		
 	</form>
+	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript" src="js/res_step0.js"></script>
 	<jsp:include page="../../include/footer.jsp" />
 	
