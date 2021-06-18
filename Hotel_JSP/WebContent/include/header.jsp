@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="css/HeaderStyle.css">
 <link rel="stylesheet" href="css/FooterStyle.css">
 <link rel="stylesheet" href="css/madal_pop.css" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
 <link rel="stylesheet" href="css/cal.css">
     <link
       rel="stylesheet"
