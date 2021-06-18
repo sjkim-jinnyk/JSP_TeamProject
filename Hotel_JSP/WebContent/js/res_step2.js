@@ -1,9 +1,11 @@
 // 페이지 로딩하면 작동
+const className = document.querySelector('.toggleOn');
 $(document).ready( function(){
 	
 	// 토글 -------------------------------------------------
 	$( '.total_toggle' ).click( function() {
     	$( '.toggleCont' ).toggle( 'slow' );
+    	className.classList.toggle('toggleOn');
     });
 
 	
