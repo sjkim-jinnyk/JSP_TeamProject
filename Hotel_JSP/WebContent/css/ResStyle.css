@@ -1,1 +1,27 @@
 @charset "UTF-8";
+
+.topArea{
+	display: table;
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.topInner{
+	display: table-cell;
+    padding: 97px 0 90px;
+}
+
+.titDep1{
+	font-weight: 500;
+	font-size: 60px;
+	font-family: 'Playfair Display SC', serif;
+}
+
+.pageGuide{
+	margin-top: 18px;
+    font-size: 20px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR', sans-serif;
+}

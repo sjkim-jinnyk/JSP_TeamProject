@@ -115,8 +115,8 @@
 														<li>
 															<span class="data1">세금 (10%)</span>
 															<span class="data2" id="tax">
-																<%-- <fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" /> --%>
-																${dto2.getRoomPrice() * 0.1 } (원)
+																<fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" />
+																<%-- ${dto2.getRoomPrice() * 0.1 } --%>(원)
 															</span>
 														</li>
 													</ul>
