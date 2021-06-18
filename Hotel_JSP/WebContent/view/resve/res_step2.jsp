@@ -9,6 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 옵션 선택 | 조선호텔앤리조트</title>
+
+<link rel="stylesheet" href="css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -16,7 +18,7 @@
 	
 	<jsp:include page="../../include/header.jsp" />
 	
-	<form name="step2Form" id="step2Form" method="post" 
+	<form name="step2Form" class="res_cont" id="step2Form" method="post" 
 		action='<%=request.getContextPath()%>/step3.do'>
 	 
 		<div class="topArea">
@@ -26,7 +28,7 @@
 				<div class="stepWrap">
 					<ol>
 						<li></li>
-						<li>옵션 선택</li>
+						<li class="on">옵션 선택</li>
 						<li></li>
 						
 					</ol>
@@ -40,7 +42,7 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;-&nbsp;
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;/&nbsp;
 							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
 							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
@@ -56,10 +58,11 @@
 						<dt>CHILDREN</dt>
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
-				</div>
-				<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn" 
+					
+					<a href="<%=request.getContextPath() %>/step0.do" class="btn" 
 					style="border: solid 1px;">객실 다시 검색</a><br>
-				----------------------------
+				</div>
+				
 			</div>
 			
 			<%--step3action 으로 넘길 값 --%>
@@ -201,7 +204,7 @@
 					</div>
 					<div class="btnArea">
 						<div>
-							<input type="submit" value="회원 예약">
+							<input type="submit" class="btn" value="회원 예약">
 						</div>
 					</div>
 				</div><!-- class="totalCont" -->

@@ -9,6 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 고객 정보 입력 | 조선호텔앤리조트</title>
+
+<link rel="stylesheet" href="css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -16,18 +18,17 @@
 	
 	<jsp:include page="../../include/header.jsp" />
 	
-	<form name="step3Form" id="step3Form" method="post" 
+	<form name="step3Form" class="res_cont" id="step3Form" method="post" 
 		action='<%=request.getContextPath()%>/step4.do'>
 	 
 		<div class="topArea">
 			<div class="topInner">
-				<br><br><br>
 				<h2 class="titDep1">Booking</h2>
 				<div class="stepWrap">
 					<ol>
 						<li></li>
 						<li></li>
-						<li>예약자 정보 입력</li>
+						<li class="on">예약자 정보 입력</li>
 						
 					</ol>
 				</div>
@@ -40,7 +41,7 @@
 				<div class="infoArea">
 					<dl class="date">
 						<dt>DATE</dt>
-						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;-&nbsp;
+						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;/&nbsp;
 							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
 							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
@@ -211,7 +212,7 @@
 					</div>
 					<div class="btnArea">
 						<div>
-							<input type="submit" value="회원 예약">
+							<input type="submit" class="btn" value="회원 예약">
 						</div>
 					</div>
 				</div><!-- class="totalCont" -->
