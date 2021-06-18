@@ -88,7 +88,7 @@ $(document).ready( function(){
 		  }
 		  
 		  // 결과 출력	  
-		  resultElement.innerText = number;
+		  resultElement.innerText = number + "명";	
 		  resultA.innerText = number;
 		  
 	} // count() end 
@@ -118,7 +118,7 @@ $(document).ready( function(){
 		  }
 		  
 		  // 결과 출력	  
-		  resultElement.innerText = number;	
+		  resultElement.innerText = number + "명";	
 		  resultC.innerText = number;
 	} // count2() end 
 	

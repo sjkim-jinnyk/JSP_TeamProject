@@ -8,10 +8,6 @@
 <link rel="stylesheet" href="css/ResStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="css/ResStyle.css">
-
-
-
 <jsp:include page="../../include/header.jsp" />
 		
 	<div class="topArea">
@@ -25,19 +21,6 @@
 		</div>
 	</div>
 
-<!-- <link rel="stylesheet" href="/resources/demos/style.css">-->
-
-<!--  
-<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
-<link rel="stylesheet" href="css/MainStyle.css">
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
--->
-
-</head>
-<body>
-
-	<jsp:include page="../../include/header.jsp" />
-	
 	<form class="res_cont" id="step0Form" name="step0Form" method="post" 
 			action="<%=request.getContextPath()%>/step1.do">
 		<input type="hidden" name="resIn" id="resIn" value="0">				
@@ -51,50 +34,60 @@
 			<div class="inner">
 				<ul class="dateSelect">		
 					<li>
-						<strong class="listTit">테스트문구</strong>	
+						<strong class="listTit">안내사항</strong>	
+						<p class="resGuide">
+							숙박 예약은 로그인 후 이용이 가능합니다. 회원이 아니시라면 회원가입을 부탁드립니다.
+							<br/>
+							* 어린이 기준 : 37개월 - 만 12세
+						</p>
 					</li>			
 					<li class="selectResDate">
-						<strong class="listTit">투숙기간선택</strong>
-						<em class="intValue" id="dateText">
-							<span>
-	
-							</span>
-						</em>
-						<button type="button" class="dToggleBtn">V</button>
-						<p class="dateText" id="dateText" style="display: inline">
-							<span id="resInView">0000.00.00</span>&nbsp;<span id="in_Yoil">[요일]</span>&nbsp;-&nbsp;
-							<span id="resOutView">0000.00.00</span>&nbsp;<span id="out_Yoil">[요일]</span>&nbsp;|&nbsp;
-							<span id="nightResult" >0</span> 박
-						</p>
-						<button type="button" class="dToggleBtn">V</button>
+						<strong class="listTit">투숙기간 선택</strong>
+						<%-- <em class="intValue" id="dateText"></em> --%>
+						<button type="button" class="dToggleBtn"><i class="fas fa-chevron-down"></i></button>
+						<div class="dateTexts" id="dateTexts">
+							<span id="resInView"></span>&nbsp;<span id="in_Yoil"></span>&nbsp;-&nbsp;
+							<span id="resOutView"></span>&nbsp;<span id="out_Yoil"></span>
+							<span id="nightResult" class="nightResult"></span>
+						</div>	
 						<div class="dToggleInner">
 							<div id="datepicker"></div>
-							<input type="date" id="resIn_val" onchange="viewDate('in');">&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="date" id="resOut_val" onchange="viewDate('out');">
 						</div>
-						<hr>
 					</li>				
 					<li class="personCount">
-						<p class="listTitle2" style="display: inline">인원 선택</p>
-						<p class="countText" id="countText" style="display: inline">
-							성인 <div id="resultA" style="display: inline">1</div>명 | 
-							어린이 <div id="resultC" style="display: inline">0</div>명
-						<button type="button" class="pToggleBtn">V</button><br>
+						<strong class="listTit">인원 선택</strong>
+						<button type="button" class="pToggleBtn"><i class="fas fas fa-chevron-down"></i></button>
+						<div class="countText" id="countText">
+							성인 <div id="resultA" style="display: inline">1</div>명
+							<span class="countbefore"></span>어린이 <div id="resultC" style="display: inline">0</div>명
+						</div>
+						
+						
 						<div class="pToggleInner"  style="display: none">
 							<div class="count">
-								<input type="button" onclick="count('minus')" value="-"/>
-								성인<div id="result" style="display: inline">1</div>
-								<input type="button" onclick="count('plus')" value="+"/>
+								<button type="button" onclick="count('minus')">
+									<i class="fas fa-minus" aria-hidden="true"></i>
+								</button>
+								<span class="count_span">성인 <em id="result">1</em></span>
+								<button type="button" onclick="count('plus')">
+									<i class="fas fa-plus" aria-hidden="true"></i>
+								</button>
 							</div>
 							<div class="count">
-								<input type="button" onclick="count2('minus')" value="-"/>
-								어린이<div id="result2" style="display: inline">0</div>
-								<input type="button" onclick="count2('plus')" value="+"/>
+								<button type="button" onclick="count2('minus')">
+									<i class="fas fa-minus" aria-hidden="true"></i>
+								</button>
+								<span class="count_span">어린이 <em id="result2">0</em> </span>
+								<button type="button" onclick="count2('plus')" value="+">
+									<i class="fas fa-plus" aria-hidden="true"></i>
+								</button>
 							</div>
 						</div>
 					</li>
 				</ul>
-				<input type="submit" class="btn" value="객실 검색">
+				<div class="res_submit_area">
+					<input type="submit" class="res_submit" value="객실 검색">
+				</div>
 				
 			</div>
 		
@@ -103,17 +96,6 @@
 	<script type="text/javascript" src="js/res_step0.js"></script>
 
 	<jsp:include page="../../include/footer.jsp" />
-	
-	<script type="text/javascript" src="js/res_step0.js"></script>
-	<!--  
-	<script type="text/javascript" src="js/fullpage.js"></script>
-	<script type="text/javascript" src="js/cal.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  	<script>
-    	AOS.init();
-  	</script>
-	-->
 
 </body>
 </html>
