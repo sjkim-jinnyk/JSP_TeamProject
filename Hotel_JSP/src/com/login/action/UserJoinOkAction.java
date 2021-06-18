@@ -61,35 +61,35 @@ public class UserJoinOkAction implements Action {
 		ActionForward forward = new ActionForward();
 		PrintWriter out = response.getWriter();
 
-
-		
-		if(userPwd_check.equals(dto.getUserPwd())) {
+		if(! userId.equals("admin") && ! userId.equals("ADMIN")) {	// 아이디가 admin or ADMIN이 아닐 때 회원가입 가능
 			
-			// 비밀번호 같은 경우
-			UserDAO dao = UserDAO.getInstance();
-			int join = dao.userJoin(dto);
-			
-			if(join > 0) {
-				// 회원가입 성공한 경우
-				forward.setRedirect(false);
-				forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?
-			} else {
-				// 회원가입 실패한 경우
+			if(userPwd_check.equals(dto.getUserPwd())) {	// 비밀번호 같은 경우
+				
+				UserDAO dao = UserDAO.getInstance();
+				int join = dao.userJoin(dto);
+				
+				if(join > 0) {	 // 회원가입 성공한 경우
+					forward.setRedirect(false);
+					forward.setPath("index.jsp");	// ★ 유저 메인 페이지(user_main.jsp)를 따로 만들어야 하는지?			
+				} else {	// 회원가입 실패한 경우
+					out.println("<script>");
+					out.println("alert('회원가입에 실패하였습니다.')");
+					out.println("history.back()");
+					out.println("</script>");
+				}
+			} else {	// 비밀번호가 틀린 경우
 				out.println("<script>");
-				out.println("alert('회원가입에 실패하였습니다.')");
+				out.println("alert('비밀번호를 다시 한 번 체크해주세요. ')");
 				out.println("history.back()");
 				out.println("</script>");
 			}
-			
-		} else {
-			// 비밀번호가 틀린 경우
+		} else {	// 아이디가 admin or ADMIN 이면 회원가입 불가
 			out.println("<script>");
-			out.println("alert('비밀번호를 다시 한 번 체크해주세요. ')");
+			out.println("alert('admin을 제외한 다른 아이디를 사용해주세요.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}
 		
-
 		return forward;
 		
 	}

@@ -9,5 +9,7 @@
 	String userId = (String)request.getParameter("userId");	// 매개변수로 id가 들어갈 때 string으로 형변환 필요
 	result = dao.idCheck(userId);
 	
+	System.out.println("아이디 체크값 입니다. >>> " + result);
+	
 	out.println(result);
 %>

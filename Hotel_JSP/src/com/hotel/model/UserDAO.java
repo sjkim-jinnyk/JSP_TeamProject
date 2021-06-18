@@ -182,27 +182,35 @@ public class UserDAO {
 		
 		int result = 0;
 
-		try {
-			openConn();
+		if(! userId.equals("admin") && ! userId.equals("ADMIN")) {
+			// 중복확인 아이디가 admin과 ADMIN이 아닐 때 회원가입 가능
 			
-			sql = "select * from hotel_user where user_id = ?";
-			
-			pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, userId);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				result = 1;
+			try {
+				openConn();
+				
+				sql = "select * from hotel_user where user_id = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				
+				pstmt.setString(1, userId);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					result = 1;
+				} 
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				closeConn(rs, pstmt, con);
 			}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			closeConn(rs, pstmt, con);
+		} else {
+			result = -1;
 		}
+		
 		return result;
 
 	} // idCheck()메서드 end
