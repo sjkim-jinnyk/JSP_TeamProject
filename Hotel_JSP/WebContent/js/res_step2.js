@@ -156,7 +156,7 @@ function getTotal(){
 	let tax = pretax /10;
 	let total = pretax + tax;
 	
-	
+
 	// 값 저장
 	roomTotal.value = rmTotal;
 	resPretax.value = pretax; // 세금미포함

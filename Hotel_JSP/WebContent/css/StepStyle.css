@@ -1,0 +1,77 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/* topArea */
+
+.topArea{
+	position: relative;
+	width: 85%;
+	margin: 0 auto;
+	margin-top: 10px;
+	max-width: 1800px;
+	padding: 97px 0 30px;
+
+}
+.topArea .topInner{
+	display:table-cell;
+	padding: 50px 0 50px;
+}
+
+.titDep1{
+	font:500 45px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings:'lnum', 'pnum'
+}
+
+.pageGuide {
+    margin-top: 18px;
+    font-size: 15px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}
+
+.stepWrap{
+	margin-top: 18px;
+	font-size: 17px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}
+
+
+.inner {
+    background: #f9f9f9;
+    margin-bottom: 100px;
+    position: relative;
+    padding: 42px 0;
+    margin: 0 auto;
+}
+
+.infoArea {
+	display: flex;
+}
+
+.infoArea dl{
+	padding-right: 110px;
+}
+
+.infoArea dl.date{
+	padding-left: 8%;
+}
+
+.infoArea dl dt {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 11px;
+    padding-bottom: 5px;
+}
+
+.infoArea dl dd {
+	font-size: 15px;
+    letter-spacing: -.01em;
+    font-family:  'Noto Sans KR';
+    font-weight: 300;
+}

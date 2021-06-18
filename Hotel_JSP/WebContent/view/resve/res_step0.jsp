@@ -5,9 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>객실 예약 - 투숙기간, 객실 선택 | 조선호텔앤리조트</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="css/ResStyle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="css/ResStyle.css">
+
+
 
 <jsp:include page="../../include/header.jsp" />
 		
@@ -21,16 +24,30 @@
 			</p>
 		</div>
 	</div>
-	
-	<form id="step0Form" name="step0Form" method="post" 
-			action="<%=request.getContextPath()%>/step1.do">
 
+<!-- <link rel="stylesheet" href="/resources/demos/style.css">-->
+
+<!--  
+<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+<link rel="stylesheet" href="css/MainStyle.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+-->
+
+</head>
+<body>
+
+	<jsp:include page="../../include/header.jsp" />
+	
+	<form class="res_cont" id="step0Form" name="step0Form" method="post" 
+			action="<%=request.getContextPath()%>/step1.do">
 		<input type="hidden" name="resIn" id="resIn" value="0">				
 		<input type="hidden" name="resOut" id="resOut" value="0">
 		<input type="hidden" name="resNight" id="resNight" value="0">				
-		<input type="hidden" name="resAdult" id="resAdult" value="0">								
+		<input type="hidden" name="resAdult" id="resAdult" value="1">								
 		<input type="hidden" name="resChild" id="resChild" value="0">
-			
+		<input type="hidden" name="resInYoil" id="resInYoil" value="">
+		<input type="hidden" name="resOutYoil" id="resOutYoil" value="">
+
 			<div class="inner">
 				<ul class="dateSelect">		
 					<li>
@@ -45,8 +62,8 @@
 						</em>
 						<button type="button" class="dToggleBtn">V</button>
 						<p class="dateText" id="dateText" style="display: inline">
-							<span id="resInView">0000.00.00</span>&nbsp;<span id="inYoil">[요일]</span>&nbsp;-&nbsp;
-							<span id="resOutView">0000.00.00</span>&nbsp;<span id="outYoil">[요일]</span>&nbsp;|&nbsp;
+							<span id="resInView">0000.00.00</span>&nbsp;<span id="in_Yoil">[요일]</span>&nbsp;-&nbsp;
+							<span id="resOutView">0000.00.00</span>&nbsp;<span id="out_Yoil">[요일]</span>&nbsp;|&nbsp;
 							<span id="nightResult" >0</span> 박
 						</p>
 						<button type="button" class="dToggleBtn">V</button>
@@ -60,13 +77,13 @@
 					<li class="personCount">
 						<p class="listTitle2" style="display: inline">인원 선택</p>
 						<p class="countText" id="countText" style="display: inline">
-							성인 <div id="resultA" style="display: inline">0</div>명 | 
+							성인 <div id="resultA" style="display: inline">1</div>명 | 
 							어린이 <div id="resultC" style="display: inline">0</div>명
 						<button type="button" class="pToggleBtn">V</button><br>
 						<div class="pToggleInner"  style="display: none">
 							<div class="count">
 								<input type="button" onclick="count('minus')" value="-"/>
-								성인<div id="result" style="display: inline">0</div>
+								성인<div id="result" style="display: inline">1</div>
 								<input type="button" onclick="count('plus')" value="+"/>
 							</div>
 							<div class="count">
@@ -77,15 +94,26 @@
 						</div>
 					</li>
 				</ul>
-				<input type="submit" value="객실 검색">
+				<input type="submit" class="btn" value="객실 검색">
 				
 			</div>
 		
 	</form>
 	<script type="text/javascript" src="js/cal.js"></script>
 	<script type="text/javascript" src="js/res_step0.js"></script>
+
 	<jsp:include page="../../include/footer.jsp" />
 	
+	<script type="text/javascript" src="js/res_step0.js"></script>
+	<!--  
+	<script type="text/javascript" src="js/fullpage.js"></script>
+	<script type="text/javascript" src="js/cal.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  	<script>
+    	AOS.init();
+  	</script>
+	-->
 
 </body>
 </html>

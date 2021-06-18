@@ -23,12 +23,17 @@ public class ResStep1Action implements Action {
 		int resAdult = Integer.parseInt(request.getParameter("resAdult"));
 		int resChild = Integer.parseInt(request.getParameter("resChild"));
 		int resNight = Integer.parseInt(request.getParameter("resNight"));
+		String resInYoil = request.getParameter("resInYoil");
+		String resOutYoil = request.getParameter("resOutYoil");
 		
 		session.setAttribute("resIn", resIn);
 		session.setAttribute("resOut", resOut);
 		session.setAttribute("resAdult", resAdult);
 		session.setAttribute("resChild", resChild);
 		session.setAttribute("resNight", resNight);
+		session.setAttribute("resInYoil", resInYoil);
+		session.setAttribute("resOutYoil", resOutYoil);
+
 		
 		System.out.println(resNight);
 		
