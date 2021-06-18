@@ -1,4 +1,6 @@
-// 로그인시 아이디 저장 기능 스크립트
+// 로그인 페이지
+
+// 로그인시 아이디 저장(체크박스) 기능 스크립트
 $(document).ready(function() {
 	
 	$("#idSaveCheck").change(function(){ 
