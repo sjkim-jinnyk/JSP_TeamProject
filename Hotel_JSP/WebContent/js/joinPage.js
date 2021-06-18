@@ -108,7 +108,10 @@ function idCheck(){
 			if(data === 1){
 				alert("중복된 아이디입니다.")
 				$('#id_txt').val("");
-			}else{
+			} else if(data === -1){
+				alert("'admin'과 'ADMIN'은 사용 불가한 아이디입니다.")
+				$('#id_txt').val("");
+			} else {
 				alert("사용가능한 아이디입니다.")
 			}
 		},
