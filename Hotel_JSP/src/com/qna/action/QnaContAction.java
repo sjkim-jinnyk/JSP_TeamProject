@@ -27,12 +27,17 @@ public class QnaContAction implements Action {
 
 		// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
 		QnaDTO dto = dao.getQnaCont(qna_no);
+		dto.setQnaContent(dto.getQnaContent().replace("\n", "<br>"));
 				
 		// 답글이 아닌 질문글인 경우
 		if (dto.getQnaStep() == 0) {
 			// 해당 글의 답변 상세 내역을 조회하는 메서드 호출
 			List<QnaDTO> list = dao.getQnaReplyCont(qna_no);
 			request.setAttribute("reply", list);
+			
+			for (QnaDTO dto2 : list) {
+				dto2.setQnaContent(dto2.getQnaContent().replace("\n", "<br>"));
+			}
 
 		}
 		

@@ -27,6 +27,7 @@ public class InfoContAction implements Action {
 
 		// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
 		InfoDTO dto = dao.getInfoCont(info_no);
+		dto.setInfoContent(dto.getInfoContent().replace("\n", "<br>"));
 		
 		InfoDTO up = dao.getInfoUp(info_no);
 		InfoDTO down = dao.getInfoDown(info_no);
