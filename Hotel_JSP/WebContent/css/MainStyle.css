@@ -252,11 +252,28 @@
     display: block;
 }
 
+.cont_title {
+	
+}
+
+.cont_image {
+	
+}
+
+.cont_txt {
+	
+}
 
 .txt01{
 	font-size: 25px;
     margin-top: 30px;
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+.txt01_image {
+	width: 45%;
+    float: right;
+    margin-right: 100px;
 }
 
 .txt02{
