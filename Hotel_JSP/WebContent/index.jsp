@@ -123,13 +123,45 @@
 			<div class="slide"> 
 				<div class="fp_bg_2"></div>
 				<div class="slide_box">
-					test 2
+					<div class="cont">
+						<div class="cont_title">
+							<strong class="tit">The Best of Seoul</strong>
+							<span class="sTit">Center Stage of South Korea</span>
+						</div>
+						<div class="cont_main">
+							<div class="cont_image">
+								<p class="txt01">
+									<img src="images/main_westin.jpg" class="txt01_image">
+								</p>
+							</div>
+							<div class="cont_txt">
+								<p class="txt02">
+									서울에서의 경험을 특별하게 만들어줄 이곳에서 당신의 여정을 시작하세요.
+									<br>
+									세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
+								</p>
+								<a href="#" class="btnSC btnM">VIEW MORE</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="slide">
 				<div class="fp_bg_1"></div>
 				<div class="slide_box">
-					test 3
+					<div class="cont">
+						<strong class="tit">The Best of Seoul</strong>
+						<span class="sTit">Center Stage of South Korea</span>
+						<p class="txt01">
+							<img src="images/main_westin.jpg" class="txt01_image">
+						</p>
+						<p class="txt02">
+							서울에서의 경험을 특별하게 만들어줄 이곳에서 당신의 여정을 시작하세요.
+							<br>
+							세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
+						</p>
+						<a href="#" class="btnSC btnM">VIEW MORE</a>
+					</div>
 				</div>
 			</div>
 		</div>	
@@ -148,8 +180,11 @@
 							<span class="thum">
 								<img src="images/main_room1.jpg">
 									<figcaption>
-    									<h3>a comfortable rest</h3>
-    									<p>Price : 407,400KRW ~</p><i class="ion-ios-arrow-right"></i>
+    									<h3>WESTIN HEAVENLY BED</h3><br>
+    									<p>Price : 600,000 KRW ~</p><i class="ion-ios-arrow-right"></i>
+    									<p>Size : 77.5m² | Mountain View</p><i class="ion-ios-arrow-right"></i>
+    									<p>Max Capacity Person : 3</p><i class="ion-ios-arrow-right"></i>
+    									<p>Room Type : 1 King bed / 2 Twin bed</p><i class="ion-ios-arrow-right"></i>
   									</figcaption>
 								<a href="#"></a>
 							</span>
@@ -166,6 +201,13 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_room2.jpg">
+									<figcaption>
+    									<h3>WESTIN HEAVENLY BED</h3><br>
+    									<p>Price : 1,000,00 KRW ~</p><i class="ion-ios-arrow-right"></i>
+    									<p>Size : 95.1m² | Poolside View</p><i class="ion-ios-arrow-right"></i>
+    									<p>Max Capacity Person : 3</p><i class="ion-ios-arrow-right"></i>
+    									<p>Room Type : 1 King bed / 2 Twin bed</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
 								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">PREMIER SUITE KING</strong>
@@ -181,6 +223,13 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_room3.jpg">
+									<figcaption>
+    									<h3>WESTIN HEAVENLY BED</h3><br>
+    									<p>Price : 2,000,00 KRW ~</p><i class="ion-ios-arrow-right"></i>
+    									<p>Size : 193.1m² | Panorama View</p><i class="ion-ios-arrow-right"></i>
+    									<p>Max Capacity Person : 4</p><i class="ion-ios-arrow-right"></i>
+    									<p>Room Type : 2 Room / 2 King bed</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
 								<a href="#" class="btnSC btnL"></a>
 							</span>
 							<strong class="tit">PRESTIGE HILL SUITE</strong>
@@ -205,9 +254,14 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_fitness.jpg">
+									<figcaption>
+    									<h3>WestinWORKOUT®</h3><br>
+    									<p>Time : Mon-Sun: 06:00 AM - 10:00 PM</p><i class="ion-ios-arrow-right"></i>
+    									<p>Price : Free(Reservation Customer)</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
 								<a href="#" class="btnSC btnL"></a>
 							</span>
-							<strong class="tit">WestinWORKOUT®<br>Fitness Club</strong>
+							<strong class="tit">Fitness Club</strong>
 							<span class="txt">
 								세계적인 디자이너 아담 티아니가 역동적이고 미래지향적으로 디자인해 활기찬 분위기를 느끼실 수 있습니다.
 								인체 공학적 설계와 가능성으로 인정 받는 운동 기구 99종이 준비되어 있으며 운동 목적에 맞추어 
@@ -221,9 +275,14 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_swimmingPool.jpg">
+									<figcaption>
+    									<h3>WestinWORKOUT®</h3><br>
+    									<p>Time : Mon-Sun: 06:00 AM - 10:00 PM</p><i class="ion-ios-arrow-right"></i>
+    									<p>Price : Free(Reservation Customer)</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
 								<a href="#" class="btnSC btnL"></a>
 							</span>
-							<strong class="tit">WestinWORKOUT®<br>Swimming Pool</strong>
+							<strong class="tit">Swimming Pool</strong>
 							<span class="txt">
 								요트에서 영감을 받아 디자인 된 하늘이 보이는 천장과 바다 속에 있는 듯한 기분을 느끼게 해주는 
 								수영장은 국제규격(25M)에 맞는 수영장으로, 24시간 여과 시스템에 의해 국내 최고의 수질을 유지합니다.
@@ -236,9 +295,14 @@
 						<li class="swipeSlide">
 							<span class="thum">
 								<img src="images/main_sauna.jpg">
+									<figcaption>
+    									<h3>WestinWORKOUT®</h3><br>
+    									<p>Time : Mon-Sun: 06:00 AM - 10:00 PM</p><i class="ion-ios-arrow-right"></i>
+    									<p>Price : 40,000 KRW</p><i class="ion-ios-arrow-right"></i>
+  									</figcaption>
 								<a href="#" class="btnSC btnL"></a>
 							</span>
-							<strong class="tit">WestinWORKOUT®<br>Sauna</strong>
+							<strong class="tit">Sauna</strong>
 							<span class="txt">
 								품격이 남다른 분들의 취향을 고려하여 편안함과 안정성을 살린 왕실풍의 인테리어와 휴식과 피로회복을 위한 공간입니다. 
 								각종 건강욕이 가능한 냉/온 자쿠지, 샤워 마사지 부스와 혈액 순환과 스트레스의 탁월한 효과가 있는 원적외선 건식 사우나, 
