@@ -89,9 +89,9 @@
 													<ul class="infoData">
 														<li>
 															<span class="data1">${dto.getResDate().substring(0,10) }</span>
+																<input type="hidden" value="${dto2.getRoomPrice() }" id="input_room">
 															<span class="data2" id="room_price" >
-																<%-- <fmt:formatNumber value="${dto2.getRoomPrice() }" /> --%>
-																${dto2.getRoomPrice() }(원)
+																<fmt:formatNumber value="${dto2.getRoomPrice() }" /> (원)
 															</span>
 														</li>
 													</ul>
@@ -103,7 +103,7 @@
 													<ul class="infoData">
 														<li>
 															<span class="data1">옵션 추가</span>
-															<span class="data2" id="option_price">(원)</span>
+															<span class="data2" id="option_price">0 (원)</span>
 														</li>
 													</ul>
 												</dd>
@@ -114,9 +114,9 @@
 													<ul class="infoData">
 														<li>
 															<span class="data1">세금 (10%)</span>
+																<input type="hidden" value="${dto2.getRoomPrice() * 0.1 }" id="input_tax">
 															<span class="data2" id="tax">
-																<fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" />
-																<%-- ${dto2.getRoomPrice() * 0.1 } --%>(원)
+																<fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" /> (원)
 															</span>
 														</li>
 													</ul>
@@ -168,7 +168,7 @@
 	</script>
 	
 	<!-- 마이 페이지 스크립트 -->
-	<script type="text/javascript" src="js/myPage.js"></script>
+	<script type="text/javascript" src="js/myPage_resUpdate.js"></script>
 	
     <jsp:include page="../../include/footer.jsp" />
 

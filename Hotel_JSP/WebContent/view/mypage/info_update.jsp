@@ -121,7 +121,7 @@
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	
 	<!-- 마이페이지 스크립트 가져오기-->
-	<script type="text/javascript" src="js/myPage.js"></script>
+	<script type="text/javascript" src="js/myPage_infoUpdate.js"></script>
 	
     <jsp:include page="../../include/footer.jsp" />
 
