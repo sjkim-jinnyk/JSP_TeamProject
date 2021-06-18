@@ -105,7 +105,7 @@
 						<strong class="tit">Meet Our Hotel</strong>
 						<span class="sTit">HERITAGE LEADS TO ONE FOR ALL</span>
 						<p class="txt01">
-							어디서나 한결같이 품격있는 서비와 시설로
+							어디서나 한결같이 품격있는 서비스와 시설로
 							<br>
 							고객에게 깊은 감동을 주는 호텔
 						</p>
@@ -123,25 +123,20 @@
 			<div class="slide"> 
 				<div class="fp_bg_2"></div>
 				<div class="slide_box">
-					<div class="cont">
-						<div class="cont_title">
-							<strong class="tit">The Best of Seoul</strong>
-							<span class="sTit">Center Stage of South Korea</span>
-						</div>
-						<div class="cont_main">
-							<div class="cont_image">
-								<p class="txt01">
-									<img src="images/main_westin.jpg" class="txt01_image">
-								</p>
-							</div>
-							<div class="cont_txt">
-								<p class="txt02">
-									서울에서의 경험을 특별하게 만들어줄 이곳에서 당신의 여정을 시작하세요.
-									<br>
-									세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
-								</p>
-								<a href="#" class="btnSC btnM">VIEW MORE</a>
-							</div>
+					<div class="cont cont2">
+						<p class="txt01">
+							인생의 가장 빛나는 시간을 선사하는 럭셔리 호텔입니다.
+						</p>
+						<p class="txt02">
+							가장 특별한 당신에게 영원히 빛나는 시간을 선사하기 위해 호텔을 넘어,
+							<br>
+							팰리스 같은 시설과 서비스로 당신을 맞이합니다.
+						</p>
+						<div class="brand_text">
+						<strong class="tit">
+				 			Exclusively Yours
+						</strong>
+						<span class="txt">당신이 빛나는 시간</span>
 						</div>
 					</div>
 				</div>
@@ -149,18 +144,19 @@
 			<div class="slide">
 				<div class="fp_bg_1"></div>
 				<div class="slide_box">
-					<div class="cont">
+					<div class="cont cont3">
 						<strong class="tit">The Best of Seoul</strong>
-						<span class="sTit">Center Stage of South Korea</span>
-						<p class="txt01">
+						<div class="image_text">
 							<img src="images/main_westin.jpg" class="txt01_image">
-						</p>
-						<p class="txt02">
+							<div class="txt02 text_ab">
 							서울에서의 경험을 특별하게 만들어줄 이곳에서 당신의 여정을 시작하세요.
 							<br>
 							세련되고 모던한 감각을 지닌 안락한 객실과 세심한 배려가 묻어나는 서비스를 준비합니다.
-						</p>
-						<a href="#" class="btnSC btnM">VIEW MORE</a>
+							<div class="page_button">
+								<a href="#" class="btnSC btnM">VIEW MORE</a>
+							</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
