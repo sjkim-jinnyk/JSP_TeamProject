@@ -145,7 +145,7 @@
 					
 					<li class="toggleOn">
 						<strong class="listTit">
-							<span class="price" id="rTotalResult"><em>0</em>KRW</span>
+							<span class="price"><span id="totalResult">0</span>KRW</span>
 						</strong>
 						
 						<button type="button" class="total_toggle" style="border: solid 1px;">
@@ -200,7 +200,7 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="totalResult">[resTotal]</em>KRW</span>
+						<span class="price"><span id="realTotal">0</span>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>
@@ -217,10 +217,11 @@
 		
 	</form>
 		
-	<script type="text/javascript" src="js/res_step2.js"></script>
+	
 	<jsp:include page="../../include/footer.jsp" />
 	
 	
 	
 </body>
+<script type="text/javascript" src="js/res_step2.js"></script>
 </html>
