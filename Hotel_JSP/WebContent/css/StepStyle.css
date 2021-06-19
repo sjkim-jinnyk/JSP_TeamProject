@@ -5,12 +5,6 @@
 
 /* 공통 */
 
-.hr_thin {
-	border: 0;
-    height: 1px;
-    background: #fff;
-}
-
 input[type=text], input[type=password], .selectBtn {
 	border: 1px solid black;
     border-left: hidden;
@@ -36,6 +30,7 @@ input[type=text], input[type=password], .selectBtn {
 .topArea .topInner{
 	display:table-cell;
 	padding: 50px 0 30px;
+	width: 100%;
 }
 
 .titDep1{
@@ -324,3 +319,39 @@ em.krw {
 .agree_txt_wrap {
 	padding-top: 10px;
 }
+
+
+/* res_step4.jsp 예약 완료 페이지 */
+.complete_wrap {
+	/*가운데정렬 실패..*/
+	text-align: center;
+	padding: 50px 200px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+}
+
+.complete_inner {
+	display: inline-block;
+	font-family: 'Noto Sans KR';
+    font-weight: 400;
+    font-size: 17px;
+}
+
+p.rsvTxt {
+	font-family: Montserrat;
+	font-weight: 200;
+	font-size: 15px;
+}
+
+.btnGroup {
+	margin-top: 40px;
+}
+
+.btnGroup a {
+	margin-right: 10px;
+	padding: 8px;
+	font-weight: 300;
+    font-size: 15px;
+    border: 1px solid #000;
+}
+
