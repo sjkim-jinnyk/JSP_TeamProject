@@ -145,23 +145,74 @@ input[type=text], input[type=password], .selectBtn {
 }
 
 
-/*객실안내 부분*/
+
+
+/* res_step1.jsp 객실안내 부분 */
 
 .roomType {
 	display: block;
 	position: relative;
-	width: 80%;
+	width: 85%;
 	margin: 0 auto;
 	max-width: 1800px;
+	margin-bottom: 100px;
 }
 
-.roomIntro {
-	margin-bottom: 40px;
+.room_wrap {
+	border-bottom: 1px solid #ccc;
+}
+
+.room_intro {
+	display: flex;
+	justify-content: flex-start;
+	padding: 50px 0;
+}
+
+.keyword {
+	margin: 0 5px 5px 0;
+    padding: 0 2px;
+    font-size: 11px;
+    font-family: Montserrat;
+    font-weight: 300;
+    border: 1px solid #000;
+	width: 50px;
+}
+
+.roomName {
+	font-family: playfair;
+    font-weight: 500;
+    font-size: 33px;
+}
+
+.roomBenefit {
+	font-family: 'Noto Sans KR';
+    font-weight: 300;
+    font-size: 14px;
+}
+
+dd.price {
+	margin-top: 20px;
+	font-family: playfair;
+    font-weight: 500;
+    font-size: 33px;
+    
+}
+
+span.day {
+	font-family: 'Noto Sans KR';
+    font-weight: 300;
+    font-size: 14px;
+}	
+
+em.krw {
+	font-family: Montserrat;
+    font-weight: 300;
+   	font-size: 16px;
 }
 
 .res_btn button {
-	float: right;
-	padding: 11px 20px 0 20px;
+	position: absolute;
+    right: 0;
     min-width: auto;
     display: inline-block;
     text-align: center;
@@ -175,8 +226,72 @@ input[type=text], input[type=password], .selectBtn {
 }
 
 .thum img {
-	width: 400px;
-	padding-right: 20px;
+	width: 380px;
+	padding-right: 60px;
+}
+
+.btnWrap button {
+	position: absolute;
+    right: 0;
+	padding: 9px 20px 9px 20px;
+    min-width: auto;
+    text-align: center;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 400;
+    background-color: #000;
+}
+
+.btn_font {
+	color: #fff;
+}
+
+.roomNumber {
+	margin-bottom: 50px;
+}
+
+.roomNumber h4 {
+	font-family: playfair;
+	font-size: 17px;
+	margin-bottom: 17px;
+}
+
+.roomNumber ul {
+	border-bottom: 1px solid #ccc;
+}
+
+.roomNumber strong {
+	width: 100%;
+	padding: 30px;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+.roomNumber a {
+	width: 20%;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	padding: 30px;
+	font-family: Noto Sans KR;
+    font-weight: 200;
+    font-size: 14px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+.detail_list {
+	width: 100%;
+    display: flex;
+	justify-content: flex-start;
+}
+
+.detail_list strong {
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	
 }
 
 
@@ -199,7 +314,7 @@ input[type=text], input[type=password], .selectBtn {
 	font-family: 'Noto Sans KR';
     font-weight: 200;
     font-size: 14px;
-s}
+}
 
 .between_warp {
 	display: flex;
