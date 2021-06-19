@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 고객 정보 입력 | 조선호텔앤리조트</title>
 
-<link rel="stylesheet" href="css/StepStyle.css">
+<link rel="stylesheet" href="../../css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -42,7 +42,7 @@
 					<dl class="date">
 						<dt>DATE</dt>
 						<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;/&nbsp;
-							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
+							<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>&nbsp;|&nbsp;
 							<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 					</dl>
 					<dl class="room">
@@ -57,95 +57,133 @@
 						<dt>CHILDREN</dt>
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
-				</div>
-				<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn" 
+					<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn" 
 					style="border: solid 1px;">객실 다시 검색</a><br>
-				----------------------------
+				</div>
+				
 			</div>
 			
 			
-			<div class="user_info">
+			<ul class="user_info">
 				
-				<h2 class="titDep2">[Member Exclusive] SMART CHOICE</h2>
-				<p class="categoryTxt">
-					<span><%=session.getAttribute("roomName") %></span>&nbsp;/&nbsp;
-					<span><%=session.getAttribute("roomNumber") %></span>&nbsp;/&nbsp;[ROOM VIEW]
-				</p>
+				<li>
+					<h2 class="titDep2">[Member Exclusive] SMART CHOICE</h2>
+					<p class="categoryTxt">
+						<span><%=session.getAttribute("roomName") %></span>&nbsp;/&nbsp;
+						<span><%=session.getAttribute("roomNumber") %></span>&nbsp;/&nbsp;[ROOM VIEW]
+					</p>
+				</li>
 				
-				----------------------------
+				<li>
+					<h3 class="opTit">RESERVATION NAME</h3>
+					<span class="categoryTxt"><%=session.getAttribute("userName") %></span>
+				</li>
 				
-				<h3 class="opTit">RESERVATION NAME</h3>
-				<%=session.getAttribute("userName") %><br><br>
+				<li>	
+					<h3 class="opTit">PHONE NUMBER</h3>
+					<div class="between_warp">
+						<select class="selectBtn">
+							<option value="82" selected="selected">대한민국(82)</option>
+							<option value="1">미국(1)</option>
+							<option value="44">영국(44)</option>
+							<option value="86">중국(86)</option>
+						</select>
+					
+						<input type="text" id="phone1">─<input type="text" id="phone2">─<input type="text" id="phone3">
+						
+					</div>
+				</li>
 				
-				<h3 class="opTit">PHONE NUMBER</h3>
-				<select id="nation" name="nation">
-					<option value="82" selected="selected">대한민국(82)</option>
-					<option value="1">미국(1)</option>
-					<option value="44">영국(44)</option>
-					<option value="86">중국(86)</option>
-				</select>
-				<input id="phone1">-<input id="phone2">-<input id="phone3"><br><br>
+				<li>
+					<h3 class="opTit">E-MAIL</h3>
+					<div class="between_warp">
+						<input type="text" id="email1">@<input type="text" id="email2">
+						<select class="selectBtn">
+							<option value="" selected="selected">직접 입력</option>
+							<option value="gmail.com">gmail.com</option>
+							<option value="naver.com">naver.com</option>
+						</select>
+					</div>
+				</li>
 				
-				<h3 class="opTit">E-MAIL</h3>
-				<input id="email1">@<input id="email2">
-				<select name="emailType" id="emailType">
-					<option value="" selected="selected">직접 입력</option>
-					<option value="gmail.com">gmail.com</option>
-					<option value="naver.com">naver.com</option>
-				</select><br><br>
+				<li>
+					<h3 class="opTit">CREDIT CARD TYPE</h3>
+					<div class="s">
+						<select  class="selectBtn">
+							<option value="" selected="selected">카드 선택</option>
+							<option value="">카드 선택</option>
+							<option value="01">비씨</option>
+							<option value="02">국민</option>
+							<option value="03">하나(외환)</option>
+						</select>
+					</div>
+				</li>
 				
-				<h3 class="opTit">CREDIT CARD TYPE</h3>
-				<select name="cardCode" id="cardCode">
-					<option value="" selected="selected">카드 선택</option>
-					<option value="">카드 선택</option>
-					<option value="01">비씨</option>
-					<option value="02">국민</option>
-					<option value="03">하나(외환)</option>
-				</select><br><br>
+				<li>
+					<h3 class="opTit">CARD NUMBER</h3>
+					<div class="between_warp">
+						<input type="text" id="cardNum1"><input type="text" id="cardNum2"><input type="text" id="cardNum3"><input type="text" id="cardNum4">
+					</div>
+				</li>
 				
-				<h3 class="opTit">CARD NUMBER</h3>
-				<input id="cardNum1"><input id="cardNum2"><input id="cardNum3"><input id="cardNum4"><br><br>
+				<li>
+					<h3 class="opTit">EXPIRY DATE</h3>
+					<div class="between_warp">
+						<select name="expMonth" id="expMonth" class="selectBtn">
+							<option value="" selected="selected">월</option>
+							<option value="01">1월</option><option value="02">2월</option>
+							<option value="03">3월</option><option value="04">4월</option>
+							<option value="05">5월</option><option value="06">6월</option>
+							<option value="07">7월</option><option value="08">8월</option>
+							<option value="09">9월</option><option value="10">10월</option>
+							<option value="11">11월</option><option value="12">12월</option>
+						</select>
+						<select id="expYear" name="expYear" class="selectBtn">
+							<option value="" selected="selected">년</option> 
+							<option value="2021">2021년</option>												
+							<option value="2022">2022년</option>												
+							<option value="2023">2023년</option>												
+							<option value="2024">2024년</option>												
+							<option value="2025">2025년</option>
+						</select>
+					 </div>
+				</li>
 				
-				<h3 class="opTit">EXPIRY DATE</h3>
-				<select name="expMonth" id="expMonth">
-					<option value="" selected="selected">월</option>
-					<option value="01">1월</option><option value="02">2월</option>
-					<option value="03">3월</option><option value="04">4월</option>
-					<option value="05">5월</option><option value="06">6월</option>
-					<option value="07">7월</option><option value="08">8월</option>
-					<option value="09">9월</option><option value="10">10월</option>
-					<option value="11">11월</option><option value="12">12월</option>
-				</select>
-				<select id="expYear" name="expYear">
-					<option value="" selected="selected">년</option> 
-					<option value="2021">2021년</option>												
-					<option value="2022">2022년</option>												
-					<option value="2023">2023년</option>												
-					<option value="2024">2024년</option>												
-					<option value="2025">2025년</option>
-				</select><br><br>
+				<li>
+					<h3 class="opTit">CARD PASSWORD</h3>
+					<div class="between_warp">
+						<input type="text" id="cardPwd" placeholder="비밀번호 앞 2자리">
+					</div>
+				</li>
 				
-				<h3 class="opTit">CARD PASSWORD</h3>
-				<input id="cardPwd" placeholder="비밀번호 앞 2자리"><br><br>
+				<li>
+					<h3 class="opTit">DATE OF BIRTH</h3>
+					<div class="between_warp">
+						<input type="text" id="bYear" placeholder="YYYY"><input type="text" id="bMonth" placeholder="MM"><input type="text" id="bDate" placeholder="DD">
+					</div>
+					<p class="txtGuide">* 예약 접수 확인 용도이며, 온라인 예약 시 직접 결제가 이루어지지 않습니다.</p>
+				</li>
 				
-				<h3 class="opTit">DATE OF BIRTH</h3>
-				<input id="bYear" placeholder="YYYY"><input id="bMonth" placeholder="MM"><input id="bDate" placeholder="DD">
-				<p class="txtGuide">예약 접수 확인 용도이며, 온라인 예약 시 직접 결제가 이루어지지 않습니다.</p><br>
+				<li>
+					<div class="agree_wrap">
+						<h3 class="titDep3">신용카드 정보 수집 및 이용 동의</h3>
+						<div class="agree_txt_wrap">
+							<input type="checkbox" id="creditCardAgree" name="creditCardAgree" value="Y">
+							<label for="creditCardAgree"  class="agreeTxt">[선택] 다음번 신용카드정보 재사용을 위해 위 신용카드 정보를 저장하는데 동의하십니까?</label>
+						</div>
+					</div>
+				</li>
 				
-				----------------------------
+				<li>
+					<h3 class="titDep3">취소 규정</h3>
+					<div class="agree_txt_wrap">
+						<input type="checkbox" id="cancelAgree" name="cancelAgree">
+						<label for="cancelAgree"  class="agreeTxt">[필수] 취소 및 노쇼(No-show) 규정에 동의합니다.</label>
+					</div>
+				</li>
 				
-				<h3 class="titDep3">신용카드 정보 수집 및 이용 동의</h3>
-				<input type="checkbox" id="creditCardAgree" name="creditCardAgree" value="Y">
-				<label for="creditCardAgree">[선택] 다음번 신용카드정보 재사용을 위해 위 신용카드 정보를 저장하는데 동의하십니까?</label><br>
-				
-				----------------------------
-				
-				<h3 class="titDep3">취소 규정</h3>
-				<input type="checkbox" id="cancelAgree" name="cancelAgree">
-				<label for="cancelAgree">[필수] 취소 및 노쇼(No-show) 규정에 동의합니다.</label>
-				
-			</div><!-- class="option" -->
-			----------------------------
+			</ul><!-- class="option" -->
+			
 			
 			<div class="rCont floating" style="transition: margin-top 0.3s ease-out 0s;">
 				
