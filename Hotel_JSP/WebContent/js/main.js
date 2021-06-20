@@ -1,3 +1,8 @@
+let resIn = document.getElementById('resIn');				// 결과 값 저장 변수
+let resOut = document.getElementById('resOut');				
+let in_yoil_view = document.getElementById('in_Yoil');
+let out_yoil_view = document.getElementById('out_Yoil');
+
 $(document).ready(function() {
 	    $('#fullpage').fullpage({
 	        //options here
@@ -37,7 +42,11 @@ $(document).ready(function() {
 	    $("#resIn").val(getToday());
 	    $("#resOut").val(getNextday()); 
 	    
+	    $('#resInYoil').val(getYoil(resIn.value));
+		$('#resOutYoil').val(getYoil(resOut.value));
+	    
 	    countNight();
+	    
 	});
 	
 (function ($) {
@@ -134,6 +143,12 @@ function countNight(){
 } // countNight() end
 
 
-
+//요일 구하기
+function getYoil(date){
+	
+	let week = new Array('일', '월', '화', '수', '목', '금', '토');
+ 	let yoil = week[new Date(date).getDay()];
+ 	return yoil;
+}
 
 

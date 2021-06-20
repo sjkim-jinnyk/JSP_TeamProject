@@ -24,6 +24,8 @@
 				<input type="hidden" name="resNight" id="resNight" value="0">			
 				<input type="hidden" name="resAdult" id="resAdult" value="2">								
 				<input type="hidden" name="resChild" id="resChild" value="0">
+				<input type="hidden" name="resInYoil" id="resInYoil" value="0">
+				<input type="hidden" name="resOutYoil" id="resOutYoil" value="0">
         	<div class="reservation" data-aos="fade-up" data-aos-duration="1500">
         		<div class="room-name">
             		<strong class="tit">
