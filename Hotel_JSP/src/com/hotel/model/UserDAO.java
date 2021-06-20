@@ -348,6 +348,7 @@ public class UserDAO {
 		
 	} // userDel() 메서드 end
 
+	
 	// 회원 전체 리스트 가져오기
 	public String getMemberList() {
 		String result="";

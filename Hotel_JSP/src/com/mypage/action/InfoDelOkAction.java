@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.ReserveDAO;
 import com.hotel.model.UserDAO;
 import com.hotel.model.UserDTO;
 
@@ -25,20 +26,35 @@ public class InfoDelOkAction implements Action {
 		String delPwd = request.getParameter("delPwd").trim();
 		System.out.println("삭제 비밀번호 >>> " + delPwd);
 		
+		
 		// 로그인된 유저 탈퇴하는 메서드
-		UserDAO dao = UserDAO.getInstance();
-		int check = dao.userDel(userId, delPwd);
+		UserDAO daoUser = UserDAO.getInstance();
+		int checkUser = daoUser.userDel(userId, delPwd);
+		int checkRes = 0;
+		
+		
+		if(checkUser > 0) {
+			System.out.println("실행확인");
+			ReserveDAO daoRes = ReserveDAO.getInstance();
+			checkRes = daoRes.userResDel(userId);
+		}
+		
 		
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 		
-		if(check > 0) {
-			// 회원탈퇴 성공
-			session.invalidate();	// 세션 값 만료
-			
-			forward.setRedirect(false);
-			forward.setPath("/view/mypage/info_del_ok.jsp");
-		}else if(check == -1) {
+		System.out.println("checkUser :"+ checkUser);
+		System.out.println("userId :"+ userId);
+		
+		
+		
+		if(checkUser > 0 && checkRes > 0) {
+				System.out.println("forward 실행확인");
+				session.invalidate();	// 세션 값 만료
+				
+				forward.setRedirect(false);
+				forward.setPath("/view/mypage/info_del_ok.jsp");		
+		}else if(checkUser == -1) {
 			// 비밀번호가 틀린 경우
 			out.println("<script>");
 			out.println("alert('비밀번호가 틀렸습니다. 다시 입력해주세요.')");
@@ -51,7 +67,6 @@ public class InfoDelOkAction implements Action {
 			out.println("history.back()");
 			out.println("</script>");
 		}
-	
 		return forward;
 	}
 
