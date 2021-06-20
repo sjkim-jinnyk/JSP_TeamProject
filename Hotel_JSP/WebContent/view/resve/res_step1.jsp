@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.hotel.model.ReserveDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
@@ -52,6 +53,8 @@
 	ReserveDAO dao = ReserveDAO.getInstance();
 	List<ReserveDTO> list = dao.getRoomNum(checkIn, checkOut);
 	
+	
+	
 %>
 </head>
 <body>
@@ -66,13 +69,11 @@
 					<h2 class="titDep1">Booking</h2>
 					<div class="stepWrap">
 						<ol>
-							<li>
-								 객실, 요금 선택
-							</li>
-							<li></li>
-							<li></li>
-							
-						</ol>
+						<li class="on1">객실,요금 선택</li>
+						<li class="next2"></li>
+						<li class="next"></li>
+						
+					</ol>
 					</div>
 				</div>
 			</div>
@@ -100,8 +101,9 @@
 						<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn">객실 다시 검색</a>
 					</div>
 				</div> <!-- inner -->
+			</div>
 			
-			
+			<div>
 				<div class="roomType">
 					<c:set var="list" value="${roomList }" />
 					
@@ -110,7 +112,7 @@
 							<div class="room_intro">
 								<dl class="room_thum">
 									<dd class="thum">
-					                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
+					                 	<img src="image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
 					                </dd>
 					            </dl>
 					            <dl class="room_info">
@@ -118,11 +120,12 @@
 					                 <dt class="roomName">
 					                     ${i.getRoomName() }
 					                 </dt>
-					                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
+					                 <dd class="roomBenefit">Size: ${i.getRoomSize() }㎡</dd>
 					                 <dd class="price">
 					                   	<input type="hidden" name="roomName" class="roomName" value="${i.getRoomName() }">
-				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }"> 
-				                         ${i.getRoomPrice() }<em class="krw">KRW ~</em>
+				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }">
+				                     	<fmt:formatNumber value="${i.getRoomPrice() }" pattern="#,###" var="rmPrice"/>
+				                         ${rmPrice }<em class="krw">KRW ~</em>
 					                 </dd>
 					                 <dd>
 					                 	<span class="day"><%=session.getAttribute("resNight") %>박 / 세금 별도</span>
@@ -153,12 +156,13 @@
 				                    </c:forEach>
 			                    </ul>
 				            </div>
+				                      
 			             </div><!-- room_wrap -->
 			        </c:forEach>
 				</div>
-			
+			</div>
 			</div> 
-	
+		</div>
 		<script>
 		
 			// list로 가져오기 위한 변수 설정

@@ -10,7 +10,7 @@
 	width: 85%;
 	margin: 0 auto;
 	margin-top: 10px;
-	max-width: 1800px;
+	max-width: 1400px;
 	padding: 97px 0 30px;
 
 }
@@ -20,16 +20,23 @@
 }
 
 .titDep1{
-	font:500 45px playfair;
+	font:500 60px playfair;
 	font-family: 'Playfair Display SC', serif;
 	color: #151515;
 	font-feature-settings:'lnum', 'pnum'
 }
 .infoArea .btn {
-	padding: 10px 20px;
-	background-color: transparent;
-	border : 1px solid black;
-	cursor: pointer;
+	padding: 11px 20px 0 20px;
+    min-width: auto;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    font-size: 14px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR';
+    font-weight: 300;
 }
 .stepWrap ol {
 	display: flex;
@@ -50,7 +57,7 @@
 	background: #9b9fa8;
 	color: black;
 	border-color: #9b9fa8;
-	content: '1';
+	content: 'Ⅴ';
 	width: 40px;
 	height: 40px;
 	line-height: 37px;
@@ -166,14 +173,14 @@
 	padding: 40px 0 12px;
 } 
 .opCont .numPeople{
-	margin-left: 518px;
+	margin-left: 418px;
 	margin-bottom: 5px;
 }
 .opCont .numPeople2{
-	margin-left: 500px;
+	margin-left: 400px;
 }
 .opCont .numPeople3{
-	margin-left: 485px;
+	margin-left: 385px;
 }
 .option {
 	padding-bottom: 180px;
@@ -226,19 +233,23 @@ p.txtGuide, .txtGuide li{
 	margin-top: 50px;
 }
 
-
 .rCont .rsvList > li.toggleOn {
 	border: 1px solid black;
 }
+
 .rCont .rsvList > li {
 	padding: 34px 40px 28px;
 	border: 1px solid #ccc;
-
+}	
+.rCont .price {
+	font-size: 36px;
 }
 .rsvList .total_toggle{
 	border: none;
 	padding: 10px;
-	margin-left: 65px;
+	margin-left: 35px;
+	position: absolute;
+    margin-top: 7px;
 }
 .rsvLsit .price #totalResult{
 	font-size: 36px;

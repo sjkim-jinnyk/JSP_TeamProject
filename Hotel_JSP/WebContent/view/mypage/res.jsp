@@ -16,7 +16,7 @@
 
 	<div class="myPage_header">
 		<div>
-			<h1 class="header_title">MY PAGE</h1>
+			<h1 class="header_title">My Page</h1>
 			<p class="header_txt">멤버십 회원을 위한 다양한 혜택이 준비되어 있습니다.</p>
 		</div>
 	</div>
@@ -63,7 +63,7 @@
 					<c:forEach items="${list }" var="dto">
 					<ul class="res_content">
 						<li class="reserved">RESERVED</li>
-						<li>[${dto.getRoomName() }]</li>
+						<li>[ ${dto.getRoomName() } ]</li>
 						<li class="res_info">
 							예약번호 ${dto.getResNo() } / 성인 ${dto.getResAdult() },어린이${dto.getResChild() } / 총 예약금액 <fmt:formatNumber value="${dto.getResTotal() }" />원
 						</li>

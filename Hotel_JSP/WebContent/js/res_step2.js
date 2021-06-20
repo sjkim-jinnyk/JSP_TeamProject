@@ -28,6 +28,7 @@ $(document).ready( function(){
 	rDateResult.innerText = year+ '.' +month+ '.' +date;
 	
 	getTotal();
+	
 });
 
 
@@ -54,9 +55,12 @@ function count(type)  {
 	  }		    
   }
   
+  // 계산
+  let aBr = number *45000;
+   
   // 결과 출력	  
-  resultElement.innerText = number;
-  aBrResult.innerText = number *45000;
+  resultElement.innerText = number.toLocaleString('ko-KR');
+  aBrResult.innerText = aBr.toLocaleString('ko-KR');
   
   getTotal();
   
@@ -86,9 +90,12 @@ function count2(type)  {
 	  }		    
   }
   
+  // 계산
+  let cBr = number*27000;
+  
   // 결과 출력	  
-  resultElement.innerText = number;	
-  cBrResult.innerText = number*27000;
+  resultElement.innerText = number.toLocaleString('ko-KR');	
+  cBrResult.innerText =cBr.toLocaleString('ko-KR');
   
   getTotal();
 } // count2() end
@@ -117,9 +124,12 @@ function count3(type)  {
 	  }		    
   }
   
+  // 계산
+  let bed = number*44000;
+  
   // 결과 출력	  
-  resultElement.innerText = number;	
-  bedResult.innerText = number*44000;
+  resultElement.innerText = number.toLocaleString('ko-KR');	
+  bedResult.innerText = bed.toLocaleString('ko-KR');
   
   getTotal();
 } // count2() end
@@ -171,10 +181,10 @@ function getTotal(){
 	bedPrice.value = resBed*44000;
 	
 	// 화면 출력
-	roomPriceResult.innerText = rmTotal;
-	totalResult.innerText = total;
-	realTotal.innerText = total;
-	taxResult.innerText = tax;
+	roomPriceResult.innerText = rmTotal.toLocaleString('ko-KR');
+	totalResult.innerText = total.toLocaleString('ko-KR');
+	realTotal.innerText = total.toLocaleString('ko-KR');
+	taxResult.innerText = tax.toLocaleString('ko-KR');
 	// resPretax는 step3에서만 쓰이므로 step2에서는 출력하지 않음
 	
 	
