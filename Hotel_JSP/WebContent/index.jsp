@@ -144,7 +144,7 @@
 				</div>
 			</div>
 			<div class="slide">
-				<div class="fp_bg_1"></div>
+				<div class="fp_bg_3"></div>
 				<div class="slide_box">
 					<div class="cont cont3">
 						<strong class="tit">The Best of Seoul</strong>

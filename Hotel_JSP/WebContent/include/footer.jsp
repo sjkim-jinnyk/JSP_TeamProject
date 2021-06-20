@@ -14,7 +14,7 @@
             <ul class="policy">
                 <li>고객센터</li>
                 <li>이용약관</li>
-                <li>개인정보처리방침</li>
+                <li style="color: #989442;">개인정보처리방침</li>
             </ul>
             <div class="info">
                 <address>서울시 마포구 월드컵로</address>
