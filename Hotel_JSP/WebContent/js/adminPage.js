@@ -747,47 +747,18 @@ $(function() {
 					table1 += "<tr><td id='user_none' colspan='6'><br><br>찾는 정보가 없습니다.<br><br></td></tr>"
 				}else{
 				$(data).find("reserve").each(function(){
-					table1 += "<tr><td id='res_room'>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
+					table1 += "<tr id='"+$(this).find("resno").text()+"'><td id='res_room'>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
 					table1 += "<td id='res_period'>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</td>"
 					table1 += "<td id='res_person'>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</td>"
 					table1 += "<td id='res_add'>Extra Bed  " + $(this).find("bed").text() +"개</td>"
 					table1 += "<td id='res_req'>" + $(this).find("request").text() + "</td>"
 					table1 += "<td id='res_money'>" + $(this).find("total").text() +"KRW</td>"
-					table1 += "<td><input type='button' id='res_del' value='삭제' onclick='delete_no("+"\'"+$(this).find("resno").text()+"'"+")\'>"+ "</td></tr>"
+					table1 += "<td><input type='button' id='res_del' value='삭제' onclick=\"delete_no(\'"+$(this).find("resno").text()+"')\">"+ "</td></tr>"
 					
 				});}
 				$("#res_cont1").empty();
 				$("#res_cont1").append(table1);
 				
-				function delete_no(resno) { 
-					let num = resno;
-					
-					$.ajax({
-						type : "post",
-						url : "./view/admin/reserve_delete.jsp",
-						async: false,
-						data: {
-							"num" : num,
-							"userName" : userName,
-							"userPhone" : userPhone
-						},
-						success : function(data) {
-							
-							$("#res_cont").empty();
-							$("#res_cont1").empty();
-							
-						},
-						error : function() {
-							alert('오류');
-						}
-						
-						
-					}); // #res_del ajax
-					userName = $("#userName").val("");
-					userPhone = $("#userPhone").val("");
-					reserve_click();
-					
-				}; // #res_del click 함수 end
 			},
 			error : function() {
 				alert('오류');
@@ -1116,3 +1087,31 @@ function mem_click() {
 
 	
 };
+
+
+
+function delete_no(resno) { 
+	let num = resno;
+	
+	console.log(resno)
+	
+	$.ajax({
+		type : "post",
+		url : "./view/admin/reserve_delete.jsp",
+		async: false,
+		data: {
+			"num" : num,
+		},
+		success : function(data) {
+			
+			$("#"+num).empty();
+			
+		},
+		error : function() {
+			alert('오류');
+		}
+		
+		
+	}); // #res_del ajax
+	
+}; // #res_del click 함수 end

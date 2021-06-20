@@ -288,18 +288,17 @@ public class ReserveDAO {
 	} // getinfo_html()
 	
 	// 회원 아이디로 예약정보 삭제
-	public int reserveDelete(String id, int no) {
+	public int reserveDelete(int no) {
 		int res = 0;
 		
 		try {
 			openConn();
 			
-			sql = "delete from reserve where user_id = ? and res_no = ?";
+			sql = "delete from reserve where res_no = ?";
 			
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, id);
-			pstmt.setInt(2, no);
+			pstmt.setInt(1, no);
 			
 			res = pstmt.executeUpdate();
 		} catch (SQLException e) {
