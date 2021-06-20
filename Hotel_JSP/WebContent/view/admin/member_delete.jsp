@@ -6,7 +6,6 @@
 	String memphone = request.getParameter("memphone").trim();
 	UserDAO dao = UserDAO.getInstance();
 	int list = dao.memberDelete(memID, memphone);
-	System.out.println("list:" + list);
 	out.println(list);
 %>
     

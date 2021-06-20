@@ -50,9 +50,8 @@ function getToday() {
 }
 
 function standard_get() {
-	/*let today = getToday();  // 오늘 날짜를 YYYY-MM-DD로 저장
-	console.log(today);*/
-	let today = '2021-06-14';
+	let today = getToday();  // 오늘 날짜를 YYYY-MM-DD로 저장
+	console.log("today" + today);
 	let standard = $("#standard_name").text();
 	let first = $("#101").text();
 	let second = $("#102").text();
@@ -80,6 +79,9 @@ function standard_get() {
 					table3 += "<i class='fas fa-check'><br></i><br>";
 				}
 			});
+			$("#101_check").empty();
+			$("#102_check").empty();
+			$("#103_check").empty();
 			$("#101_check").append(table1);
 			$("#102_check").append(table2);
 			$("#103_check").append(table3);
@@ -93,7 +95,7 @@ function standard_get() {
 };
 standard_get();
 function deluxe_get() {
-	let today = '2021-06-14';
+	let today = getToday(); 
 	let deluxe = $("#deluxe_name").text();
 	let first = $("#201").text();
 	let second = $("#202").text();
@@ -122,6 +124,9 @@ function deluxe_get() {
 					table3 += "<i class='fas fa-check'><br></i><br>";
 				}
 			});
+			$("#201_check").empty();
+			$("#202_check").empty();
+			$("#203_check").empty();
 			$("#201_check").append(table1);
 			$("#202_check").append(table2);
 			$("#203_check").append(table3);
@@ -134,7 +139,7 @@ function deluxe_get() {
 };
 deluxe_get();
 function suite_get() {
-	let today = '2021-06-14';
+	let today = getToday(); 
 	let suite = $("#suite_name").text();
 	let first = $("#301").text();
 	let second = $("#302").text();
@@ -162,6 +167,9 @@ function suite_get() {
 					table3 += "<i class='fas fa-check'><br></i><br>";
 				}
 			});
+			$("#301_check").empty();
+			$("#302_check").empty();
+			$("#303_check").empty();
 			$("#301_check").append(table1);
 			$("#302_check").append(table2);
 			$("#303_check").append(table3);
@@ -174,7 +182,7 @@ function suite_get() {
 };
 suite_get();
 function prestige_get() {
-	let today = '2021-06-14';
+	let today = getToday(); 
 	let prestige = $("#prestige_name").text();
 	let first = $("#401").text();
 	let second = $("#402").text();
@@ -202,6 +210,9 @@ function prestige_get() {
 					table3 += "<i class='fas fa-check'><br></i><br>";
 				}
 			});
+			$("#401_check").empty();
+			$("#402_check").empty();
+			$("#403_check").empty();
 			$("#401_check").append(table1);
 			$("#402_check").append(table2);
 			$("#403_check").append(table3);
@@ -730,31 +741,58 @@ $(function() {
 			},
 			success : function(data) {
 				let table1 = "";
+				let resno = "";
 				let reserve_x = $(data).find("reserve");
 				if(reserve_x.length==0){
 					table1 += "<tr><td id='user_none' colspan='6'><br><br>찾는 정보가 없습니다.<br><br></td></tr>"
 				}else{
 				$(data).find("reserve").each(function(){
-					
 					table1 += "<tr><td id='res_room'>" + $(this).find("name").text() +" (" + $(this).find("num").text() + "호)</td>"
 					table1 += "<td id='res_period'>" + $(this).find("resin").text() + " ~ " + $(this).find("resout").text() + " ("+ $(this).find("nod").text() +"박)" +"</td>"
 					table1 += "<td id='res_person'>성인 " + $(this).find("adult").text() +"명  아이" + $(this).find("child").text() + "명</td>"
 					table1 += "<td id='res_add'>Extra Bed  " + $(this).find("bed").text() +"개</td>"
 					table1 += "<td id='res_req'>" + $(this).find("request").text() + "</td>"
-					table1 += "<td id='res_money'>" + $(this).find("total").text() +"KRW</td></tr>"
+					table1 += "<td id='res_money'>" + $(this).find("total").text() +"KRW</td>"
+					table1 += "<td><input type='button' id='res_del' value='삭제' onclick='delete_no("+"\'"+$(this).find("resno").text()+"'"+")\'>"+ "</td></tr>"
+					
 				});}
 				$("#res_cont1").empty();
 				$("#res_cont1").append(table1);
 				
-
+				function delete_no(resno) { 
+					let num = resno;
+					
+					$.ajax({
+						type : "post",
+						url : "./view/admin/reserve_delete.jsp",
+						async: false,
+						data: {
+							"num" : num,
+							"userName" : userName,
+							"userPhone" : userPhone
+						},
+						success : function(data) {
+							
+							$("#res_cont").empty();
+							$("#res_cont1").empty();
+							
+						},
+						error : function() {
+							alert('오류');
+						}
+						
+						
+					}); // #res_del ajax
+					userName = $("#userName").val("");
+					userPhone = $("#userPhone").val("");
+					reserve_click();
+					
+				}; // #res_del click 함수 end
 			},
 			error : function() {
 				alert('오류');
 			}
 		});
-		
-		userName = $("#userName").val("");
-		userPhone = $("#userPhone").val("");
 		
 	});
 });
@@ -874,7 +912,7 @@ $(function() {
 					
 					memberID = $("#memberID").val("");
 					memberPhone = $("#memberPhone").val("");
-					click();
+					mem_click();
 					
 				}); // #mem_del click 함수 end
 
@@ -894,6 +932,10 @@ $(function() {
 
 /* 객실관리 클릭 */
 room_click.addEventListener('click', function() {
+	standard_get();
+	deluxe_get();
+	suite_get();
+	prestige_get();
 	
 	// bottom border on, 나머지 off
 	room_click.classList.replace('off','on');
@@ -937,7 +979,9 @@ room_click.addEventListener('click', function() {
 });
 
 /* 예약관리 클릭 */
-res_click.addEventListener('click', function() {
+res_click.addEventListener('click', reserve_click);
+
+function reserve_click() {
 	
 	// bottom border on, 나머지 off
 	res_click.classList.replace('off','on');
@@ -996,11 +1040,11 @@ res_click.addEventListener('click', function() {
 		prestige.classList.replace('use', 'off');
 	}
 
-});
+};
 
 /* 회원관리 클릭 */
-member_click.addEventListener('click', click);
-function click() {
+member_click.addEventListener('click', mem_click);
+function mem_click() {
 	memberID = $("#memberID").val("");
 	memberPhone = $("#memberPhone").val("");
 	getMember();
