@@ -151,6 +151,7 @@ function getTotal(){
 	let roomPriceResult = document.getElementById('roomPriceResult'); 
 	let taxResult = document.getElementById('taxResult'); 
 	let totalResult = document.getElementById('totalResult'); 
+	let realTotal = document.getElementById('realTotal'); 
 	
 	// 계산
 	let rmTotal = roomPrice * resNight * (resAdult + resChild);
@@ -172,10 +173,10 @@ function getTotal(){
 	// 화면 출력
 	roomPriceResult.innerText = rmTotal;
 	totalResult.innerText = total;
+	realTotal.innerText = total;
 	taxResult.innerText = tax;
 	// resPretax는 step3에서만 쓰이므로 step2에서는 출력하지 않음
 	
-	console.log(raBrPrice);
 	
 } // getTotal() end
 

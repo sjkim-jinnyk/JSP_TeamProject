@@ -86,7 +86,7 @@
 						<dl class="date">
 							<dt>DATE</dt>
 							<dd id="dateText"><%=session.getAttribute("resIn") %>&nbsp;<%=session.getAttribute("resInYoil") %>&nbsp;/&nbsp;
-								<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>
+								<%=session.getAttribute("resOut") %>&nbsp;<%=session.getAttribute("resOutYoil") %>&nbsp;|&nbsp;
 								<%=session.getAttribute("resNight") %>&nbsp;박</dd>
 						</dl>
 						<dl class="adults">
@@ -106,63 +106,54 @@
 					<c:set var="list" value="${roomList }" />
 					
 					<c:forEach items="${list }" var="i" varStatus="status" step='3'>
-						
-						<dl class="roomIntro">
-			                 <dt class="roomName">
-			                     ${i.getRoomName() }
-			                 </dt>
-			                 <dd class="keyword"><span>ROOM</span></dd>
-			                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
-			                 <dd class="btnView">
-			                     <a href="#none" class="btnS icoArr">
-			                         객실 상세보기
-			                     </a>
-			                 </dd>
-			                 <dd class="priceWrap">
-			                     <span class="price">
-			                     	<input type="hidden" name="roomName" value="${i.getRoomName() }">
-			                     	<input type="hidden" name="roomPrice" value="${i.getRoomPrice() }"> 
-			                         ${i.getRoomPrice() }<em>KRW ~</em>
-			                     </span>
-			                     <span class="day"><%=session.getAttribute("resNight") %>박 / 세금 별도</span>
-			                 </dd>
-			                 <dd class="thum">
-			                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
-			                 </dd>
-			             </dl>
-			             
-			             <!-- toggle btn -->
-			             <button type="button" class="btn" id="rsv_toggle_btn" style='border: 1px solid' 
-			                 	onclick="rsvToggle(${status.count});return false;">RESERVE</button>
-			             
-			            <!-- toggle inner -->
-			            <div class="roomNumber" name="roomSelect" style='display: none;'>
-			                <h4 class="titDep3">OFFERS</h4>
-			                 
-			                <ul>
-			                	<c:forEach varStatus="s" begin="1" end="3">
-					                <li class="">
-					                   <div id="${status.count }0${s.count}" style='border: 1px solid'>
-					                       <div class="titArea">
-												 <strong class="tit">${status.count }0${s.count}호</strong>
-					                       </div>
-					                       
-				                           <button type="button" class="detail_btn">
-				                               상품 상세보기
-				                           </button>
-				                           
-				                           <c:set var="num" value="${status.count }0${s.count}"></c:set>
-				                           <a href="<%=request.getContextPath() %>/step2.do?num=<c:out value="${num}" />&name=${i.getRoomName() }&price=${i.getRoomPrice() }"
-				                           		class="">
-				                           예약하기</a>
-					                   </div>
-			                    	</li>
-			                    </c:forEach>
-		                    </ul>
-			            </div>
-			             
-			            <br>
-			             ----------------------------------
+						<div class="room_wrap">
+							<div class="room_intro">
+								<dl class="room_thum">
+									<dd class="thum">
+					                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
+					                </dd>
+					            </dl>
+					            <dl class="room_info">
+									 <dd class="keyword"><span>ROOM</span></dd>
+					                 <dt class="roomName">
+					                     ${i.getRoomName() }
+					                 </dt>
+					                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
+					                 <dd class="price">
+					                   	<input type="hidden" name="roomName" class="roomName" value="${i.getRoomName() }">
+				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }"> 
+				                         ${i.getRoomPrice() }<em class="krw">KRW ~</em>
+					                 </dd>
+					                 <dd>
+					                 	<span class="day"><%=session.getAttribute("resNight") %>박 / 세금 별도</span>
+					                 </dd>
+					                 
+					                 <dd class="btnWrap">
+					                 	 <!-- toggle btn -->
+					            		 <button type="button" id="rsv_toggle_btn" 
+					                 	onclick="rsvToggle(${status.count});return false;"><span class="btn_font">RESERVE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;∨</span></button>
+					                 </dd>
+					            </dl>
+				            </div>
+				             
+				            <!-- toggle inner -->
+				            <div class="roomNumber" name="roomSelect" style='display: none;'>
+				                <h4>OFFERS</h4>
+				                 
+				                <ul>
+				                	<c:forEach varStatus="s" begin="1" end="3">
+						                <li class="">
+						                   <div id="${status.count }0${s.count}" class="detail_list">
+						                       <strong>ROOM  /  ${status.count }0${s.count}</strong>
+						                       <c:set var="num" value="${status.count }0${s.count}"></c:set>
+						                           <a href="<%=request.getContextPath() %>/step2.do?num=<c:out value="${num}" />&name=${i.getRoomName() }&price=${i.getRoomPrice() }">
+						                           	 	예약하기</a>
+						                   </div>
+				                    	</li>
+				                    </c:forEach>
+			                    </ul>
+				            </div>
+			             </div><!-- room_wrap -->
 			        </c:forEach>
 				</div>
 			
