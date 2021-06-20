@@ -10,7 +10,7 @@
 	width: 85%;
 	margin: 0 auto;
 	margin-top: 10px;
-	max-width: 1800px;
+	max-width: 1400px;
 	padding: 97px 0 30px;
 
 }
@@ -50,7 +50,7 @@
 	background: #9b9fa8;
 	color: black;
 	border-color: #9b9fa8;
-	content: '1';
+	content: 'Ⅴ';
 	width: 40px;
 	height: 40px;
 	line-height: 37px;
@@ -166,14 +166,14 @@
 	padding: 40px 0 12px;
 } 
 .opCont .numPeople{
-	margin-left: 518px;
+	margin-left: 418px;
 	margin-bottom: 5px;
 }
 .opCont .numPeople2{
-	margin-left: 500px;
+	margin-left: 400px;
 }
 .opCont .numPeople3{
-	margin-left: 485px;
+	margin-left: 385px;
 }
 .option {
 	padding-bottom: 180px;
@@ -226,19 +226,21 @@ p.txtGuide, .txtGuide li{
 	margin-top: 50px;
 }
 
-
 .rCont .rsvList > li.toggleOn {
 	border: 1px solid black;
 }
+
 .rCont .rsvList > li {
 	padding: 34px 40px 28px;
 	border: 1px solid #ccc;
-
+}
+.rCont .price {
+	font-size: 36px;
 }
 .rsvList .total_toggle{
 	border: none;
 	padding: 10px;
-	margin-left: 65px;
+	margin-left: 35px;
 }
 .rsvLsit .price #totalResult{
 	font-size: 36px;
