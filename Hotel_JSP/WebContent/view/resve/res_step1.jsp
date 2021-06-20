@@ -101,8 +101,9 @@
 						<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn">객실 다시 검색</a>
 					</div>
 				</div> <!-- inner -->
+			</div>
 			
-			
+			<div>
 				<div class="roomType">
 					<c:set var="list" value="${roomList }" />
 					
@@ -158,7 +159,7 @@
 			             </div><!-- room_wrap -->
 			        </c:forEach>
 				</div>
-			
+			</div>
 			</div> 
 	
 		<script>
