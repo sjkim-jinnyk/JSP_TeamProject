@@ -7,7 +7,7 @@
 </head>
     <footer>
         <div class="site_logo">
-            <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
+            <a href="<%=request.getContextPath() %>/index.do" class="sitename">Hemas Hotel</a>
         </div>
         
         <div class="footer">

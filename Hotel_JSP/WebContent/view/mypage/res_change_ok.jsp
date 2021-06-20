@@ -127,7 +127,7 @@
 									<div class="box_inner3">
 										<ul>
 											<li><span class="price_title">총 예약금액</span></li>
-											<li class="total_price" id="total_price"><fmt:formatNumber value="${dto.getResTotal() }" />KRW</li>
+											<li class="total_price" id="total_price"><fmt:formatNumber value="${dto.getResTotal() }" /> KRW</li>
 										</ul>
 									</div>
 									<div class="box_inner4">

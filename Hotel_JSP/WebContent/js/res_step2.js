@@ -153,6 +153,15 @@ function getTotal(){
 	let resTotal = document.getElementById('resTotal'); 
 	let resPretax = document.getElementById('resPretax'); 
 	
+	// 어른 인원 계산
+	let adult_num = 1;
+	
+	if(resAdult > 2){
+		adult_num = resAdult - 2
+	}else{
+		adult_num = 0;
+	}
+	
 	let aBrPrice = document.getElementById('aBrPrice'); //어른조식*45000
 	let cBrPrice = document.getElementById('cBrPrice'); //어린이조식*27000 
 	let bedPrice = document.getElementById('bedPrice'); //엑스트라베드*44000
@@ -163,13 +172,17 @@ function getTotal(){
 	let totalResult = document.getElementById('totalResult'); 
 	let realTotal = document.getElementById('realTotal'); 
 	
+	
+	
 	// 계산
-	let rmTotal = roomPrice * resNight * (resAdult + resChild);
+	let rmTotal = roomPrice * resNight + (adult_num * 22000 + resChild * 22000);
 	let pretax = rmTotal+ (resAdultBr*45000)+(resChildBr*27000)+(resBed*44000); // 세금미포함
 	let tax = pretax /10;
 	let total = pretax + tax;
 	
-
+	
+	
+	
 	// 값 저장
 	roomTotal.value = rmTotal;
 	resPretax.value = pretax; // 세금미포함

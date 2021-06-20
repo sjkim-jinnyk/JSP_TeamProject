@@ -102,7 +102,7 @@
 							<div class="numPeople">
 								<input id="opBtn" type="button" onclick="count('minus')" value="－"/>
 								<span id="result" style="display: inline">0</span>
-								<input id="opBtn" type="button" onclick="count('plus')" value="＋"/>
+								<input id="opBtn" class="btnUp" type="button" onclick="count('plus')" value="＋"/>
 							</div>
 						</div>
 						<div class="peopleOption">

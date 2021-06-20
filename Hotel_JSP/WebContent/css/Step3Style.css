@@ -53,11 +53,12 @@
 	color: white;
 	border-color: black;
 } */
+
 .stepWrap ol li.prev:before {
 	background: #9b9fa8;
 	color: black;
 	border-color: #9b9fa8;
-	content: 'Ⅴ';
+	content: "\f00c";
 	width: 40px;
 	height: 40px;
 	line-height: 37px;
@@ -65,7 +66,9 @@
 	display: inline-block;
 	text-align: center;
 	margin-right: 20px;
+	font-family: FontAwesome;
 }
+
 .stepWrap ol li.on:before {
 	background: black;
 	color: white;
@@ -286,4 +289,17 @@ p.txtGuide, .txtGuide li{
 }
 .infoData #roomPriceResult, #aBrResult, #cBrResult, #bedResult, #taxResult {
 	float: right;
+}
+
+/* 테스트용 */
+.numPeople input::before {
+    content: '';
+    display: block;
+    width: 33px;
+    height: 33px;
+}
+
+.numPeople input.btnUp::before {
+	content: "\f00c";
+    font-family: FontAwesome;
 }
