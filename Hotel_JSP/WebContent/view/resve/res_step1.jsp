@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.hotel.model.ReserveDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.hotel.model.ReserveDAO"%>
@@ -51,6 +52,8 @@
 	// ReserveDAO의 getSoldRoom()을 통해 예약된 방 번호을 받아온다.
 	ReserveDAO dao = ReserveDAO.getInstance();
 	List<ReserveDTO> list = dao.getRoomNum(checkIn, checkOut);
+	
+	
 	
 %>
 </head>
@@ -120,8 +123,9 @@
 					                 <dd class="roomBenefit">Size: ${i.getRoomSize() }㎡</dd>
 					                 <dd class="price">
 					                   	<input type="hidden" name="roomName" class="roomName" value="${i.getRoomName() }">
-				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }"> 
-				                         ${i.getRoomPrice() }<em class="krw">KRW ~</em>
+				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }">
+				                     	<fmt:formatNumber value="${i.getRoomPrice() }" pattern="#,###" var="rmPrice"/>
+				                         ${rmPrice }<em class="krw">KRW ~</em>
 					                 </dd>
 					                 <dd>
 					                 	<span class="day"><%=session.getAttribute("resNight") %>박 / 세금 별도</span>
@@ -155,7 +159,7 @@
 			             </div><!-- room_wrap -->
 			        </c:forEach>
 				</div>
-			
+			</div>
 			</div> 
 		</div>
 		<script>

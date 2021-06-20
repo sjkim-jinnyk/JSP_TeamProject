@@ -15,7 +15,7 @@
 
 </head>
 <body>
-	
+
 	<jsp:include page="../../include/header.jsp" />
 	
 	<form name="step3Form" class="res_cont" id="step3Form" method="post" 
@@ -191,8 +191,16 @@
 				<ul class="toggleList rsvList" id="roomInfo">
 					
 					<li class="toggleOn">
+						
+						<fmt:formatNumber value="${sessionScope.resTotal }" pattern="#,###" var="total_c"/>
+						<fmt:formatNumber value="${sessionScope.roomTotal }" pattern="#,###" var="rmTotal_c"/>
+						<fmt:formatNumber value="${sessionScope.aBrPrice }" pattern="#,###" var="aBr_c"/>
+						<fmt:formatNumber value="${sessionScope.cBrPrice }" pattern="#,###" var="cBr_c"/>
+						<fmt:formatNumber value="${sessionScope.bedPrice }" pattern="#,###" var="bed_c"/>
+						<fmt:formatNumber value="${sessionScope.resTax }" pattern="#,###" var="tax_c"/>
+						
 						<strong class="listTit">
-							<span class="price" id="pretax"><em><%=session.getAttribute("resTotal") %></em>KRW</span>
+							<span class="price" id="pretax"><em>${total_c }</em>KRW</span>
 						</strong>
 						
 						<button type="button" class="total_toggle">
@@ -208,29 +216,29 @@
 											<ul class="infoData">
 												<li>
 													<span id="rDateResult">0000.00.00</span>&nbsp;/&nbsp;
-													<span id="roomPriceResult"><%=session.getAttribute("roomTotal") %></span>
+													<span id="roomPriceResult">${rmTotal_c }</span>
 												</li>
 											</ul>
 											
 											<ul class="infoData" id="roomOptInfo">
 												<li>
 													<span class="lfData">성인 조식</span>
-													<span id="aBrResult"><%=session.getAttribute("aBrPrice") %></span>
+													<span id="aBrResult">${aBr_c }</span>
 												</li>
 												<li> 
 													<span class="lfData">어린이 조식</span>
-													<span id="cBrResult"><%=session.getAttribute("cBrPrice") %></span>
+													<span id="cBrResult">${cBr_c }</span>
 												</li>
 												<li>
 													<span class="lfData">엑스트라 베드</span>
-													<span id="bedResult"><%=session.getAttribute("bedPrice") %></span>
+													<span id="bedResult">${bed_c }</span>
 												</li>
 											</ul>
 											
 											<ul class="infoData">
 												<li>
 													<span class="lfData">세금</span>
-													<span class="rtData" id="taxResult"><%=session.getAttribute("resTax") %></span>
+													<span class="rtData" id="rTaxResult">${tax_c }</span>
 												</li>
 											</ul>
 											
@@ -247,7 +255,7 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="rTotalResult"><%=session.getAttribute("resTotal") %></em>KRW</span>
+						<span class="price"><em id="rTotalResult">${total_c }</em>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>
