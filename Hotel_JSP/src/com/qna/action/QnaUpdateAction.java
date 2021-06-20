@@ -23,9 +23,15 @@ public class QnaUpdateAction implements Action {
 		HttpSession session = request.getSession();
 		String userId = (String)session.getAttribute("userId");
 		System.out.println("qna_update user 세션 >>> " + (String)session.getAttribute("userId"));	// 세션 정보 확인
+		if (userId == null) {
+			userId = "";
+		}
 		
 		String adminId = (String)session.getAttribute("adminId");
 		System.out.println("qna_update admin 세션 >>> " + (String)session.getAttribute("adminId"));
+		if (adminId == null) {
+			adminId = "";
+		}
 
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();

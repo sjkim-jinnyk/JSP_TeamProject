@@ -3,10 +3,10 @@ INSERT INTO hotel_admin VALUES('ADMIN', '0000');
 INSERT INTO hotel_admin VALUES('매니저', '0000');
 
 -- id, 비밀번호, 이름, 성별, 전화번호, 주소, 이메일, 포인트, 가입일
-INSERT INTO hotel_user VALUES('id1', '0000', '사용자1', '남성', '010-0000-0000', '서울시 마포구 서교동', 'id1@naver.com', DEFAULT, SYSDATE);
-INSERT INTO hotel_user VALUES('id2', '0000', '사용자2', '여성', '010-1111-1111', '서울시 서초구 반포동', 'id2@naver.com', DEFAULT, SYSDATE);
-INSERT INTO hotel_user VALUES('id3', '0000', '사용자3', '여성', '010-2222-2222', '포항시 북구 두호동', 'id3@naver.com', DEFAULT, SYSDATE);
-INSERT INTO hotel_user VALUES('id4', '0000', '사용자4', '남성', '010-3333-3333', '인천광역시 부평구 부평동', 'id4@naver.com', DEFAULT, SYSDATE);
+INSERT INTO hotel_user VALUES('id1', '0000', '사용자1', '남성', '01000000000', '서울시 마포구 서교동', 'id1@naver.com', DEFAULT, SYSDATE);
+INSERT INTO hotel_user VALUES('id2', '0000', '사용자2', '여성', '01011111111', '서울시 서초구 반포동', 'id2@naver.com', DEFAULT, SYSDATE);
+INSERT INTO hotel_user VALUES('id3', '0000', '사용자3', '여성', '01022222222', '포항시 북구 두호동', 'id3@naver.com', DEFAULT, SYSDATE);
+INSERT INTO hotel_user VALUES('id4', '0000', '사용자4', '남성', '01033333333', '인천광역시 부평구 부평동', 'id4@naver.com', DEFAULT, SYSDATE);
 
 -- 게시물 번호, 작성자id, 제목, 내용, 조회수, 작성일
 INSERT INTO info VALUES(1, 'ADMIN', '공지사항1', '공지사항1 내용', DEFAULT, SYSDATE);
