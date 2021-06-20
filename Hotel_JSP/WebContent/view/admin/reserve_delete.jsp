@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%
 
-	int num = request.getParameter("num").trim();
+	int num = Integer.parseInt(request.getParameter("num").trim());
 	String userName = request.getParameter("userName").trim();
 	String userPhone = request.getParameter("userPhone").trim();
 	
