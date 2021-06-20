@@ -31,7 +31,7 @@
 				<div class="complete_inner">
 					<span class="rsvTxt"><%=session.getAttribute("userName") %>님의 예약이 완료되었습니다.<br></span>
 					<div class="btnGroup">
-						<a href="#" class="btn">예약내역확인</a>
+						<a href="<%=request.getContextPath() %>/res_list.do" class="btn">예약내역확인</a>
 						<a href="<%=request.getContextPath() %>/index.do" class="btn">홈으로</a>
 					</div>
 				</div>

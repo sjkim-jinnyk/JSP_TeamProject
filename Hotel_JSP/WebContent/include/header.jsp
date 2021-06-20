@@ -89,8 +89,8 @@
 						<%
 							}
 						%>
-							
-						<li class="name">CUSTOMER SERVICE
+
+						<li class="name" style="margin-right: 0;">CUSTOMER SERVICE
 							<ul class="innerMenu">
 								<a href="<%=request.getContextPath() %>/qna_list.do"><li>Q&A</li></a>
 								<li>FAQ</li>
@@ -102,7 +102,7 @@
   					<div class="sub-menu-bar-bg"></div>
 	            </div>
         <div class="hotel_logo">
-            <a href="<%=request.getContextPath() %>/index.do" class="sitename">OO Hotel</a>
+            <a href="<%=request.getContextPath() %>/index.do" class="sitename">Hemas Hotel</a>
         </div>
 
         <div class="menu">

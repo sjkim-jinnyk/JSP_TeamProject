@@ -233,12 +233,26 @@
     width: 100%;
     position: absolute;
     z-index: -1;
+    background-image: url(../images/bg_main01_04.jpg);
+    background-repeat: no-repeat;
+    max-width: 33.4%;
+    background-size: cover;
+    max-height: 100%;
+}
+
+.fp_bg_3{
+	top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
     background-image: url(../images/bg_main01_01.jpg);
     background-repeat: no-repeat;
     max-width: 33.4%;
     background-size: cover;
     max-height: 100%;
 }
+
 
 .cont3{
 	 height: 90%;

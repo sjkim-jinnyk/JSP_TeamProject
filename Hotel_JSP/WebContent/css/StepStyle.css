@@ -367,7 +367,7 @@ p.rsvTxt {
     font-size: 36px;
 }
 
-.infoData #roomPriceResult, #aBrResult, #cBrResult, #bedResult, #taxResult {
+.infoData #roomPriceResult, #aBrResult, #cBrResult, #bedResult, #taxResult, #rTaxResult{
     float: right;
 }
 
@@ -565,4 +565,6 @@ p.rsvTxt {
 .complete_form{
 	width: 700px;
     margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
