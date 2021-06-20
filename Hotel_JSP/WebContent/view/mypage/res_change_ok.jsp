@@ -76,7 +76,7 @@
 										성인 조식<input type="number" class="boxCSS" id="adultBr" name="child" min="0" max="3" value="${dto.getResChild() }">
 										어린이<input type="number" class="boxCSS" id="child_num" name="adultBr" min="0" max="2" value="${dto.getResAdultBr() }">
 										어린이 조식<input type="number" class="boxCSS" id="childBr" name="childBr" min="0" max="2" value="${dto.getResAdultBr() }">
-										엑스트라 베드<input type="number" class="boxCSS" id="extraBed" name="extraBed" min="0" max="2" value="${dto.getResBed() }">
+										엑스트라 베드<input type="number" class="boxCSS" id="extraBed" name="extraBed" min="0" max="1" value="${dto.getResBed() }">
 									</div>
 									<div class="box_inner2">
 										요청사항<br><textarea rows="3" cols="100%" class="request_box" name="requests">${dto.getResRequest() }</textarea>

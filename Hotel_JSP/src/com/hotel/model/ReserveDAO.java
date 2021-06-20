@@ -567,4 +567,39 @@ public class ReserveDAO {
 		
 	} // resDel() 메서드 end 
 	
+	
+	// 회원 탈퇴 시 해당 회원의 예약내역 삭제하는 메서드
+	public int userResDel(String userId) {
+		
+		int result = 0;
+		System.out.println("userResdDel 실행");
+		try {
+			openConn();
+			
+			System.out.println("del try 실행");
+			
+			sql = "delete from reserve where user_id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, userId);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		System.out.println(result);
+		
+		return result;
+		
+	} // userResDel() 메서드 end
+	
+	
+	
+	
 }
