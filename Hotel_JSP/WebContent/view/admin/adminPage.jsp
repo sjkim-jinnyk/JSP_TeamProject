@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/AdminStyle.css">
-<title>Insert title here</title>
+<title>관리자 페이지</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
@@ -117,7 +117,7 @@
 					<td id="101" width="20%">101</td>
 					<td id="101_check"></td>
 					<td width="20%">
-						<input type="button" id="res_btn" value="RESERVE">
+						<input type="button" id="res_btn" value="RESERVE" onclick="location.href='step0.do'">
 					</td> 
 				</tr>
 				<tr>

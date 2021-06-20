@@ -257,6 +257,7 @@ public class ReserveDAO {
 			while(rs.next()) {
 				result += "<reserve>";
 				
+				result += "<resno>" + rs.getString("res_no") + "</resno>";
 				result += "<id>" + rs.getString("user_id") + "</id>";
 				result += "<name>" + rs.getString("room_name") + "</name>";
 				result += "<num>" + rs.getInt("room_number") +"</num>";
@@ -286,6 +287,30 @@ public class ReserveDAO {
 		return result;
 	} // getinfo_html()
 	
+	// 회원 아이디로 예약정보 삭제
+	public int reserveDelete(String id, int no) {
+		int res = 0;
+		
+		try {
+			openConn();
+			
+			sql = "delete from reserve where user_id = ? and res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setInt(2, no);
+			
+			res = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		
+		return res;
+	} // reserveDelete() 메서드 end
 
 	// 마이페이지 - 예약번호에 해당하는 예약 상세내역 가져오는 메서드
 	public ReserveDTO resCont(int resNo) {
