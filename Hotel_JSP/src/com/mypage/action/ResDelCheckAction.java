@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 import com.hotel.model.ReserveDAO;
-
+ 
 public class ResDelCheckAction implements Action {
 
 	@Override

@@ -565,6 +565,6 @@ public class ReserveDAO {
 		}
 		return result;
 		
-	} // resDel() 메서드 end
+	} // resDel() 메서드 end 
 	
 }
