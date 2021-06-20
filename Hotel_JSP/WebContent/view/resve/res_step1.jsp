@@ -98,8 +98,9 @@
 						<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn">객실 다시 검색</a>
 					</div>
 				</div> <!-- inner -->
+			</div>
 			
-			
+			<div>
 				<div class="roomType">
 					<c:set var="list" value="${roomList }" />
 					
@@ -156,7 +157,7 @@
 				</div>
 			
 			</div> 
-	
+		</div>
 		<script>
 		
 			// list로 가져오기 위한 변수 설정
