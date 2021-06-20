@@ -66,13 +66,11 @@
 					<h2 class="titDep1">Booking</h2>
 					<div class="stepWrap">
 						<ol>
-							<li>
-								 객실, 요금 선택
-							</li>
-							<li></li>
-							<li></li>
-							
-						</ol>
+						<li class="on1">객실,요금 선택</li>
+						<li class="next2"></li>
+						<li class="next"></li>
+						
+					</ol>
 					</div>
 				</div>
 			</div>

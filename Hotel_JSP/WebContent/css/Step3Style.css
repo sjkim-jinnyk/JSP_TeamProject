@@ -20,16 +20,23 @@
 }
 
 .titDep1{
-	font:500 45px playfair;
+	font:500 60px playfair;
 	font-family: 'Playfair Display SC', serif;
 	color: #151515;
 	font-feature-settings:'lnum', 'pnum'
 }
 .infoArea .btn {
-	padding: 10px 20px;
-	background-color: transparent;
-	border : 1px solid black;
-	cursor: pointer;
+	padding: 11px 20px 0 20px;
+    min-width: auto;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    font-size: 14px;
+    letter-spacing: -.01em;
+    font-family: 'Noto Sans KR';
+    font-weight: 300;
 }
 .stepWrap ol {
 	display: flex;
@@ -233,7 +240,7 @@ p.txtGuide, .txtGuide li{
 .rCont .rsvList > li {
 	padding: 34px 40px 28px;
 	border: 1px solid #ccc;
-}
+}	
 .rCont .price {
 	font-size: 36px;
 }
@@ -241,6 +248,8 @@ p.txtGuide, .txtGuide li{
 	border: none;
 	padding: 10px;
 	margin-left: 35px;
+	position: absolute;
+    margin-top: 7px;
 }
 .rsvLsit .price #totalResult{
 	font-size: 36px;

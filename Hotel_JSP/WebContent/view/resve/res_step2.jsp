@@ -23,14 +23,12 @@
 	 <div class="container">
 		<div class="topArea">
 			<div class="topInner">
-				<br><br><br>
 				<h2 class="titDep1">Booking</h2>
 				<div class="stepWrap">
 					<ol>
 						<li class="prev"></li>
 						<li class="on">옵션 선택</li>
-						<li class="next"></li>
-						
+						<li class="next"></li>		
 					</ol>
 				</div>
 			</div>
@@ -58,7 +56,7 @@
 						<dt>CHILDREN</dt>
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
-					<a href="<%=request.getContextPath() %>/step0.do" class="btn">객실 다시 검색 > </a>
+					<a href="<%=request.getContextPath() %>/step0.do" class="btn">객실 다시 검색</a>
 				</div>
 				
 			</div>
