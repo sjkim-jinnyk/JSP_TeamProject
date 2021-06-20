@@ -954,6 +954,9 @@ res_click.addEventListener('click', reserve_click);
 
 function reserve_click() {
 	
+	userName = $("#userName").val("");
+	userPhone = $("#userPhone").val("");
+	
 	// bottom border on, 나머지 off
 	res_click.classList.replace('off','on');
 	room_click.classList.replace('on','off');
@@ -1089,7 +1092,6 @@ function mem_click() {
 };
 
 
-
 function delete_no(resno) { 
 	let num = resno;
 	
@@ -1105,7 +1107,8 @@ function delete_no(resno) {
 		success : function(data) {
 			
 			$("#"+num).empty();
-			
+			userName = $("#userName").val("");
+			userPhone = $("#userPhone").val("");
 		},
 		error : function() {
 			alert('오류');

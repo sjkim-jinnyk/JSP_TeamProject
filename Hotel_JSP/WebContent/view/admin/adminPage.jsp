@@ -434,7 +434,7 @@
 				<tr>
 					<th id="res_room">객실</th><th id="res_period">투숙기간</th>
 					<th id="res_person">인원</th><th id="res_add">추가사항</th>
-					<th id="res_req">요청사항</th><th id="res_money">결제금액</th>
+					<th id="res_req">요청사항</th><th id="res_money">결제금액</th><th></th>
 				</tr>
 			</table>
 			<table id="res_cont1" class="off">

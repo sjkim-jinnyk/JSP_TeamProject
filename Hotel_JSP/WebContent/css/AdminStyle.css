@@ -250,13 +250,13 @@ table td {
 	font-weight: bold;
 	padding : 3px 6px;
 }
-.res_manage #res_person, #res_room{
+.res_manage #res_person, #res_room, #res_req{
 	width: 15%;
 }
 .res_manage #res_money{
 	width: 10%;
 }
-.res_manage #res_period, #res_req, #res_add {
+.res_manage #res_period, #res_add {
 	width: 20%;
 }
 
@@ -315,13 +315,16 @@ table td {
 	padding : 3px 6px;
 }
 
-.member_manage #mem_id, #mem_point{
+.member_manage #mem_point{
 	width: 5%;
 }
-.member_manage #mem_name {
+.member_manage #mem_phone{
+	width: 15%;
+}
+.member_manage #mem_id, #mem_name {
 	width: 10%;
 }
-.member_manage #mem_email, #mem_phone{
+.member_manage #mem_email{
 	width: 20%;
 }
 .member_manage #mem_addr{
@@ -361,8 +364,8 @@ table td {
 	font-weight: bold;
 	padding : 3px 6px;
 }
-#mem_del {
-	padding: 0 10px;
+#mem_del, #res_del {
+	padding: 0 10px 0 8px;
 	background-color: transparent;
 	border : 1px solid black;
 	font-size: 15px;
