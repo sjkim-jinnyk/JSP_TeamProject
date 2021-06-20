@@ -23,9 +23,8 @@ input[type=text], input[type=password], .selectBtn {
 	position: relative;
 	width: 85%;
 	margin: 0 auto;
-	max-width: 1800px;
+	max-width: 1400px;
 	padding: 97px 0 30px;
-
 }
 .topArea .topInner{
 	display:table-cell;
@@ -91,25 +90,26 @@ input[type=text], input[type=password], .selectBtn {
 }
 
 
-.inner {
-    background: #f9f9f9;
+.selResult .inner {
     margin-bottom: 70px;
     position: relative;
     padding: 42px 0;
-   
+    margin: 0 auto;
+}
+
+.inner{
+	width: 1400px;
 }
 
 .infoArea {
 	display: flex;
+	justify-content: space-between;
 }
 
 .infoArea dl{
 	padding-right: 110px;
 }
 
-.infoArea dl.date{
-	padding-left: 8%;
-}
 
 .infoArea dl dt {
 	font-family: 'Montserrat', sans-serif;
@@ -139,6 +139,10 @@ input[type=text], input[type=password], .selectBtn {
     font-weight: 300;
 }
 
+.selResult{
+	margin-bottom: 100px;
+    background: #f9f9f9;
+}
 
 
 
@@ -149,7 +153,7 @@ input[type=text], input[type=password], .selectBtn {
 	position: relative;
 	width: 85%;
 	margin: 0 auto;
-	max-width: 1800px;
+	max-width: 1400px;
 	margin-bottom: 100px;
 }
 
@@ -171,10 +175,11 @@ input[type=text], input[type=password], .selectBtn {
     font-weight: 300;
     border: 1px solid #000;
 	width: 50px;
+	text-align: center;
 }
 
 .roomName {
-	font-family: playfair;
+	font-family: 'Playfair Display SC', serif;
     font-weight: 500;
     font-size: 33px;
 }
@@ -187,7 +192,7 @@ input[type=text], input[type=password], .selectBtn {
 
 dd.price {
 	margin-top: 20px;
-	font-family: playfair;
+	font-family: 'Playfair Display SC', serif;
     font-weight: 500;
     font-size: 33px;
     
@@ -296,7 +301,7 @@ em.krw {
 	position: relative;
 	width: 85%;
 	margin: 0 auto;
-	max-width: 1800px;
+	max-width: 1400px;
  }
  
 .user_info li {

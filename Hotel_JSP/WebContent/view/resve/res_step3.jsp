@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 고객 정보 입력 | 조선호텔앤리조트</title>
 
-<link rel="stylesheet" href="../../css/StepStyle.css">
+<link rel="stylesheet" href="css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
@@ -62,8 +62,9 @@
 				</div>
 				
 			</div>
-			
-			
+		</div>	
+		
+		<div>
 			<ul class="user_info">
 				
 				<li>
@@ -256,7 +257,7 @@
 				</div><!-- class="totalCont" -->
 				
 			</div><!-- class="rCont floating" -->
-			
+			</div>
 		</div><!-- class="selResult" -->
 		
 		

@@ -169,7 +169,7 @@
 	
 	<!-- 마이 페이지 스크립트 -->
 	<script type="text/javascript" src="js/myPage_resUpdate.js"></script>
-	
+
     <jsp:include page="../../include/footer.jsp" />
 
 </body>

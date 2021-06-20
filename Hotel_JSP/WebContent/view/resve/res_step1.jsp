@@ -110,7 +110,7 @@
 							<div class="room_intro">
 								<dl class="room_thum">
 									<dd class="thum">
-					                 	<img src="../../image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
+					                 	<img src="image/${i.getRoomImage() }.jpeg" alt="${i.getRoomContent() }">										
 					                </dd>
 					            </dl>
 					            <dl class="room_info">
@@ -118,7 +118,7 @@
 					                 <dt class="roomName">
 					                     ${i.getRoomName() }
 					                 </dt>
-					                 <dd class="roomBenefit">[roomView] view |  Size: ${i.getRoomSize() }㎡</dd>
+					                 <dd class="roomBenefit">Size: ${i.getRoomSize() }㎡</dd>
 					                 <dd class="price">
 					                   	<input type="hidden" name="roomName" class="roomName" value="${i.getRoomName() }">
 				                     	<input type="hidden" name="roomPrice" class="roomPrice" value="${i.getRoomPrice() }"> 
