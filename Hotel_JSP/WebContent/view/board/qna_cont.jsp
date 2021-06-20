@@ -76,6 +76,14 @@
 						<span id="file_p">첨부파일 &nbsp; </span>
 						<a href="<%=request.getContextPath() %>/file/qna/${reply.getQnaFile() }" download>${reply.getQnaFile() }</a>
 					</div>
+					<p id="btn_p">
+					<c:if test="${adminId == reply.getUserId()}">
+						<input type="button" id="qna_del" value="수정" onclick="location.href='qna_update.do?no=${reply.getQnaNo() }&id=${reply.getUserId() }'">
+						<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
+		                	location.href='qna_delete_ok.do?no=${reply.getQnaNo() }&id=${reply.getUserId() }'
+							}else {return; }">
+					</c:if>
+				</p>
 				</c:if>
 			</div>
 		</c:forEach>
