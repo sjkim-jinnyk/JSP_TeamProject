@@ -374,7 +374,7 @@ public class ReserveDAO {
 			sql = "update reserve set "
 					+ " res_adult = ?, res_child = ?, "
 					+ " res_adult_br = ?, res_child_br = ?, "
-					+ " res_bed = ?, res_request = ? "
+					+ " res_bed = ?, res_request = ?, res_total = ? "
 					+ " where res_no = ?";
 			
 			pstmt = con.prepareStatement(sql);
@@ -385,7 +385,8 @@ public class ReserveDAO {
 			pstmt.setInt(4, dto.getResChildBr());
 			pstmt.setInt(5, dto.getResBed());
 			pstmt.setString(6, dto.getResRequest());
-			pstmt.setInt(7, dto.getResNo());
+			pstmt.setInt(7, dto.getResTotal());
+			pstmt.setInt(8, dto.getResNo());
 			
 			result = pstmt.executeUpdate();
 			

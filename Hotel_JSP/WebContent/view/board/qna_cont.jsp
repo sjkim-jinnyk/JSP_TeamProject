@@ -58,6 +58,7 @@
 		</div>
 			<!-- 질문글인 경우 답변글도 같이 보이게 -->
 		<c:set var="list" value="${reply }" />
+		
 		<c:forEach items="${list }" var="reply">
 		<div class="qna_reply">
 				<c:if test="${reply.getQnaNo() != 0 }">
@@ -78,7 +79,6 @@
 				</c:if>
 			</div>
 		</c:forEach>
-				
 		<ul class="shortList">
 			<li class="prev">
 				<span>이전 글</span>
@@ -99,10 +99,15 @@
 				</c:if>
 			</li>
 		</ul>
-		<c:forEach items="${list }" var="reply">
-			<c:if test="${adminId == reply.getUserId()}">
-				<p id="btn_p"> 
-					<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+		<c:set var="admin" value="${admin }" />
+		<c:set var="loop_flag" value="false" />
+		<c:forEach items="${admin }" var="reply1">
+			<c:if test="${not loop_flag }">
+					<c:if test="${reply1.getAdminId() == adminId }">
+						<p id="btn_p"> 
+						<input type="button" id="reply_btn" value="답변" onclick="location.href='qna_reply.do?no=${dto.getQnaNo() }'"></p>
+						<c:set var="loop_flag" value="true" />
+					</c:if>
 			</c:if>
 		</c:forEach>
 		<p id="btn_list">

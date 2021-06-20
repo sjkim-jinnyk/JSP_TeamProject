@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -107,7 +109,7 @@ public class AdminDAO {
 	} // adminLogin() 메서드 end
 	
 	
-	// 관리자 정보 가져오는 메서드
+	// 입력한 id 관리자 정보 가져오는 메서드
 	public AdminDTO getAdmin(String adminId) {
 		
 		AdminDTO dto = new AdminDTO();
@@ -137,5 +139,40 @@ public class AdminDAO {
 		return dto;
 		
 	} // getAdmin() 메서드 end
+	
+	// 관리자 정보 가져오는 메서드
+public List<AdminDTO> adminInfo() {
+		
+		List<AdminDTO> list = new ArrayList<AdminDTO>();
+		
+		try {
+			
+			openConn();
+			
+			sql = "select * from hotel_admin";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				AdminDTO dto = new AdminDTO();
+				dto.setAdminId(rs.getString("admin_id"));
+				dto.setAdminPwd(rs.getString("admin_pwd"));
+				
+				list.add(dto);
+			}
+			
+			System.out.println("List : " + list);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return list;
+		
+	} // adminInfo() 메서드 end
 }
 

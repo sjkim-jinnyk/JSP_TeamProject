@@ -1,9 +1,11 @@
 // 페이지 로딩하면 작동
+const className = document.querySelector('.toggleOn');
 $(document).ready( function(){
 	
 	// 토글 -------------------------------------------------
 	$( '.total_toggle' ).click( function() {
     	$( '.toggleCont' ).toggle( 'slow' );
+    	className.classList.toggle('toggleOn');
     });
 
 	
@@ -149,6 +151,7 @@ function getTotal(){
 	let roomPriceResult = document.getElementById('roomPriceResult'); 
 	let taxResult = document.getElementById('taxResult'); 
 	let totalResult = document.getElementById('totalResult'); 
+	let realTotal = document.getElementById('realTotal'); 
 	
 	// 계산
 	let rmTotal = roomPrice * resNight * (resAdult + resChild);
@@ -156,7 +159,7 @@ function getTotal(){
 	let tax = pretax /10;
 	let total = pretax + tax;
 	
-	
+
 	// 값 저장
 	roomTotal.value = rmTotal;
 	resPretax.value = pretax; // 세금미포함
@@ -170,10 +173,10 @@ function getTotal(){
 	// 화면 출력
 	roomPriceResult.innerText = rmTotal;
 	totalResult.innerText = total;
+	realTotal.innerText = total;
 	taxResult.innerText = tax;
 	// resPretax는 step3에서만 쓰이므로 step2에서는 출력하지 않음
 	
-	console.log(raBrPrice);
 	
 } // getTotal() end
 

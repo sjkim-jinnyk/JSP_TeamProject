@@ -25,8 +25,11 @@ public class ResChangeCheckAction implements Action {
 		String requests = request.getParameter("requests").trim();
 		
 		// 히든으로 넘어온 값 받기
-		System.out.println("resNo >>> " + request.getParameter("resNo"));
 		int resNo = Integer.parseInt(request.getParameter("resNo").trim());
+		System.out.println("resNo >>> " + request.getParameter("resNo"));
+		
+		System.out.println("updateTotal >>> " + request.getParameter("updateTotal"));
+		int updateTotal = Integer.parseInt(request.getParameter("updateTotal").trim());
 		
 		
 		ReserveDTO dto = new ReserveDTO();
@@ -37,7 +40,9 @@ public class ResChangeCheckAction implements Action {
 		dto.setResChildBr(childBr);
 		dto.setResBed(extraBed);
 		dto.setResRequest(requests);
+		dto.setResTotal(updateTotal);
 		
+		// 예약 정보 변경하는 메서드
 		ReserveDAO dao = ReserveDAO.getInstance();
 		int check = dao.resUpdate(dto);
 		

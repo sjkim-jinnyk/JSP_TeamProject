@@ -240,6 +240,10 @@
     max-height: 100%;
 }
 
+.cont3{
+	 height: 90%;
+}
+
 .cont .tit{
 	 font: 400 60px playfair;
 	 font-family: 'Playfair Display SC', serif;
@@ -252,6 +256,14 @@
     display: block;
 }
 
+/* 페이지 2의 3번째 페이지 효과 */
+
+.image_text{
+	position: relative;
+	margin-top: 30px;
+	height: 60%;
+}
+
 
 .txt01{
 	font-size: 25px;
@@ -259,10 +271,31 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+.txt01_image {
+	width: 60%;
+    float: right;
+    margin-right: 50px;
+}
+
 .txt02{
 	font-size: 20px;
     margin: 5px 0 40px;
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+.text_ab{
+	width: 40%;
+    padding: 30px;
+    position: absolute;
+    margin: 4% 5% 5% 5%;
+    background-color: #f4f4f4;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.page_button{
+	margin-top: 20px;
 }
 
 .btnM{
@@ -272,6 +305,53 @@
 	font-size: 17px;
     letter-spacing: -.01em;
 }
+
+/* 페이지 2의 2번째 페이지 효과 */
+
+.cont2{
+	width: 90%;
+    text-align: left;
+}
+
+.brand_text .tit{
+	letter-spacing: -1px;
+	position: relative;
+    display: block;
+    font: 500 110px/1.46 playfair;
+    text-transform: capitalize;
+    color: #d9a8b8;
+}
+
+.brand_text .tit::before {
+    content: '';
+    width: 20%;
+    right: 0;
+    top: 92px;
+    position: absolute;
+    height: 3px;
+    background: #d9a8b8;
+    overflow: hidden;
+}
+
+.brand_text .tit::after {
+    content: '';
+    width: 80%;
+    left: 0;
+    bottom: -69px;
+    position: absolute;
+    height: 3px;
+    background: #d9a8b8;
+    overflow: hidden;
+}
+
+.brand_text .txt{
+	 display: block;
+    padding: 51px 0 13px;
+    text-align: right;
+    color: #d9a8b8;
+}
+
+
 
 .swipeBox{
 	display: flex;
@@ -332,18 +412,20 @@ img{
     display: block;
     line-height: 30px;
     margin-top: 5px;
+    
 }
 
 .inner .txt{
-	display: block;
 	font-family: 'Noto Sans KR', sans-serif;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
 	margin-top: 7px;
 	width: 360px;
 	color: #333;
 	font-size: 16px;
+	display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .inner .date{

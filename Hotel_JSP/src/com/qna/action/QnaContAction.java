@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
+import com.hotel.model.AdminDAO;
+import com.hotel.model.AdminDTO;
 import com.hotel.model.QnaDAO;
 import com.hotel.model.QnaDTO;
 
@@ -25,12 +27,17 @@ public class QnaContAction implements Action {
 
 		// 글번호에 해당하는 상세 내역을 조회하는 메서드 호출
 		QnaDTO dto = dao.getQnaCont(qna_no);
+		dto.setQnaContent(dto.getQnaContent().replace("\n", "<br>"));
 				
 		// 답글이 아닌 질문글인 경우
 		if (dto.getQnaStep() == 0) {
 			// 해당 글의 답변 상세 내역을 조회하는 메서드 호출
 			List<QnaDTO> list = dao.getQnaReplyCont(qna_no);
 			request.setAttribute("reply", list);
+			
+			for (QnaDTO dto2 : list) {
+				dto2.setQnaContent(dto2.getQnaContent().replace("\n", "<br>"));
+			}
 
 		}
 		
@@ -39,10 +46,15 @@ public class QnaContAction implements Action {
 		System.out.println("up_no >>> " + up.getQnaNo());
 		System.out.println("down_no >>> " + down.getQnaNo());
 		
+		// 관리자 정보 가져오기
+		AdminDAO admindao = AdminDAO.getInstance();
+		List<AdminDTO> adminlist = admindao.adminInfo();
+		
 		// 키로 저장하여 view page로 이동
 		request.setAttribute("cont", dto);
 		request.setAttribute("up", up);
 		request.setAttribute("down", down);
+		request.setAttribute("admin", adminlist);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);

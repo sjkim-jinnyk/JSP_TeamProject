@@ -41,16 +41,29 @@
 		
 			<div class="qna_txtBox">
 				<p>${dto.getInfoContent() }</p>
-				
+
 				<p id="btn_p">
-				<c:if test="${adminId == dto.getAdminId()}">
+				<%-- <c:if test="${adminId == dto.getAdminId()}">
 					<input type="button" id="qna_del" value="수정" onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
 					<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
 		                	location.href='info_delete_ok.do?no=${dto.getInfoNo() }'
 							}else {return; }">
+				</c:if> --%>
+					<c:set var="admin" value="${admin }" />
+					<c:set var="loop_flag" value="false" />
+					<c:forEach items="${admin }" var="reply1">
+						<c:if test="${not loop_flag }">
+							<c:if test="${reply1.getAdminId() == adminId }">
+					
+								<input type="button" id="qna_del" value="수정" onclick="location.href='info_update1.do?no=${dto.getInfoNo() }&id=${dto.getAdminId() }'">
+								<input type="button" id="qna_del" value="삭제" onclick="if(confirm('삭제 하시겠습니까?')) {
+	                				location.href='info_delete_ok.do?no=${dto.getInfoNo() }'}else {return; }">
+								<c:set var="loop_flag" value="true" />
+							</c:if>
+						</c:if>
+					</c:forEach>
 				</c:if>
-				</p>
-				</c:if>
+				</p>	
 			</div>
 		</div>
 		<c:set var="up" value="${up }" />

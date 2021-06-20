@@ -542,4 +542,12 @@ input[type="file"] {
     cursor: pointer;
 }
 
+/* 검색 리스트 없을 때 설정 */
+
+.qnaTab h3{
+	margin: 100px 0 100px 0;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 

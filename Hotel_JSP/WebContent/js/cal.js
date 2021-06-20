@@ -197,6 +197,7 @@ $(function () {
         
         datepicker.inputs.datetext.text($.datepicker.formatDate(datepicker.dateFormat, checkInDate)+ 
         		" / " + $.datepicker.formatDate(datepicker.dateFormat, checkOutDate));
+        console.log("datapicker 실행확인")
         
         countNight();
       }
@@ -213,6 +214,8 @@ $(document).ready(function () {
 
 //숙박 일수 계산
 function countNight(){		
+	console.log("countNight 실행확인")
+	let nightResult = document.getElementById('nightResult'); 
 	
 	// 직접 input date 에서 받은 값 받기 (yyyy-mm-dd 형식)
 	let start_string = $('#resIn').val(); 
@@ -230,8 +233,9 @@ function countNight(){
     let night_date = (end_date.getTime() - start_date.getTime())/1000/60/60/24;
     
     resNight.value = Number(night_date);
+    nightResult.innerText = Number(night_date) + "박";
     
-    console.log(night_date);
+    console.log("cal.js : " + night_date);
     
   
 } // countNight() end
