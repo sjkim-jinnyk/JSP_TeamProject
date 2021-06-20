@@ -19,8 +19,14 @@
 	padding: 50px 0 50px;
 }
 
-.titDep1{
+.titDep1, .titDep2{
 	font:500 60px playfair;
+	font-family: 'Playfair Display SC', serif;
+	color: #151515;
+	font-feature-settings:'lnum', 'pnum'
+}
+.titDep2{
+	font:500 40px playfair;
 	font-family: 'Playfair Display SC', serif;
 	color: #151515;
 	font-feature-settings:'lnum', 'pnum'
@@ -37,6 +43,8 @@
     letter-spacing: -.01em;
     font-family: 'Noto Sans KR';
     font-weight: 300;
+    height: 50px;
+    margin: 10px;
 }
 .stepWrap ol {
 	display: flex;
@@ -148,12 +156,12 @@
 
 .infoArea dl dt {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 11px;
+	font-size: 16px;
     padding-bottom: 5px;
 }
 
 .infoArea dl dd {
-	font-size: 15px;
+	font-size: 20px;
     letter-spacing: -.01em;
     font-family:  'Noto Sans KR';
     font-weight: 300;
@@ -222,6 +230,7 @@
 p.txtGuide, .txtGuide li{
 	color: #888;
 	margin-left: 16px;
+	font-size: 16px;
 }
 .option textarea {
 	width: 100%;
@@ -246,6 +255,7 @@ p.txtGuide, .txtGuide li{
 }	
 .rCont .price {
 	font-size: 36px;
+	font-family: 'Playfair Display SC', serif;
 }
 .rsvList .total_toggle{
 	border: none;

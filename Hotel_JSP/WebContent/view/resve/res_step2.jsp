@@ -204,7 +204,7 @@
 					
 				<div class="totalCont">
 					<div class="totalPrice">
-						<p class="subTxt">+ 세금(10%)</p>
+						<!-- <p class="subTxt">+ 세금(10%)</p> -->
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
 						<span class="price"><span id="realTotal">0</span>KRW</span>
