@@ -200,6 +200,9 @@ $(function () {
         console.log("datapicker 실행확인")
         
         countNight();
+        
+        $('#resInYoil').val(getYoil(resIn.value));
+		$('#resOutYoil').val(getYoil(resOut.value));
       }
     },
   });
@@ -239,3 +242,11 @@ function countNight(){
     
   
 } // countNight() end
+
+//요일 구하기
+function getYoil(date){
+	
+	let week = new Array('일', '월', '화', '수', '목', '금', '토');
+ 	let yoil = week[new Date(date).getDay()];
+ 	return yoil;
+}

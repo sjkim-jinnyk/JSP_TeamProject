@@ -64,7 +64,7 @@ function getDate(){
 	console.log('resIn>>' +resIn.value);
 	console.log('resOut>>' +resOut.value);
 	
-	 viewDate()
+	 viewDate();
 }
 
 // 요일 구하기
