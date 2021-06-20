@@ -45,6 +45,7 @@ public class QnaUpdateOkAction implements Action {
 		
 		// 자료실 폼에서 넘어온 데이터들을 받아주어야 한다.
 		int qna_no = Integer.parseInt(multi.getParameter("qna_no"));
+		int qna_group = Integer.parseInt(multi.getParameter("qna_group"));
 		String qna_title = multi.getParameter("qna_title").trim();
 		String qna_content = multi.getParameter("qna_content").trim();
 
@@ -69,7 +70,7 @@ public class QnaUpdateOkAction implements Action {
 
 		if (res > 0) {
 			forward.setRedirect(true);
-			forward.setPath("qna_cont.do?no=" + qna_no);
+			forward.setPath("qna_cont.do?no=" + qna_group);
 		} else {
 			out.println("<script>");
 			out.println("alert('QnA 수정 실패')");

@@ -35,7 +35,21 @@ public class QnaDeleteOkAction implements Action {
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 
-		if (userId.equals(writerId) || adminId.equals(writerId)) {	// 글쓴이와 세션 id가 일치하면 수정 가능
+		if (userId.equals(writerId)) {	// 글쓴이와 세션 id가 일치하면 수정 가능
+			QnaDAO dao = QnaDAO.getInstance();
+			
+			int res = dao.deleteQnaGroup(qna_no);
+			
+			if (res > 0) {
+				forward.setRedirect(true);
+				forward.setPath("qna_list.do");
+			} else {
+				out.println("<script>");
+				out.println("alert('QnA 삭제 실패')");
+				out.println("history.back()");
+				out.println("</script>");
+			}
+		} else if(adminId.equals(writerId)) {
 			QnaDAO dao = QnaDAO.getInstance();
 			
 			int res = dao.deleteQna(qna_no);
@@ -49,7 +63,6 @@ public class QnaDeleteOkAction implements Action {
 				out.println("history.back()");
 				out.println("</script>");
 			}
-			
 		} else {
 			out.println("<script>");
 			out.println("alert('작성자만이 삭제할 수 있습니다.')");

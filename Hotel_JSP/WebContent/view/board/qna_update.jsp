@@ -33,6 +33,7 @@
 			<c:set var="dto" value="${cont }" />
 			<c:if test="${!empty dto }">
 					<input type="hidden" name="qna_no" value="${dto.getQnaNo() }">
+					<input type="hidden" name="qna_group" value="${dto.getQnaGroup() }">
 			<div class="frmInfo">
 				<ul class="intList">
 					<li>
