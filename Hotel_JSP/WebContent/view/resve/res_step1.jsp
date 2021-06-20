@@ -156,6 +156,7 @@
 				                    </c:forEach>
 			                    </ul>
 				            </div>
+				                      
 			             </div><!-- room_wrap -->
 			        </c:forEach>
 				</div>

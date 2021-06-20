@@ -63,7 +63,7 @@
 					<c:forEach items="${list }" var="dto">
 					<ul class="res_content">
 						<li class="reserved">RESERVED</li>
-						<li>[${dto.getRoomName() }]</li>
+						<li>[ ${dto.getRoomName() } ]</li>
 						<li class="res_info">
 							예약번호 ${dto.getResNo() } / 성인 ${dto.getResAdult() },어린이${dto.getResChild() } / 총 예약금액 <fmt:formatNumber value="${dto.getResTotal() }" />원
 						</li>

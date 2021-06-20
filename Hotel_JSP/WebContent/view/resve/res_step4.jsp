@@ -18,8 +18,14 @@
 	
 	<div class="topArea">
 		<div class="topInner">
-			<h2 class="titDep1">Booking</h2><br>
-			
+			<h2 class="titDep1">Booking</h2>
+			<p class="pageGuide">
+				호텔 앤 리조트의 다양하고 감각적인 인테리어와 특별한 여유를
+				<br/>
+				느낄 수 있는 객실에서 잊을 수 없는 여행의 경험을 선사합니다.
+			</p>
+		</div>
+		<div class="complete_form">
 			<div class="complete_wrap">
 				<p class="rsvTxt">RESERVATION COMPLETED.</p>
 				<div class="complete_inner">

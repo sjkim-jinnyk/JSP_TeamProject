@@ -558,3 +558,11 @@ p.rsvTxt {
 	text-align: center;
 	margin-right: 20px;
 }
+
+
+/* 마지막 페이지 */
+
+.complete_form{
+	width: 700px;
+    margin: 0 auto;
+}

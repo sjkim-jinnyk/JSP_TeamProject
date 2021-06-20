@@ -126,7 +126,7 @@
 .myPage_box_inner {
 	margin: 50px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 30px;
+    font-size: 22px;
     
 }
 
@@ -236,6 +236,7 @@
 	border-top: 2px solid #ccc;
 	border-bottom: 2px solid #ccc;
 	padding: 20px 10px 10px;
+	font-size: 18px
 }
 
 .resList_box {
@@ -289,9 +290,6 @@
     line-height: 2;
 }
 
-.resInfo_inner {
-	font-size: 22px
-}
 
 .box_inner{
 	text-align: center;
@@ -311,7 +309,7 @@
 .boxCSS {
 	border: 0;
 	border-bottom: 1px solid;
-	margin: 0 60px 0 10px;
+	margin: 0 30px 0 10px;
 	text-align: center;
 	margin-bottom: 10px;
 }
