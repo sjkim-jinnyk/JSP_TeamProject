@@ -13,7 +13,7 @@
     	
     <div id="fullpage">
 		<div class="section" style="background: url(images/bg_main01.jpg) no-repeat 50% 50% fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
-    		<section class="mainpageTxt">    
+    		<section class="mainpageTxt" data-aos="zoom-in" data-aos-duration="1500">    
        	 		<div class="mainTxt"><strong>Experience the Difference</strong></div>
     		</section>
     	<section class="mainRes">
@@ -24,7 +24,7 @@
 				<input type="hidden" name="resNight" id="resNight" value="0">			
 				<input type="hidden" name="resAdult" id="resAdult" value="2">								
 				<input type="hidden" name="resChild" id="resChild" value="0">
-        	<div class="reservation" data-aos="fade-up">
+        	<div class="reservation" data-aos="fade-up" data-aos-duration="1500">
         		<div class="room-name">
             		<strong class="tit">
                         RESERVATION

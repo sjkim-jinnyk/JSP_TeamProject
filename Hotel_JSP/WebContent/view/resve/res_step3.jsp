@@ -10,12 +10,12 @@
 <meta charset="UTF-8">
 <title>객실 예약 - 고객 정보 입력 | 조선호텔앤리조트</title>
 
-<link rel="stylesheet" href="../../css/StepStyle.css">
+<link rel="stylesheet" href="css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 <body>
-	
+
 	<jsp:include page="../../include/header.jsp" />
 	
 	<form name="step3Form" class="res_cont" id="step3Form" method="post" 
@@ -26,9 +26,9 @@
 				<h2 class="titDep1">Booking</h2>
 				<div class="stepWrap">
 					<ol>
-						<li></li>
-						<li></li>
-						<li class="on">예약자 정보 입력</li>
+						<li class="prev"></li>
+						<li class="prev"></li>
+						<li class="on3">예약자 정보입력</li>
 						
 					</ol>
 				</div>
@@ -58,12 +58,13 @@
 						<dd><%=session.getAttribute("resChild") %></dd>
 					</dl>
 					<a href="<%=request.getContextPath() %>/step0.do" class="step0_btn" 
-					style="border: solid 1px;">객실 다시 검색</a><br>
+					style="border: solid 1px;">객실 다시 검색</a>
 				</div>
 				
 			</div>
-			
-			
+		</div>	
+		
+		<div class="step3_content">
 			<ul class="user_info">
 				
 				<li>
@@ -89,15 +90,15 @@
 							<option value="86">중국(86)</option>
 						</select>
 					
-						<input type="text" id="phone1">─<input type="text" id="phone2">─<input type="text" id="phone3">
+						<input type="text" id="phone1"><span class="span_tag">-</span><input type="text" id="phone2"><span class="span_tag">-</span><input type="text" id="phone3">
 						
 					</div>
 				</li>
 				
 				<li>
 					<h3 class="opTit">E-MAIL</h3>
-					<div class="between_warp">
-						<input type="text" id="email1">@<input type="text" id="email2">
+					<div class="between_warp email">
+						<input type="text" id="email1"><span class="span_tag">@</span><input type="text" id="email2">
 						<select class="selectBtn">
 							<option value="" selected="selected">직접 입력</option>
 							<option value="gmail.com">gmail.com</option>
@@ -128,7 +129,7 @@
 				
 				<li>
 					<h3 class="opTit">EXPIRY DATE</h3>
-					<div class="between_warp">
+					<div class="between_warp cardDate">
 						<select name="expMonth" id="expMonth" class="selectBtn">
 							<option value="" selected="selected">월</option>
 							<option value="01">1월</option><option value="02">2월</option>
@@ -151,14 +152,14 @@
 				
 				<li>
 					<h3 class="opTit">CARD PASSWORD</h3>
-					<div class="between_warp">
+					<div class="between_warp cardPwd">
 						<input type="text" id="cardPwd" placeholder="비밀번호 앞 2자리">
 					</div>
 				</li>
 				
 				<li>
 					<h3 class="opTit">DATE OF BIRTH</h3>
-					<div class="between_warp">
+					<div class="between_warp date_birth">
 						<input type="text" id="bYear" placeholder="YYYY"><input type="text" id="bMonth" placeholder="MM"><input type="text" id="bDate" placeholder="DD">
 					</div>
 					<p class="txtGuide">* 예약 접수 확인 용도이며, 온라인 예약 시 직접 결제가 이루어지지 않습니다.</p>
@@ -190,12 +191,20 @@
 				<ul class="toggleList rsvList" id="roomInfo">
 					
 					<li class="toggleOn">
+						
+						<fmt:formatNumber value="${sessionScope.resTotal }" pattern="#,###" var="total_c"/>
+						<fmt:formatNumber value="${sessionScope.roomTotal }" pattern="#,###" var="rmTotal_c"/>
+						<fmt:formatNumber value="${sessionScope.aBrPrice }" pattern="#,###" var="aBr_c"/>
+						<fmt:formatNumber value="${sessionScope.cBrPrice }" pattern="#,###" var="cBr_c"/>
+						<fmt:formatNumber value="${sessionScope.bedPrice }" pattern="#,###" var="bed_c"/>
+						<fmt:formatNumber value="${sessionScope.resTax }" pattern="#,###" var="tax_c"/>
+						
 						<strong class="listTit">
-							<span class="price" id="pretax"><em><%=session.getAttribute("resTotal") %></em>KRW</span>
+							<span class="price" id="pretax"><em>${total_c }</em>KRW</span>
 						</strong>
 						
-						<button type="button" class="total_toggle" style="border: solid 1px;">
-							<span class="hidden" >상세내용 보기</span>
+						<button type="button" class="total_toggle">
+							<span class="hidden" ><i class="fas fa-chevron-up"></i></span>
 						</button>
 						
 						<div class="toggleCont" style="display: block;">
@@ -207,29 +216,29 @@
 											<ul class="infoData">
 												<li>
 													<span id="rDateResult">0000.00.00</span>&nbsp;/&nbsp;
-													<span id="roomPriceResult"><%=session.getAttribute("roomTotal") %></span>
+													<span id="roomPriceResult">${rmTotal_c }</span>
 												</li>
 											</ul>
 											
 											<ul class="infoData" id="roomOptInfo">
 												<li>
 													<span class="lfData">성인 조식</span>
-													<span id="aBrResult"><%=session.getAttribute("aBrPrice") %></span>
+													<span id="aBrResult">${aBr_c }</span>
 												</li>
 												<li> 
 													<span class="lfData">어린이 조식</span>
-													<span id="cBrResult"><%=session.getAttribute("cBrPrice") %></span>
+													<span id="cBrResult">${cBr_c }</span>
 												</li>
 												<li>
 													<span class="lfData">엑스트라 베드</span>
-													<span id="bedResult"><%=session.getAttribute("bedPrice") %></span>
+													<span id="bedResult">${bed_c }</span>
 												</li>
 											</ul>
 											
 											<ul class="infoData">
 												<li>
 													<span class="lfData">세금</span>
-													<span class="rtData" id="rTaxResult"><%=session.getAttribute("resTax") %></span>
+													<span class="rtData" id="rTaxResult">${tax_c }</span>
 												</li>
 											</ul>
 											
@@ -246,7 +255,7 @@
 					<div class="totalPrice">
 						<span class="txt">총 예약금액</span>
 						<span class="subTxt">+ 세금(10%)</span>										
-						<span class="price"><em id="rTotalResult"><%=session.getAttribute("resTotal") %></em>KRW</span>
+						<span class="price"><em id="rTotalResult">${total_c }</em>KRW</span>
 					</div>
 					<div class="btnArea">
 						<div>
@@ -256,7 +265,7 @@
 				</div><!-- class="totalCont" -->
 				
 			</div><!-- class="rCont floating" -->
-			
+			</div>
 		</div><!-- class="selResult" -->
 		
 		
