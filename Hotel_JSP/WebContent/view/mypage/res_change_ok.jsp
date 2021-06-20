@@ -41,7 +41,7 @@
         
         <div class="myPage_box">
 	        <div class="myPage_box_inner">
-		        <form method="post" action="<%=request.getContextPath() %>/res_change_check.do">
+		        <form method="post">
 		        
 		        	<c:set var="dto" value="${resCont }" />
 		        	<c:set var="dto2" value="${roomCont }" />
@@ -89,9 +89,9 @@
 													<ul class="infoData">
 														<li>
 															<span class="data1">${dto.getResDate().substring(0,10) }</span>
-																<input type="hidden" value="${dto2.getRoomPrice() }" id="input_room">
+																<input type="hidden" value="${dto2.getRoomPrice() * dto.getResNod() }" id="input_room">
 															<span class="data2" id="room_price" >
-																<fmt:formatNumber value="${dto2.getRoomPrice() }" /> (원)
+																<fmt:formatNumber value="${dto2.getRoomPrice() * dto.getResNod()  }" /> (원)
 															</span>
 														</li>
 													</ul>
@@ -114,9 +114,9 @@
 													<ul class="infoData">
 														<li>
 															<span class="data1">세금 (10%)</span>
-																<input type="hidden" value="${dto2.getRoomPrice() * 0.1 }" id="input_tax">
+																<input type="hidden" value="${dto2.getRoomPrice() * dto.getResNod() * 0.1 }" id="input_tax">
 															<span class="data2" id="tax">
-																<fmt:formatNumber value="${dto2.getRoomPrice() * 0.1 }" /> (원)
+																<fmt:formatNumber value="${dto2.getRoomPrice() * dto.getResNod() * 0.1 }" /> (원)
 															</span>
 														</li>
 													</ul>
@@ -131,8 +131,8 @@
 										</ul>
 									</div>
 									<div class="box_inner4">
-										<input type="submit" class="submit_btn" value="변경하기">&nbsp;&nbsp;&nbsp;
-										<input type="submit" class="reset_btn" value="취소하기">
+										<input type="submit" class="submit_btn" value="예약변경" onclick="javascript: form.action='<%=request.getContextPath() %>/res_change_check.do';">&nbsp;&nbsp;&nbsp;
+										<input type="submit" class="reset_btn" value="예약취소" onclick="javascript: form.action='<%=request.getContextPath() %>/res_del_check.do';">
 									</div>
 								</li>
 							</ul>

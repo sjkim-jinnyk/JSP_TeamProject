@@ -541,4 +541,30 @@ public class ReserveDAO {
 	} // resInsert() end
 
 	
+	// 마이페이지 - 예약 삭제하는 메서드
+	public int resDel(int resNo) {
+		
+		int result = 0;
+		
+		try {
+			openConn();
+			
+			sql = "delete from reserve where res_no = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setInt(1, resNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			closeConn(rs, pstmt, con);
+		}
+		return result;
+		
+	} // resDel() 메서드 end
+	
 }

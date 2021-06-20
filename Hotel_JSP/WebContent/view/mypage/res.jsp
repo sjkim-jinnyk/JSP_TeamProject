@@ -78,7 +78,7 @@
 						<ul class="noRes_inner">
 							<li class="noRes_Point">!</li>
 							<li>예약내역이 없습니다.</li>
-							<li>ㅇㅇ호텔의 다양한 객실을 이용해보세요.</li>
+							<li>Hemas 호텔의 다양한 객실을 이용해보세요.</li>
 							<li><input type="button" class="goMain_btn" value="예약하기" onclick="location.href='step0.do'"></li>
 						</ul>
 					</div>
