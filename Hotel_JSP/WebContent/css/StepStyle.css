@@ -365,6 +365,7 @@ p.rsvTxt {
 /* 사이드 바 */
 .rCont .price {
     font-size: 36px;
+    font-family: 'Playfair Display SC', serif;
 }
 
 .infoData #roomPriceResult, #aBrResult, #cBrResult, #bedResult, #taxResult, #rTaxResult{
@@ -419,6 +420,7 @@ p.rsvTxt {
 }
 .totalCont .totalPrice .price {
 	font-size: 36px;
+	font-family: 'Playfair Display SC', serif;
 }
 
 .btnArea .btn {
