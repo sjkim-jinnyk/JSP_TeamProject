@@ -471,8 +471,8 @@ $("#check_st").click(function() {
 				$("#cont_102").append(table2);
 				$("#cont_103").append(table3);
 				room = $("#roomName").val("none");
-				checkIn = $("#checkIn").val("");
-				checkOut = $("#checkOut").val("");
+				
+				
 			},
 			error : function() {
 				alert('오류');
@@ -544,8 +544,8 @@ $("#check_d").click(function() {
 				$("#cont_202").append(table2);
 				$("#cont_203").append(table3);
 				room = $("#roomName").val("none");
-				checkIn = $("#checkIn").val("");
-				checkOut = $("#checkOut").val("");
+				
+				
 			},
 			error : function() {
 				alert('오류');
@@ -616,8 +616,8 @@ $("#check_su").click(function() {
 				$("#cont_302").append(table2);
 				$("#cont_303").append(table3);
 				room = $("#roomName").val("none");
-				checkIn = $("#checkIn").val("");
-				checkOut = $("#checkOut").val("");
+				
+				
 			},
 			error : function() {
 				alert('오류');
@@ -689,8 +689,8 @@ $("#check_p").click(function() {
 				$("#cont_402").append(table2);
 				$("#cont_403").append(table3);
 				room = $("#roomName").val("none");
-				checkIn = $("#checkIn").val("");
-				checkOut = $("#checkOut").val("");
+				
+				
 			},
 			error : function() {
 				alert('오류');

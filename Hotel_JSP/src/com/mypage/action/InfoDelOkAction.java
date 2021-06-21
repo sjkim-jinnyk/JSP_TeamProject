@@ -11,7 +11,6 @@ import com.hotel.controller.Action;
 import com.hotel.controller.ActionForward;
 import com.hotel.model.ReserveDAO;
 import com.hotel.model.UserDAO;
-import com.hotel.model.UserDTO;
 
 public class InfoDelOkAction implements Action {
 
@@ -39,17 +38,11 @@ public class InfoDelOkAction implements Action {
 			checkRes = daoRes.userResDel(userId);
 		}
 		
-		
 		PrintWriter out = response.getWriter();
 		ActionForward forward = new ActionForward();
 		
-		System.out.println("checkUser :"+ checkUser);
-		System.out.println("userId :"+ userId);
-		
-		
 		
 		if(checkUser > 0 && checkRes > 0) {
-				System.out.println("forward 실행확인");
 				session.invalidate();	// 세션 값 만료
 				
 				forward.setRedirect(false);

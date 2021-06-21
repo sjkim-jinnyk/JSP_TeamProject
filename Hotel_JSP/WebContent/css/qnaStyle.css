@@ -85,6 +85,7 @@
 .inner #btn_list{
 	text-align: center;
 	padding: 20px;
+	margin-top: 20px;
 }
 .inner .qna_txtBox #qna_del{
 	padding: 0 10px;
