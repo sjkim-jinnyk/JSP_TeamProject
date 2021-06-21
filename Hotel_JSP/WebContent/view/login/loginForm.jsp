@@ -62,8 +62,8 @@
 			<li>아이디가 없으신 경우 회원가입을 부탁드립니다.</li>
 		</ul>
 		
-		<br><br>
-		<a href="<%=request.getContextPath() %>/admin_login_ok.do">관리자 로그인</a>
+		
+		<!-- <a href="<%=request.getContextPath() %>/admin_login_ok.do">관리자 로그인</a> -->
 		
 	  </form>
 	</div>
