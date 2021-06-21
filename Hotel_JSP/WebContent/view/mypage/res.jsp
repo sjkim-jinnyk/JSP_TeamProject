@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>예약내역</title>
-</head>
-<body> 
 
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	

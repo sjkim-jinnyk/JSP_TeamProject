@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 변경</title>
-</head>
-<body>
 
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	

@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>아이디 찾기</title>
-</head>
-<body>
 
 <link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />

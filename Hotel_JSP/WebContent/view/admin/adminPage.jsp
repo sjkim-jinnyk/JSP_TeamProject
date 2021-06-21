@@ -7,8 +7,6 @@
 <link rel="stylesheet" href="css/AdminStyle.css">
 <title>관리자 페이지</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-</head>
-<body>
 	<jsp:include page="/include/header.jsp" />
 	<!-- 관리자페이지 상단 제목 -->
 	<div class="admin_topArea">
@@ -331,21 +329,21 @@
 			<div class="content_info_st">
 				<p>101호</p>
 				<table id="cont_1">
-					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원</th>
 					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
 				</table>
 				<table id="cont_101"></table>
 				<br>
 				<p>102호</p>
 				<table id="cont_2">
-					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원</th>
 					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
 				</table>
 				<table id="cont_102"></table>
 				<br>
 				<p>103호</p>
 				<table id="cont_3">
-					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원(조식)</th>
+					<th id="st_id">ID</th><th id="st_in">체크인</th><th id="st_person">인원</th>
 					<th id="st_add">추가사항</th><th id="st_req">요구사항</th><th id="st_money">결제금액</th>
 				</table>
 				<table id="cont_103"></table>
@@ -355,21 +353,21 @@
 			<div class="content_info_d">
 				<p>201호</p>
 				<table id="cont_1">
-					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원</th>
 					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
 				</table>
 				<table id="cont_201"></table>
 				<br>
 				<p>202호</p>
 				<table id="cont_2">
-					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원</th>
 					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
 				</table>
 				<table id="cont_202"></table>
 				<br>
 				<p>203호</p>
 				<table id="cont_3">
-					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원(조식)</th>
+					<th id="d_id">ID</th><th id="d_in">체크인</th><th id="d_person">인원</th>
 					<th id="d_add">추가사항</th><th id="d_req">요구사항</th><th id="d_money">결제금액</th>
 				</table>
 				<table id="cont_203"></table>
@@ -379,21 +377,21 @@
 			<div class="content_info_su">
 				<p>301호</p>
 				<table id="cont_1">
-					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원</th>
 					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
 				</table>
 				<table id="cont_301"></table>
 				<br>
 				<p>302호</p>
 				<table id="cont_2">
-					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원</th>
 					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
 				</table>
 				<table id="cont_302"></table>
 				<br>
 				<p>303호</p>
 				<table id="cont_3">
-					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원(조식)</th>
+					<th id="su_id">ID</th><th id="su_in">체크인</th><th id="su_person">인원</th>
 					<th id="su_add">추가사항</th><th id="su_req">요구사항</th><th id="su_money">결제금액</th>
 				</table>
 				<table id="cont_303"></table>
@@ -403,21 +401,21 @@
 			<div class="content_info_p">
 				<p>401호</p>
 				<table id="cont_1">
-					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원</th>
 					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
 				</table>
 				<table id="cont_401"></table>
 				<br>
 				<p>402호</p>
 				<table id="cont_2">
-					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원</th>
 					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
 				</table>
 				<table id="cont_402"></table>
 				<br>
 				<p>403호</p>
 				<table id="cont_3">
-					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원(조식)</th>
+					<th id="p_id">ID</th><th id="p_in">체크인</th><th id="p_person">인원</th>
 					<th id="p_add">추가사항</th><th id="p_req">요구사항</th><th id="p_money">결제금액</th>
 				</table>
 				<table id="cont_403"></table>

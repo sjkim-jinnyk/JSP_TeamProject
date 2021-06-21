@@ -13,9 +13,6 @@
 <link rel="stylesheet" href="css/StepStyle.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</head>
-<body>
-
 	<jsp:include page="../../include/header.jsp" />
 	
 	<form name="step3Form" class="res_cont" id="step3Form" method="post" 

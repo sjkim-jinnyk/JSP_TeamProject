@@ -8,8 +8,6 @@
 <head>
 <meta charset="UTF-8">
 <title>비밀번호 찾기 확인</title>
-</head>
-<body>
 
 <link rel="stylesheet" href="css/LoginStyle.css">
 	<jsp:include page="../../include/header.jsp" />

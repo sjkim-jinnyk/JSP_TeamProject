@@ -13,8 +13,6 @@
 <link rel="stylesheet" href="css/Step3Style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</head>
-<body>
 	
 	<jsp:include page="../../include/header.jsp" />
 	

@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 정보 수정</title>
-</head>
-<body>
 
 	<link rel="stylesheet" href="css/MypageStyle.css">
 	
@@ -122,6 +120,8 @@
 	
 	<!-- 마이페이지 스크립트 가져오기-->
 	<script type="text/javascript" src="js/myPage_infoUpdate.js"></script>
+	<!-- 다음주소 스크립트 가져오기-->
+	<script type="text/javascript" src="js/joinPage.js"></script>
 	
     <jsp:include page="../../include/footer.jsp" />
 

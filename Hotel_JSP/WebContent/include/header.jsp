@@ -4,6 +4,7 @@
 <!-- 모바일에서 화면배율을 디바이스 크기 기준으로 설정 -->
 <!-- 이게 안되면 pc에서의 100px과 모바일에서의 100px이 디바이스 성능에 따라 달라집니다. -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/favicon.png">
 <link rel="stylesheet" href="css/CommonStyle.css">
 <link rel="stylesheet" href="css/HeaderStyle.css">
 <link rel="stylesheet" href="css/FooterStyle.css">

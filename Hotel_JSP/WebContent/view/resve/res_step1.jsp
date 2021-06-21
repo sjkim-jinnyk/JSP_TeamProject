@@ -56,9 +56,6 @@
 	
 	
 %>
-</head>
-<body>
-	
 	<jsp:include page="../../include/header.jsp" />
 	
 		<div class="res_cont">
