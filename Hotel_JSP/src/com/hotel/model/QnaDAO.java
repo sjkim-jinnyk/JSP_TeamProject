@@ -292,6 +292,29 @@ public class QnaDAO {
 
 		return result;
 	}
+	
+	// QnA 테이블의 원본 게시물을 삭제시 답글도 삭제하는 메서드
+		public int deleteQnaGroup(int qna_no) {
+			int result = 0;
+
+			try {
+				openConn();
+				
+				sql = "delete from qna where qna_group = ?";
+				
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, qna_no);
+
+				result = pstmt.executeUpdate();
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				closeConn(rs, pstmt, con);
+			}
+
+			return result;
+		}
 
 	// QnA 테이블의 답변 게시물을 작성하는 메서드
 	public int replyQna(QnaDTO dto) {
