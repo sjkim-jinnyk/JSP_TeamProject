@@ -1,6 +1,6 @@
-# JSP_TeamProject Team 2
+# JSP_TeamProject / Hemas Hotel
 
-![GitHub](https://img.shields.io/github/license/mc1128/JavaGame_TeamProject?style=flat-square) ![tomcat](https://img.shields.io/badge/Tomcat-caa01a?style=flat-square&logo=APACHE-TOMCAT&logoColor=white) ![oracle](https://img.shields.io/badge/Oracle-f00001?style=flat-square&logo=ORACLE&logoColor=white)  ![java](https://img.shields.io/badge/Java-017397?style=flat-square&logo=Java&logoColor=white) ![html](https://img.shields.io/badge/HTML5-dd4b24?style=flat-square&logo=HTML5&logoColor=white) ![css](https://img.shields.io/badge/CSS3-3595cf?style=flat-square&logo=CSS3&logoColor=white) ![figma](https://img.shields.io/badge/Figma-f34e1e?style=flat-square&logo=Figma&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white) ![Eclipse](https://img.shields.io/badge/Eclipse-2c1f54?style=flat-square&logo=eclipse&logoColor=white) 
+![GitHub](https://img.shields.io/github/license/mc1128/JavaGame_TeamProject?style=flat-square) ![tomcat](https://img.shields.io/badge/Tomcat-caa01a?style=flat-square&logo=APACHE-TOMCAT&logoColor=white) ![oracle](https://img.shields.io/badge/Oracle-f00001?style=flat-square&logo=ORACLE&logoColor=white) ![Amazon EC2](https://img.shields.io/badge/EC2-ed8234?style=flat-square&logo=amazon&logoColor=white) ![java](https://img.shields.io/badge/Java-017397?style=flat-square&logo=Java&logoColor=white) ![JS](https://img.shields.io/badge/JS-yellow?style=flat-square&logo=Javascript&logoColor=white) ![Jquery](https://img.shields.io/badge/Jquery-0766a7?style=flat-square&logo=Jquery&logoColor=white) ![html](https://img.shields.io/badge/HTML5-dd4b24?style=flat-square&logo=HTML5&logoColor=white) ![css](https://img.shields.io/badge/CSS3-3595cf?style=flat-square&logo=CSS3&logoColor=white) ![figma](https://img.shields.io/badge/Figma-f34e1e?style=flat-square&logo=Figma&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white) ![Eclipse](https://img.shields.io/badge/Eclipse-2c1f54?style=flat-square&logo=eclipse&logoColor=white) 
 
 ---
 
@@ -24,7 +24,11 @@
 
 ---
 
-### DEMO
+### DEMO IMAGE
+
+![메인 첫번째](https://user-images.githubusercontent.com/42242694/124046014-f43d6a00-da4b-11eb-9ece-8db68981a913.png)
+
+Other : [Hemas Hotel 화면구성](https://github.com/mc1128/JSP_TeamProject/issues/1)
 
 ---
 
