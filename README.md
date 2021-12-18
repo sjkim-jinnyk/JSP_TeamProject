@@ -28,7 +28,7 @@
 
 ![메인 첫번째](https://user-images.githubusercontent.com/42242694/124046014-f43d6a00-da4b-11eb-9ece-8db68981a913.png)
 
-Other : [Hemas Hotel 화면구성](https://github.com/mc1128/JSP_TeamProject/issues/1)
+Other : [Hemas Hotel 화면구성](https://github.com/sjkim-jinnyk/JSP_TeamProject/wiki)
 
 ---
 
